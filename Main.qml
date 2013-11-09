@@ -75,14 +75,25 @@ Item {
                 border.color: Qt.rgba(10, 10, 10, 0.5)
                 visible: false
                 
-                WebView {
-                    id: translateView
+                Flickable {
+                    id: flickable
                     anchors.fill: parent
                     anchors.topMargin: 10
                     anchors.bottomMargin: 10
                     anchors.leftMargin: 10
                     anchors.rightMargin: 10
-                    url: ""
+                    
+                    WebView {
+                        id: translateView
+                        anchors.fill: parent
+                        url: ""
+                        
+                        onUrlChanged: {
+                            flickable.contentX = 0
+                            flickable.contentY = 0
+                            console.log("***************")
+                        }
+                    }
                 }
                 
                 MouseArea {
@@ -144,7 +155,6 @@ Item {
             repeat: false
             
             onTriggered: {
-                console.log(translateArea.containsMouse)
                 if (!translateArea.containsMouse) {
                     selectArea.visible = false
                     translateWindow.visible = false
