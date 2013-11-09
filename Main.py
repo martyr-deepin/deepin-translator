@@ -62,13 +62,14 @@ class OCR(QObject):
             y = my - height / 2
             scale = 2
             
-            pixmap = app.primaryScreen().grabWindow(0, x, y, width, height).scaled(width * scale, height * scale)
-            
             tool = pyocr.get_available_tools()[0]
             lang = "eng"
             
+            pixmap = app.primaryScreen().grabWindow(0, x, y, width, height).scaled(width * scale, height * scale)
+            image = pil_to_image(pixmap)
+            
             word_boxes = tool.image_to_string(
-                pil_to_image(pixmap),
+                image.convert("L"),
                 lang=lang,
                 builder=pyocr.builders.WordBoxBuilder())
             
