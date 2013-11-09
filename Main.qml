@@ -19,8 +19,8 @@ Item {
                 anchors.left: parent.right
                 anchors.top: parent.bottom
                 color: Qt.rgba(0, 0, 0, 0.8)
-                width: 600
-                height: 400
+                width: 800
+                height: 600
                 radius: 3
                 border.color: Qt.rgba(10, 10, 10, 0.5)
                 visible: false
