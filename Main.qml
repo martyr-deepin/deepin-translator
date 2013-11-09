@@ -43,7 +43,24 @@ Item {
             anchors.fill: parent
             hoverEnabled: true
             
+            property bool isHover: false
+            property bool isDoubleClick: false
+            
+            onPressed: {
+                isHover = false
+                isDoubleClick = false
+            }
+            
+            onClicked: {
+            }
+
+            onDoubleClicked: {
+                isDoubleClick = true
+                qApp.quit()
+            }
+        
             onPositionChanged: {
+                isHover = true
                 translateWindow.visible = false
                 selectArea.visible = false
                 
