@@ -14,28 +14,28 @@ Item {
             visible: false
             height: 3
             
-            Rectangle {
-                id: translateWindow
-                anchors.left: parent.right
-                anchors.top: parent.bottom
-                color: Qt.rgba(0, 0, 0, 0.8)
-                width: 800
-                height: 600
-                radius: 3
-                border.color: Qt.rgba(10, 10, 10, 0.5)
-                visible: false
-                
-                WebView {
-                    id: translateView
-                    anchors.fill: parent
-                    anchors.topMargin: 10
-                    anchors.bottomMargin: 10
-                    anchors.leftMargin: 10
-                    anchors.rightMargin: 10
-                    url: ""
-                }
-            }
+        }
+        
+        Rectangle {
+            id: translateWindow
+            anchors.left: selectArea.right
+            anchors.top: selectArea.bottom
+            color: Qt.rgba(0, 0, 0, 0.8)
+            width: 800
+            height: 600
+            radius: 3
+            border.color: Qt.rgba(10, 10, 10, 0.5)
+            visible: false
             
+            WebView {
+                id: translateView
+                anchors.fill: parent
+                anchors.topMargin: 10
+                anchors.bottomMargin: 10
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
+                url: ""
+            }
         }
         
         MouseArea {
