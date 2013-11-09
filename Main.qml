@@ -89,6 +89,15 @@ Item {
                     id: translateArea
                     anchors.fill: parent
                     hoverEnabled: true
+                    propagateComposedEvents: true
+                    
+                    onPressed: {
+                        mouse.accepted = false
+                    }
+                    
+                    onClicked: {
+                        mouse.accepted = false
+                    }
                     
                     onEntered: {
                         testTimer.stop()
