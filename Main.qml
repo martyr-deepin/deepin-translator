@@ -28,6 +28,11 @@ Item {
                 isDoubleClick = false
             }
             
+            onClicked: {
+                hidingTranslateTimer.interval = 200
+                hidingTranslateTimer.restart()
+            }
+            
             onDoubleClicked: {
                 isDoubleClick = true
                 qApp.quit()
@@ -65,7 +70,7 @@ Item {
                 anchors.top: selectArea.bottom
                 color: Qt.rgba(0, 0, 0, 0.8)
                 width: 800
-                height: 600
+                height: 400
                 radius: 3
                 border.color: Qt.rgba(10, 10, 10, 0.5)
                 visible: false
