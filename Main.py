@@ -24,7 +24,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, qApp
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtCore import pyqtSlot, QObject
-from PyQt5.QtGui import QSurfaceFormat, QColor
+from PyQt5.QtGui import QSurfaceFormat, QColor, QCursor
 from PyQt5 import QtCore, QtQuick
 import signal
 import os
@@ -55,6 +55,11 @@ class OCR(QObject):
         self.screenshot_width = 600
         self.screenshot_height = 100
         self.screen_width = app.primaryScreen().size().width()
+        
+    @pyqtSlot(result=str)
+    def get_cursor_pos(self):
+        point = QCursor.pos()
+        return json.dumps((point.x(), point.y()))
         
     def _get_word_rect(self, mx, my, width, height):    
         try:

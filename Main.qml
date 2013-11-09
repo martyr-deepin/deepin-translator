@@ -51,6 +51,13 @@ Item {
                 testTimer.testMouseY = mouseY
                 testTimer.restart()
             }
+            
+            Component.onCompleted: {
+                var point = JSON.parse(ocr.get_cursor_pos())
+                testTimer.testMouseX = point[0]
+                testTimer.testMouseY = point[1]
+                testTimer.restart()
+            }
         }
 
         Timer {
