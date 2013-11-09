@@ -1,0 +1,110 @@
+#! /usr/bin/python
+# -*- coding: utf-8 -*-
+
+# Copyright (C) 2011 ~ 2012 Deepin, Inc.
+#               2011 ~ 2012 Wang Yong
+# 
+# Author:     Wang Yong <lazycat.manatee@gmail.com>
+# Maintainer: Wang Yong <lazycat.manatee@gmail.com>
+# 
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import sys  
+from PyQt5.QtWidgets import QApplication, qApp
+from PyQt5.QtQuick import QQuickView
+from PyQt5.QtCore import pyqtSlot, QObject
+from PyQt5.QtGui import QSurfaceFormat, QColor
+from PyQt5 import QtCore, QtQuick
+import signal
+import os
+from PIL import Image
+import pyocr
+import pyocr.builders
+import json
+
+class OCR(QObject):
+
+    def __init__(self):
+        QObject.__init__(self)
+        # If font in 11px, one_width and one_height if the size of longest word "pneumonoultramicroscopicsilicovolcanoconiosis"
+        self.screenshot_width = 600
+        self.screenshot_height = 100
+        self.screen_width = app.primaryScreen().size().width()
+        
+    def _get_word_rect(self, mx, my, width, height):    
+        try:
+            x = mx - width / 2
+            y = my - height / 2
+            scale = 2
+            
+            app.primaryScreen().grabWindow(0, x, y, width, height).scaled(width * scale, height * scale).save("test.png", "png") 
+            
+            tool = pyocr.get_available_tools()[0]
+            lang = "eng"
+            
+            word_boxes = tool.image_to_string(Image.open('test.png'),
+                                              lang=lang,
+                                              builder=pyocr.builders.WordBoxBuilder())
+            
+            px = width / 2
+            py = height / 2
+            
+            for word_box in word_boxes[::-1]:
+                ((left_x, left_y), (right_x, right_y)) = word_box.position
+                if (left_x <= px * scale <= right_x and left_y <= py * scale <= right_y):
+                    return json.dumps((x + left_x / scale,
+                                       y + left_y / scale,
+                                       (right_x - left_x) / scale,
+                                       (right_y - left_y) / scale,
+                                       word_box.content,
+                                       ))
+            return None    
+        except:
+            return None
+        
+    @pyqtSlot(int, int, result=str)
+    def get_word_rect(self, mx, my):
+        for (w, h) in [(self.screenshot_width, self.screenshot_height),
+                       (self.screen_width, self.screenshot_height),]:
+            rect = self._get_word_rect(mx, my, w, h)
+            if rect:
+                return rect
+            
+        return ""
+        
+if __name__ == "__main__":
+    app = QApplication(sys.argv)  
+    ocr = OCR()
+    
+    view = QQuickView()
+    surface_format = QSurfaceFormat()
+    surface_format.setAlphaBufferSize(8)
+    
+    view.setColor(QColor(0, 0, 0, 0))
+    view.setFlags(QtCore.Qt.FramelessWindowHint)
+    view.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
+    view.setFormat(surface_format)
+    
+    qml_context = view.rootContext()
+    qml_context.setContextProperty("windowView", view)
+    qml_context.setContextProperty("qApp", qApp)
+    qml_context.setContextProperty("ocr", ocr)
+    
+    view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'Main.qml')))
+    view.showFullScreen()
+    
+    signal.signal(signal.SIGINT, signal.SIG_DFL)
+    sys.exit(app.exec_())
+    
+    
