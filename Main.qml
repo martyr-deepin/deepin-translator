@@ -5,56 +5,25 @@ Item {
     id: window
     
     property bool inTranslateArea: false
+    property alias translateArea: translateArea
     property alias translateView: translateView
     property alias translateWindow: translateWindow
+    property alias selectArea: selectArea
+    property alias windowArea: windowArea
     
     Rectangle {
         anchors.fill: parent
         color: Qt.rgba(0, 0, 0, 0)
         
-        Rectangle {
-            id: selectArea
-            color: Qt.rgba(100, 0, 0, 0.5)
-            visible: false
-            height: 3
-            
-        }
-        
-        Rectangle {
-            id: translateWindow
-            anchors.left: selectArea.right
-            anchors.top: selectArea.bottom
-            color: Qt.rgba(0, 0, 0, 0.8)
-            width: 800
-            height: 600
-            radius: 3
-            border.color: Qt.rgba(10, 10, 10, 0.5)
-            visible: false
-            
-            WebView {
-                id: translateView
-                anchors.fill: parent
-                anchors.topMargin: 10
-                anchors.bottomMargin: 10
-                anchors.leftMargin: 10
-                anchors.rightMargin: 10
-                url: ""
-                
-            }
-        }
-        
         MouseArea {
             id: windowArea
             anchors.fill: parent
             hoverEnabled: true
-            propagateComposedEvents: true
                         
             property bool isHover: false
             property bool isDoubleClick: false
             
             onPressed: {
-                mouse.accepted = false
-                
                 isHover = false
                 isDoubleClick = false
             }
@@ -65,24 +34,14 @@ Item {
             }
         
             onPositionChanged: {
-                mouse.accepted = false
-                
                 isHover = true
                 
-                inTranslateArea = translateWindow.visible && translateWindow.x <= mouseX && mouseX <= translateWindow.x + translateWindow.width && translateWindow.y <= mouseY && mouseY <= translateWindow.y + translateWindow.height                
-                    
-                if (!inTranslateArea) {
-                    selectArea.visible = false
+                selectArea.visible = false
                 
-                    testTimer.testMouseX = mouseX
-                    testTimer.testMouseY = mouseY
-                    
-                    testTimer.restart()
-                    hidingTranslateTimer.restart()
-                } else {
-                    testTimer.stop()
-                    hidingTranslateTimer.stop()
-                }
+                testTimer.testMouseX = mouseX
+                testTimer.testMouseY = mouseY
+                
+                testTimer.restart()
             }
             
             Component.onCompleted: {
@@ -91,6 +50,52 @@ Item {
                 testTimer.testMouseY = point[1]
                 testTimer.restart()
             }
+            
+            Rectangle {
+                id: selectArea
+                color: Qt.rgba(100, 0, 0, 0.5)
+                visible: false
+                height: 3
+                
+            }
+        
+            Rectangle {
+                id: translateWindow
+                anchors.left: selectArea.right
+                anchors.top: selectArea.bottom
+                color: Qt.rgba(0, 0, 0, 0.8)
+                width: 800
+                height: 600
+                radius: 3
+                border.color: Qt.rgba(10, 10, 10, 0.5)
+                visible: false
+                
+                WebView {
+                    id: translateView
+                    anchors.fill: parent
+                    anchors.topMargin: 10
+                    anchors.bottomMargin: 10
+                    anchors.leftMargin: 10
+                    anchors.rightMargin: 10
+                    url: ""
+                }
+                
+                MouseArea {
+                    id: translateArea
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    
+                    onEntered: {
+                        testTimer.stop()
+                        selectArea.visible = true
+                    }
+                    
+                    onExited: {
+                        hidingTranslateTimer.interval = 200
+                        hidingTranslateTimer.restart()
+                    }
+                }
+            }            
         }
 
         Timer {
@@ -103,24 +108,30 @@ Item {
            
             onTriggered: {
                 var wordInfo = JSON.parse(ocr.get_word_rect(testMouseX, testMouseY))
-                selectArea.x = wordInfo[0] 
-                selectArea.y = wordInfo[1]  + wordInfo[3] + wordInfo[3] / 10
-                selectArea.width = wordInfo[2]
-                
-                translateView.url = "http://cn.bing.com/dict/search?q=" + wordInfo[4]
-                
-                selectArea.visible = true
-                translateWindow.visible = true
+                if (wordInfo != "") {
+                    selectArea.x = wordInfo[0] 
+                    selectArea.y = wordInfo[1]  + wordInfo[3] + wordInfo[3] / 10
+                    selectArea.width = wordInfo[2]
+                    
+                    translateView.url = "http://cn.bing.com/dict/search?q=" + wordInfo[4]
+                    
+                    selectArea.visible = true
+                    translateWindow.visible = true
+                                    
+                    hidingTranslateTimer.interval = 10000
+                    hidingTranslateTimer.restart()
+                }
              }
         }
         
         Timer {
             id: hidingTranslateTimer
-            interval: 2000
+            interval: 200
             repeat: false
             
             onTriggered: {
-                if (!inTranslateArea) {
+                console.log(translateArea.containsMouse)
+                if (!translateArea.containsMouse) {
                     selectArea.visible = false
                     translateWindow.visible = false
                 }

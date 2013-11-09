@@ -34,9 +34,10 @@ import pyocr.builders
 import json
 from PyQt5.QtCore import QBuffer, QIODevice
 import cStringIO as StringIO
+import re
 
 def filter_punctuation(text):
-    return text.replace(".", "").replace(",", "")
+    return re.sub("[^A-Za-z]", "", text)
     
 def pil_to_image(pixmap):
     strio = StringIO.StringIO()
