@@ -4,6 +4,10 @@ import QtWebKit 3.0
 Item {
     id: window
     
+    property bool inTranslateArea: false
+    property alias translateView: translateView
+    property alias translateWindow: translateWindow
+    
     Rectangle {
         anchors.fill: parent
         color: Qt.rgba(0, 0, 0, 0)
@@ -35,6 +39,7 @@ Item {
                 anchors.leftMargin: 10
                 anchors.rightMargin: 10
                 url: ""
+                
             }
         }
         
@@ -42,31 +47,42 @@ Item {
             id: windowArea
             anchors.fill: parent
             hoverEnabled: true
-            
+            propagateComposedEvents: true
+                        
             property bool isHover: false
             property bool isDoubleClick: false
             
             onPressed: {
+                mouse.accepted = false
+                
                 isHover = false
                 isDoubleClick = false
             }
             
-            onClicked: {
-            }
-
             onDoubleClicked: {
                 isDoubleClick = true
                 qApp.quit()
             }
         
             onPositionChanged: {
-                isHover = true
-                translateWindow.visible = false
-                selectArea.visible = false
+                mouse.accepted = false
                 
-                testTimer.testMouseX = mouseX
-                testTimer.testMouseY = mouseY
-                testTimer.restart()
+                isHover = true
+                
+                inTranslateArea = translateWindow.visible && translateWindow.x <= mouseX && mouseX <= translateWindow.x + translateWindow.width && translateWindow.y <= mouseY && mouseY <= translateWindow.y + translateWindow.height                
+                    
+                if (!inTranslateArea) {
+                    selectArea.visible = false
+                
+                    testTimer.testMouseX = mouseX
+                    testTimer.testMouseY = mouseY
+                    
+                    testTimer.restart()
+                    hidingTranslateTimer.restart()
+                } else {
+                    testTimer.stop()
+                    hidingTranslateTimer.stop()
+                }
             }
             
             Component.onCompleted: {
@@ -96,6 +112,19 @@ Item {
                 selectArea.visible = true
                 translateWindow.visible = true
              }
+        }
+        
+        Timer {
+            id: hidingTranslateTimer
+            interval: 2000
+            repeat: false
+            
+            onTriggered: {
+                if (!inTranslateArea) {
+                    selectArea.visible = false
+                    translateWindow.visible = false
+                }
+            }
         }
     }
     
