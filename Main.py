@@ -32,12 +32,26 @@ from PIL import Image
 import pyocr
 import pyocr.builders
 import json
+from PyQt5.QtCore import QBuffer, QIODevice
+import cStringIO as StringIO
 
+def pil_to_image(pixmap):
+    strio = StringIO.StringIO()
+        
+    qbuffer = QBuffer()
+    qbuffer.open(QIODevice.ReadWrite)
+    pixmap.save(qbuffer, "png")
+    strio.write(qbuffer.data())
+    qbuffer.close()
+        
+    strio.seek(0)
+    
+    return Image.open(strio)
+        
 class OCR(QObject):
 
     def __init__(self):
         QObject.__init__(self)
-        # If font in 11px, one_width and one_height if the size of longest word "pneumonoultramicroscopicsilicovolcanoconiosis"
         self.screenshot_width = 600
         self.screenshot_height = 100
         self.screen_width = app.primaryScreen().size().width()
@@ -48,14 +62,15 @@ class OCR(QObject):
             y = my - height / 2
             scale = 2
             
-            app.primaryScreen().grabWindow(0, x, y, width, height).scaled(width * scale, height * scale).save("test.png", "png") 
+            pixmap = app.primaryScreen().grabWindow(0, x, y, width, height).scaled(width * scale, height * scale)
             
             tool = pyocr.get_available_tools()[0]
             lang = "eng"
             
-            word_boxes = tool.image_to_string(Image.open('test.png'),
-                                              lang=lang,
-                                              builder=pyocr.builders.WordBoxBuilder())
+            word_boxes = tool.image_to_string(
+                pil_to_image(pixmap),
+                lang=lang,
+                builder=pyocr.builders.WordBoxBuilder())
             
             px = width / 2
             py = height / 2
