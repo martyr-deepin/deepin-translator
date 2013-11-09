@@ -35,6 +35,9 @@ import json
 from PyQt5.QtCore import QBuffer, QIODevice
 import cStringIO as StringIO
 
+def filter_punctuation(text):
+    return text.replace(".", "").replace(",", "")
+    
 def pil_to_image(pixmap):
     strio = StringIO.StringIO()
         
@@ -88,7 +91,7 @@ class OCR(QObject):
                                        y + left_y / scale,
                                        (right_x - left_x) / scale,
                                        (right_y - left_y) / scale,
-                                       word_box.content,
+                                       filter_punctuation(word_box.content),
                                        ))
             return None    
         except:
