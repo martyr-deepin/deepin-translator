@@ -49,6 +49,10 @@ Item {
                 testTimer.restart()
             }
             
+            onWheel: {
+                console.log(wheel.angleDelta)
+            }
+            
             Component.onCompleted: {
                 var point = JSON.parse(ocr.get_cursor_pos())
                 testTimer.testMouseX = point[0]
@@ -138,7 +142,7 @@ Item {
                     selectArea.y = wordInfo[1]  + wordInfo[3] + wordInfo[3] / 10
                     selectArea.width = wordInfo[2]
                     
-                    translateView.url = "http://cn.bing.com/dict/search?q=" + wordInfo[4]
+                    translateView.url = "http://dict.youdao.com/search?q=" + wordInfo[4]
                     
                     selectArea.visible = true
                     translateWindow.visible = true
