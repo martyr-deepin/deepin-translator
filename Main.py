@@ -24,7 +24,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, qApp
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal
-from PyQt5.QtGui import QSurfaceFormat, QColor, QCursor
+from PyQt5.QtGui import QSurfaceFormat, QColor, QCursor, QCursor, QPixmap, QClipboard
 from PyQt5 import QtCore, QtQuick
 import signal
 import os
@@ -119,7 +119,12 @@ class UniqueService(QObject):
     @pyqtSlot()
     def unique(self):
         self.uniqueTrigger.emit()
-
+        
+class Window(QQuickView):
+    
+    def __init__(self):
+        QQuickView.__init__(self)
+        
 if __name__ == "__main__":
     iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_NAME, '', QDBusConnection.sessionBus())
     if iface.isValid():
@@ -133,7 +138,16 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)  
     ocr = OCR()
     
-    view = QQuickView()
+    system_clipboard = QApplication.clipboard()
+    
+    def on_clipboard_selection_changed():    
+        mimedata = system_clipboard.mimeData(QClipboard.Selection)
+        if mimedata.hasText():
+            print unicode(mimedata.text())
+            
+    # system_clipboard.selectionChanged.connect(on_clipboard_selection_changed)
+    
+    view = Window()
     surface_format = QSurfaceFormat()
     surface_format.setAlphaBufferSize(8)
     

@@ -26,6 +26,10 @@ Item {
             onPressed: {
                 isHover = false
                 isDoubleClick = false
+                
+                windowView.hide()
+                
+                console.log("*********************")
             }
             
             onClicked: {
@@ -35,7 +39,6 @@ Item {
             
             onDoubleClicked: {
                 isDoubleClick = true
-                windowView.hide()
             }
         
             onPositionChanged: {
@@ -91,12 +94,6 @@ Item {
                         id: translateView
                         anchors.fill: parent
                         url: ""
-                        
-                        onUrlChanged: {
-                            flickable.contentX = 0
-                            flickable.contentY = 0
-                            console.log("***************")
-                        }
                     }
                 }
                 
@@ -108,6 +105,8 @@ Item {
                     
                     onPressed: {
                         mouse.accepted = false
+                        
+                        console.log("################")
                     }
                     
                     onClicked: {
