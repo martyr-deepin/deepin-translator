@@ -23,7 +23,7 @@
 import sys  
 from PyQt5.QtWidgets import QApplication, qApp
 from PyQt5.QtQuick import QQuickView
-from PyQt5.QtCore import pyqtSlot, QObject
+from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal
 from PyQt5.QtGui import QSurfaceFormat, QColor, QCursor
 from PyQt5 import QtCore, QtQuick
 import signal
@@ -35,7 +35,8 @@ import json
 from PyQt5.QtCore import QBuffer, QIODevice
 import cStringIO as StringIO
 import re
-
+from PyQt5.QtDBus import QDBusConnection, QDBusInterface
+    
 def filter_punctuation(text):
     return re.sub("[^A-Za-z]", "", text)
     
@@ -108,7 +109,27 @@ class OCR(QObject):
             
         return ""
         
+APP_DBUS_NAME = "com.deepin.ocr"    
+APP_OBJECT_NAME = "/com/deepin/ocr"
+
+class UniqueService(QObject):
+
+    uniqueTrigger = pyqtSignal()    
+    
+    @pyqtSlot()
+    def unique(self):
+        self.uniqueTrigger.emit()
+
 if __name__ == "__main__":
+    iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_NAME, '', QDBusConnection.sessionBus())
+    if iface.isValid():
+        iface.call("unique")
+        sys.exit(1)
+    
+    uniqueService = UniqueService()
+    QDBusConnection.sessionBus().registerService(APP_DBUS_NAME)
+    QDBusConnection.sessionBus().registerObject(APP_OBJECT_NAME, uniqueService, QDBusConnection.ExportAllSlots)
+
     app = QApplication(sys.argv)  
     ocr = OCR()
     
@@ -128,6 +149,8 @@ if __name__ == "__main__":
     
     view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'Main.qml')))
     view.showFullScreen()
+    
+    uniqueService.uniqueTrigger.connect(view.showFullScreen)
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     sys.exit(app.exec_())

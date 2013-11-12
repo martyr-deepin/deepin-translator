@@ -35,7 +35,7 @@ Item {
             
             onDoubleClicked: {
                 isDoubleClick = true
-                qApp.quit()
+                windowView.hide()
             }
         
             onPositionChanged: {
