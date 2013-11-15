@@ -20,26 +20,24 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import threading
-import sys  
-from PyQt5.QtWidgets import QApplication, qApp
-from PyQt5.QtQuick import QQuickView
-from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal
-from PyQt5.QtGui import QSurfaceFormat, QColor
-from PyQt5 import QtCore, QtQuick
-import os
 from PIL import Image
+from PyQt5 import QtCore, QtQuick
+from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal
+from PyQt5.QtDBus import QDBusConnection, QDBusInterface
+from PyQt5.QtGui import QSurfaceFormat, QColor
+from PyQt5.QtQuick import QQuickView
+from PyQt5.QtWidgets import QApplication, qApp
+from youdao import simpleinfo, get_simple
+import os
 import pyocr
 import pyocr.builders
 import re
-from PyQt5.QtDBus import QDBusConnection, QDBusInterface
-
+import signal
+import sys  
+import threading
+import time
 import xcb
 import xcb.xproto
-import signal
-import time
-import pyocr
-import pyocr.builders
 
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -155,7 +153,6 @@ class MonitorMotionEvent(QObject):
         # We should disconnect connection when don't need it anymore.
         conn.disconnect()
         
-from youdao import simpleinfo, get_simple
     
 if __name__ == "__main__":
     iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_NAME, '', QDBusConnection.sessionBus())
