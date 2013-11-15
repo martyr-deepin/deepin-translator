@@ -20,10 +20,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import threading
 import sys  
 from PyQt5.QtWidgets import QApplication, qApp
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal
+from PyQt5.QtCore import QSize
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5 import QtCore, QtQuick
 import os
@@ -52,7 +54,103 @@ class UniqueService(QObject):
         self.uniqueTrigger.emit()
         
 def filter_punctuation(text):
-    return re.sub("[^A-Za-z]", "", text)
+    return re.sub("[^A-Za-z_-]", " ", text)
+
+class OCR(QObject):
+    
+    cursor_start = pyqtSignal()    
+    cursor_move = pyqtSignal()    
+    cursor_stop = pyqtSignal(int, int, str)
+
+    def filter_event(self):
+        conn = xcb.connect()
+        screen = conn.get_setup().roots[0]
+        root = screen.root
+        screen_width = screen.width_in_pixels
+        screen_height = screen.height_in_pixels
+        screenshot_width = 600
+        screenshot_height = 100
+        root = screen.root
+        scale = 2
+        
+        last_mouse_x = -1
+        last_mouse_y = -1
+        last_mouse_time = 0
+        stop_delay = 0.2
+        stop_flag = False
+        
+        tool = pyocr.get_available_tools()[0]
+        lang = "eng"
+        
+        while True:
+            mouse_time = time.time()
+            pointer = conn.core.QueryPointer(root).reply()
+            mouse_x = pointer.root_x
+            mouse_y = pointer.root_y
+            
+            if last_mouse_x != mouse_x or last_mouse_y != mouse_y:
+                if mouse_time - last_mouse_time > stop_delay:
+                    print "* Start: %s, %s" % (mouse_x, mouse_y)
+                    
+                    self.cursor_start.emit()
+                else:
+                    print "* Move: %s, %s" % (mouse_x, mouse_y)
+                    
+                    self.cursor_move.emit()
+            
+                last_mouse_x = mouse_x
+                last_mouse_y = mouse_y
+                last_mouse_time = mouse_time
+                
+                stop_flag = False
+            else:
+                if not stop_flag and mouse_time - last_mouse_time > stop_delay:
+                    stop_flag = True
+                    print "Stop: %s, %s" % (mouse_x, mouse_y)
+                    
+                    # GetImage requires an output format as the first arg.  We want ZPixmap:
+                    output_format = xcb.xproto.ImageFormat.ZPixmap
+                    plane_mask = 2**32 - 1
+                    x = max(mouse_x - screenshot_width / 2, 0) 
+                    y = max(mouse_y - screenshot_height / 2, 0)
+                    width = min(mouse_x + screenshot_width / 2, screen_width) - x
+                    height = min(mouse_y + screenshot_height / 2, screen_height) - y
+                    
+                    reply = conn.core.GetImage(
+                        output_format, 
+                        root, 
+                        x,
+                        y,
+                        width,
+                        height,
+                        plane_mask).reply()
+                    image_data = reply.data.buf()
+                    image = Image.frombuffer("RGBX", (width, height), image_data, "raw", "BGRX").convert("RGB")
+                    
+                    word_boxes = tool.image_to_string(
+                        image.convert("L").resize((width * scale, height * scale)),
+                        lang=lang,
+                        builder=pyocr.builders.WordBoxBuilder())
+                    
+                    cursor_x = (mouse_x - x) * scale
+                    cursor_y = (mouse_y - y) * scale
+                    
+                    for word_box in word_boxes[::-1]:
+                        ((left_x, left_y), (right_x, right_y)) = word_box.position
+                        if (left_x <= cursor_x <= right_x and left_y <= cursor_y <= right_y):
+                            word = filter_punctuation(word_box.content)
+                            
+                            self.cursor_stop.emit(
+                                mouse_x,
+                                mouse_y,
+                                word,
+                                )
+                            break
+            
+            time.sleep(0.01)
+        
+        # We should disconnect connection when don't need it anymore.
+        conn.disconnect()
     
 if __name__ == "__main__":
     iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_NAME, '', QDBusConnection.sessionBus())
@@ -80,98 +178,19 @@ if __name__ == "__main__":
     qml_context.setContextProperty("qApp", qApp)
     
     view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'test.qml')))
+    view.setMinimumSize(QSize(800, 600))
     
     uniqueService.uniqueTrigger.connect(view.showFullScreen)
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
-    conn = xcb.connect()
-    screen = conn.get_setup().roots[0]
-    root = screen.root
-    screen_width = screen.width_in_pixels
-    screen_height = screen.height_in_pixels
-    screenshot_width = 600
-    screenshot_height = 100
-    root = screen.root
-    scale = 2
+    rootObject = view.rootObject()
     
-    last_mouse_x = -1
-    last_mouse_y = -1
-    last_mouse_time = 0
-    stop_delay = 0.2
-    stop_flag = False
-
-    tool = pyocr.get_available_tools()[0]
-    lang = "eng"
+    ocr = OCR()
+    ocr.cursor_stop.connect(rootObject.showTranslate)
+    # ocr.cursor_start.connect(rootObject.hideTranslate)
+    # ocr.cursor_move.connect(rootObject.hideTranslate)
     
-    while True:
-        mouse_time = time.time()
-        pointer = conn.core.QueryPointer(root).reply()
-        mouse_x = pointer.root_x
-        mouse_y = pointer.root_y
-        
-        if last_mouse_x != mouse_x or last_mouse_y != mouse_y:
-            if mouse_time - last_mouse_time > 0.2:
-                print "* Start: %s, %s" % (mouse_x, mouse_y)
-                
-                view.rootObject().hideTranslate()
-            else:
-                print "* Move: %s, %s" % (mouse_x, mouse_y)
-                
-                view.rootObject().hideTranslate()
-        
-            last_mouse_x = mouse_x
-            last_mouse_y = mouse_y
-            last_mouse_time = mouse_time
-            
-            stop_flag = False
-        else:
-            if not stop_flag and mouse_time - last_mouse_time > 0.2:
-                stop_flag = True
-                print "Stop: %s, %s" % (mouse_x, mouse_y)
-                
-                # GetImage requires an output format as the first arg.  We want ZPixmap:
-                output_format = xcb.xproto.ImageFormat.ZPixmap
-                plane_mask = 2**32 - 1
-                x = max(mouse_x - screenshot_width / 2, 0) 
-                y = max(mouse_y - screenshot_height / 2, 0)
-                width = min(mouse_x + screenshot_width / 2, screen_width) - x
-                height = min(mouse_y + screenshot_height / 2, screen_height) - y
-                
-                reply = conn.core.GetImage(
-                    output_format, 
-                    root, 
-                    x,
-                    y,
-                    width,
-                    height,
-                    plane_mask).reply()
-                image_data = reply.data.buf()
-                image = Image.frombuffer("RGBX", (width, height), image_data, "raw", "BGRX").convert("RGB")
-                
-                word_boxes = tool.image_to_string(
-                    image.convert("L").resize((width * scale, height * scale)),
-                    lang=lang,
-                    builder=pyocr.builders.WordBoxBuilder())
-                
-                cursor_x = (mouse_x - x) * scale
-                cursor_y = (mouse_y - y) * scale
-                
-                for word_box in word_boxes[::-1]:
-                    ((left_x, left_y), (right_x, right_y)) = word_box.position
-                    if (left_x <= cursor_x <= right_x and left_y <= cursor_y <= right_y):
-                        word = filter_punctuation(word_box.content)
-                        print word
-                        view.rootObject().showTranslate(
-                            x + left_x / scale,
-                            y + left_y / scale,
-                            word,
-                            )
-                        break
-        
-        time.sleep(0.01)
-    
-    # We should disconnect connection when don't need it anymore.
-    conn.disconnect()
+    threading.Thread(target=ocr.filter_event).start()
 
     sys.exit(app.exec_())

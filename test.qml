@@ -9,8 +9,8 @@ Item {
     
     function showTranslate(x, y, word) {
         windowView.showNormal()
-        translateWindow.x = x
-        translateWindow.y = y
+        windowView.x = x
+        windowView.y = y
         translateView.url = "http://dict.youdao.com/search?q=" + word
         console.log("**************", x, y, word)
     }
@@ -23,8 +23,6 @@ Item {
         id: translateWindow
         anchors.fill: parent
         color: Qt.rgba(0, 0, 0, 0.8)
-        width: 400
-        height: 300
         radius: 3
         border.color: Qt.rgba(10, 10, 10, 0.5)
         
