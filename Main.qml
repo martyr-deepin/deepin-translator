@@ -1,169 +1,54 @@
 import QtQuick 2.1
-import QtWebKit 3.0
 
-Item {
-    id: window
-    
-    property bool inTranslateArea: false
-    property alias translateArea: translateArea
-    property alias translateView: translateView
-    property alias translateWindow: translateWindow
-    property alias selectArea: selectArea
-    property alias windowArea: windowArea
-    
-    Rectangle {
-        anchors.fill: parent
-        color: Qt.rgba(0, 0, 0, 0)
-        
-        MouseArea {
-            id: windowArea
-            anchors.fill: parent
-            hoverEnabled: true
-                        
-            property bool isHover: false
-            property bool isDoubleClick: false
-            
-            onPressed: {
-                isHover = false
-                isDoubleClick = false
-                
-                windowView.hide()
-                
-                console.log("*********************")
-            }
-            
-            onClicked: {
-                hidingTranslateTimer.interval = 200
-                hidingTranslateTimer.restart()
-            }
-            
-            onDoubleClicked: {
-                isDoubleClick = true
-            }
-        
-            onPositionChanged: {
-                isHover = true
-                
-                selectArea.visible = false
-                
-                testTimer.testMouseX = mouseX
-                testTimer.testMouseY = mouseY
-                
-                testTimer.restart()
-            }
-            
-            onWheel: {
-                console.log(wheel.angleDelta)
-            }
-            
-            Component.onCompleted: {
-                var point = JSON.parse(ocr.get_cursor_pos())
-                testTimer.testMouseX = point[0]
-                testTimer.testMouseY = point[1]
-                testTimer.restart()
-            }
-            
-            Rectangle {
-                id: selectArea
-                color: Qt.rgba(100, 0, 0, 0.5)
-                visible: false
-                height: 3
-                
-            }
-        
-            Rectangle {
-                id: translateWindow
-                anchors.left: selectArea.right
-                anchors.top: selectArea.bottom
-                color: Qt.rgba(0, 0, 0, 0.8)
-                width: 800
-                height: 400
-                radius: 3
-                border.color: Qt.rgba(10, 10, 10, 0.5)
-                visible: false
-                
-                Flickable {
-                    id: flickable
-                    anchors.fill: parent
-                    anchors.topMargin: 10
-                    anchors.bottomMargin: 10
-                    anchors.leftMargin: 10
-                    anchors.rightMargin: 10
-                    
-                    WebView {
-                        id: translateView
-                        anchors.fill: parent
-                        url: ""
-                    }
-                }
-                
-                MouseArea {
-                    id: translateArea
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    propagateComposedEvents: true
-                    
-                    onPressed: {
-                        mouse.accepted = false
-                        
-                        console.log("################")
-                    }
-                    
-                    onClicked: {
-                        mouse.accepted = false
-                    }
-                    
-                    onEntered: {
-                        testTimer.stop()
-                        selectArea.visible = true
-                    }
-                    
-                    onExited: {
-                        hidingTranslateTimer.interval = 200
-                        hidingTranslateTimer.restart()
-                    }
-                }
-            }            
-        }
-
-        Timer {
-            id: testTimer
-            interval: 500
-            repeat: false
-            
-            property int testMouseX: 0
-            property int testMouseY: 0
-           
-            onTriggered: {
-                var wordInfo = JSON.parse(ocr.get_word_rect(testMouseX, testMouseY))
-                if (wordInfo != "") {
-                    selectArea.x = wordInfo[0] 
-                    selectArea.y = wordInfo[1]  + wordInfo[3] + wordInfo[3] / 10
-                    selectArea.width = wordInfo[2]
-                    
-                    translateView.url = "http://dict.youdao.com/search?q=" + wordInfo[4]
-                    
-                    selectArea.visible = true
-                    translateWindow.visible = true
-                                    
-                    hidingTranslateTimer.interval = 10000
-                    hidingTranslateTimer.restart()
-                }
-             }
-        }
-        
-        Timer {
-            id: hidingTranslateTimer
-            interval: 200
-            repeat: false
-            
-            onTriggered: {
-                if (!translateArea.containsMouse) {
-                    selectArea.visible = false
-                    translateWindow.visible = false
-                }
-            }
-        }
-    }
-    
+Rectangle {
+	id: container
+	
+	width: 300; height: 200
+	
+	Rectangle {
+		border { width: 1; color: "#d3d3d3"}
+		anchors.fill: parent
+		anchors.margins: 1
+        color: Qt.rgba(0.9, 0.9, 0.9, 0.8)
+	}
+	
+	Column {
+		
+		/* anchors.fill: parent */
+		spacing: 10
+		anchors.margins: 5
+		anchors.fill: parent
+		
+		Text { 
+			id: keyword
+			text: simpleinfo.keyword
+			font { pixelSize: 30; bold: true }
+			color: "#0066AA"
+		}
+		
+		Row {
+			spacing: 10
+			
+			Speech { text: simpleinfo.ukphone }
+			Speech { text: simpleinfo.usphone }			
+		}
+		
+		TextEdit { 
+			text: simpleinfo.trans
+			wrapMode: TextEdit.Wrap
+			selectByMouse: true
+			font { pixelSize: 12 }
+			color: "#636363"
+		}		
+		
+		TextEdit {
+			text: simpleinfo.webtrans
+			wrapMode: TextEdit.Wrap
+			selectByMouse: true
+			font { pixelSize: 12 }
+			color: "#636363"
+		}
+		
+	}
+	
 }
