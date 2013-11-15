@@ -179,8 +179,7 @@ if __name__ == "__main__":
     qml_context.setContextProperty("windowView", view)
     qml_context.setContextProperty("qApp", qApp)
     
-    view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'test.qml')))
-    # view.setMinimumSize(QSize(800, 600))
+    view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'Youdao.qml')))
     
     uniqueService.uniqueTrigger.connect(view.showFullScreen)
     
