@@ -25,7 +25,6 @@ import sys
 from PyQt5.QtWidgets import QApplication, qApp
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal
-from PyQt5.QtCore import QSize
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5 import QtCore, QtQuick
 import os
@@ -151,6 +150,8 @@ class OCR(QObject):
         
         # We should disconnect connection when don't need it anymore.
         conn.disconnect()
+        
+from youdao import simpleinfo, get_simple
     
 if __name__ == "__main__":
     iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_NAME, '', QDBusConnection.sessionBus())
@@ -174,11 +175,12 @@ if __name__ == "__main__":
     view.setFormat(surface_format)
     
     qml_context = view.rootContext()
+    qml_context.setContextProperty("simpleinfo", simpleinfo)
     qml_context.setContextProperty("windowView", view)
     qml_context.setContextProperty("qApp", qApp)
     
     view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'test.qml')))
-    view.setMinimumSize(QSize(800, 600))
+    # view.setMinimumSize(QSize(800, 600))
     
     uniqueService.uniqueTrigger.connect(view.showFullScreen)
     
@@ -186,8 +188,15 @@ if __name__ == "__main__":
     
     rootObject = view.rootObject()
     
+    def show_translate(x, y, text):
+        view.showNormal()
+        view.setX(x + 10)
+        view.setY(y + 10)
+        get_simple(text)
+    
     ocr = OCR()
-    ocr.cursor_stop.connect(rootObject.showTranslate)
+    ocr.cursor_stop.connect(show_translate)
+    # ocr.cursor_stop.connect(rootObject.showTranslate)
     # ocr.cursor_start.connect(rootObject.hideTranslate)
     # ocr.cursor_move.connect(rootObject.hideTranslate)
     
