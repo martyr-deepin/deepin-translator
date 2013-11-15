@@ -1,0 +1,40 @@
+To make pycairo support XCB, you need compile pycairo and xpyb like below:
+
+* Install xcb-proto
+git clone git://anongit.freedesktop.org/git/xcb/proto
+cd libxcb
+./autogen.sh
+make
+sudo make install
+
+* Install libxcb
+git clone git://anongit.freedesktop.org/git/xcb/libxcb
+cd libxcb
+./autogen.sh
+make
+sudo make install
+
+* Remove python-xpyb (for import code from compile version of xpyb)
+sudo apt-get purge python-xpyb
+
+* Install xpyb
+git clone git://anongit.freedesktop.org/xcb/xpyb
+cd xpyb && ./autogen.sh
+./configure --enable-xinput
+sudo make install
+
+* Install cairo
+wget http://cairographics.org/releases/cairo-1.10.0.tar.gz
+tar xvzf cairo-1.10.0.tar.gz
+cd cairo-1.10.0
+./autogen.sh --enable-xcb
+make
+sudo make install
+
+* Install py2cairo
+git clone git://git.cairographics.org/git/py2cairo
+cd py2cairo
+./autogen.sh --enable-xcb
+make
+sudo make install
+
