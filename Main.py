@@ -27,6 +27,9 @@ from PyQt5.QtDBus import QDBusConnection, QDBusInterface
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtWidgets import QApplication, qApp
+from Xlib import X, XK, display
+from Xlib.ext import record
+from Xlib.protocol import rq
 from youdao import simpleinfo, get_simple
 import os
 import pyocr
@@ -102,6 +105,68 @@ def ocr_word(mouse_x, mouse_y):
         
     return None    
 
+local_dpy = display.Display()
+record_dpy = display.Display()
+press_ctrl = False
+
+class RecordEvent(QObject):
+    
+    press_ctrl = pyqtSignal()    
+    release_ctrl = pyqtSignal()    
+    
+    def lookup_keysym(self, keysym):
+        for name in dir(XK):
+            if name[:3] == "XK_" and getattr(XK, name) == keysym:
+                return name[3:]
+        return "[%d]" % keysym
+     
+    def record_callback(self, reply):
+        global press_ctrl
+        
+        if reply.category != record.FromServer:
+            return
+        if reply.client_swapped:
+            print "* received swapped protocol data, cowardly ignored"
+            return
+        
+        # Not an event
+        if not len(reply.data) or ord(reply.data[0]) < 2:
+            return
+     
+        data = reply.data
+        while len(data):
+            event, data = rq.EventField(None).parse_binary_value(data, record_dpy.display, None, None)
+     
+            if event.type == X.KeyPress:
+                keyname = self.lookup_keysym(local_dpy.keycode_to_keysym(event.detail, 0))
+                if keyname in ["Control_L", "Control_R"]:
+                    press_ctrl = True
+                    self.press_ctrl.emit()
+            elif event.type == X.KeyRelease:
+                keyname = self.lookup_keysym(local_dpy.keycode_to_keysym(event.detail, 0))
+                if keyname in ["Control_L", "Control_R"]:
+                    press_ctrl = False
+                    self.release_ctrl.emit()
+                
+    def filter_event(self):
+        ctx = record_dpy.record_create_context(
+                0,
+                [record.AllClients],
+                [{
+                        'core_requests': (0, 0),
+                        'core_replies': (0, 0),
+                        'ext_requests': (0, 0, 0, 0),
+                        'ext_replies': (0, 0, 0, 0),
+                        'delivered_events': (0, 0),
+                        'device_events': (X.KeyPress, X.ButtonRelease),
+                        'errors': (0, 0),
+                        'client_started': False,
+                        'client_died': False,
+                }])
+         
+        record_dpy.record_enable_context(ctx, self.record_callback)
+        record_dpy.record_free_context(ctx)
+
 class MonitorMotionEvent(QObject):
     
     cursor_start = pyqtSignal()    
@@ -117,8 +182,6 @@ class MonitorMotionEvent(QObject):
         
         while True:
             mouse_time = time.time()
-            
-            print conn.core.QueryKeymap().reply()
             
             pointer = conn.core.QueryPointer(root).reply()
             mouse_x = pointer.root_x
@@ -144,16 +207,16 @@ class MonitorMotionEvent(QObject):
                     stop_flag = True
                     print "Stop: %s, %s" % (mouse_x, mouse_y)
                     
-                    ocr_info = ocr_word(mouse_x, mouse_y)
-                    if ocr_info:
-                        self.cursor_stop.emit(*ocr_info)
+                    if press_ctrl:
+                        ocr_info = ocr_word(mouse_x, mouse_y)
+                        if ocr_info:
+                            self.cursor_stop.emit(*ocr_info)
                     
             time.sleep(0.01)
         
         # We should disconnect connection when don't need it anymore.
         conn.disconnect()
-        
-    
+
 if __name__ == "__main__":
     iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_NAME, '', QDBusConnection.sessionBus())
     if iface.isValid():
@@ -193,9 +256,21 @@ if __name__ == "__main__":
         view.setX(x + 10)
         view.setY(y + 10)
         get_simple(text)
+        
+    def translate_cursor_word():
+        pointer = conn.core.QueryPointer(root).reply()
+        mouse_x = pointer.root_x
+        mouse_y = pointer.root_y
+        ocr_info = ocr_word(mouse_x, mouse_y)
+        show_translate(*ocr_info)
     
     motion_event = MonitorMotionEvent()
     motion_event.cursor_stop.connect(show_translate)
     threading.Thread(target=motion_event.filter_event).start()
+    
+    record_event = RecordEvent()
+    record_event.press_ctrl.connect(translate_cursor_word)
+    record_event.release_ctrl.connect(view.hide)
+    threading.Thread(target=record_event.filter_event).start()
 
     sys.exit(app.exec_())

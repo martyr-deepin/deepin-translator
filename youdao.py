@@ -4,11 +4,9 @@
 
 from __future__ import unicode_literals
 
-import sys
 from netlib import public_curl
 from xmltodict import parse as xml_parse
 from PyQt5 import QtCore
-import traceback
 
 def AutoQObject(*class_def, **kwargs):
     '''
@@ -100,7 +98,6 @@ def get_simple(*args):
     try:
         word = yodaodict['basic']['simple-dict']['word']
     except Exception: 
-        traceback.print_exc(file=sys.stdout)
         simpleinfo.ukphone = None
         simpleinfo.usphone = None
         simpleinfo.trans = None
