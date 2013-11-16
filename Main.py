@@ -125,8 +125,6 @@ class RecordEvent(QObject):
     right_button_press = pyqtSignal(int, int, int)    
     wheel_press = pyqtSignal()
     
-    cursor_start = pyqtSignal()    
-    cursor_move = pyqtSignal()    
     cursor_stop = pyqtSignal(int, int, str)
     
     def __init__(self):
