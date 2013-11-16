@@ -73,6 +73,11 @@ Rectangle {
 			    selectByMouse: true
 			    font { pixelSize: 12 }
 			    color: "#333333"
+                
+                onTextChanged: {
+                    cursorPosition: 0
+                    cursorVislble: false
+                }
 		    }		
 		    
 		    TextEdit {
@@ -83,6 +88,11 @@ Rectangle {
 			    selectByMouse: true
 			    font { pixelSize: 12 }
 			    color: "#333333"
+
+                onTextChanged: {
+                    cursorPosition: 0
+                    cursorVislble: false
+                }
 		    }
 	    }        
 	}

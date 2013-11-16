@@ -54,18 +54,21 @@ screenshot_width = 600
 screenshot_height = 100
 root = screen.root
         
-class UniqueService(QObject):
+local_dpy = display.Display()
+record_dpy = display.Display()
+press_ctrl = False
 
-    uniqueTrigger = pyqtSignal()    
-    
-    @pyqtSlot()
-    def unique(self):
-        self.uniqueTrigger.emit()
+def in_translate_window():
+    pointer = conn.core.QueryPointer(root).reply()
+    mouse_x = pointer.root_x
+    mouse_y = pointer.root_y
+    return view.x() < mouse_x < view.x() + view.width() and view.y() < mouse_y < view.y() + view.height()
         
 def filter_punctuation(text):
     return re.sub("[^A-Za-z_-]", " ", text)
 
 def ocr_word(mouse_x, mouse_y):
+    # Ocr word under cursor.
     x = max(mouse_x - screenshot_width / 2, 0) 
     y = max(mouse_y - screenshot_height / 2, 0)
     width = min(mouse_x + screenshot_width / 2, screen_width) - x
@@ -105,10 +108,14 @@ def ocr_word(mouse_x, mouse_y):
         
     return None    
 
-local_dpy = display.Display()
-record_dpy = display.Display()
-press_ctrl = False
+class UniqueService(QObject):
 
+    uniqueTrigger = pyqtSignal()    
+    
+    @pyqtSlot()
+    def unique(self):
+        self.uniqueTrigger.emit()
+        
 class RecordEvent(QObject):
     
     press_ctrl = pyqtSignal()    
@@ -143,7 +150,9 @@ class RecordEvent(QObject):
                 keyname = self.lookup_keysym(local_dpy.keycode_to_keysym(event.detail, 0))
                 if keyname in ["Control_L", "Control_R"]:
                     press_ctrl = True
-                    self.press_ctrl.emit()
+                    
+                    if not in_translate_window():
+                        self.press_ctrl.emit()
             elif event.type == X.KeyRelease:
                 keyname = self.lookup_keysym(local_dpy.keycode_to_keysym(event.detail, 0))
                 if keyname in ["Control_L", "Control_R"]:
@@ -214,7 +223,7 @@ class MonitorMotionEvent(QObject):
                     stop_flag = True
                     print "Stop: %s, %s" % (mouse_x, mouse_y)
                     
-                    if press_ctrl:
+                    if press_ctrl and not in_translate_window():
                         ocr_info = ocr_word(mouse_x, mouse_y)
                         if ocr_info:
                             self.cursor_stop.emit(*ocr_info)
@@ -265,6 +274,10 @@ if __name__ == "__main__":
         get_simple(text)
         rootObject.adjustWidth()
         
+    def handle_button_press():
+        if not in_translate_window():
+            view.hide()
+            
     def translate_cursor_word():
         pointer = conn.core.QueryPointer(root).reply()
         mouse_x = pointer.root_x
@@ -279,7 +292,7 @@ if __name__ == "__main__":
     
     record_event = RecordEvent()
     record_event.press_ctrl.connect(translate_cursor_word)
-    record_event.left_button_press.connect(view.hide)
+    record_event.left_button_press.connect(handle_button_press)
     threading.Thread(target=record_event.filter_event).start()
 
     sys.exit(app.exec_())
