@@ -122,6 +122,7 @@ class RecordEvent(QObject):
     release_ctrl = pyqtSignal()    
     left_button_press = pyqtSignal(int, int, int)
     right_button_press = pyqtSignal(int, int, int)    
+    wheel_press = pyqtSignal()
     
     def lookup_keysym(self, keysym):
         for name in dir(XK):
@@ -145,7 +146,7 @@ class RecordEvent(QObject):
         data = reply.data
         while len(data):
             event, data = rq.EventField(None).parse_binary_value(data, record_dpy.display, None, None)
-     
+            
             if event.type == X.KeyPress:
                 keyname = self.lookup_keysym(local_dpy.keycode_to_keysym(event.detail, 0))
                 if keyname in ["Control_L", "Control_R"]:
@@ -163,6 +164,8 @@ class RecordEvent(QObject):
                     self.left_button_press.emit(event.root_x, event.root_y, event.time)
                 elif event.detail == 3:
                     self.right_button_press.emit(event.root_x, event.root_y, event.time)
+                elif event.detail == 5:
+                    self.wheel_press.emit()
                 
     def filter_event(self):
         ctx = record_dpy.record_create_context(
@@ -274,7 +277,7 @@ if __name__ == "__main__":
         get_simple(text)
         rootObject.adjustWidth()
         
-    def handle_button_press():
+    def hide_translate():
         if not in_translate_window():
             view.hide()
             
@@ -292,7 +295,8 @@ if __name__ == "__main__":
     
     record_event = RecordEvent()
     record_event.press_ctrl.connect(translate_cursor_word)
-    record_event.left_button_press.connect(handle_button_press)
+    record_event.wheel_press.connect(hide_translate)
+    record_event.left_button_press.connect(hide_translate)
     threading.Thread(target=record_event.filter_event).start()
 
     sys.exit(app.exec_())
