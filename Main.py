@@ -113,6 +113,8 @@ class RecordEvent(QObject):
     
     press_ctrl = pyqtSignal()    
     release_ctrl = pyqtSignal()    
+    left_button_press = pyqtSignal(int, int, int)
+    right_button_press = pyqtSignal(int, int, int)    
     
     def lookup_keysym(self, keysym):
         for name in dir(XK):
@@ -147,6 +149,11 @@ class RecordEvent(QObject):
                 if keyname in ["Control_L", "Control_R"]:
                     press_ctrl = False
                     self.release_ctrl.emit()
+            elif event.type == X.ButtonPress:
+                if event.detail == 1:
+                    self.left_button_press.emit(event.root_x, event.root_y, event.time)
+                elif event.detail == 3:
+                    self.right_button_press.emit(event.root_x, event.root_y, event.time)
                 
     def filter_event(self):
         ctx = record_dpy.record_create_context(
@@ -252,17 +259,19 @@ if __name__ == "__main__":
     rootObject = view.rootObject()
     
     def show_translate(x, y, text):
-        view.showNormal()
         view.setX(x + 10)
         view.setY(y + 10)
+        view.showNormal()
         get_simple(text)
+        rootObject.adjustWidth()
         
     def translate_cursor_word():
         pointer = conn.core.QueryPointer(root).reply()
         mouse_x = pointer.root_x
         mouse_y = pointer.root_y
         ocr_info = ocr_word(mouse_x, mouse_y)
-        show_translate(*ocr_info)
+        if ocr_info:
+            show_translate(*ocr_info)
     
     motion_event = MonitorMotionEvent()
     motion_event.cursor_stop.connect(show_translate)
@@ -270,7 +279,7 @@ if __name__ == "__main__":
     
     record_event = RecordEvent()
     record_event.press_ctrl.connect(translate_cursor_word)
-    record_event.release_ctrl.connect(view.hide)
+    record_event.left_button_press.connect(view.hide)
     threading.Thread(target=record_event.filter_event).start()
 
     sys.exit(app.exec_())
