@@ -27,5 +27,34 @@ Row {
 		id: speaker
 		source: "speaker.png"
 		anchors.verticalCenter: parent.verticalCenter 
+        
+		states: State {
+			name: "hovered"
+			PropertyChanges { target: speaker; opacity: 0.5 }
+		}
+		
+		transitions: Transition {
+			NumberAnimation { properties: "opacity"; duration: 350 }
+		}
+		
+		MouseArea {
+			id: mouseArea
+			anchors.fill: speaker
+            hoverEnabled: true
+            
+			onEntered: {
+                speaker.state = "hovered"
+                mouseArea.cursorShape = Qt.PointingHandCursor
+            }
+            
+			onExited: {
+                speaker.state = ""
+                mouseArea.cursorShape = Qt.ArrowCursor
+            }
+            
+			onReleased: { 
+                speaker.state = mouseArea.containsMouse ? "hovered" : ""
+            }
+		}
 	}
 }
