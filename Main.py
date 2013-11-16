@@ -41,6 +41,7 @@ import sys
 import threading
 import xcb
 import xcb.xproto
+import xcb.xproto as xp
 
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -127,6 +128,8 @@ class RecordEvent(QObject):
     
     cursor_stop = pyqtSignal(int, int, str)
     
+    translate_selection = pyqtSignal(int, int, str)
+    
     def __init__(self):
         QObject.__init__(self)
 
@@ -175,6 +178,14 @@ class RecordEvent(QObject):
                     self.right_button_press.emit(event.root_x, event.root_y, event.time)
                 elif event.detail == 5:
                     self.wheel_press.emit()
+            elif event.type == X.ButtonRelease:
+                if not in_translate_window():
+                    import commands, subprocess
+                    selection_content = commands.getoutput("xsel -p -o")
+                    subprocess.Popen("xsel -c", shell=True).wait()
+                    
+                    if len(selection_content) > 1:
+                        self.translate_selection.emit(event.root_x, event.root_y, selection_content)
             elif event.type == X.MotionNotify:
                 if self.timer:
                     self.timer.cancel()
@@ -264,6 +275,7 @@ if __name__ == "__main__":
     record_event.wheel_press.connect(hide_translate)
     record_event.left_button_press.connect(hide_translate)
     record_event.cursor_stop.connect(show_translate)
+    record_event.translate_selection.connect(show_translate)
     threading.Thread(target=record_event.filter_event).start()
 
     sys.exit(app.exec_())
