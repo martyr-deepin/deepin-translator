@@ -41,7 +41,7 @@ import sys
 import threading
 import xcb
 import xcb.xproto
-import xcb.xproto as xp
+import commands, subprocess
 
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -177,7 +177,6 @@ class RecordEvent(QObject):
                     self.wheel_press.emit()
             elif event.type == X.ButtonRelease:
                 if not in_translate_window():
-                    import commands, subprocess
                     selection_content = commands.getoutput("xsel -p -o")
                     subprocess.Popen("xsel -c", shell=True).wait()
                     
