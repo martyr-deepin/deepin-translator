@@ -17,7 +17,7 @@ Rectangle {
     
     function adjustWidth() {
         var maxWidth = Math.max(
-            keyword.paintedWidth, 
+            keyword.paintedWidth,
             trans.paintedWidth, 
             webtrans.paintedWidth, 
             usSpeech.getWidth() + ukSpeech.getWidth()
