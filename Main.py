@@ -223,7 +223,7 @@ if __name__ == "__main__":
     surface_format.setAlphaBufferSize(8)
     
     view.setColor(QColor(0, 0, 0, 0))
-    view.setFlags(QtCore.Qt.FramelessWindowHint)
+    view.setFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.X11BypassWindowManagerHint)
     view.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
     view.setFormat(surface_format)
     
