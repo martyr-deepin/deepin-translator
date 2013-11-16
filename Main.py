@@ -148,10 +148,7 @@ class RecordEvent(QObject):
         if reply.category != record.FromServer:
             return
         if reply.client_swapped:
-            print "* received swapped protocol data, cowardly ignored"
             return
-        
-        # Not an event
         if not len(reply.data) or ord(reply.data[0]) < 2:
             return
      
