@@ -27,6 +27,14 @@ Rectangle {
         
         windowView.height = keyword.paintedHeight + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + (borderMarin + textMargin) * 2
     }    
+    
+    function autoSpeech() {
+        var speechlink = simpleinfo.uslink ? simpleinfo.uslink : simpleinfo.uklink
+        if (speechlink) {
+		    audioPlayer.source = speechlink
+            audioPlayer.play()
+        }
+    }
 	
     Audio {
         id: audioPlayer
@@ -62,11 +70,11 @@ Rectangle {
 			    Speech { 
                     id: usSpeech
                     text: simpleinfo.usphone
+                    
 					onClicked: {
 						audioPlayer.source = simpleinfo.uslink
 						audioPlayer.play()
 					}
-					
                 }			
                 
 			    Speech { 

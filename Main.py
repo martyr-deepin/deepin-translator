@@ -265,6 +265,7 @@ if __name__ == "__main__":
         view.showNormal()
         get_simple(text)
         rootObject.adjustWidth()
+        rootObject.autoSpeech()
         
     def hide_translate():
         if not in_translate_window():
