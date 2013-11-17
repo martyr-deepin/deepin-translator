@@ -217,10 +217,12 @@ class SystemTrayIcon(QSystemTrayIcon):
     
     def __init__(self, icon, parent=None):
         QSystemTrayIcon.__init__(self, icon, parent)
+        self.activated.connect(self.on_activated) 
         
-    def event(self, qevent):
-        print qevent
-
+    def on_activated(self, reason):
+         if reason == QSystemTrayIcon.Trigger:
+             qApp.quit()
+        
 if __name__ == "__main__":
     iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_NAME, '', QDBusConnection.sessionBus())
     if iface.isValid():
@@ -282,6 +284,9 @@ if __name__ == "__main__":
     record_event.left_button_press.connect(hide_translate)
     record_event.cursor_stop.connect(show_translate)
     record_event.translate_selection.connect(show_translate)
-    threading.Thread(target=record_event.filter_event).start()
+    
+    thread = threading.Thread(target=record_event.filter_event)
+    thread.setDaemon(True)
+    thread.start()
 
     sys.exit(app.exec_())
