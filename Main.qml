@@ -60,15 +60,6 @@ Rectangle {
 			    spacing: 10
 			    
 			    Speech { 
-                    id: ukSpeech
-                    text: simpleinfo.ukphone 
-					onClicked: {
-						audioPlayer.source = simpleinfo.uklink
-						audioPlayer.play()
-					}
-                }
-                
-			    Speech { 
                     id: usSpeech
                     text: simpleinfo.usphone
 					onClicked: {
@@ -77,6 +68,15 @@ Rectangle {
 					}
 					
                 }			
+                
+			    Speech { 
+                    id: ukSpeech
+                    text: simpleinfo.ukphone 
+					onClicked: {
+						audioPlayer.source = simpleinfo.uklink
+						audioPlayer.play()
+					}
+                }
 		    }
 		    
 		    TextEdit { 

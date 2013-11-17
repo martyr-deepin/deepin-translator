@@ -24,9 +24,9 @@ from PIL import Image
 from PyQt5 import QtCore, QtQuick
 from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal
 from PyQt5.QtDBus import QDBusConnection, QDBusInterface
-from PyQt5.QtGui import QSurfaceFormat, QColor
+from PyQt5.QtGui import QSurfaceFormat, QColor, QIcon
 from PyQt5.QtQuick import QQuickView
-from PyQt5.QtWidgets import QApplication, qApp
+from PyQt5.QtWidgets import QApplication, qApp, QSystemTrayIcon
 from Xlib import X, XK, display
 from Xlib.ext import record
 from Xlib.protocol import rq
@@ -212,6 +212,14 @@ class RecordEvent(QObject):
          
         record_dpy.record_enable_context(ctx, self.record_callback)
         record_dpy.record_free_context(ctx)
+        
+class SystemTrayIcon(QSystemTrayIcon):
+    
+    def __init__(self, icon, parent=None):
+        QSystemTrayIcon.__init__(self, icon, parent)
+        
+    def event(self, qevent):
+        print qevent
 
 if __name__ == "__main__":
     iface = QDBusInterface(APP_DBUS_NAME, APP_OBJECT_NAME, '', QDBusConnection.sessionBus())
@@ -224,6 +232,8 @@ if __name__ == "__main__":
     QDBusConnection.sessionBus().registerObject(APP_OBJECT_NAME, uniqueService, QDBusConnection.ExportAllSlots)
 
     app = QApplication(sys.argv)  
+    trayIcon = SystemTrayIcon(QIcon("icon.png"), app)
+    trayIcon.show()
     
     view = QQuickView()
     surface_format = QSurfaceFormat()
