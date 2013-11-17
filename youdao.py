@@ -98,6 +98,9 @@ def get_suggest(text):
 def get_simple(text):    
     if not text:
         return
+    
+    if isinstance(text, unicode):
+        text = text.encode("utf-8")
 
     data = { "keyfrom" : "deskdict.mini", "q" : text, "doctype" : "xml", "xmlVersion" : 8.2,
              "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
