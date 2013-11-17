@@ -32,6 +32,7 @@ from Xlib.ext import record
 from Xlib.protocol import rq
 from threading import Timer
 from youdao import simpleinfo, get_simple
+from google_engine import googleinfo, get_google
 import os
 import pyocr
 import pyocr.builders
@@ -64,6 +65,12 @@ def in_translate_window():
     mouse_x = pointer.root_x
     mouse_y = pointer.root_y
     return view.x() < mouse_x < view.x() + view.width() and view.y() < mouse_y < view.y() + view.height()
+
+def in_google_translate_window():
+    pointer = conn.core.QueryPointer(root).reply()
+    mouse_x = pointer.root_x
+    mouse_y = pointer.root_y
+    return google_view.x() < mouse_x < google_view.x() + google_view.width() and google_view.y() < mouse_y < google_view.y() + google_view.height()
         
 def filter_punctuation(text):
     return re.sub("[^A-Za-z_-]", " ", text)
@@ -251,7 +258,24 @@ if __name__ == "__main__":
     qml_context.setContextProperty("windowView", view)
     qml_context.setContextProperty("qApp", qApp)
     
-    view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'Main.qml')))
+    view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'WordTranslate.qml')))
+
+
+    google_view = QQuickView()
+    surface_format = QSurfaceFormat()
+    surface_format.setAlphaBufferSize(8)
+    
+    google_view.setColor(QColor(0, 0, 0, 0))
+    google_view.setFlags(QtCore.Qt.Popup)
+    google_view.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
+    google_view.setFormat(surface_format)
+    
+    qml_context = google_view.rootContext()
+    qml_context.setContextProperty("googleinfo", googleinfo)
+    qml_context.setContextProperty("windowView", google_view)
+    qml_context.setContextProperty("qApp", qApp)
+    
+    google_view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'LongTranslate.qml')))
     
     uniqueService.uniqueTrigger.connect(view.showFullScreen)
     
@@ -266,6 +290,15 @@ if __name__ == "__main__":
     textInput = rootObject.findChild(QQuickItem, "textInput")
     textInput.accepted.connect(updateTranslate)
     
+    def translate_long(x, y, text):
+        if len(text.split(" ")) > 1:
+            google_view.setX(x + 10)
+            google_view.setY(y + 10)
+            google_view.showNormal()
+            get_google(text)
+        else:
+            show_translate(x, y, text)
+    
     def show_translate(x, y, text):
         view.setX(x + 10)
         view.setY(y + 10)
@@ -276,6 +309,9 @@ if __name__ == "__main__":
     def hide_translate():
         if not in_translate_window():
             view.hide()
+            
+        if not in_google_translate_window():
+            google_view.hide()
             
     def translate_cursor_word():
         pointer = conn.core.QueryPointer(root).reply()
@@ -290,7 +326,7 @@ if __name__ == "__main__":
     record_event.wheel_press.connect(hide_translate)
     record_event.left_button_press.connect(hide_translate)
     record_event.cursor_stop.connect(show_translate)
-    record_event.translate_selection.connect(show_translate)
+    record_event.translate_selection.connect(translate_long)
     
     thread = threading.Thread(target=record_event.filter_event)
     thread.setDaemon(True)
