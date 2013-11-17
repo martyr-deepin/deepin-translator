@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtMultimedia 5.0
 
 Rectangle {
 	id: container
@@ -26,6 +27,10 @@ Rectangle {
         
         windowView.height = keyword.paintedHeight + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + (borderMarin + textMargin) * 2
     }    
+	
+    Audio {
+        id: audioPlayer
+    }
     
 	Rectangle {
         id: border
@@ -57,11 +62,20 @@ Rectangle {
 			    Speech { 
                     id: ukSpeech
                     text: simpleinfo.ukphone 
+					onClicked: {
+						audioPlayer.source = simpleinfo.uklink
+						audioPlayer.play()
+					}
                 }
                 
 			    Speech { 
                     id: usSpeech
                     text: simpleinfo.usphone
+					onClicked: {
+						audioPlayer.source = simpleinfo.uslink
+						audioPlayer.play()
+					}
+					
                 }			
 		    }
 		    

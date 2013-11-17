@@ -7,6 +7,7 @@ Row {
 	property alias speaker: speaker
 	visible: display.text
 	spacing: 6
+	signal clicked
     
     function getWidth() {
         return display.paintedWidth + speaker.width + spacing * 2
@@ -41,6 +42,8 @@ Row {
 			id: mouseArea
 			anchors.fill: speaker
             hoverEnabled: true
+			
+			onClicked: speech.clicked()
             
 			onEntered: {
                 speaker.state = "hovered"

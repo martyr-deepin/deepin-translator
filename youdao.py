@@ -4,7 +4,7 @@
 
 from __future__ import unicode_literals
 
-from netlib import public_curl
+from netlib import public_curl, urlencode
 from xmltodict import parse as xml_parse
 from PyQt5 import QtCore
 
@@ -64,6 +64,8 @@ def AutoQObject(*class_def, **kwargs):
 SimpleInfo = AutoQObject(("keyword", str),
                          ("ukphone", str),
                          ("usphone", str),
+                         ("uklink", str),
+                         ("uslink", str),
                          ("webtrans", str),                         
                          ("trans", str),
                          ("weba", str),
@@ -72,6 +74,16 @@ SimpleInfo = AutoQObject(("keyword", str),
 
 simpleinfo = SimpleInfo()
 
+'''
+
+
+'''
+
+def get_voice(text, lang):
+    url = "http://dict.youdao.com/dictvoice"
+    data = { "keyfrom" : "deskdict.mini.word", "audio" : text, "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
+             "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "type" : lang}
+    return "%s?%s" % (url, urlencode(data))
 
 def get_suggest(text):
     data = { "type" : "DESKDICT", "num" : 10, "ver" : 2.0, "le": "eng", "q" : text }
@@ -83,8 +95,9 @@ def get_suggest(text):
         return None
     
     
-def get_simple(*args):    
-    text = args[-1]
+def get_simple(text):    
+    if not text:
+        return
 
     data = { "keyfrom" : "deskdict.mini", "q" : text, "doctype" : "xml", "xmlVersion" : 8.2,
              "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
@@ -105,14 +118,18 @@ def get_simple(*args):
         ukphone = word.get("ukphone", None)
         if ukphone:
             simpleinfo.ukphone = "英[%s]" % ukphone
+            simpleinfo.uklink = get_voice(text, 1)
         else:    
             simpleinfo.ukphone = None
+            simpleinfo.uklink = None
             
         usphone = word.get("usphone", None)
         if usphone:
             simpleinfo.usphone = "美[%s]" % usphone
+            simpleinfo.uslink = get_voice(text, 2)
         else:    
             simpleinfo.usphone = None
+            simpleinfo.uslink = None
             
         trs = word["trs"]["tr"]
         if isinstance(trs, list):
