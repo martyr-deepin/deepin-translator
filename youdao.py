@@ -111,28 +111,26 @@ def get_simple(text):
     yodaodict = ret['yodaodict']
     simpleinfo.keyword = text    
     
+    simpleinfo.ukphone = None
+    simpleinfo.usphone = None
+    simpleinfo.trans = None
+    simpleinfo.uslink = None
+    simpleinfo.uklink = None
+        
     try:
         word = yodaodict['basic']['simple-dict']['word']
     except Exception: 
-        simpleinfo.ukphone = None
-        simpleinfo.usphone = None
-        simpleinfo.trans = None
+        pass
     else:    
         ukphone = word.get("ukphone", None)
         if ukphone:
             simpleinfo.ukphone = "英[%s]" % ukphone
             simpleinfo.uklink = get_voice(text, 1)
-        else:    
-            simpleinfo.ukphone = None
-            simpleinfo.uklink = None
             
         usphone = word.get("usphone", None)
         if usphone:
             simpleinfo.usphone = "美[%s]" % usphone
             simpleinfo.uslink = get_voice(text, 2)
-        else:    
-            simpleinfo.usphone = None
-            simpleinfo.uslink = None
             
         trs = word["trs"]["tr"]
         if isinstance(trs, list):
