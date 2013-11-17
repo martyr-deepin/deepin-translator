@@ -25,7 +25,7 @@ from PyQt5 import QtCore, QtQuick
 from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal
 from PyQt5.QtDBus import QDBusConnection, QDBusInterface
 from PyQt5.QtGui import QSurfaceFormat, QColor, QIcon
-from PyQt5.QtQuick import QQuickView
+from PyQt5.QtQuick import QQuickView, QQuickItem
 from PyQt5.QtWidgets import QApplication, qApp, QSystemTrayIcon
 from Xlib import X, XK, display
 from Xlib.ext import record
@@ -242,7 +242,7 @@ if __name__ == "__main__":
     surface_format.setAlphaBufferSize(8)
     
     view.setColor(QColor(0, 0, 0, 0))
-    view.setFlags(QtCore.Qt.FramelessWindowHint | QtCore.Qt.X11BypassWindowManagerHint)
+    view.setFlags(QtCore.Qt.Popup)
     view.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
     view.setFormat(surface_format)
     
@@ -259,13 +259,19 @@ if __name__ == "__main__":
     
     rootObject = view.rootObject()
     
+    def updateTranslate(text):
+        get_simple(text)
+        rootObject.showTranslate()
+    
+    textInput = rootObject.findChild(QQuickItem, "textInput")
+    textInput.accepted.connect(updateTranslate)
+    
     def show_translate(x, y, text):
         view.setX(x + 10)
         view.setY(y + 10)
         view.showNormal()
         get_simple(text)
-        rootObject.adjustWidth()
-        rootObject.autoSpeech()
+        rootObject.showTranslate()
         
     def hide_translate():
         if not in_translate_window():

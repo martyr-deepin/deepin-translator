@@ -16,16 +16,21 @@ Rectangle {
     property int borderMarin: 10
     property int textMargin: 10
     
+    function showTranslate() {
+        adjustWidth()
+        autoSpeech()
+    }
+    
     function adjustWidth() {
         var maxWidth = Math.max(
-            keyword.paintedWidth,
+            keyword.height,
             trans.paintedWidth, 
             webtrans.paintedWidth, 
             usSpeech.getWidth() + ukSpeech.getWidth()
         ) + (borderMarin + textMargin) * 2
         windowView.width = maxWidth
         
-        windowView.height = keyword.paintedHeight + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + (borderMarin + textMargin) * 2
+        windowView.height = keyword.height + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + (borderMarin + textMargin) * 2
     }    
     
     function autoSpeech() {
@@ -52,16 +57,11 @@ Rectangle {
 		    anchors.fill: parent
 		    anchors.margins: textMargin
 		    
-		    Text { 
-			    id: keyword
-			    text: simpleinfo.keyword
-                textFormat: TextEdit.RichText
-			    font { 
-                    pixelSize: 18
-                    bold: true
-                }
-			    color: "#000000"
-		    }
+            Entry {
+                id: keyword
+                objectName: "textInput"
+                text: simpleinfo.keyword
+            }
 		    
 		    Row {
                 id: speech

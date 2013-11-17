@@ -7,6 +7,7 @@ from __future__ import unicode_literals
 from netlib import public_curl, urlencode
 from xmltodict import parse as xml_parse
 from PyQt5 import QtCore
+from PyQt5.QtCore import pyqtSlot
 
 def AutoQObject(*class_def, **kwargs):
     '''
@@ -93,7 +94,6 @@ def get_suggest(text):
         return doc['suggest']['items']['item']
     except:
         return None
-    
     
 def get_simple(text):    
     if not text:
