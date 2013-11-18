@@ -260,7 +260,6 @@ if __name__ == "__main__":
     
     view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'WordTranslate.qml')))
 
-
     google_view = QQuickView()
     surface_format = QSurfaceFormat()
     surface_format.setAlphaBufferSize(8)
@@ -276,8 +275,6 @@ if __name__ == "__main__":
     qml_context.setContextProperty("qApp", qApp)
     
     google_view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'LongTranslate.qml')))
-    
-    uniqueService.uniqueTrigger.connect(view.showFullScreen)
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
