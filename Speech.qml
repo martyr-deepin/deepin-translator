@@ -26,7 +26,7 @@ Row {
 	
 	Image {
 		id: speaker
-		source: "speaker.png"
+		source: "image/speaker.png"
 		anchors.verticalCenter: parent.verticalCenter 
         
 		states: State {

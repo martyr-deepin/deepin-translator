@@ -16,6 +16,9 @@ Rectangle {
     width: 300
     height: 200
     
+    function showTranslate() {
+    }
+    
 	Rectangle {
         id: border
         radius: 6
@@ -30,7 +33,7 @@ Rectangle {
 		    
 		    TextEdit { 
                 id: trans
-			    text: googleinfo.translate
+			    text: translateInfo.translate
                 textFormat: TextEdit.RichText
 			    wrapMode: TextEdit.Wrap
 			    selectByMouse: true

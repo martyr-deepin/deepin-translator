@@ -34,7 +34,7 @@ Rectangle {
     }    
     
     function autoSpeech() {
-        var speechlink = simpleinfo.uslink ? simpleinfo.uslink : simpleinfo.uklink
+        var speechlink = translateInfo.uslink ? translateInfo.uslink : translateInfo.uklink
         if (speechlink) {
 		    audioPlayer.source = speechlink
             audioPlayer.play()
@@ -60,7 +60,7 @@ Rectangle {
             Entry {
                 id: keyword
                 objectName: "textInput"
-                text: simpleinfo.keyword
+                text: translateInfo.keyword
             }
 		    
 		    Row {
@@ -69,19 +69,19 @@ Rectangle {
 			    
 			    Speech { 
                     id: usSpeech
-                    text: simpleinfo.usphone
+                    text: translateInfo.usphone
                     
 					onClicked: {
-						audioPlayer.source = simpleinfo.uslink
+						audioPlayer.source = translateInfo.uslink
 						audioPlayer.play()
 					}
                 }			
                 
 			    Speech { 
                     id: ukSpeech
-                    text: simpleinfo.ukphone 
+                    text: translateInfo.ukphone 
 					onClicked: {
-						audioPlayer.source = simpleinfo.uklink
+						audioPlayer.source = translateInfo.uklink
 						audioPlayer.play()
 					}
                 }
@@ -89,7 +89,7 @@ Rectangle {
 		    
 		    TextEdit { 
                 id: trans
-			    text: simpleinfo.trans
+			    text: translateInfo.trans
                 textFormat: TextEdit.RichText
 			    wrapMode: TextEdit.Wrap
 			    selectByMouse: true
@@ -104,7 +104,7 @@ Rectangle {
 		    
 		    TextEdit {
                 id: webtrans
-			    text: simpleinfo.webtrans
+			    text: translateInfo.webtrans
                 textFormat: TextEdit.RichText
 			    wrapMode: TextEdit.Wrap
 			    selectByMouse: true

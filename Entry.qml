@@ -43,7 +43,7 @@ Item {
         
         Image {
             id: actionButton
-            source: "search.png"
+            source: "image/search.png"
             width: 16
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: entryBorder.right

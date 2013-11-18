@@ -20,19 +20,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from Xlib import display
-import xcb
-import xcb.xproto
+from PyQt5.QtWidgets import qApp, QSystemTrayIcon
 
-conn = xcb.connect()
-screen = conn.get_setup().roots[0]
-root = screen.root
-screen_width = screen.width_in_pixels
-screen_height = screen.height_in_pixels
+class SystemTrayIcon(QSystemTrayIcon):
+    
+    def __init__(self, icon, parent=None):
+        QSystemTrayIcon.__init__(self, icon, parent)
+        self.activated.connect(self.on_activated) 
         
-local_dpy = display.Display()
-record_dpy = display.Display()
-
-def get_pointer_coordiante():
-    pointer = conn.core.QueryPointer(root).reply()
-    return (pointer.root_x, pointer.root_y)
+    def on_activated(self, reason):
+         if reason == QSystemTrayIcon.Trigger:
+             qApp.quit()
+        

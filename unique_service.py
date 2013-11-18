@@ -20,5 +20,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# class Interface(QQuickView):
+from PyQt5.QtCore import pyqtSlot, QObject, pyqtSignal
+from PyQt5.QtDBus import QDBusConnection, QDBusInterface
+import sys
 
+class UniqueService(QObject):
+    uniqueTrigger = pyqtSignal()    
+    
+    def __init__(self, dbus_name, object_name):
+        QObject.__init__(self)
+        
+        iface = QDBusInterface(dbus_name, object_name, '', QDBusConnection.sessionBus())
+        if iface.isValid():
+            iface.call("unique")
+            sys.exit(1)
+        
+        QDBusConnection.sessionBus().registerService(dbus_name)
+        QDBusConnection.sessionBus().registerObject(object_name, self, QDBusConnection.ExportAllSlots)
+    
+    @pyqtSlot()
+    def unique(self):
+        self.uniqueTrigger.emit()
+        
