@@ -32,7 +32,7 @@ from xutils import get_pointer_coordiante
 class TranslateSimple(TranslateInterface):
     
     def __init__(self):
-        TranslateInterface.__init__(self, "translate_simple.qml")
+        TranslateInterface.__init__(self, "TranslateSimple.qml")
         
     def get_voice(self, text, lang):
         url = "http://dict.youdao.com/dictvoice"

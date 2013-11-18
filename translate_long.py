@@ -103,7 +103,7 @@ LANGUAGES = [
 class TranslateLong(TranslateInterface):
     
     def __init__(self):
-        TranslateInterface.__init__(self, "translate_long.qml")
+        TranslateInterface.__init__(self, "TranslateLong.qml")
         
     def parse_dummy_list(self, dlist):
         while ",," in dlist or "[," in dlist:
