@@ -27,7 +27,7 @@ from PyQt5.QtDBus import QDBusConnection, QDBusInterface
 from PyQt5.QtGui import QSurfaceFormat, QColor, QIcon
 from PyQt5.QtQuick import QQuickView, QQuickItem
 from PyQt5.QtWidgets import QApplication, qApp, QSystemTrayIcon
-from Xlib import X, XK, display
+from Xlib import X, XK
 from Xlib.ext import record
 from Xlib.protocol import rq
 from threading import Timer
@@ -43,21 +43,14 @@ import threading
 import xcb
 import xcb.xproto
 import commands, subprocess
+from xutils import conn, screen_width, screen_height, root, record_dpy, local_dpy
 
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
 
-conn = xcb.connect()
-screen = conn.get_setup().roots[0]
-root = screen.root
-screen_width = screen.width_in_pixels
-screen_height = screen.height_in_pixels
 screenshot_width = 600
 screenshot_height = 100
-root = screen.root
-        
-local_dpy = display.Display()
-record_dpy = display.Display()
+
 press_ctrl = False
 
 def in_translate_window():
