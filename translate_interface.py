@@ -32,8 +32,8 @@ class TranslateInterface(QQuickView):
     def __init__(self, qml_file):
         QQuickView.__init__(self)
         
-        self.window_offset_x = 10
-        self.window_offset_y = 10
+        self.window_offset_x = -50
+        self.window_offset_y = 5
 
         surface_format = QSurfaceFormat()
         surface_format.setAlphaBufferSize(8)

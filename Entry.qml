@@ -13,11 +13,7 @@ Item {
     Rectangle {
         id: entryBorder
         anchors.fill: parent
-        border {
-            width: 1
-            color: Qt.rgba(0, 0, 0, 0.5)
-        }
-        radius: 3
+        color: Qt.rgba(0, 0, 0, 0)
 
         Rectangle {
             id: textInputArea
@@ -25,15 +21,18 @@ Item {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: actionButton.left
-            anchors.leftMargin: 10
+            anchors.leftMargin: 0
             anchors.rightMargin: 10
             anchors.topMargin: 5
             anchors.bottomMargin: anchors.topMargin
             clip: true          /* clip to avoid TextInput out of area */
+            color: Qt.rgba(0, 0, 0, 0)
             
             TextInput {
                 id: textInput
                 anchors.fill: parent
+                color: "#f7d303"
+		        font { pixelSize: 18 }
                 
                 onAccepted: {
                     entry.accepted(text)
@@ -48,14 +47,39 @@ Item {
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: entryBorder.right
             anchors.rightMargin: 10
+            opacity: 0.5
             
-            MouseArea {
-                anchors.fill: parent
+		    states: State {
+			    name: "hovered"
+			    PropertyChanges { target: actionButton; opacity: 1.0 }
+		    }
+		    
+		    transitions: Transition {
+			    NumberAnimation { properties: "opacity"; duration: 350 }
+		    }
+		    
+		    MouseArea {
+			    id: mouseArea
+			    anchors.fill: actionButton
+                hoverEnabled: true
+			    
+			    onEntered: {
+                    actionButton.state = "hovered"
+                    mouseArea.cursorShape = Qt.PointingHandCursor
+                }
                 
+			    onExited: {
+                    actionButton.state = ""
+                    mouseArea.cursorShape = Qt.ArrowCursor
+                }
+                
+			    onReleased: { 
+                    actionButton.state = mouseArea.containsMouse ? "hovered" : ""
+                }
                 onClicked: {
                     entry.accepted(textInput.text)
                 }
-            }
+		    }
         }
     }
 }
