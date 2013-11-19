@@ -69,6 +69,7 @@ if __name__ == "__main__":
     record_event.press_ctrl.connect(translate_simple.translate_cursor_word)
     record_event.wheel_press.connect(hide_translate)
     record_event.left_button_press.connect(hide_translate)
+    record_event.right_button_press.connect(hide_translate)
     record_event.cursor_stop.connect(translate_simple.show_translate)
     record_event.translate_selection.connect(show_translate)
     
