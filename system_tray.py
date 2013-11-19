@@ -41,9 +41,9 @@ class SystemTrayIcon(QSystemTrayIcon):
             mouse_x = int(geometry.x() / 2 + geometry.width() / 2)
             mouse_y = int(geometry.y() / 2)
             self.menu = Menu([
-                    ("about", "关于"),
                     ("src_lang", "原始语言"),
                     ("dst_lang", "目标语言"),
+                    ("about", "关于"),
                     ("quit", "退出"),
                     ])
             self.menu.itemClicked.connect(self.click_menu)
