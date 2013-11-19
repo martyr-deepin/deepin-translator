@@ -97,12 +97,12 @@ class TranslateSimple(TranslateInterface):
         else:    
             ukphone = word.get("ukphone", None)
             if ukphone:
-                self.translate_info.ukphone = "英[%s]" % ukphone
+                self.translate_info.ukphone = ukphone
                 self.translate_info.uklink = self.get_voice(text, 1)
                 
             usphone = word.get("usphone", None)
             if usphone:
-                self.translate_info.usphone = "美[%s]" % usphone
+                self.translate_info.usphone = usphone
                 self.translate_info.uslink = self.get_voice(text, 2)
                 
             trs = word["trs"]["tr"]

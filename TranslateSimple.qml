@@ -59,19 +59,35 @@ RectWithCorner {
         color: Qt.rgba(0, 0, 0, 0)
         
 	    Column {
-		    spacing: 10
+		    spacing: 5
 		    anchors.fill: parent
-		    anchors.margins: textMargin
+		    anchors.topMargin: textMargin
+		    anchors.bottomMargin: textMargin
 		    
             Entry {
                 id: keyword
                 objectName: "textInput"
                 text: translateInfo.keyword
+                anchors.left: parent.left
+                anchors.right: parent.right
+		        anchors.leftMargin: textMargin
+		        anchors.rightMargin: textMargin
+            }
+            
+            Rectangle {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: 1
+                color: "#aa666666"
             }
 		    
 		    Row {
                 id: speech
 			    spacing: 10
+                anchors.left: parent.left
+                anchors.right: parent.right
+		        anchors.leftMargin: textMargin
+		        anchors.rightMargin: textMargin
 			    
 			    Speech { 
                     id: usSpeech
@@ -94,36 +110,50 @@ RectWithCorner {
 					}
                 }
 		    }
-		    
-		    TextEdit { 
-                id: trans
-			    text: translateInfo.trans
-                textFormat: TextEdit.RichText
-			    wrapMode: TextEdit.Wrap
-			    selectByMouse: true
-			    font { pixelSize: 12 }
-			    color: "#FFFFFF"
+            
+            Rectangle {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: 10
+                color: Qt.rgba(0, 0, 0, 0)
+            }
+            
+            Column {
+                anchors.left: parent.left
+                anchors.right: parent.right
+		        anchors.leftMargin: textMargin
+		        anchors.rightMargin: textMargin
                 
-                onTextChanged: {
-                    cursorPosition: 0
-                    cursorVislble: false
-                }
-		    }		
-		    
-		    TextEdit {
-                id: webtrans
-			    text: translateInfo.webtrans
-                textFormat: TextEdit.RichText
-			    wrapMode: TextEdit.Wrap
-			    selectByMouse: true
-			    font { pixelSize: 12 }
-			    color: "#FFFFFF"
+		        TextEdit { 
+                    id: trans
+			        text: translateInfo.trans
+                    textFormat: TextEdit.RichText
+			        wrapMode: TextEdit.Wrap
+			        selectByMouse: true
+			        font { pixelSize: 14 }
+			        color: "#FFFFFF"
+                    
+                    onTextChanged: {
+                        cursorPosition: 0
+                        cursorVislble: false
+                    }
+		        }		
+		        
+		        TextEdit {
+                    id: webtrans
+			        text: translateInfo.webtrans
+                    textFormat: TextEdit.RichText
+			        wrapMode: TextEdit.Wrap
+			        selectByMouse: true
+			        font { pixelSize: 14 }
+			        color: "#FFFFFF"
 
-                onTextChanged: {
-                    cursorPosition: 0
-                    cursorVislble: false
-                }
-		    }
+                    onTextChanged: {
+                        cursorPosition: 0
+                        cursorVislble: false
+                    }
+		        }
+            }
 	    }        
 	}
 }

@@ -3,7 +3,7 @@ import QtQuick 2.1
 Item {
     id: entry
     width: parent.width
-    height: 30
+    height: 24
     
     property alias text: textInput.text
     property alias textInput: textInput
@@ -15,28 +15,14 @@ Item {
         anchors.fill: parent
         color: Qt.rgba(0, 0, 0, 0)
 
-        Rectangle {
-            id: textInputArea
-            anchors.top: parent.top
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: actionButton.left
-            anchors.leftMargin: 0
-            anchors.rightMargin: 10
-            anchors.topMargin: 5
-            anchors.bottomMargin: anchors.topMargin
-            clip: true          /* clip to avoid TextInput out of area */
-            color: Qt.rgba(0, 0, 0, 0)
+        TextInput {
+            id: textInput
+            anchors.verticalCenter: parent.verticalCenter
+            color: "#f7d303"
+		    font { pixelSize: 18 }
             
-            TextInput {
-                id: textInput
-                anchors.fill: parent
-                color: "#f7d303"
-		        font { pixelSize: 18 }
-                
-                onAccepted: {
-                    entry.accepted(text)
-                }
+            onAccepted: {
+                entry.accepted(text)
             }
         }
         
@@ -46,7 +32,7 @@ Item {
             width: 16
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: entryBorder.right
-            anchors.rightMargin: 10
+            anchors.rightMargin: 5
             opacity: 0.5
             
 		    states: State {
