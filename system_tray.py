@@ -32,7 +32,7 @@ class SystemTrayIcon(QSystemTrayIcon):
         
     @pyqtSlot(str)
     def click_menu(self, menu_id):
-        if menu_id:
+        if menu_id == "quit":
             qApp.quit()
         
     def on_activated(self, reason):
