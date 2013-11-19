@@ -21,6 +21,8 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from Xlib import display
+from Xlib.ext import record
+from Xlib import X, XK
 import xcb
 import xcb.xproto
 
@@ -36,3 +38,30 @@ record_dpy = display.Display()
 def get_pointer_coordiante():
     pointer = conn.core.QueryPointer(root).reply()
     return (pointer.root_x, pointer.root_y)
+
+def record_event(record_callback):
+    ctx = record_dpy.record_create_context(
+        0,
+        [record.AllClients],
+        [{
+                'core_requests': (0, 0),
+                'core_replies': (0, 0),
+                'ext_requests': (0, 0, 0, 0),
+                'ext_replies': (0, 0, 0, 0),
+                'delivered_events': (0, 0),
+                'device_events': (X.KeyPress, X.MotionNotify),
+                'errors': (0, 0),
+                'client_started': False,
+                'client_died': False,
+                }])
+         
+    record_dpy.record_enable_context(ctx, record_callback)
+    record_dpy.record_free_context(ctx)
+
+def get_keyname(event):
+    keysym = local_dpy.keycode_to_keysym(event.detail, 0)
+    for name in dir(XK):
+        if name[:3] == "XK_" and getattr(XK, name) == keysym:
+            return name[3:]
+    return "[%d]" % keysym
+     

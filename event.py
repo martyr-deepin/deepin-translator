@@ -21,12 +21,12 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtCore import QObject, pyqtSignal
-from Xlib import X, XK
+from Xlib import X
 from Xlib.ext import record
 from Xlib.protocol import rq
 from ocr import ocr_word
 from threading import Timer
-from xutils import record_dpy, local_dpy
+from xutils import record_dpy, record_event, get_keyname
 import commands, subprocess
 
 press_ctrl = False
@@ -51,12 +51,6 @@ class RecordEvent(QObject):
         self.stop_delay = 0.05
         self.view = view
     
-    def lookup_keysym(self, keysym):
-        for name in dir(XK):
-            if name[:3] == "XK_" and getattr(XK, name) == keysym:
-                return name[3:]
-        return "[%d]" % keysym
-     
     def record_callback(self, reply):
         global press_ctrl
         
@@ -72,14 +66,14 @@ class RecordEvent(QObject):
             event, data = rq.EventField(None).parse_binary_value(data, record_dpy.display, None, None)
             
             if event.type == X.KeyPress:
-                keyname = self.lookup_keysym(local_dpy.keycode_to_keysym(event.detail, 0))
+                keyname = get_keyname(event)
                 if keyname in ["Control_L", "Control_R"]:
                     press_ctrl = True
                     
                     if not self.view.in_translate_area():
                         self.press_ctrl.emit()
             elif event.type == X.KeyRelease:
-                keyname = self.lookup_keysym(local_dpy.keycode_to_keysym(event.detail, 0))
+                keyname = get_keyname(event)
                 if keyname in ["Control_L", "Control_R"]:
                     press_ctrl = False
                     self.release_ctrl.emit()
@@ -110,20 +104,4 @@ class RecordEvent(QObject):
                 self.cursor_stop.emit(*ocr_info)
                 
     def filter_event(self):
-        ctx = record_dpy.record_create_context(
-                0,
-                [record.AllClients],
-                [{
-                        'core_requests': (0, 0),
-                        'core_replies': (0, 0),
-                        'ext_requests': (0, 0, 0, 0),
-                        'ext_replies': (0, 0, 0, 0),
-                        'delivered_events': (0, 0),
-                        'device_events': (X.KeyPress, X.MotionNotify),
-                        'errors': (0, 0),
-                        'client_started': False,
-                        'client_died': False,
-                }])
-         
-        record_dpy.record_enable_context(ctx, self.record_callback)
-        record_dpy.record_free_context(ctx)
+        record_event(self.record_callback)
