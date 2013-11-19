@@ -47,4 +47,4 @@ class SystemTrayIcon(QSystemTrayIcon):
                     ("quit", "退出"),
                     ])
             self.menu.itemClicked.connect(self.click_menu)
-            self.menu.showDockMenu(mouse_x - 53, mouse_y - 80)
+            self.menu.showDockMenu(mouse_x, mouse_y)
