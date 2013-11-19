@@ -7,8 +7,6 @@ Rectangle {
     height: rectHeight
     color: Qt.rgba(0, 0, 0, 0)
 
-    property alias canvas: canvas
-    
     property bool withBlur: true
     property color fillColor: Qt.rgba(0, 0, 0, 0.7)
     property color blurColor: Qt.rgba(0, 0, 0, 1)

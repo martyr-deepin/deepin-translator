@@ -53,7 +53,7 @@ if __name__ == "__main__":
     textInput.accepted.connect(translate_simple.get_translate)
     
     def show_translate(x, y, text):
-        if len(text.split(" ")) > 1:
+        if len(filter(lambda word: word != "", (text.split(" ")))) > 1:
             translate_long.show_translate(x, y, text)
         else:
             translate_simple.show_translate(x, y, text)
