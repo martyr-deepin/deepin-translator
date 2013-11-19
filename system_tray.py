@@ -41,6 +41,8 @@ class SystemTrayIcon(QSystemTrayIcon):
             mouse_x = int(geometry.x() / 2 + geometry.width() / 2)
             mouse_y = int(geometry.y() / 2)
             self.menu = Menu([
+                    ("toggle_word", "暂停取词"),
+                    ("toggle_speecn", "取词后发音"),
                     ("src_lang", "原始语言"),
                     ("dst_lang", "目标语言"),
                     ("about", "关于"),
