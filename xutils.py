@@ -23,6 +23,7 @@
 from Xlib import display
 from Xlib.ext import record
 from Xlib import X, XK
+from Xlib.protocol import rq
 import xcb
 import xcb.xproto
 
@@ -58,6 +59,9 @@ def record_event(record_callback):
     record_dpy.record_enable_context(ctx, record_callback)
     record_dpy.record_free_context(ctx)
 
+def get_event_data(data):
+    return rq.EventField(None).parse_binary_value(data, record_dpy.display, None, None)
+    
 def get_keyname(event):
     keysym = local_dpy.keycode_to_keysym(event.detail, 0)
     for name in dir(XK):
@@ -65,3 +69,10 @@ def get_keyname(event):
             return name[3:]
     return "[%d]" % keysym
      
+def check_valid_event(reply):
+    if reply.category != record.FromServer:
+        return 
+    if reply.client_swapped:
+        return
+    if not len(reply.data) or ord(reply.data[0]) < 2:
+        return

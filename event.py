@@ -22,11 +22,9 @@
 
 from PyQt5.QtCore import QObject, pyqtSignal
 from Xlib import X
-from Xlib.ext import record
-from Xlib.protocol import rq
 from ocr import ocr_word
 from threading import Timer
-from xutils import record_dpy, record_event, get_keyname
+from xutils import record_event, get_keyname, check_valid_event, get_event_data
 import commands, subprocess
 
 press_ctrl = False
@@ -54,16 +52,11 @@ class RecordEvent(QObject):
     def record_callback(self, reply):
         global press_ctrl
         
-        if reply.category != record.FromServer:
-            return
-        if reply.client_swapped:
-            return
-        if not len(reply.data) or ord(reply.data[0]) < 2:
-            return
+        check_valid_event(reply)
      
         data = reply.data
         while len(data):
-            event, data = rq.EventField(None).parse_binary_value(data, record_dpy.display, None, None)
+            event, data = get_event_data(data)
             
             if event.type == X.KeyPress:
                 keyname = get_keyname(event)
