@@ -22,7 +22,6 @@
 
 from PyQt5.QtWidgets import qApp, QSystemTrayIcon
 from PyQt5.QtCore import pyqtSlot
-from xutils import get_pointer_coordiante
 from deepin_menu.menu import Menu
 
 class SystemTrayIcon(QSystemTrayIcon):
@@ -33,18 +32,19 @@ class SystemTrayIcon(QSystemTrayIcon):
         
     @pyqtSlot(str)
     def click_menu(self, menu_id):
-        print menu_id
         if menu_id:
             qApp.quit()
         
     def on_activated(self, reason):
         if reason == QSystemTrayIcon.Context:
-            (mouse_x, mouse_y) = get_pointer_coordiante()
-            menu = Menu([
+            geometry = self.geometry()
+            mouse_x = int(geometry.x() / 2 + geometry.width() / 2)
+            mouse_y = int(geometry.y() / 2)
+            self.menu = Menu([
                     ("about", "关于"),
                     ("src_lang", "原始语言"),
                     ("dst_lang", "目标语言"),
                     ("quit", "退出"),
                     ])
-            menu.itemClicked.connect(self.click_menu)
-            menu.showDockmenu(mouse_x - 67, mouse_y - 140)
+            self.menu.itemClicked.connect(self.click_menu)
+            self.menu.showDockMenu(mouse_x - 53, mouse_y - 80)
