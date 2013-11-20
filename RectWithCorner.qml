@@ -84,9 +84,9 @@ Rectangle {
                 if (cornerPos > x + w - rectRadius - cornerWidth / 2) {
                     cornerPos = x + w - rectRadius - cornerWidth / 2
                 }
-                ctx.lineTo(cornerPos + cornerWidth / 2, y) /* corner */
+                ctx.lineTo(cornerPos - cornerWidth / 2, y) /* corner */
                 ctx.lineTo(cornerPos, y - cornerHeight)
-                ctx.lineTo(cornerPos - cornerWidth / 2, y)
+                ctx.lineTo(cornerPos + cornerWidth / 2, y)
 
                 ctx.lineTo(x + w - rectRadius, y);
 
@@ -152,9 +152,9 @@ Rectangle {
                 if (cornerPos > y + h - rectRadius - cornerWidth / 2) {
                     cornerPos = y + h - rectRadius - cornerWidth / 2
                 }
-                ctx.lineTo(x + w, cornerPos + cornerWidth / 2) /* corner */
+                ctx.lineTo(x + w, cornerPos - cornerWidth / 2) /* corner */
                 ctx.lineTo(x + w + cornerHeight, cornerPos)
-                ctx.lineTo(x + w, cornerPos - cornerWidth / 2)
+                ctx.lineTo(x + w, cornerPos + cornerWidth / 2)
 
                 ctx.lineTo(x+w,y+h-rectRadius);    // right side
                 // draw bottom right corner
