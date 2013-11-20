@@ -25,7 +25,7 @@ RectWithCorner {
             webtrans.paintedWidth, 
             usSpeech.getWidth() + ukSpeech.getWidth()
         ) + (borderMargin + textMargin + container.blurRadius) * 2
-        var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + (borderMargin + textMargin + container.blurRadius + container.cornerHeight) * 2
+        var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 
         
         windowView.width = maxWidth
         windowView.height = maxHeight
