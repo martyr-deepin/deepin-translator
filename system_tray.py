@@ -43,8 +43,13 @@ class SystemTrayIcon(QSystemTrayIcon):
             self.menu = Menu([
                     ("toggle_word", "暂停取词"),
                     ("toggle_speecn", "取词后发音"),
-                    ("src_lang", "原始语言"),
-                    ("dst_lang", "目标语言"),
+                    None,
+                    ("key_trigger_ocr", "按住辅助键屏幕取词"),
+                    ("key_trigger_select", "按住辅助键翻译选区"),
+                    ("set_key", "设置辅助键"),
+                    None,
+                    ("translate_engine", "翻译引擎选择"),
+                    None,
                     ("about", "关于"),
                     ("quit", "退出"),
                     ])
