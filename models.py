@@ -43,12 +43,16 @@ class SuggestModel(QtCore.QAbstractListModel):
         self.suggested.connect(self.onSuggestedData)
         self._data = []
         
-        
     def setSuggestData(self, data):
         self.beginResetModel()
         del self._data
         self._data = data        
         self.endResetModel()  
+        self.finished.emit()
+        
+    def resetSuggestData(self):    
+        self.beginResetModel()
+        self.endResetModel()
         self.finished.emit()
                     
     def addSuggestData(self, suggest):
@@ -90,6 +94,8 @@ class SuggestModel(QtCore.QAbstractListModel):
     def parseSuggested(self, data):        
         if data is not None:
             self.setSuggestData(data)
+        else:    
+            self.resetSuggestData()
     
     def emitSuggesResult(self, data, threadId):        
         if threadId == self.suggestThreadId:
