@@ -9,8 +9,8 @@ import utils
 
 from xmltodict import parse as xml_parse
 
-def get_suggest(text):
-    data = { "type" : "DESKDICT", "num" : 10, "ver" : 2.0, "le": "eng", "q" : text }
+def get_suggest(text, num=10):
+    data = { "type" : "DESKDICT", "num" : num, "ver" : 2.0, "le": "eng", "q" : text }
     ret = requests.get("http://dict.youdao.com/suggest", params=data).text
     doc =  xml_parse(ret)
     try:
@@ -36,11 +36,10 @@ class SuggestModel(QtCore.QAbstractListModel):
         
         
     def setSuggestData(self, data):
-        del self._data
-        self._data = []
-        # self.dataChanged.emit(QtCore.QModelIndex(), QtCore.QModelIndex())
-        for item in data:
-            self.addSuggestData(item)
+        self.beginResetModel()
+        del self._data        
+        self._data = data        
+        self.endResetModel()  
                     
     def addSuggestData(self, suggest):
         self.beginInsertRows(QtCore.QModelIndex(), self.rowCount(), self.rowCount())
@@ -63,10 +62,15 @@ class SuggestModel(QtCore.QAbstractListModel):
         return len(self._data)
     
     def data(self, index, role):
+
         if not index.isValid() or index.row() > len(self._data):
             return QtCore.QVariant()
         
-        item = self._data[index.row()]
+        try:
+            item = self._data[index.row()]
+        except:
+            return QtCore.QVariant
+        
         if role == self.TitleRole:
             return item.get("title", "")
         elif role == self.ExplainRole:
@@ -85,15 +89,21 @@ class SuggestModel(QtCore.QAbstractListModel):
         if threadId == self.suggestThreadId:
             self.parseSuggested(data)
             
-    def asyncSuggest(self, suggestFunc, text):        
+    def asyncSuggest(self, suggestFunc, args):        
         self.suggestThreadId += 1
         thread_id = copy.deepcopy(self.suggestThreadId)
         utils.ThreadFetch(
-            fetch_funcs=(suggestFunc, (text,)),
+            fetch_funcs=(suggestFunc, args),
             success_funcs=(self.emitSuggesResult, (thread_id,))).start()
         
     @QtCore.pyqtSlot(str)
     def suggest(self, text):    
-        self.asyncSuggest(get_suggest, text)
+        self.asyncSuggest(get_suggest, (text,))
+        
+    @QtCore.pyqtSlot(str, int)
+    def suggestWithNum(self, text, num=10):    
+        self.asyncSuggest(get_suggest, (text, num))
+    
+    
 
 suggestModel = SuggestModel()        
