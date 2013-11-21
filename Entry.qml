@@ -9,7 +9,7 @@ Item {
     property alias textInput: textInput
 
     signal accepted (string text)
-    signal test
+    signal inputChanged
     
     Rectangle {
         id: entryBorder
@@ -29,7 +29,7 @@ Item {
             }
             
             onTextChanged: {
-                entry.test()
+                entry.inputChanged()
             }
         }
         

@@ -74,7 +74,7 @@ RectWithCorner {
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
                 
-                onTest: {
+                onInputChanged: {
                     suggestModel.suggest(keyword.text)
                     console.log(text)
                 }
