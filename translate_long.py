@@ -21,6 +21,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from urllib import urlencode
 from auto_object import AutoQObject
 from netlib import public_curl
 from translate_interface import TranslateInterface
@@ -100,6 +101,20 @@ LANGUAGES = [
     ('zh-TW', u'\u4e2d\u6587(\u7e41\u4f53)')
     ]
 
+def group(seq, size): 
+    def take(seq, n):
+        for i in xrange(n):
+            yield seq.next()
+
+    if not hasattr(seq, 'next'):  
+        seq = iter(seq)
+    while True: 
+        x = list(take(seq, size))
+        if x:
+            yield x
+        else:
+            break
+
 class TranslateLong(TranslateInterface):
     
     def __init__(self):
@@ -156,7 +171,21 @@ class TranslateLong(TranslateInterface):
         result = self.get_sample_result(plist)
         return result.decode(encoding)
     
+    @classmethod
+    def get_google_voices(cls, text):
+        if not isinstance(text, unicode):
+            text = text.decode("utf-8", "ignore")
+            
+        results = []    
+        contents = group(text, 54)
+        for c in contents:
+            results.append(cls.google_voice("".join(c)))
+        return results    
+    
+    
+    @classmethod
     def google_voice(text, tl="en", encoding="UTF-8"):
+        url = "http://translate.google.cn/translate_tts"
         data = dict(ie=encoding,
                     tl=tl,
                     total=1,
@@ -165,15 +194,8 @@ class TranslateLong(TranslateInterface):
                     prev="input",
                     q=text
                     )
-        return public_curl.request(data)
-        
-    def init_translate_info(self):
-        TranslateInfo = AutoQObject(
-            ("translate", str),
-            ("voice", str),
-            name="TranslateInfo")
-
-        self.translate_info = TranslateInfo()
+        args = urlencode(data).encode("utf-8", "ignore")
+        return "%s?%s" % (url, args)
         
     def get_translate(self, text):
         self.translate_info.translate = self.google_translate(text)
