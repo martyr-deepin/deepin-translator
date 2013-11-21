@@ -9,7 +9,6 @@ Item {
     property alias textInput: textInput
 
     signal accepted (string text)
-    signal requestSuggestion (string text)
     
     Rectangle {
         id: entryBorder
@@ -24,14 +23,6 @@ Item {
             
             onAccepted: {
                 entry.accepted(text)
-            }
-            
-            MouseArea {
-                anchors.fill: parent
-
-                onPressed: {
-                    entry.requestSuggestion(textInput.text)
-                }
             }
         }
         

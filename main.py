@@ -49,8 +49,12 @@ if __name__ == "__main__":
     
     rootObject = translate_simple.rootObject()
     
+    def handle_input_changed(text):
+        translate_simple.get_translate(text)
+        rootObject.adjustWidth()
+    
     textInput = rootObject.findChild(QQuickItem, "textInput")
-    textInput.accepted.connect(translate_simple.get_translate)
+    textInput.accepted.connect(handle_input_changed)
     
     def show_translate(x, y, text):
         if len(filter(lambda word: word != "", (text.split(" ")))) > 1:
