@@ -13,6 +13,7 @@ RectWithCorner {
     property int borderMargin: 10
     property int textMargin: 10
     property int webPadding: 10
+    property int splitHeight: 2 /* two split line's height */
     
     function showTranslate() {
         adjustWidth()
@@ -25,7 +26,7 @@ RectWithCorner {
             webtrans.paintedWidth, 
             usSpeech.getWidth() + ukSpeech.getWidth()
         ) + (borderMargin + container.blurRadius) * 2
-        var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding
+        var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding + splitHeight
         
         windowView.width = maxWidth
         windowView.height = maxHeight
@@ -78,7 +79,14 @@ RectWithCorner {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 height: 1
-                color: "#aa666666"
+                color: "#11000000"
+            }
+
+            Rectangle {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                height: 1
+                color: "#11FFFFFF"
             }
 		    
 		    Row {

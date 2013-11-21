@@ -19,6 +19,8 @@ Item {
             id: textInput
             anchors.verticalCenter: parent.verticalCenter
             color: "#f7d303"
+            selectionColor: "#ffd008"
+            selectedTextColor: "#000000"
 		    font { pixelSize: 18 }
             
             onAccepted: {
