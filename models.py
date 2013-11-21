@@ -13,9 +13,17 @@ def get_suggest(text, num=10):
     data = { "type" : "DESKDICT", "num" : num, "ver" : 2.0, "le": "eng", "q" : text }
     ret = requests.get("http://dict.youdao.com/suggest", params=data).text
     doc =  xml_parse(ret)
+    results = []
     try:
-        return doc['suggest']['items']['item']
+        data = doc['suggest']['items']['item']
+        for item in data:
+            if item.has_key("title") and item.has_key("explain"):
+                results.append(dict(title=item["title"], explain=item["explain"]))
     except:
+        return None
+    else:
+        if results:
+            return results
         return None
 
 
@@ -38,10 +46,9 @@ class SuggestModel(QtCore.QAbstractListModel):
         
     def setSuggestData(self, data):
         self.beginResetModel()
-        del self._data        
+        del self._data
         self._data = data        
         self.endResetModel()  
-        
         self.finished.emit()
                     
     def addSuggestData(self, suggest):
@@ -68,11 +75,11 @@ class SuggestModel(QtCore.QAbstractListModel):
 
         if not index.isValid() or index.row() > len(self._data):
             return QtCore.QVariant()
-        
+
         try:
             item = self._data[index.row()]
         except:
-            return QtCore.QVariant
+            return QtCore.QVariant()
         
         if role == self.TitleRole:
             return item.get("title", "")
@@ -107,6 +114,4 @@ class SuggestModel(QtCore.QAbstractListModel):
     def suggestWithNum(self, text, num=10):    
         self.asyncSuggest(get_suggest, (text, num))
     
-    
-
 suggestModel = SuggestModel()        
