@@ -25,20 +25,23 @@ class SuggestModel(QtCore.QAbstractListModel):
     
     _roles = { TitleRole: "title", ExplainRole: "explain" }
     
-    suggested = QtCore.Signal(int, object)
+    suggested = QtCore.pyqtSignal(int, object)
 
     
     def __init__(self, parent=None):
         super(SuggestModel, self).__init__(parent)
         self.suggestThreadId = 0
+        self.suggested.connect(self.onSuggestedData)
         self._data = []
         
         
     def setSuggestData(self, data):
         del self._data
-        self._data = data
-        self.dataChanged.emit(QtCore.QModelIndex(), QtCore.QModelIndex())
-        
+        self._data = []
+        # self.dataChanged.emit(QtCore.QModelIndex(), QtCore.QModelIndex())
+        for item in data:
+            self.addSuggestData(item)
+                    
     def addSuggestData(self, suggest):
         self.beginInsertRows(QtCore.QModelIndex(), self.rowCount(), self.rowCount())
         self._data.append(suggest)

@@ -73,6 +73,11 @@ RectWithCorner {
                 anchors.right: parent.right
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
+                
+                onTest: {
+                    suggestModel.suggest(keyword.text)
+                    console.log(text)
+                }
             }
             
             Rectangle {
@@ -89,6 +94,44 @@ RectWithCorner {
                 color: "#11FFFFFF"
             }
 		    
+            
+            Rectangle {
+                anchors.left: parent.left
+                anchors.right: parent.right
+		        anchors.leftMargin: textMargin
+		        anchors.rightMargin: textMargin
+                width: parent.width
+                height: 200
+                color: Qt.rgba(0, 0, 0, 0)
+
+                Component {
+                    id: contactDelegate
+                    Item {
+                        width: parent.width
+                        height: 40
+                        Column {
+                            Text {
+                                text: title
+                                color: "#ffffff"
+                            }
+                            
+                            Text {
+                                text: explain
+                                color: "#ffffff"
+                            }
+                        }
+                    }
+                }
+
+                ListView {
+                    anchors.fill: parent
+                    model: suggestModel
+                    delegate: contactDelegate
+                    highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+                    focus: true
+                }
+            }
+            
 		    Row {
                 id: speech
 			    spacing: 10

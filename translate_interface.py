@@ -43,12 +43,11 @@ class TranslateInterface(QQuickView):
         self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
         
+        self.qml_context = self.rootContext()
         self.init_translate_info()
-        
-        qml_context = self.rootContext()
-        qml_context.setContextProperty("translateInfo", self.translate_info)
-        qml_context.setContextProperty("windowView", self)
-        qml_context.setContextProperty("qApp", qApp)
+        self.qml_context.setContextProperty("translateInfo", self.translate_info)
+        self.qml_context.setContextProperty("windowView", self)
+        self.qml_context.setContextProperty("qApp", qApp)
         
         self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), qml_file)))
         

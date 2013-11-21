@@ -25,10 +25,10 @@ import requests
 from utils import encode_params
 from translate_interface import TranslateInterface
 from xmltodict import parse as xml_parse
+from models import suggestModel
 from auto_object import AutoQObject
 from ocr import ocr_word
 from xutils import get_pointer_coordiante
-from PyQt5.QtCore import pyqtSlot
 from pyquery import PyQuery
 
 class TranslateSimple(TranslateInterface):
@@ -42,16 +42,6 @@ class TranslateSimple(TranslateInterface):
                  "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "type" : lang}
         return "%s?%s" % (url, encode_params(data))
     
-    @pyqtSlot(str, result="QVariant")
-    def get_suggest(self, text):
-        data = { "type" : "DESKDICT", "num" : 10, "ver" : 2.0, "le": "eng", "q" : text }
-        ret = requests.get("http://dict.youdao.com/suggest", params=data).text
-        doc =  xml_parse(ret)
-        try:
-            return map(lambda word_dict: (word_dict["title"], word_dict["explain"]), doc['suggest']['items']['item'])
-        except:
-            return None
-        
     def translate_cursor_word(self):
         (mouse_x, mouse_y) = get_pointer_coordiante()
         ocr_info = ocr_word(mouse_x, mouse_y)
@@ -70,6 +60,8 @@ class TranslateSimple(TranslateInterface):
             ("weba", str),
             name="TranslateInfo")
         self.translate_info = TranslateInfo()
+        
+        self.qml_context.setContextProperty("suggestModel", suggestModel)
         
     def get_translate(self, text):
         if not text:
