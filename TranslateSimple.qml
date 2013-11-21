@@ -20,11 +20,10 @@ RectWithCorner {
     
     function adjustWidth() {
         var maxWidth = Math.max(
-            keyword.height,
             trans.paintedWidth, 
             webtrans.paintedWidth, 
             usSpeech.getWidth() + ukSpeech.getWidth()
-        ) + (borderMargin + textMargin + container.blurRadius) * 2
+        ) + (borderMargin + container.blurRadius) * 2
         var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 
         
         windowView.width = maxWidth
