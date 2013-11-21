@@ -51,8 +51,6 @@ RectWithCorner {
     }
     
     function adjustSuggestionSize() {
-        console.log(listviewWidth, listviewHeight)
-        
         suggestArea.width = listviewWidth
         suggestArea.height = listviewHeight
         
@@ -112,13 +110,17 @@ RectWithCorner {
                 }
                 
                 onInputChanged: {
-                    console.log("************************")
-                    
                     container.listviewWidth = 0
                     container.listviewHeight = 0
                     
                     suggestModel.suggest(keyword.text)
                     suggestArea.visible = true
+                    
+                    /* NOTE: we set enough size to make ListModel Component.onCompleted can calcuate before `finished` signal emit
+                       DO NOT DELETE below code!!!
+                       */
+                    suggestArea.width = 1000
+                    suggestArea.height = 1000
                 }
             }
             
@@ -180,8 +182,6 @@ RectWithCorner {
                                     }
                                     
                                     container.listviewHeight += explainText.paintedHeight
-                                    
-                                    console.log(explainText.text)
                                 }
                             }
                         }

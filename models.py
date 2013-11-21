@@ -34,7 +34,7 @@ class SuggestModel(QtCore.QAbstractListModel):
     _roles = { TitleRole: "title", ExplainRole: "explain" }
     
     suggested = QtCore.pyqtSignal(int, object)
-    finished = QtCore.pyqtSignal(int)
+    finished = QtCore.pyqtSignal()
     
     def __init__(self, parent=None):
         super(SuggestModel, self).__init__(parent)
@@ -43,18 +43,16 @@ class SuggestModel(QtCore.QAbstractListModel):
         self._data = []
         
     def setSuggestData(self, data):
-        print "1"
         self.beginResetModel()
         del self._data
         self._data = data        
         self.endResetModel()  
-        self.finished.emit(len(self._data))
+        self.finished.emit()
         
     def resetSuggestData(self):    
-        print "2"
         self.beginResetModel()
         self.endResetModel()
-        self.finished.emit(len(self._data))
+        self.finished.emit()
                     
     def addSuggestData(self, suggest):
         self.beginInsertRows(QtCore.QModelIndex(), self.rowCount(), self.rowCount())
