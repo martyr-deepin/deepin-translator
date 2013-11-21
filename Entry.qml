@@ -31,9 +31,16 @@ Item {
                 anchors.right: parent.right
                 anchors.rightMargin: 2
                 color: "#f7d303"
-                selectionColor: "#ffd008"
-                selectedTextColor: "#000000"
+                selectionColor: "#11ffffff"
+                selectedTextColor: "#5da6ce"
 		        font { pixelSize: 18 }
+                cursorDelegate: Rectangle {
+                    height: parent.height - 6
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 2
+
+                    color: textInput.selectedText == "" ? "#f7d303" : "#5da6ce"
+                }
                 
                 onAccepted: {
                     entry.accepted(text)
