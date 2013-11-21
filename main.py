@@ -21,7 +21,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtGui import QIcon
-from PyQt5.QtQuick import QQuickItem
 from PyQt5.QtWidgets import QApplication
 from event import RecordEvent
 from system_tray import SystemTrayIcon

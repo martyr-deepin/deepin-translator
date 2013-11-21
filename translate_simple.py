@@ -25,7 +25,6 @@ from PyQt5.QtCore import pyqtSlot
 import requests
 from utils import encode_params
 from translate_interface import TranslateInterface
-from xmltodict import parse as xml_parse
 from models import suggestModel
 from auto_object import AutoQObject
 from ocr import ocr_word
