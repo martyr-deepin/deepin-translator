@@ -51,6 +51,8 @@ RectWithCorner {
     }
     
     function adjustSuggestionSize() {
+        console.log(listviewWidth, listviewHeight)
+        
         suggestArea.width = listviewWidth
         suggestArea.height = listviewHeight
         
@@ -110,6 +112,8 @@ RectWithCorner {
                 }
                 
                 onInputChanged: {
+                    console.log("************************")
+                    
                     container.listviewWidth = 0
                     container.listviewHeight = 0
                     
@@ -141,6 +145,7 @@ RectWithCorner {
                 height: 300
                 color: Qt.rgba(0, 0, 0, 0)
                 visible: false
+                clip: true
                 
                 Component {
                     id: contactDelegate
@@ -175,6 +180,8 @@ RectWithCorner {
                                     }
                                     
                                     container.listviewHeight += explainText.paintedHeight
+                                    
+                                    console.log(explainText.text)
                                 }
                             }
                         }
