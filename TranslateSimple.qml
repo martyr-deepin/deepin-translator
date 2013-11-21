@@ -18,16 +18,17 @@ RectWithCorner {
     
     function showTranslate() {
         keyword.inPress = false
-        adjustWidth()
+        adjustTranslateSize()
         autoSpeech()
     }
     
-    function adjustWidth() {
+    function adjustTranslateSize() {
         var maxWidth = Math.max(
             trans.paintedWidth, 
             webtrans.paintedWidth, 
             usSpeech.getWidth() + ukSpeech.getWidth()
         ) + (borderMargin + container.blurRadius) * 2
+        
         var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding + splitHeight
         
         windowView.width = maxWidth
@@ -37,7 +38,25 @@ RectWithCorner {
         container.rectHeight = maxHeight
         container.width = maxWidth
         container.height = maxHeight
-    }    
+    }
+    
+    function adjustSuggestionSize() {
+        var maxWidth = Math.max(
+            trans.paintedWidth, 
+            webtrans.paintedWidth, 
+            usSpeech.getWidth() + ukSpeech.getWidth()
+        ) + (borderMargin + container.blurRadius) * 2
+        
+        var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding + splitHeight
+        
+        windowView.width = maxWidth
+        windowView.height = maxHeight
+        
+        container.rectWidth = maxWidth
+        container.rectHeight = maxHeight
+        container.width = maxWidth
+        container.height = maxHeight
+    }
     
     function autoSpeech() {
         var speechlink = translateInfo.uslink ? translateInfo.uslink : translateInfo.uklink
@@ -78,13 +97,15 @@ RectWithCorner {
                 
                 onAccepted: {
                     windowView.get_translate(text)
-                    adjustWidth()
+                    adjustTranslateSize()
                     suggestArea.visible = false
                 }
                 
                 onInputChanged: {
                     suggestModel.suggest(keyword.text)
                     suggestArea.visible = true
+                    
+                    
                 }
             }
             

@@ -16,10 +16,10 @@ RectWithCorner {
     height: 200
     
     function showTranslate() {
-		adjustWidth()
+		adjustTranslateSize()
     }
 	
-    function adjustWidth() {
+    function adjustTranslateSize() {
 		var maxWidth = trans.paintedWidth + (borderMargin + textMargin + container.blurRadius) * 2
         var maxHeight = trans.paintedHeight + voice.height + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 
         
