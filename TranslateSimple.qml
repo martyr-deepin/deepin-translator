@@ -8,6 +8,7 @@ RectWithCorner {
     cornerDirection: "up"
     
     property alias keyword: keyword
+    property alias listview: listview
     property alias suggestArea: suggestArea
     property alias trans: trans
     property alias webtrans: webtrans
@@ -15,6 +16,16 @@ RectWithCorner {
     property int textMargin: 10
     property int webPadding: 10
     property int splitHeight: 2 /* two split line's height */
+
+    property int listviewWidth: 0
+    property int listviewHeight: 0
+    
+    Connections {
+        target: suggestModel
+        onFinished: {
+            adjustSuggestionSize()
+        }
+    }
     
     function showTranslate() {
         adjustTranslateSize()
@@ -40,13 +51,8 @@ RectWithCorner {
     }
     
     function adjustSuggestionSize() {
-        var maxWidth = Math.max(
-            trans.paintedWidth, 
-            webtrans.paintedWidth, 
-            usSpeech.getWidth() + ukSpeech.getWidth()
-        ) + (borderMargin + container.blurRadius) * 2
-        
-        var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding + splitHeight
+        var maxWidth = container.listviewWidth + (borderMargin + container.blurRadius) * 2
+        var maxHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + splitHeight
         
         windowView.width = maxWidth
         windowView.height = maxHeight
@@ -101,10 +107,11 @@ RectWithCorner {
                 }
                 
                 onInputChanged: {
+                    container.listviewWidth = 0
+                    container.listviewHeight = 0
+                    
                     suggestModel.suggest(keyword.text)
                     suggestArea.visible = true
-                    
-                    
                 }
             }
             
@@ -128,31 +135,51 @@ RectWithCorner {
                 anchors.right: parent.right
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
-                width: parent.width
-                height: 200
+                width: 200
+                height: 300
                 color: Qt.rgba(0, 0, 0, 0)
                 visible: false
-
+                
                 Component {
                     id: contactDelegate
                     Item {
-                        width: parent.width
+                        width: 200
                         height: 40
+                        
                         Column {
                             Text {
+                                id: titleText
                                 text: title
                                 color: "#ffffff"
+
+                                Component.onCompleted: {
+                                    if (titleText.paintedWidth > container.listviewWidth) {
+                                        container.listviewWidth = titleText.paintedWidth
+                                    }
+                                    
+                                    container.listviewHeight = container.listviewHeight + titleText.paintedHeight
+                                }
                             }
                             
                             Text {
+                                id: explainText
                                 text: explain
                                 color: "#ffffff"
+                                
+                                Component.onCompleted: {
+                                    if (explainText.paintedWidth > container.listviewWidth) {
+                                        container.listviewWidth = explainText.paintedWidth
+                                    }
+                                    
+                                    container.listviewHeight = container.listviewHeight + titleText.paintedHeight
+                                }
                             }
                         }
                     }
                 }
 
                 ListView {
+                    id: listview
                     anchors.fill: parent
                     model: suggestModel
                     delegate: contactDelegate
@@ -168,6 +195,7 @@ RectWithCorner {
                 anchors.right: parent.right
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
+                visible: !suggestArea.visible
 			    
 			    Speech { 
                     id: usSpeech
@@ -196,6 +224,7 @@ RectWithCorner {
                 anchors.right: parent.right
                 height: 10
                 color: Qt.rgba(0, 0, 0, 0)
+                visible: !suggestArea.visible
             }
             
             Column {
@@ -204,6 +233,7 @@ RectWithCorner {
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
                 spacing: webPadding
+                visible: !suggestArea.visible
                 
 		        TextEdit { 
                     id: trans
