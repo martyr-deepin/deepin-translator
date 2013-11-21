@@ -22,12 +22,15 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from __future__ import unicode_literals
+
+import requests
+from utils import encode_params
 from translate_interface import TranslateInterface
-from netlib import public_curl, urlencode
 from xmltodict import parse as xml_parse
 from auto_object import AutoQObject
 from ocr import ocr_word
 from xutils import get_pointer_coordiante
+
 
 class TranslateSimple(TranslateInterface):
     
@@ -38,11 +41,11 @@ class TranslateSimple(TranslateInterface):
         url = "http://dict.youdao.com/dictvoice"
         data = { "keyfrom" : "deskdict.mini.word", "audio" : text, "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
                  "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "type" : lang}
-        return "%s?%s" % (url, urlencode(data))
+        return "%s?%s" % (url, encode_params(data))
     
     def get_suggest(self, text):
         data = { "type" : "DESKDICT", "num" : 10, "ver" : 2.0, "le": "eng", "q" : text }
-        ret = public_curl.request("http://dict.youdao.com/suggest", data)
+        ret = requests.get("http://dict.youdao.com/suggest", params=data).text
         doc =  xml_parse(ret)
         try:
             return doc['suggest']['items']['item']
@@ -78,7 +81,7 @@ class TranslateSimple(TranslateInterface):
         data = { "keyfrom" : "deskdict.mini", "q" : text, "doctype" : "xml", "xmlVersion" : 8.2,
                  "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
                  "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "le" : "eng", "LTH" : 40}
-        ret = public_curl.request("http://dict.youdao.com/search", data)
+        ret = requests.get("http://dict.youdao.com/search", params=data).text
         ret = xml_parse(ret)
         
         yodaodict = ret['yodaodict']

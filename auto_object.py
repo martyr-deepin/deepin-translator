@@ -46,7 +46,11 @@ def AutoQObject(*class_def, **kwargs):
         def __init__(self, **kwargs):
             QtCore.QObject.__init__(self)
             for key, val in class_def:
-                self.__dict__['_'+key] = kwargs.get(key, val())
+                if callable(val):
+                    value = val()
+                else:    
+                    value = ""
+                self.__dict__['_'+key] = kwargs.get(key, value)
  
         def __repr__(self):
             values = ('%s=%r' % (key, self.__dict__['_'+key]) \

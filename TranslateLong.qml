@@ -9,13 +9,31 @@ RectWithCorner {
     
     property int borderMargin: 10
     property int textMargin: 10
+	property int voiceIndex: 0
+	property bool isManualStop: false
     
     width: 300
     height: 200
     
     function showTranslate() {
     }
-    
+	
+    Audio {
+        id: audioPlayer
+		onStopped: {
+			if (!container.isManualStop) {
+				container.voiceIndex += 1
+				if (container.voiceIndex <= translateInfo.voices.length) {
+					audioPlayer.source = translateInfo.voices[container.voiceIndex]
+					audioPlayer.play()
+				} else {
+					container.voiceIndex = 0
+				}
+
+			}
+		}
+    }
+	    
 	Rectangle {
         id: border
         radius: 6
@@ -46,6 +64,22 @@ RectWithCorner {
                     cursorVislble: false
                 }
 		    }		
+			
+			Speech { 
+                id: voice
+				text: "朗读"
+				visible: translateInfo.voices.length > 0
+                
+				onClicked: {
+					container.isManualStop = true
+					container.voiceIndex = 0
+					audioPlayer.stop()
+					audioPlayer.source = translateInfo.voices[container.voiceIndex]
+					audioPlayer.play()
+					container.isManualStop = false
+				}
+            }			
+			
 	    }        
 	}
 }

@@ -21,10 +21,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from urllib import urlencode
+
 from auto_object import AutoQObject
-from netlib import public_curl
 from translate_interface import TranslateInterface
+from utils import encode_params
+import requests
 
 LANGUAGES = [
     ('af', u'\u5e03\u5c14\u8bed(\u5357\u975e\u8377\u5170\u8bed)'),
@@ -120,6 +121,15 @@ class TranslateLong(TranslateInterface):
     def __init__(self):
         TranslateInterface.__init__(self, "TranslateLong.qml")
         
+
+    def init_translate_info(self):
+        TranslateInfo = AutoQObject(
+            ("translate", str),
+            ("voices", 'QVariant'),
+            ("fixed", str),
+          name="TranslateInfo")
+        self.translate_info = TranslateInfo()        
+        
     def parse_dummy_list(self, dlist):
         while ",," in dlist or "[," in dlist:
             dlist = dlist.replace(",,", ",None,").replace("[,", "[None,")
@@ -166,7 +176,7 @@ class TranslateLong(TranslateInterface):
                     sc=2,
                     q=text)    
         url = "http://translate.google.cn/translate_a/t"
-        dummy_list = public_curl.request(url, data)
+        dummy_list = requests.get(url, params=data).text
         plist = self.parse_dummy_list(dummy_list)
         result = self.get_sample_result(plist)
         return result.decode(encoding)
@@ -184,8 +194,9 @@ class TranslateLong(TranslateInterface):
     
     
     @classmethod
-    def google_voice(text, tl="en", encoding="UTF-8"):
+    def google_voice(cls, text, tl="en", encoding="UTF-8"):
         url = "http://translate.google.cn/translate_tts"
+        text = text.encode("utf-8", "ignore")
         data = dict(ie=encoding,
                     tl=tl,
                     total=1,
@@ -194,8 +205,9 @@ class TranslateLong(TranslateInterface):
                     prev="input",
                     q=text
                     )
-        args = urlencode(data).encode("utf-8", "ignore")
+        args = encode_params(data)
         return "%s?%s" % (url, args)
         
     def get_translate(self, text):
+        self.translate_info.voices = self.get_google_voices(text)
         self.translate_info.translate = self.google_translate(text)
