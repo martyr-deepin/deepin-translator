@@ -16,7 +16,21 @@ RectWithCorner {
     height: 200
     
     function showTranslate() {
+		adjustWidth()
     }
+	
+    function adjustWidth() {
+		var maxWidth = trans.paintedWidth + (borderMargin + textMargin + container.blurRadius) * 2
+        var maxHeight = trans.paintedHeight + voice.height + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 
+        
+        windowView.width = maxWidth
+        windowView.height = maxHeight
+        
+        container.rectWidth = maxWidth
+        container.rectHeight = maxHeight
+        container.width = maxWidth
+        container.height = maxHeight
+    }    
 	
 	function manualStopAudio() {
 		container.isManualStop = true
