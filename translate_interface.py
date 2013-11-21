@@ -20,6 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from PyQt5.QtCore import pyqtSlot
 from PyQt5 import QtCore, QtQuick
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
@@ -54,6 +55,7 @@ class TranslateInterface(QQuickView):
     def init_translate_info(self):
         print "NOTE: Your should implement this function to init translate information!"
         
+    @pyqtSlot(str)    
     def get_translate(self, text):
         print "NOTE: Your should implement this function to update translate information!"
         

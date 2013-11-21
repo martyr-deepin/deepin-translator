@@ -21,10 +21,10 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from PyQt5.QtCore import pyqtSlot
 import requests
 from utils import encode_params
 from translate_interface import TranslateInterface
-from xmltodict import parse as xml_parse
 from models import suggestModel
 from auto_object import AutoQObject
 from ocr import ocr_word
@@ -63,6 +63,7 @@ class TranslateSimple(TranslateInterface):
         
         self.qml_context.setContextProperty("suggestModel", suggestModel)
         
+    @pyqtSlot(str)    
     def get_translate(self, text):
         if not text:
             return

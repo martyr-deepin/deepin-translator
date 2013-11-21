@@ -8,6 +8,7 @@ RectWithCorner {
     cornerDirection: "up"
     
     property alias keyword: keyword
+    property alias suggestArea: suggestArea
     property alias trans: trans
     property alias webtrans: webtrans
     property int borderMargin: 10
@@ -16,6 +17,7 @@ RectWithCorner {
     property int splitHeight: 2 /* two split line's height */
     
     function showTranslate() {
+        keyword.inPress = false
         adjustWidth()
         autoSpeech()
     }
@@ -74,9 +76,15 @@ RectWithCorner {
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
                 
+                onAccepted: {
+                    windowView.get_translate(text)
+                    adjustWidth()
+                    suggestArea.visible = false
+                }
+                
                 onInputChanged: {
                     suggestModel.suggest(keyword.text)
-                    console.log(text)
+                    suggestArea.visible = true
                 }
             }
             
@@ -93,9 +101,9 @@ RectWithCorner {
                 height: 1
                 color: "#11FFFFFF"
             }
-		    
             
             Rectangle {
+                id: suggestArea
                 anchors.left: parent.left
                 anchors.right: parent.right
 		        anchors.leftMargin: textMargin
@@ -103,6 +111,7 @@ RectWithCorner {
                 width: parent.width
                 height: 200
                 color: Qt.rgba(0, 0, 0, 0)
+                visible: false
 
                 Component {
                     id: contactDelegate

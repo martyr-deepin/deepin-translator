@@ -7,6 +7,7 @@ Item {
     
     property alias text: textInput.text
     property alias textInput: textInput
+    property bool inPress: false
 
     signal accepted (string text)
     signal inputChanged
@@ -25,11 +26,24 @@ Item {
 		    font { pixelSize: 18 }
             
             onAccepted: {
+                entry.inPress = false
                 entry.accepted(text)
             }
             
             onTextChanged: {
-                entry.inputChanged()
+                if (entry.inPress) {
+                    entry.inputChanged()
+                }
+            }
+            
+            MouseArea {
+                anchors.fill: parent
+                propagateComposedEvents: true
+                
+                onPressed: {
+                    entry.inPress = true
+                    mouse.accepted = false
+                }
             }
         }
         

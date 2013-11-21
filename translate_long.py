@@ -21,7 +21,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-
+from PyQt5.QtCore import pyqtSlot
 from auto_object import AutoQObject
 from translate_interface import TranslateInterface
 from utils import encode_params
@@ -208,6 +208,7 @@ class TranslateLong(TranslateInterface):
         args = encode_params(data)
         return "%s?%s" % (url, args)
         
+    @pyqtSlot(str)
     def get_translate(self, text):
         self.translate_info.voices = self.get_google_voices(text)
         self.translate_info.translate = self.google_translate(text)

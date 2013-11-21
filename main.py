@@ -21,7 +21,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtGui import QIcon
-from PyQt5.QtQuick import QQuickItem
 from PyQt5.QtWidgets import QApplication
 from event import RecordEvent
 from system_tray import SystemTrayIcon
@@ -48,13 +47,6 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
     rootObject = translate_simple.rootObject()
-    
-    def handle_input_changed(text):
-        translate_simple.get_translate(text)
-        rootObject.adjustWidth()
-    
-    textInput = rootObject.findChild(QQuickItem, "textInput")
-    textInput.accepted.connect(handle_input_changed)
     
     def show_translate(x, y, text):
         if len(filter(lambda word: word != "", (text.split(" ")))) > 1:
