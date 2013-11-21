@@ -7,7 +7,6 @@ Item {
     
     property alias text: textInput.text
     property alias textInput: textInput
-    property bool inPress: false
 
     signal accepted (string text)
     signal inputChanged
@@ -17,32 +16,42 @@ Item {
         anchors.fill: parent
         color: Qt.rgba(0, 0, 0, 0)
 
-        TextInput {
-            id: textInput
-            anchors.verticalCenter: parent.verticalCenter
-            color: "#f7d303"
-            selectionColor: "#ffd008"
-            selectedTextColor: "#000000"
-		    font { pixelSize: 18 }
+        Rectangle {
+            anchors.left: parent.left
+            anchors.right: actionButton.left
+            anchors.rightMargin: 5
+            height: parent.height
+            color: Qt.rgba(0, 0, 0, 0)
+            clip: true
             
-            onAccepted: {
-                entry.inPress = false
-                entry.accepted(text)
-            }
-            
-            onTextChanged: {
-                if (entry.inPress) {
-                    entry.inputChanged()
-                }
-            }
-            
-            MouseArea {
-                anchors.fill: parent
-                propagateComposedEvents: true
+            TextInput {
+                id: textInput
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.rightMargin: 2
+                color: "#f7d303"
+                selectionColor: "#ffd008"
+                selectedTextColor: "#000000"
+		        font { pixelSize: 18 }
                 
-                onPressed: {
-                    entry.inPress = true
-                    mouse.accepted = false
+                onAccepted: {
+                    entry.accepted(text)
+                }
+                
+                onTextChanged: {
+                    if (activeFocus) {
+                        entry.inputChanged()
+                    }
+                }
+                
+                MouseArea {
+                    anchors.fill: parent
+                    propagateComposedEvents: true
+                    
+                    onPressed: {
+                        mouse.accepted = false
+                    }
                 }
             }
         }

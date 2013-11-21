@@ -17,7 +17,6 @@ RectWithCorner {
     property int splitHeight: 2 /* two split line's height */
     
     function showTranslate() {
-        keyword.inPress = false
         adjustTranslateSize()
         autoSpeech()
     }
