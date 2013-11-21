@@ -51,8 +51,11 @@ RectWithCorner {
     }
     
     function adjustSuggestionSize() {
+        suggestArea.width = listviewWidth
+        suggestArea.height = listviewHeight
+        
         var maxWidth = container.listviewWidth + (borderMargin + container.blurRadius) * 2
-        var maxHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + splitHeight
+        var maxHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
         
         windowView.width = maxWidth
         windowView.height = maxHeight
@@ -133,8 +136,7 @@ RectWithCorner {
                 id: suggestArea
                 anchors.left: parent.left
                 anchors.right: parent.right
-		        anchors.leftMargin: textMargin
-		        anchors.rightMargin: textMargin
+		        anchors.margins: borderMargin
                 width: 200
                 height: 300
                 color: Qt.rgba(0, 0, 0, 0)
@@ -143,8 +145,9 @@ RectWithCorner {
                 Component {
                     id: contactDelegate
                     Item {
-                        width: 200
-                        height: 40
+                        id: item
+                        width: parent.width
+                        height: titleText.paintedHeight + explainText.paintedHeight
                         
                         Column {
                             Text {
@@ -157,7 +160,7 @@ RectWithCorner {
                                         container.listviewWidth = titleText.paintedWidth
                                     }
                                     
-                                    container.listviewHeight = container.listviewHeight + titleText.paintedHeight
+                                    container.listviewHeight += titleText.paintedHeight
                                 }
                             }
                             
@@ -171,7 +174,7 @@ RectWithCorner {
                                         container.listviewWidth = explainText.paintedWidth
                                     }
                                     
-                                    container.listviewHeight = container.listviewHeight + titleText.paintedHeight
+                                    container.listviewHeight += explainText.paintedHeight
                                 }
                             }
                         }
@@ -184,6 +187,7 @@ RectWithCorner {
                     model: suggestModel
                     delegate: contactDelegate
                     highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+                    interactive: false
                     focus: true
                 }
             }

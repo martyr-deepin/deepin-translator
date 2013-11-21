@@ -60,7 +60,7 @@ class SuggestModel(QtCore.QAbstractListModel):
         self._data.append(suggest)
         self.endInsertRows()        
         
-    @QtCore.pyqtSlot()
+    @QtCore.pyqtSlot(result=int)
     def total(self):    
         return len(self._data)
         
