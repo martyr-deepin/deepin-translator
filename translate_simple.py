@@ -21,8 +21,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from __future__ import unicode_literals
-
 import requests
 from utils import encode_params
 from translate_interface import TranslateInterface
@@ -30,6 +28,7 @@ from xmltodict import parse as xml_parse
 from auto_object import AutoQObject
 from ocr import ocr_word
 from xutils import get_pointer_coordiante
+from pyquery import PyQuery
 
 
 class TranslateSimple(TranslateInterface):
@@ -81,51 +80,31 @@ class TranslateSimple(TranslateInterface):
         data = { "keyfrom" : "deskdict.mini", "q" : text, "doctype" : "xml", "xmlVersion" : 8.2,
                  "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
                  "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "le" : "eng", "LTH" : 40}
+        
         ret = requests.get("http://dict.youdao.com/search", params=data).text
-        ret = xml_parse(ret)
-        
-        yodaodict = ret['yodaodict']
-        
+        if isinstance(ret, unicode):
+            ret = ret.encode('utf-8')
+            
+        pq = PyQuery(ret, parser="xml")
         self.translate_info.keyword = text    
         self.translate_info.ukphone = None
         self.translate_info.usphone = None
         self.translate_info.trans = None
         self.translate_info.uslink = None
         self.translate_info.uklink = None
+        
+        self.translate_info.trans = '<br>'.join([PyQuery(e).text() for e in pq('trs i')])
+        
+        # ukphone
+        try: self.translate_info.ukphone = pq.find('ukphone').text()
+        except: pass    
+        else: self.translate_info.uklink = self.get_voice(text, 1)            
             
-        try:
-            word = yodaodict['basic']['simple-dict']['word']
-        except Exception: 
-            pass
-        else:    
-            ukphone = word.get("ukphone", None)
-            if ukphone:
-                self.translate_info.ukphone = ukphone
-                self.translate_info.uklink = self.get_voice(text, 1)
-                
-            usphone = word.get("usphone", None)
-            if usphone:
-                self.translate_info.usphone = usphone
-                self.translate_info.uslink = self.get_voice(text, 2)
-                
-            trs = word["trs"]["tr"]
-            if isinstance(trs, list):
-                ret = "<br>".join(item['l']['i'] for item in trs)
-            else:    
-                ret = trs['l']['i']
-            self.translate_info.trans = ret            
+        # usphone
+        try: self.translate_info.usphone = pq.find('usphone').text()
+        except: pass    
+        else: self.translate_info.uslink = self.get_voice(text, 2)
         
-        try:
-            ret = yodaodict['yodao-web-dict']['web-translation']
-        except:    
-            return
+        # web translations
+        self.translate_info.webtrans = "|".join([ PyQuery(e).text() for e in pq.find('web-translation:first')('trans value')])
         
-        if isinstance(ret, list):
-            ret = ret[0]
-        
-        trans = ret['trans']
-        if isinstance(trans, list):
-            web_trans = "|".join(item["value"] for item in trans)
-        else:    
-            web_trans = trans['value']
-        self.translate_info.webtrans = web_trans
