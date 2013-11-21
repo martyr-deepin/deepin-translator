@@ -79,6 +79,58 @@ RectWithCorner {
                 height: 1
                 color: "#aa666666"
             }
+            
+            Rectangle {
+                anchors.left: parent.left
+                anchors.right: parent.right
+		        anchors.leftMargin: textMargin
+		        anchors.rightMargin: textMargin
+                width: parent.width
+                height: 200
+                color: Qt.rgba(0, 0, 0, 0)
+
+                Component {
+                    id: contactDelegate
+                    Item {
+                        width: parent.width
+                        height: 40
+                        Column {
+                            Text { 
+                                text: '<b>Name:</b> ' + name
+                                color: "#FFFFFF"
+                            }
+                            Text { 
+                                text: '<b>Number:</b> ' + number
+                                color: "#FFFFFF"
+                            }
+                        }
+                    }
+                }
+
+                ListModel {
+                    id: listModel
+                    ListElement {
+                        name: "Bill Smith"
+                        number: "555 3264"
+                    }
+                    ListElement {
+                        name: "John Brown"
+                        number: "555 8426"
+                    }
+                    ListElement {
+                        name: "Sam Wise"
+                        number: "555 0473"
+                    }
+                }
+                
+                ListView {
+                    anchors.fill: parent
+                    model: listModel
+                    delegate: contactDelegate
+                    highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+                    focus: true
+                }
+            }            
 		    
 		    Row {
                 id: speech
