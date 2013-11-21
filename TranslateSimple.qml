@@ -187,7 +187,6 @@ RectWithCorner {
                     model: suggestModel
                     delegate: contactDelegate
                     highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
-                    interactive: false
                     focus: true
                 }
             }
