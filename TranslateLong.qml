@@ -80,6 +80,21 @@ RectWithCorner {
 		    anchors.fill: parent
 		    anchors.margins: textMargin
 		    
+			Speech { 
+                id: voice
+				text: "朗读"
+				visible: translateInfo.voices.length > 0
+                
+				onClicked: {
+					container.isManualStop = true
+					container.voiceIndex = 0
+					audioPlayer.stop()
+					audioPlayer.source = translateInfo.voices[container.voiceIndex]
+					audioPlayer.play()
+					container.isManualStop = false
+				}
+            }
+
 		    TextEdit { 
                 id: trans
 			    text: translateInfo.translate
@@ -95,22 +110,6 @@ RectWithCorner {
                     cursorVislble: false
                 }
 		    }		
-			
-			Speech { 
-                id: voice
-				text: "朗读"
-				visible: translateInfo.voices.length > 0
-                
-				onClicked: {
-					container.isManualStop = true
-					container.voiceIndex = 0
-					audioPlayer.stop()
-					audioPlayer.source = translateInfo.voices[container.voiceIndex]
-					audioPlayer.play()
-					container.isManualStop = false
-				}
-            }			
-			
 	    }        
 	}
 }
