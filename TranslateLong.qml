@@ -18,6 +18,23 @@ RectWithCorner {
     function showTranslate() {
     }
 	
+	function manualStopAudio() {
+		container.isManualStop = true
+		container.voiceIndex = 0
+		audioPlayer.stop()
+		container.isManualStop = false
+	}
+	
+	Connections {
+		target: windowView
+		onVisibleChanged: {
+			if (!arg) {
+				manualStopAudio()
+			}
+		}
+	}
+	
+	
     Audio {
         id: audioPlayer
 		onStopped: {
