@@ -189,6 +189,8 @@ RectWithCorner {
                     container.listviewWidth = 0
                     container.listviewHeight = 0
 					
+					itemHighlight.visible = false
+					
 					if (keyword.text == "") {
 						listview.model = historyModel
 						
@@ -204,7 +206,6 @@ RectWithCorner {
                         suggestArea.width = 1000
                         suggestArea.height = 1000
 					}
-                    
                 }
             }
             
