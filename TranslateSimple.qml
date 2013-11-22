@@ -61,6 +61,8 @@ RectWithCorner {
     }
     
     function adjustSuggestionSize() {
+		console.log(listviewHeight)
+		
         suggestArea.width = listviewWidth
         suggestArea.height = listviewHeight
         
@@ -120,15 +122,25 @@ RectWithCorner {
                 onInputChanged: {
                     container.listviewWidth = 0
                     container.listviewHeight = 0
+					
+					console.log("**** ", listviewHeight)
+					
+					if (keyword.text == "") {
+						listview.model = historyModel
+						
+					} else {
+						listview.model = suggestModel
+						
+                        suggestModel.suggestWithNum(keyword.text, 5)
+                        suggestArea.visible = true
+                        
+                        /* NOTE: we set enough size to make ListModel Component.onCompleted can calcuate before `finished` signal emit
+                           DO NOT DELETE below code!!!
+                           */
+                        suggestArea.width = 1000
+                        suggestArea.height = 1000
+					}
                     
-                    suggestModel.suggestWithNum(keyword.text, 5)
-                    suggestArea.visible = true
-                    
-                    /* NOTE: we set enough size to make ListModel Component.onCompleted can calcuate before `finished` signal emit
-                       DO NOT DELETE below code!!!
-                       */
-                    suggestArea.width = 1000
-                    suggestArea.height = 1000
                 }
             }
             
@@ -185,6 +197,7 @@ RectWithCorner {
                                     }
                                     
                                     container.listviewHeight += titleText.paintedHeight
+									console.log("#### ", titleText.text)
                                 }
                             }
                             
@@ -201,6 +214,7 @@ RectWithCorner {
                                     }
                                     
                                     container.listviewHeight += explainText.paintedHeight
+									console.log("#### ", explainText.text)
                                 }
                             }
 							
@@ -230,9 +244,14 @@ RectWithCorner {
                 ListView {
                     id: listview
                     anchors.fill: parent
-                    model: keyword.text == "" ? historyModel : suggestModel
+                    /* model: keyword.text == "" ? historyModel : suggestModel */
+                    model: suggestModel
                     delegate: contactDelegate
-                    focus: true
+					focus: true
+                    /* highlight: Rectangle {  */
+					/* 	color: "lightsteelblue";  */
+					/* 	radius: 5  */
+					/* } */
                 }
             }
             

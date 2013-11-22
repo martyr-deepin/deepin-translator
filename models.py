@@ -224,7 +224,7 @@ class HistoryModel(QtCore.QAbstractListModel):
         
     def roleNames(self):
         return self._roles
-        
+    
     def rowCount(self, parent=QtCore.QModelIndex()):    
         return len(self._data[:self.MAX_NUM])
     
