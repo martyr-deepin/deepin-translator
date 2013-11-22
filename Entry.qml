@@ -37,7 +37,7 @@ Item {
                 cursorDelegate: Rectangle {
                     width: 2
                     color: "#AAFFFFFF"
-                }
+			    }
                 
                 onAccepted: {
                     entry.accepted(text)

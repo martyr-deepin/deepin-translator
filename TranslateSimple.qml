@@ -33,7 +33,14 @@ RectWithCorner {
             adjustSuggestionSize()
         }
     }
-    
+	
+	Connections {
+		target: windowView
+		onHided: {
+			keyword.textInput.focus = false
+		}
+	}
+	
     function showTranslate() {
 		suggestArea.visible = false
 		itemHighlight.visible = false
@@ -44,9 +51,9 @@ RectWithCorner {
 	
 	function handleAccepted(text) {
         windowView.get_translate(text)
-        suggestArea.visible = false
-        adjustTranslateSize()
-					
+		
+		showTranslate()
+		
 		historyModel.addSearchData(translateInfo.keyword, translateInfo.trans, translateInfo.webtrans)
 	}
     
@@ -198,7 +205,7 @@ RectWithCorner {
 							anchors.fill: parent
 							hoverEnabled: true
 							
-							onPressed: {
+							onClicked: {
 								handleAccepted(titleText.text)
 							}
 							

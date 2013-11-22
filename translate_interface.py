@@ -29,6 +29,8 @@ from xutils import get_pointer_coordiante
 import os
 
 class TranslateInterface(QQuickView):
+
+    hided = QtCore.pyqtSignal()
     
     def __init__(self, qml_file):
         QQuickView.__init__(self)
@@ -63,6 +65,7 @@ class TranslateInterface(QQuickView):
         
     def hide_translate(self):
         if not self.in_translate_area():
+            self.hided.emit()
             self.hide()
     
     def in_translate_area(self):
