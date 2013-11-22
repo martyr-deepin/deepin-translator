@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import QtMultimedia 5.0
+import QtGraphicalEffects 1.0
 
 RectWithCorner {
 	id: container
@@ -8,6 +9,8 @@ RectWithCorner {
     cornerDirection: "up"
     
     property alias keyword: keyword
+    property alias splitline: splitline
+    property alias itemHighlight: itemHighlight
     property alias border: border
     property alias listview: listview
     property alias suggestArea: suggestArea
@@ -17,6 +20,9 @@ RectWithCorner {
     property int textMargin: 10
     property int webPadding: 10
     property int splitHeight: 2 /* two split line's height */
+	property int itemHighlightHeight: 45
+	property int itemHighlightIndex: 0
+	property bool inItem: false
 
     property int listviewWidth: 0
     property int listviewHeight: 0
@@ -61,8 +67,6 @@ RectWithCorner {
     }
     
     function adjustSuggestionSize() {
-		console.log(listviewHeight)
-		
         suggestArea.width = listviewWidth
         suggestArea.height = listviewHeight
         
@@ -100,6 +104,66 @@ RectWithCorner {
 		anchors.rightMargin: borderMargin
         color: Qt.rgba(0, 0, 0, 0)
         
+		Rectangle {
+			id: itemHighlight
+			width: parent.width
+			height: itemHighlightHeight
+			y: parent.y + keyword.height + itemHighlightIndex * itemHighlightHeight
+			color: "#22FF0000"
+			visible: false
+			
+            RadialGradient {
+				id: highlightMiddle
+                anchors.fill: parent
+                horizontalRadius: parent.width * 1.54
+                horizontalOffset: 0
+                verticalRadius: parent.height * 3
+                verticalOffset: -70
+                
+                gradient: Gradient {
+                    GradientStop { position: 0.0; color: Qt.rgba(255 / 255.0, 243 / 255.0, 77 / 255.0, 0.5)}
+                    GradientStop { position: 1.0; color: Qt.rgba(0, 0, 0, 0.4)}
+                }
+                
+            }
+			LinearGradient {
+				id: highlightTopline
+				width: parent.width
+				height: 1
+				anchors.top: parent.top
+				start: Qt.point(0, 0)
+				end: Qt.point(width, 0)
+				gradient: Gradient {
+					GradientStop { position: 0.0; color: Qt.rgba(255 / 255.0, 192 / 255.0, 0 / 255.0, 0.05)}
+					GradientStop { position: 0.5; color: Qt.rgba(255 / 255.0, 243 / 255.0, 77 / 255.0, 0.45)}
+					GradientStop { position: 1.0; color: Qt.rgba(255 / 255.0, 192 / 255.0, 0 / 255.0, 0.05)}
+				}
+				visible: itemHighlight.visible
+			}
+
+			LinearGradient {
+				id: highlightBottomline
+				width: parent.width
+				height: 1
+				anchors.bottom: parent.bottom
+				start: Qt.point(0, 0)
+				end: Qt.point(width, 0)
+				gradient: Gradient {
+					GradientStop { position: 0.0; color: Qt.rgba(255 / 255.0, 192 / 255.0, 0 / 255.0, 0.05)}
+					GradientStop { position: 0.5; color: Qt.rgba(255 / 255.0, 243 / 255.0, 77 / 255.0, 0.15)}
+					GradientStop { position: 1.0; color: Qt.rgba(255 / 255.0, 192 / 255.0, 0 / 255.0, 0.05)}
+				}
+				visible: itemHighlight.visible
+			}
+			
+            Behavior on y {
+                NumberAnimation {
+                    duration: 200
+                    easing.type: Easing.OutQuint
+                }
+            }
+		}				
+                
 	    Column {
 		    spacing: 5
 		    anchors.fill: parent
@@ -122,8 +186,6 @@ RectWithCorner {
                 onInputChanged: {
                     container.listviewWidth = 0
                     container.listviewHeight = 0
-					
-					console.log("**** ", listviewHeight)
 					
 					if (keyword.text == "") {
 						listview.model = historyModel
@@ -152,6 +214,7 @@ RectWithCorner {
             }
 
             Rectangle {
+				id: splitline
                 anchors.left: parent.left
                 anchors.right: parent.right
                 height: 1
@@ -168,19 +231,48 @@ RectWithCorner {
                 color: Qt.rgba(0, 0, 0, 0)
                 visible: false
                 clip: true
-                
+				
                 Component {
                     id: contactDelegate
                     Item {
                         id: item
                         width: parent.width
-                        height: titleText.paintedHeight + explainText.paintedHeight + splitLine.height
+                        height: titleText.paintedHeight + explainText.paintedHeight + itemSplitline.height
                         
 						MouseArea {
+							id: itemArea
 							anchors.fill: parent
+							hoverEnabled: true
 							
 							onPressed: {
 								handleAccepted(titleText.text)
+							}
+							
+							onEntered: {
+								inItem = true
+								itemHighlightIndex = index
+								itemHighlight.visible = true
+								
+								explainText.color = "#ffffff"
+							}
+							
+							onExited: {
+								inItem = false
+								hideItemHighlight.restart()
+								
+								explainText.color = "#aaaaaa"
+							}
+							
+							Timer {
+								id: hideItemHighlight
+								interval: 100
+								repeat: false
+								
+								onTriggered: {
+									if (!inItem) {
+										itemHighlight.visible = false
+									}
+								}
 							}
 						}
 						
@@ -197,7 +289,6 @@ RectWithCorner {
                                     }
                                     
                                     container.listviewHeight += titleText.paintedHeight
-									console.log("#### ", titleText.text)
                                 }
                             }
                             
@@ -207,19 +298,18 @@ RectWithCorner {
                                 color: "#aaaaaa"
 								font { pixelSize: 12 }
 								anchors.topMargin: 1
-                                
+								
                                 Component.onCompleted: {
                                     if (explainText.paintedWidth > container.listviewWidth) {
                                         container.listviewWidth = explainText.paintedWidth
                                     }
                                     
                                     container.listviewHeight += explainText.paintedHeight
-									console.log("#### ", explainText.text)
                                 }
                             }
 							
 							Rectangle {
-								id: splitLine
+								id: itemSplitline
 								width: listviewWidth
 								height: 11
 								anchors.topMargin: height / 2
@@ -227,7 +317,7 @@ RectWithCorner {
 								color: Qt.rgba(0, 0, 0, 0)
 								
 								Component.onCompleted: {
-									container.listviewHeight += splitLine.height
+									container.listviewHeight += itemSplitline.height
 								}
 								
 								Rectangle {
@@ -248,10 +338,6 @@ RectWithCorner {
                     model: suggestModel
                     delegate: contactDelegate
 					focus: true
-                    /* highlight: Rectangle {  */
-					/* 	color: "lightsteelblue";  */
-					/* 	radius: 5  */
-					/* } */
                 }
             }
             
