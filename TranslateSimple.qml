@@ -109,7 +109,7 @@ RectWithCorner {
 			width: parent.width
 			height: itemHighlightHeight
 			y: parent.y + keyword.height + itemHighlightIndex * itemHighlightHeight
-			color: "#22FF0000"
+			color: Qt.rgba(0, 0, 0, 0)
 			visible: false
 			
             RadialGradient {
@@ -122,7 +122,7 @@ RectWithCorner {
                 
                 gradient: Gradient {
                     GradientStop { position: 0.0; color: Qt.rgba(255 / 255.0, 243 / 255.0, 77 / 255.0, 0.5)}
-                    GradientStop { position: 1.0; color: Qt.rgba(0, 0, 0, 0.4)}
+                    GradientStop { position: 1.0; color: Qt.rgba(255 / 255, 192 / 255, 0 / 255, 0.02)}
                 }
                 
             }
@@ -341,6 +341,7 @@ RectWithCorner {
                     model: suggestModel
                     delegate: contactDelegate
 					focus: true
+					/* highlight: itemHighlight */
                 }
             }
             
