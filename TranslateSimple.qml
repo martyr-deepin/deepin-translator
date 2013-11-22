@@ -28,6 +28,7 @@ RectWithCorner {
     }
     
     function showTranslate() {
+		suggestArea.visible = false
         adjustTranslateSize()
         autoSpeech()
     }
