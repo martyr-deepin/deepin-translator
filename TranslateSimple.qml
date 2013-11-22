@@ -52,10 +52,9 @@ RectWithCorner {
     }
 	
 	function handleAccepted(text) {
+		itemHighlightIndex = 0
         windowView.get_translate(text)
-		
 		showTranslate()
-		
 		historyModel.addSearchData(translateInfo.keyword, translateInfo.trans, translateInfo.webtrans)
 	}
     
@@ -93,8 +92,6 @@ RectWithCorner {
         container.rectHeight = maxHeight
         container.width = maxWidth
         container.height = maxHeight
-		
-		console.log("**** ", maxWidth, maxHeight)
     }
     
     function autoSpeech() {

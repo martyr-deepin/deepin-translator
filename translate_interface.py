@@ -70,7 +70,6 @@ class TranslateInterface(QQuickView):
     
     def in_translate_area(self):
         (mouse_x, mouse_y) = get_pointer_coordiante()
-        print (mouse_x, mouse_y, "***", self.x(), self.y(), self.width(), self.height())
         return self.x() < mouse_x < self.x() + self.width() and self.y() < mouse_y < self.y() + self.height()
 
     def show_translate(self, x, y, text):
