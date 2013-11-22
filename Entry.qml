@@ -7,6 +7,7 @@ Item {
     
     property alias text: textInput.text
     property alias textInput: textInput
+	property int cursorWidth: 2
 
     signal accepted (string text)
     signal inputChanged
@@ -35,7 +36,7 @@ Item {
                 selectedTextColor: "#5da6ce"
 		        font { pixelSize: 18 }
                 cursorDelegate: Rectangle {
-                    width: 2
+                    width: cursorWidth
                     color: "#AAFFFFFF"
 			    }
                 
@@ -55,6 +56,8 @@ Item {
                     
                     onPressed: {
                         mouse.accepted = false
+						
+						cursorWidth = 2
                     }
                 }
             }

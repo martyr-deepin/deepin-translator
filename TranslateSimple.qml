@@ -38,6 +38,7 @@ RectWithCorner {
 		target: windowView
 		onHided: {
 			keyword.textInput.focus = false
+			keyword.cursorWidth = 0
 		}
 	}
 	
