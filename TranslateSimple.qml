@@ -114,7 +114,7 @@ RectWithCorner {
                     container.listviewWidth = 0
                     container.listviewHeight = 0
                     
-                    suggestModel.suggest(keyword.text)
+                    suggestModel.suggestWithNum(keyword.text, 5)
                     suggestArea.visible = true
                     
                     /* NOTE: we set enough size to make ListModel Component.onCompleted can calcuate before `finished` signal emit
