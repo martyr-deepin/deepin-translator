@@ -82,7 +82,7 @@ class RecordEvent(QObject):
                     selection_content = commands.getoutput("xsel -p -o")
                     subprocess.Popen("xsel -c", shell=True).wait()
                     
-                    if len(selection_content) > 1:
+                    if len(selection_content) > 1 and not selection_content.isspace():
                         self.translate_selection.emit(event.root_x, event.root_y, selection_content)
             elif event.type == X.MotionNotify:
                 if self.timer:

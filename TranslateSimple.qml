@@ -44,8 +44,8 @@ RectWithCorner {
 	
 	function handleAccepted(text) {
         windowView.get_translate(text)
-        adjustTranslateSize()
         suggestArea.visible = false
+        adjustTranslateSize()
 					
 		historyModel.addSearchData(translateInfo.keyword, translateInfo.trans, translateInfo.webtrans)
 	}
@@ -61,11 +61,13 @@ RectWithCorner {
         
         windowView.width = maxWidth
         windowView.height = maxHeight
-        
+		
         container.rectWidth = maxWidth
         container.rectHeight = maxHeight
         container.width = maxWidth
         container.height = maxHeight
+		
+		console.log("### ", maxWidth, maxHeight)
     }
     
     function adjustSuggestionSize() {
@@ -82,6 +84,8 @@ RectWithCorner {
         container.rectHeight = maxHeight
         container.width = maxWidth
         container.height = maxHeight
+		
+		console.log("**** ", maxWidth, maxHeight)
     }
     
     function autoSpeech() {

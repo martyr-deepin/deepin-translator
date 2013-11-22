@@ -40,7 +40,7 @@ class TranslateInterface(QQuickView):
         surface_format.setAlphaBufferSize(8)
         
         self.setColor(QColor(0, 0, 0, 0))
-        self.setFlags(QtCore.Qt.FramelessWindowHint)
+        self.setFlags(QtCore.Qt.Popup)
         self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
         
@@ -53,12 +53,6 @@ class TranslateInterface(QQuickView):
         self.qml_context.setContextProperty("qApp", qApp)
         
         self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), qml_file)))
-        
-        self.activeChanged.connect(self.monitor_window_active)
-        
-    def monitor_window_active(self, *args):
-        if not self.isActive():
-            self.hide()
         
     def init_translate_info(self):
         print "NOTE: Your should implement this function to init translate information!"
@@ -73,6 +67,7 @@ class TranslateInterface(QQuickView):
     
     def in_translate_area(self):
         (mouse_x, mouse_y) = get_pointer_coordiante()
+        print (mouse_x, mouse_y, "***", self.x(), self.y(), self.width(), self.height())
         return self.x() < mouse_x < self.x() + self.width() and self.y() < mouse_y < self.y() + self.height()
 
     def show_translate(self, x, y, text):
