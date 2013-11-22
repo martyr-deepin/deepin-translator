@@ -180,7 +180,9 @@ RectWithCorner {
 		        anchors.rightMargin: textMargin
                 
                 onAccepted: {
-					handleAccepted(text)
+					if (keyword.text != "") {
+						handleAccepted(text)
+					}
                 }
                 
                 onInputChanged: {
