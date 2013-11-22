@@ -33,6 +33,14 @@ RectWithCorner {
         adjustTranslateSize()
         autoSpeech()
     }
+	
+	function handleAccepted(text) {
+        windowView.get_translate(text)
+        adjustTranslateSize()
+        suggestArea.visible = false
+					
+		historyModel.addSearchData(translateInfo.keyword, translateInfo.trans, translateInfo.webtrans)
+	}
     
     function adjustTranslateSize() {
         var maxWidth = Math.max(
@@ -106,11 +114,7 @@ RectWithCorner {
 		        anchors.rightMargin: textMargin
                 
                 onAccepted: {
-                    windowView.get_translate(text)
-                    adjustTranslateSize()
-                    suggestArea.visible = false
-					
-					historyModel.addSearchData(translateInfo.keyword, translateInfo.trans, translateInfo.webtrans)
+					handleAccepted(text)
                 }
                 
                 onInputChanged: {
@@ -160,6 +164,14 @@ RectWithCorner {
                         width: parent.width
                         height: titleText.paintedHeight + explainText.paintedHeight + splitLine.height
                         
+						MouseArea {
+							anchors.fill: parent
+							
+							onPressed: {
+								handleAccepted(titleText.text)
+							}
+						}
+						
                         Column {
                             Text {
                                 id: titleText
