@@ -26,6 +26,7 @@ RectWithCorner {
 
     property int listviewWidth: 0
     property int listviewHeight: 0
+	property int listviewLength: 0
     
     Connections {
         target: suggestModel
@@ -138,8 +139,28 @@ RectWithCorner {
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
                 
+				onPressUp: {
+					if (itemHighlight.visible) {
+						itemHighlightIndex = Math.max(0, itemHighlightIndex - 1)
+					} else {
+						itemHighlightIndex = listviewLength - 1
+						itemHighlight.visible = true
+					}
+				}
+				
+				onPressDown: {
+					if (itemHighlight.visible) {
+						itemHighlightIndex = Math.min(listviewLength - 1, itemHighlightIndex + 1)
+					} else {
+						itemHighlightIndex = 0
+						itemHighlight.visible = true
+					}
+				}
+				
                 onAccepted: {
-					if (keyword.text != "") {
+					if (itemHighlight.visible) {
+						handleAccepted(listview.model.getTitle(itemHighlightIndex))
+					} else if (keyword.text != "") {
 						handleAccepted(text)
 					}
                 }
@@ -158,6 +179,8 @@ RectWithCorner {
 						
                         suggestModel.suggestWithNum(keyword.text, 5)
                         suggestArea.visible = true
+						
+						container.listviewLength = suggestModel.total()
                         
                         /* NOTE: we set enough size to make ListModel Component.onCompleted can calcuate before `finished` signal emit
                            DO NOT DELETE below code!!!
@@ -200,7 +223,7 @@ RectWithCorner {
                         id: item
                         width: parent.width
                         height: titleText.paintedHeight + explainText.paintedHeight + itemSplitline.height
-                        
+						
 						MouseArea {
 							id: itemArea
 							anchors.fill: parent
@@ -233,6 +256,7 @@ RectWithCorner {
 								onTriggered: {
 									if (!inItem) {
 										itemHighlight.visible = false
+										itemHighlightIndex = 0
 									}
 								}
 							}

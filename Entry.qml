@@ -11,6 +11,8 @@ Item {
 
     signal accepted (string text)
     signal inputChanged
+	signal pressUp
+	signal pressDown
     
     Rectangle {
         id: entryBorder
@@ -50,6 +52,14 @@ Item {
                     }
                 }
                 
+				Keys.onPressed: {
+					if (event.key == Qt.Key_Up) {
+						entry.pressUp()
+					} else if (event.key == Qt.Key_Down) {
+						entry.pressDown()
+					}
+				}
+				
                 MouseArea {
                     anchors.fill: parent
                     propagateComposedEvents: true

@@ -60,6 +60,10 @@ class SuggestModel(QtCore.QAbstractListModel):
         self._data.append(suggest)
         self.endInsertRows()        
         
+    @QtCore.pyqtSlot(int, result=str)    
+    def getTitle(self, index):
+        return self._data[index]["title"]
+        
     @QtCore.pyqtSlot(result=int)
     def total(self):    
         return len(self._data)
@@ -213,6 +217,10 @@ class HistoryModel(QtCore.QAbstractListModel):
         if len(self._data) > self.MAX_NUM:
             self._data = self._data[:self.MAX_NUM]
             
+    @QtCore.pyqtSlot(int, result=str)    
+    def getTitle(self, index):
+        return self._data[index]["title"]
+        
     @QtCore.pyqtSlot(result=int)
     def total(self):    
         return len(self._data)
