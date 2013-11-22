@@ -25,7 +25,7 @@ from PyQt5.QtCore import pyqtSlot
 import requests
 from utils import encode_params
 from translate_interface import TranslateInterface
-from models import suggestModel
+from models import suggestModel, historyModel
 from auto_object import AutoQObject
 from ocr import ocr_word
 from xutils import get_pointer_coordiante
@@ -62,6 +62,7 @@ class TranslateSimple(TranslateInterface):
         self.translate_info = TranslateInfo()
         
         self.qml_context.setContextProperty("suggestModel", suggestModel)
+        self.qml_context.setContextProperty("historyModel", historyModel)
         
     @pyqtSlot(str)    
     def get_translate(self, text):

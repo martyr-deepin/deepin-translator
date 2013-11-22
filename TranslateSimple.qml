@@ -109,6 +109,8 @@ RectWithCorner {
                     windowView.get_translate(text)
                     adjustTranslateSize()
                     suggestArea.visible = false
+					
+					historyModel.addSearchData(translateInfo.keyword, translateInfo.trans)
                 }
                 
                 onInputChanged: {
@@ -216,9 +218,8 @@ RectWithCorner {
                 ListView {
                     id: listview
                     anchors.fill: parent
-                    model: suggestModel
+                    model: keyword.text == "" ? historyModel : suggestModel
                     delegate: contactDelegate
-                    highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
                     focus: true
                 }
             }
