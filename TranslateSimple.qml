@@ -8,6 +8,7 @@ RectWithCorner {
     cornerDirection: "up"
     
     property alias keyword: keyword
+    property alias border: border
     property alias listview: listview
     property alias suggestArea: suggestArea
     property alias trans: trans
@@ -155,13 +156,14 @@ RectWithCorner {
                     Item {
                         id: item
                         width: parent.width
-                        height: titleText.paintedHeight + explainText.paintedHeight
+                        height: titleText.paintedHeight + explainText.paintedHeight + splitLine.height
                         
                         Column {
                             Text {
                                 id: titleText
                                 text: title
-                                color: "#ffffff"
+                                color: "#FFFFFF"
+								anchors.topMargin: 1
 
                                 Component.onCompleted: {
                                     if (titleText.paintedWidth > container.listviewWidth) {
@@ -175,7 +177,9 @@ RectWithCorner {
                             Text {
                                 id: explainText
                                 text: explain
-                                color: "#ffffff"
+                                color: "#aaaaaa"
+								font { pixelSize: 12 }
+								anchors.topMargin: 1
                                 
                                 Component.onCompleted: {
                                     if (explainText.paintedWidth > container.listviewWidth) {
@@ -185,6 +189,26 @@ RectWithCorner {
                                     container.listviewHeight += explainText.paintedHeight
                                 }
                             }
+							
+							Rectangle {
+								id: splitLine
+								width: listviewWidth
+								height: 11
+								anchors.topMargin: height / 2
+								anchors.bottomMargin: anchors.topMargin
+								color: Qt.rgba(0, 0, 0, 0)
+								
+								Component.onCompleted: {
+									container.listviewHeight += splitLine.height
+								}
+								
+								Rectangle {
+									width: parent.width
+									anchors.verticalCenter: parent.verticalCenter
+									height: 1
+									color: "#11FFFFFF"
+								}
+							}
                         }
                     }
                 }
