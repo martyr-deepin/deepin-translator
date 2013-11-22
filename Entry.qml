@@ -3,7 +3,7 @@ import QtQuick 2.1
 Item {
     id: entry
     width: parent.width
-    height: 24
+    height: 20
     
     property alias text: textInput.text
     property alias textInput: textInput
@@ -36,7 +36,7 @@ Item {
 		        font { pixelSize: 18 }
                 cursorDelegate: Rectangle {
                     width: 2
-                    color: textInput.selectedText == "" ? "#f7d303" : "#5da6ce"
+                    color: "#AAFFFFFF"
                 }
                 
                 onAccepted: {
