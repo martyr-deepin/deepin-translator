@@ -110,7 +110,7 @@ RectWithCorner {
                     adjustTranslateSize()
                     suggestArea.visible = false
 					
-					historyModel.addSearchData(translateInfo.keyword, translateInfo.trans)
+					historyModel.addSearchData(translateInfo.keyword, translateInfo.trans, translateInfo.webtrans)
                 }
                 
                 onInputChanged: {

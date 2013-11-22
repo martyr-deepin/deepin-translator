@@ -147,8 +147,8 @@ class HistoryModel(QtCore.QAbstractListModel):
     ExplainRole = QtCore.Qt.UserRole + 2
     
     _roles = { TitleRole: "title", ExplainRole: "explain" }
-    
     finished = QtCore.pyqtSignal()
+    MAX_NUM = 5    
     
     def __init__(self, parent=None):
         super(HistoryModel, self).__init__(parent)
@@ -185,24 +185,33 @@ class HistoryModel(QtCore.QAbstractListModel):
         self._data.append(history)
         self.endInsertRows()        
         
-    @QtCore.pyqtSlot(str, str)
-    def addSearchData(self, title, explain):
+    @QtCore.pyqtSlot(str, str, str)
+    def addSearchData(self, title, explain, web):
         title = title.strip()
         explain = explain.split("<br>")[0]
+        if not explain:
+            explain = web
+            
         kd = KeyDict(title=title, explain=explain)
         change = False
         if kd in self._data:
             idx = self._data.index(kd)
             if idx != 0:
-                self._data.insert(0, self._data.pop(idx))
+                self._data.pop(idx)                
+                self._data.insert(0, kd)
                 change = True
         else:    
             self._data.insert(0, kd)
             change = True
             
         if change:    
+            self.keepData()
             self.resetHistoryData()
             self.save()
+            
+    def keepData(self):        
+        if len(self._data) > self.MAX_NUM:
+            self._data = self._data[:self.MAX_NUM]
             
     @QtCore.pyqtSlot(result=int)
     def total(self):    
@@ -217,7 +226,7 @@ class HistoryModel(QtCore.QAbstractListModel):
         return self._roles
         
     def rowCount(self, parent=QtCore.QModelIndex()):    
-        return len(self._data[:10])
+        return len(self._data[:self.MAX_NUM])
     
     def data(self, index, role):
 
