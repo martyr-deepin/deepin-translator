@@ -74,15 +74,25 @@ RectWithCorner {
         container.rectHeight = maxHeight
         container.width = maxWidth
         container.height = maxHeight
-		
-		console.log("### ", maxWidth, maxHeight)
     }
     
     function adjustSuggestionSize() {
+		listviewWidth = 0
+		listviewHeight = 0
+		
+		for (var i = 0; i < listviewLength; i++) {
+			var item = listview.contentItem.children[i]
+			
+			if (typeof item != 'undefined') {
+				listviewWidth = Math.max(item.width, listviewWidth)
+				listviewHeight += item.height
+			}
+		}
+		
         suggestArea.width = listviewWidth
         suggestArea.height = listviewHeight
         
-        var maxWidth = container.listviewWidth + (borderMargin + container.blurRadius) * 2
+        var maxWidth = listviewWidth + (borderMargin + container.blurRadius) * 2
         var maxHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
         
         windowView.width = maxWidth
@@ -163,21 +173,19 @@ RectWithCorner {
                 }
                 
                 onInputChanged: {
-                    container.listviewWidth = 0
-                    container.listviewHeight = 0
-					
 					itemHighlight.visible = false
 					
 					if (keyword.text == "") {
 						listview.model = historyModel
 						
+						listviewLength = historyModel.total()
 					} else {
 						listview.model = suggestModel
 						
                         suggestModel.suggestWithNum(keyword.text, 5)
                         suggestArea.visible = true
 						
-						container.listviewLength = suggestModel.total()
+						listviewLength = suggestModel.total()
                         
                         /* NOTE: we set enough size to make ListModel Component.onCompleted can calcuate before `finished` signal emit
                            DO NOT DELETE below code!!!
@@ -219,7 +227,7 @@ RectWithCorner {
                     Item {
                         id: item
                         width: parent.width
-                        height: titleText.paintedHeight + explainText.paintedHeight + itemSplitline.height
+						height: parent.height
 						
 						MouseArea {
 							id: itemArea
@@ -265,14 +273,6 @@ RectWithCorner {
                                 text: title
                                 color: "#FFFFFF"
 								anchors.topMargin: 1
-
-                                Component.onCompleted: {
-                                    if (titleText.paintedWidth > container.listviewWidth) {
-                                        container.listviewWidth = titleText.paintedWidth
-                                    }
-                                    
-                                    container.listviewHeight += titleText.paintedHeight
-                                }
                             }
                             
                             Text {
@@ -281,14 +281,6 @@ RectWithCorner {
                                 color: "#aaaaaa"
 								font { pixelSize: 12 }
 								anchors.topMargin: 1
-								
-                                Component.onCompleted: {
-                                    if (explainText.paintedWidth > container.listviewWidth) {
-                                        container.listviewWidth = explainText.paintedWidth
-                                    }
-                                    
-                                    container.listviewHeight += explainText.paintedHeight
-                                }
                             }
 							
 							Rectangle {
@@ -299,10 +291,6 @@ RectWithCorner {
 								anchors.bottomMargin: anchors.topMargin
 								color: Qt.rgba(0, 0, 0, 0)
 								
-								Component.onCompleted: {
-									container.listviewHeight += itemSplitline.height
-								}
-								
 								Rectangle {
 									width: parent.width
 									anchors.verticalCenter: parent.verticalCenter
@@ -311,6 +299,11 @@ RectWithCorner {
 								}
 							}
                         }
+
+						Component.onCompleted: {
+							width = Math.max(titleText.paintedWidth, explainText.paintedWidth)
+							height = titleText.paintedHeight + explainText.paintedHeight + itemSplitline.height
+						}
                     }
                 }
 
