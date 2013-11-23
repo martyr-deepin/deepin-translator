@@ -227,7 +227,10 @@ RectWithCorner {
 						
 						MouseArea {
 							id: itemArea
-							anchors.fill: parent
+							anchors.top: parent.top
+							anchors.bottom: parent.bottom
+							anchors.left: parent.left
+							width: listviewWidth
 							hoverEnabled: true
 							
 							onClicked: {
