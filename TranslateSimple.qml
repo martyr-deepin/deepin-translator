@@ -89,6 +89,8 @@ RectWithCorner {
 			}
 		}
 		
+		console.log(listviewLength, listviewWidth, listviewHeight)
+		
         suggestArea.width = listviewWidth
         suggestArea.height = listviewHeight
         
@@ -226,8 +228,8 @@ RectWithCorner {
                     id: contactDelegate
                     Item {
                         id: item
-                        width: parent.width
-						height: parent.height
+                        width: Math.max(titleText.paintedWidth, explainText.paintedWidth)
+						height: titleText.paintedHeight + explainText.paintedHeight + itemSplitline.height
 						
 						MouseArea {
 							id: itemArea
@@ -299,11 +301,6 @@ RectWithCorner {
 								}
 							}
                         }
-
-						Component.onCompleted: {
-							width = Math.max(titleText.paintedWidth, explainText.paintedWidth)
-							height = titleText.paintedHeight + explainText.paintedHeight + itemSplitline.height
-						}
                     }
                 }
 
