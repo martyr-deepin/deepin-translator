@@ -42,9 +42,17 @@ class TranslateInterface(QQuickView):
         surface_format.setAlphaBufferSize(8)
         
         self.setColor(QColor(0, 0, 0, 0))
-        self.setFlags(QtCore.Qt.FramelessWindowHint)
         self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
+        
+        # This is hacking way.
+        # First, we set window flags with FramelessWindowHint, 
+        # then window get decrated features and accepted focus.
+        # 
+        # Second, we set window flags with Popup,
+        # we can make window skip taskbar same as Popup type window.
+        self.setFlags(QtCore.Qt.FramelessWindowHint)
+        self.setFlags(QtCore.Qt.Popup)
         
         self.qml_context = self.rootContext()
         
