@@ -31,7 +31,7 @@ RectWithCorner {
     Connections {
         target: suggestModel
         onFinished: {
-            adjustSuggestionSize()
+			adjustSuggestionSize()
         }
     }
 	
@@ -77,6 +77,7 @@ RectWithCorner {
     }
     
     function adjustSuggestionSize() {
+		listviewLength = listview.model.total()
 		listviewWidth = 0
 		listviewHeight = 0
 		
@@ -88,8 +89,6 @@ RectWithCorner {
 				listviewHeight += item.height
 			}
 		}
-		
-		console.log(listviewLength, listviewWidth, listviewHeight)
 		
         suggestArea.width = listviewWidth
         suggestArea.height = listviewHeight
@@ -179,15 +178,12 @@ RectWithCorner {
 					
 					if (keyword.text == "") {
 						listview.model = historyModel
-						
-						listviewLength = historyModel.total()
 					} else {
 						listview.model = suggestModel
 						
                         suggestModel.suggestWithNum(keyword.text, 5)
                         suggestArea.visible = true
 						
-						listviewLength = suggestModel.total()
                         
                         /* NOTE: we set enough size to make ListModel Component.onCompleted can calcuate before `finished` signal emit
                            DO NOT DELETE below code!!!
