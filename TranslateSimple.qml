@@ -281,7 +281,7 @@ RectWithCorner {
 							
 							Rectangle {
 								id: itemSplitline
-								width: listviewWidth
+								width: windowView.width
 								height: 11
 								anchors.topMargin: height / 2
 								anchors.bottomMargin: anchors.topMargin
