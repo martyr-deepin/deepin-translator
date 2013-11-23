@@ -22,12 +22,12 @@ RectWithCorner {
     property int splitHeight: 2 /* two split line's height */
 	property int itemHighlightHeight: 45
 	property int itemHighlightIndex: 0
+	property int minWindowWidth: 200
 	property bool inItem: false
 
     property int listviewWidth: 0
     property int listviewHeight: 0
 	property int listviewLength: 0
-	property int listviewMinWidth: 200
     
     Connections {
         target: suggestModel
@@ -63,6 +63,7 @@ RectWithCorner {
     
     function adjustTranslateSize() {
         var maxWidth = Math.max(
+			minWindowWidth,
             trans.paintedWidth, 
             webtrans.paintedWidth, 
             usSpeech.getWidth() + ukSpeech.getWidth()
@@ -88,7 +89,7 @@ RectWithCorner {
 			var item = listview.contentItem.children[i]
 			
 			if (typeof item != 'undefined') {
-				listviewWidth = Math.max(item.width, listviewWidth, listviewMinWidth)
+				listviewWidth = Math.max(item.width, listviewWidth)
 				listviewHeight += item.height
 			}
 		}
@@ -96,7 +97,7 @@ RectWithCorner {
         suggestArea.width = listviewWidth
         suggestArea.height = listviewHeight
         
-        var maxWidth = listviewWidth + (borderMargin + container.blurRadius) * 2
+        var maxWidth = Math.max(listviewWidth, minWindowWidth) + (borderMargin + container.blurRadius) * 2
         var maxHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
         
         windowView.width = maxWidth
