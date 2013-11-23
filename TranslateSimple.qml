@@ -94,8 +94,11 @@ RectWithCorner {
 			}
 		}
 		
-        suggestArea.width = listviewWidth
-        suggestArea.height = listviewHeight
+        /* suggestArea.width = listviewWidth */
+        /* suggestArea.height = listviewHeight */
+
+        listview.width = listviewWidth
+        listview.height = listviewHeight
         
         var maxWidth = Math.max(listviewWidth, minWindowWidth) + (borderMargin + container.blurRadius) * 2
         var maxHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
@@ -208,11 +211,8 @@ RectWithCorner {
             
             Rectangle {
                 id: suggestArea
-                anchors.left: parent.left
-                anchors.right: parent.right
-		        anchors.margins: borderMargin
-                width: 200
-                height: 300
+                width: parent.width
+                height: listviewHeight
                 color: Qt.rgba(0, 0, 0, 0)
                 visible: false
                 clip: true
@@ -227,10 +227,8 @@ RectWithCorner {
 						
 						MouseArea {
 							id: itemArea
-							anchors.top: parent.top
-							anchors.bottom: parent.bottom
-							anchors.left: parent.left
-							width: listviewWidth
+							width: suggestArea.width
+							height: parent.height
 							hoverEnabled: true
 							
 							onClicked: {
@@ -267,6 +265,11 @@ RectWithCorner {
 						}
 						
                         Column {
+						    anchors.left: parent.left
+						    anchors.right: parent.right
+						    anchors.leftMargin: borderMargin
+						    anchors.rightMargin: borderMargin
+						
                             Text {
                                 id: titleText
                                 text: title
@@ -284,7 +287,7 @@ RectWithCorner {
 							
 							Rectangle {
 								id: itemSplitline
-								width: windowView.width
+								width: suggestArea.width - borderMargin * 2
 								height: 11
 								anchors.topMargin: height / 2
 								anchors.bottomMargin: anchors.topMargin
