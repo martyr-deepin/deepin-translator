@@ -27,6 +27,7 @@ RectWithCorner {
     property int listviewWidth: 0
     property int listviewHeight: 0
 	property int listviewLength: 0
+	property int listviewMinWidth: 200
     
     Connections {
         target: suggestModel
@@ -85,7 +86,7 @@ RectWithCorner {
 			var item = listview.contentItem.children[i]
 			
 			if (typeof item != 'undefined') {
-				listviewWidth = Math.max(item.width, listviewWidth)
+				listviewWidth = Math.max(item.width, listviewWidth, listviewMinWidth)
 				listviewHeight += item.height
 			}
 		}
@@ -179,17 +180,10 @@ RectWithCorner {
 					if (keyword.text == "") {
 						listview.model = historyModel
 					} else {
-						listview.model = suggestModel
-						
                         suggestModel.suggestWithNum(keyword.text, 5)
                         suggestArea.visible = true
 						
-                        
-                        /* NOTE: we set enough size to make ListModel Component.onCompleted can calcuate before `finished` signal emit
-                           DO NOT DELETE below code!!!
-                           */
-                        suggestArea.width = 1000
-                        suggestArea.height = 1000
+						listview.model = suggestModel
 					}
                 }
             }
