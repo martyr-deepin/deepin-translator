@@ -220,6 +220,7 @@ RectWithCorner {
                         id: item
                         width: Math.max(titleText.paintedWidth, explainText.paintedWidth)
 						height: titleText.paintedHeight + explainText.paintedHeight + itemSplitline.height
+						visible: suggestArea.visible
 						
 						MouseArea {
 							id: itemArea
@@ -297,10 +298,10 @@ RectWithCorner {
                 ListView {
                     id: listview
                     anchors.fill: parent
-                    /* model: keyword.text == "" ? historyModel : suggestModel */
                     model: suggestModel
                     delegate: contactDelegate
 					focus: true
+					visible: suggestArea.visible
 				}
             }
             
