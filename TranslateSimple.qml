@@ -32,7 +32,9 @@ RectWithCorner {
     Connections {
         target: suggestModel
         onFinished: {
-			adjustSuggestionSize()
+			if (suggestArea.visible) {
+				adjustSuggestionSize()
+			}
         }
     }
 	
