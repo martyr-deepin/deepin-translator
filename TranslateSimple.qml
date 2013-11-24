@@ -196,11 +196,16 @@ TranslateWindow {
 					itemHighlight.visible = false
 					
 					if (keyword.text == "") {
+                        listviewArea.visible = true
+						itemHighlight.visible = false
+						
 						listview.model = historyModel
+						
+						adjustSuggestionSize()
 					} else {
                         suggestModel.suggestWithNum(keyword.text, 5)
-                        listviewArea.visible = true
 						
+                        listviewArea.visible = true
 						listview.model = suggestModel
 					}
                 }
