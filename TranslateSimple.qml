@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtQuick.Window 2.1
 import QtMultimedia 5.0
 import QtGraphicalEffects 1.0
 
@@ -28,6 +29,13 @@ RectWithCorner {
     property int listviewWidth: 0
     property int listviewHeight: 0
 	property int listviewLength: 0
+	
+	property int windowPadding: 10
+	property int windowOffsetX: -50
+	property int windowOffsetY: 5
+	
+	property int mouseX: 0
+	property int mouseY: 0
     
     Connections {
         target: suggestModel
@@ -46,7 +54,16 @@ RectWithCorner {
 		}
 	}
 	
-    function showTranslate() {
+    function showTranslate(x, y, text) {
+		mouseX = x
+		mouseY = y
+		
+		/* Move window out of screen before adjust position */
+		windowView.x = 100000
+		windowView.y = 100000
+		windowView.showNormal()
+		windowView.get_translate(text)
+		
 		listviewArea.visible = false
 		itemHighlight.visible = false
 		
@@ -59,6 +76,28 @@ RectWithCorner {
         windowView.get_translate(text)
 		showTranslate()
 		historyModel.addSearchData(translateInfo.keyword, translateInfo.trans, translateInfo.webtrans)
+	}
+	
+	function adjustPosition() {
+		var x = mouseX + windowOffsetX
+		if (x < 0) {
+			x = windowPadding
+		} else if (x + windowView.width > Screen.width) {
+			x = Screen.width - windowView.width - windowPadding
+		}
+		windowView.x = x
+		cornerPos = mouseX - x
+		
+		var y = mouseY + windowOffsetY
+		var direction = "up"
+		if (y < 0) {
+			y = windowPadding
+		} else if (y + windowView.height > Screen.height) {
+			y = mouseY - windowView.height - windowOffsetY
+			direction = "down"
+		}
+		windowView.y = y
+		cornerDirection = direction
 	}
     
     function adjustTranslateSize() {
@@ -78,6 +117,8 @@ RectWithCorner {
         container.rectHeight = maxHeight
         container.width = maxWidth
         container.height = maxHeight
+		
+		adjustPosition()		
     }
     
     function adjustSuggestionSize() {
@@ -110,6 +151,8 @@ RectWithCorner {
         container.rectHeight = maxHeight
         container.width = maxWidth
         container.height = maxHeight
+		
+		adjustPosition()		
     }
     
     function autoSpeech() {
@@ -128,7 +171,7 @@ RectWithCorner {
         id: border
         radius: 6
 	    anchors.fill: parent
-        anchors.topMargin: borderMargin + container.cornerHeight
+        anchors.topMargin: cornerDirection == "up" ? borderMargin + container.cornerHeight : borderMargin
 		anchors.bottomMargin: borderMargin
 		anchors.leftMargin: borderMargin
 		anchors.rightMargin: borderMargin

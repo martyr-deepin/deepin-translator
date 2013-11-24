@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import QtQuick.Window 2.1
 import QtMultimedia 5.0
 
 RectWithCorner {
@@ -12,12 +13,50 @@ RectWithCorner {
 	property int voiceIndex: 0
 	property bool isManualStop: false
     
+	property int windowPadding: 10
+	property int windowOffsetX: -50
+	property int windowOffsetY: 5
+	
+	property int mouseX: 0
+	property int mouseY: 0
+	
     width: 300
     height: 200
     
-    function showTranslate() {
+    function showTranslate(x, y, text) {
+		mouseX = x
+		mouseY = y
+		
+		/* Move window out of screen before adjust position */
+		windowView.x = 100000
+		windowView.y = 100000
+		windowView.showNormal()
+		windowView.get_translate(text)
+		
 		adjustTranslateSize()
     }
+	
+	function adjustPosition() {
+		var x = mouseX + windowOffsetX
+		if (x < 0) {
+			x = windowPadding
+		} else if (x + windowView.width > Screen.width) {
+			x = Screen.width - windowView.width - windowPadding
+		}
+		windowView.x = x
+		cornerPos = mouseX - x
+		
+		var y = mouseY + windowOffsetY
+		var direction = "up"
+		if (y < 0) {
+			y = windowPadding
+		} else if (y + windowView.height > Screen.height) {
+			y = mouseY - windowView.height - windowOffsetY
+			direction = "down"
+		}
+		windowView.y = y
+		cornerDirection = direction
+	}
 	
     function adjustTranslateSize() {
 		var maxWidth = trans.paintedWidth + (borderMargin + textMargin + container.blurRadius) * 2
@@ -30,6 +69,8 @@ RectWithCorner {
         container.rectHeight = maxHeight
         container.width = maxWidth
         container.height = maxHeight
+		
+		adjustPosition()
     }    
 	
 	function manualStopAudio() {
@@ -69,7 +110,7 @@ RectWithCorner {
         id: border
         radius: 6
 	    anchors.fill: parent
-        anchors.topMargin: borderMargin + container.cornerHeight
+        anchors.topMargin: cornerDirection == "up" ? borderMargin + container.cornerHeight : borderMargin
 		anchors.bottomMargin: borderMargin
 		anchors.leftMargin: borderMargin
 		anchors.rightMargin: borderMargin

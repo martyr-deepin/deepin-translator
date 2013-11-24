@@ -35,9 +35,6 @@ class TranslateInterface(QQuickView):
     def __init__(self, qml_file):
         QQuickView.__init__(self)
         
-        self.window_offset_x = -50
-        self.window_offset_y = 5
-
         surface_format = QSurfaceFormat()
         surface_format.setAlphaBufferSize(8)
         
@@ -87,9 +84,5 @@ class TranslateInterface(QQuickView):
         return self.x() < mouse_x < self.x() + self.width() and self.y() < mouse_y < self.y() + self.height()
 
     def show_translate(self, x, y, text):
-        self.setX(x + self.window_offset_x)
-        self.setY(y + self.window_offset_y)
-        self.showNormal()
-        self.get_translate(text)
-        self.rootObject().showTranslate()
+        self.rootObject().showTranslate(x, y, text)
     
