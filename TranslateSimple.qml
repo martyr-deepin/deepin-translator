@@ -13,7 +13,7 @@ RectWithCorner {
     property alias itemHighlight: itemHighlight
     property alias border: border
     property alias listview: listview
-    property alias suggestArea: suggestArea
+    property alias listviewArea: listviewArea
     property alias trans: trans
     property alias webtrans: webtrans
     property int borderMargin: 10
@@ -32,7 +32,7 @@ RectWithCorner {
     Connections {
         target: suggestModel
         onFinished: {
-			if (suggestArea.visible) {
+			if (listviewArea.visible) {
 				adjustSuggestionSize()
 			}
         }
@@ -47,7 +47,7 @@ RectWithCorner {
 	}
 	
     function showTranslate() {
-		suggestArea.visible = false
+		listviewArea.visible = false
 		itemHighlight.visible = false
 		
         adjustTranslateSize()
@@ -94,8 +94,8 @@ RectWithCorner {
 			}
 		}
 		
-        /* suggestArea.width = listviewWidth */
-        /* suggestArea.height = listviewHeight */
+        /* listviewArea.width = listviewWidth */
+        /* listviewArea.height = listviewHeight */
 
         listview.width = listviewWidth
         listview.height = listviewHeight
@@ -187,7 +187,7 @@ RectWithCorner {
 						listview.model = historyModel
 					} else {
                         suggestModel.suggestWithNum(keyword.text, 5)
-                        suggestArea.visible = true
+                        listviewArea.visible = true
 						
 						listview.model = suggestModel
 					}
@@ -210,7 +210,7 @@ RectWithCorner {
             }
             
             Rectangle {
-                id: suggestArea
+                id: listviewArea
                 width: parent.width
                 height: listviewHeight
                 color: Qt.rgba(0, 0, 0, 0)
@@ -223,11 +223,11 @@ RectWithCorner {
                         id: item
                         width: Math.max(titleText.paintedWidth, explainText.paintedWidth)
 						height: titleText.paintedHeight + explainText.paintedHeight + itemSplitline.height
-						visible: suggestArea.visible
+						visible: listviewArea.visible
 						
 						MouseArea {
 							id: itemArea
-							width: suggestArea.width
+							width: listviewArea.width
 							height: parent.height
 							hoverEnabled: true
 							
@@ -287,7 +287,7 @@ RectWithCorner {
 							
 							Rectangle {
 								id: itemSplitline
-								width: suggestArea.width - borderMargin * 2
+								width: listviewArea.width - borderMargin * 2
 								height: 11
 								anchors.topMargin: height / 2
 								anchors.bottomMargin: anchors.topMargin
@@ -310,7 +310,7 @@ RectWithCorner {
                     model: suggestModel
                     delegate: contactDelegate
 					focus: true
-					visible: suggestArea.visible
+					visible: listviewArea.visible
 				}
             }
             
@@ -321,7 +321,7 @@ RectWithCorner {
                 anchors.right: parent.right
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
-                visible: !suggestArea.visible
+                visible: !listviewArea.visible
 			    
 			    Speech { 
                     id: usSpeech
@@ -350,7 +350,7 @@ RectWithCorner {
                 anchors.right: parent.right
                 height: 10
                 color: Qt.rgba(0, 0, 0, 0)
-                visible: !suggestArea.visible
+                visible: !listviewArea.visible
             }
             
             Column {
@@ -359,7 +359,7 @@ RectWithCorner {
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
                 spacing: webPadding
-                visible: !suggestArea.visible
+                visible: !listviewArea.visible
                 
 		        TextEdit { 
                     id: trans
