@@ -104,11 +104,15 @@ TranslateWindow {
 			if (typeof item != 'undefined') {
 				listviewWidth = Math.max(item.width, listviewWidth)
 				listviewHeight += item.height
+			} else {
+				console.log("*** ", item)
 			}
 		}
 		
         listview.width = listviewWidth
         listview.height = listviewHeight
+		
+		console.log(listviewLength, listviewWidth, listviewHeight)
         
         var maxWidth = Math.max(listviewWidth, minWindowWidth) + (borderMargin + container.blurRadius) * 2
         var maxHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
