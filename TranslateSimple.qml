@@ -369,6 +369,8 @@ RectWithCorner {
 			        selectByMouse: true
 			        font { pixelSize: 14 }
 			        color: "#FFFFFF"
+					selectionColor: "#11ffffff"
+					selectedTextColor: "#5da6ce"
                     
                     onTextChanged: {
                         cursorPosition: 0
@@ -384,6 +386,8 @@ RectWithCorner {
 			        selectByMouse: true
 			        font { pixelSize: 14 }
 			        color: "#FFFFFF"
+					selectionColor: "#11ffffff"
+					selectedTextColor: "#5da6ce"
 
                     onTextChanged: {
                         cursorPosition: 0
