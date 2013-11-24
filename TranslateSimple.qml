@@ -104,16 +104,12 @@ TranslateWindow {
 			if (typeof item != 'undefined') {
 				listviewWidth = Math.max(item.width, listviewWidth)
 				listviewHeight += item.height
-			} else {
-				console.log("*** ", item)
 			}
 		}
 		
         listview.width = listviewWidth
         listview.height = listviewHeight
 		
-		console.log(listviewLength, listviewWidth, listviewHeight)
-        
         var maxWidth = Math.max(listviewWidth, minWindowWidth) + (borderMargin + container.blurRadius) * 2
         var maxHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
         
@@ -197,6 +193,12 @@ TranslateWindow {
                 }
                 
                 onInputChanged: {
+					/* This is hacking way to make listview load models complete
+					   Listview can't load models complete if it haven't enough space.
+					 */
+					listviewArea.width = 1000
+					listviewArea.height = 1000
+		
 					itemHighlight.visible = false
 					
 					if (keyword.text == "") {
@@ -248,7 +250,7 @@ TranslateWindow {
 						
 						MouseArea {
 							id: itemArea
-							width: listviewArea.width
+							width: listview.width
 							height: parent.height
 							hoverEnabled: true
 							
@@ -308,7 +310,7 @@ TranslateWindow {
 							
 							Rectangle {
 								id: itemSplitline
-								width: listviewArea.width - borderMargin * 2
+								width: listviewWidth
 								height: 11
 								anchors.topMargin: height / 2
 								anchors.bottomMargin: anchors.topMargin
