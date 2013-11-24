@@ -3,11 +3,8 @@ import QtQuick.Window 2.1
 import QtMultimedia 5.0
 import QtGraphicalEffects 1.0
 
-RectWithCorner {
+TranslateWindow {
 	id: container
-    radius: 6
-    cornerPos: 50
-    cornerDirection: "up"
     
     property alias keyword: keyword
     property alias splitline: splitline
@@ -17,8 +14,6 @@ RectWithCorner {
     property alias listviewArea: listviewArea
     property alias trans: trans
     property alias webtrans: webtrans
-    property int borderMargin: 10
-    property int textMargin: 10
     property int webPadding: 10
     property int splitHeight: 2 /* two split line's height */
 	property int itemHighlightHeight: 45
@@ -30,13 +25,6 @@ RectWithCorner {
     property int listviewHeight: 0
 	property int listviewLength: 0
 	
-	property int windowPadding: 10
-	property int windowOffsetX: -50
-	property int windowOffsetY: 5
-	
-	property int mouseX: 0
-	property int mouseY: 0
-    
     Connections {
         target: suggestModel
         onFinished: {
@@ -74,32 +62,16 @@ RectWithCorner {
 	function handleAccepted(text) {
 		itemHighlightIndex = 0
         windowView.get_translate(text)
-		showTranslate()
+		
+		listviewArea.visible = false
+		itemHighlight.visible = false
+		
+        adjustTranslateSize()
+        autoSpeech()
+		
 		historyModel.addSearchData(translateInfo.keyword, translateInfo.trans, translateInfo.webtrans)
 	}
 	
-	function adjustPosition() {
-		var x = mouseX + windowOffsetX
-		if (x < 0) {
-			x = windowPadding
-		} else if (x + windowView.width > Screen.width) {
-			x = Screen.width - windowView.width - windowPadding
-		}
-		windowView.x = x
-		cornerPos = mouseX - x
-		
-		var y = mouseY + windowOffsetY
-		var direction = "up"
-		if (y < 0) {
-			y = windowPadding
-		} else if (y + windowView.height > Screen.height) {
-			y = mouseY - windowView.height - windowOffsetY
-			direction = "down"
-		}
-		windowView.y = y
-		cornerDirection = direction
-	}
-    
     function adjustTranslateSize() {
         var maxWidth = Math.max(
 			minWindowWidth,
@@ -135,9 +107,6 @@ RectWithCorner {
 			}
 		}
 		
-        /* listviewArea.width = listviewWidth */
-        /* listviewArea.height = listviewHeight */
-
         listview.width = listviewWidth
         listview.height = listviewHeight
         
