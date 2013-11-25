@@ -33,6 +33,8 @@ class RecordEvent(QObject):
     
     press_ctrl = pyqtSignal()    
     release_ctrl = pyqtSignal()    
+    
+    press_esc = pyqtSignal()
 
     left_button_press = pyqtSignal(int, int, int)
     right_button_press = pyqtSignal(int, int, int)    
@@ -68,6 +70,8 @@ class RecordEvent(QObject):
                         self.press_ctrl.emit()
                 elif keyname in ["Alt_L", "Alt_R"]:
                     press_alt = True
+                elif keyname in ["Escape"]:
+                    self.press_esc.emit()
             elif event.type == X.KeyRelease:
                 keyname = get_keyname(event)
                 if keyname in ["Control_L", "Control_R"]:
