@@ -75,7 +75,7 @@ class TranslateInterface(QQuickView):
         print "NOTE: Your should implement this function to update translate information!"
         
     def hide_translate(self):
-        if not self.in_translate_area():
+        if self.isVisible() and not self.in_translate_area():
             self.hided.emit()
             self.hide()
     

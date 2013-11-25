@@ -62,7 +62,7 @@ class RecordEvent(QObject):
                 if keyname in ["Control_L", "Control_R"]:
                     press_ctrl = True
                     
-                    if not self.view.in_translate_area():
+                    if not self.view.isVisible() or not self.view.in_translate_area():
                         self.press_ctrl.emit()
             elif event.type == X.KeyRelease:
                 keyname = get_keyname(event)
@@ -77,12 +77,15 @@ class RecordEvent(QObject):
                 elif event.detail == 5:
                     self.wheel_press.emit()
             elif event.type == X.ButtonRelease:
-                if not self.view.in_translate_area():
+                if not self.view.isVisible() or not self.view.in_translate_area():
                     selection_content = commands.getoutput("xsel -p -o")
                     subprocess.Popen("xsel -c", shell=True).wait()
                     
                     if len(selection_content) > 1 and not selection_content.isspace():
                         self.translate_selection.emit(event.root_x, event.root_y, selection_content)
+                # Delete clipboard selection if user selection in visible area to avoid next time to translate those selection content.
+                elif self.view.isVisible() and self.view.in_translate_area():
+                    subprocess.Popen("xsel -c", shell=True).wait()
             elif event.type == X.MotionNotify:
                 if self.timer:
                     self.timer.cancel()
@@ -90,7 +93,7 @@ class RecordEvent(QObject):
                 self.timer.start()
                 
     def emit_cursor_stop(self, mouse_x, mouse_y):
-        if press_ctrl and not self.view.in_translate_area():
+        if press_ctrl and (not self.view.isVisible() or not self.view.in_translate_area()):
             self.cursor_stop.emit()
                 
     def filter_event(self):

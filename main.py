@@ -55,10 +55,10 @@ if __name__ == "__main__":
             translate_simple.show_translate(x, y, text)
             
     def hide_translate():
-        if not translate_simple.in_translate_area():
+        if translate_simple.isVisible() and not translate_simple.in_translate_area():
             translate_simple.hide_translate()
 
-        if not translate_long.in_translate_area():
+        if translate_long.isVisible() and not translate_long.in_translate_area():
             translate_long.hide_translate()
         
     record_event = RecordEvent(translate_simple)
