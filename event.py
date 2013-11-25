@@ -45,7 +45,7 @@ class RecordEvent(QObject):
         QObject.__init__(self)
 
         self.timer = None
-        self.stop_delay = 0.2
+        self.stop_delay = 0.05
         self.view = view
         
     def record_callback(self, reply):
