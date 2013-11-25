@@ -45,9 +45,9 @@ class RecordEvent(QObject):
         QObject.__init__(self)
 
         self.timer = None
-        self.stop_delay = 0.05
+        self.stop_delay = 0.2
         self.view = view
-    
+        
     def record_callback(self, reply):
         global press_ctrl
         
@@ -87,8 +87,9 @@ class RecordEvent(QObject):
                 elif self.view.isVisible() and self.view.in_translate_area():
                     subprocess.Popen("xsel -c", shell=True).wait()
             elif event.type == X.MotionNotify:
-                if self.timer:
+                if self.timer and self.timer.is_alive():
                     self.timer.cancel()
+                    
                 self.timer = Timer(self.stop_delay, lambda : self.emit_cursor_stop(event.root_x, event.root_y))
                 self.timer.start()
                 

@@ -71,6 +71,6 @@ def ocr_word(mouse_x, mouse_y):
         ((left_x, left_y), (right_x, right_y)) = word_box.position
         if (left_x <= cursor_x <= right_x and left_y <= cursor_y <= right_y):
             word = filter_punctuation(word_box.content)
-            return (mouse_x, mouse_y, word)
+            return word
         
     return None    

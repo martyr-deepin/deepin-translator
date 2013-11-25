@@ -44,9 +44,9 @@ class TranslateSimple(TranslateInterface):
     
     def translate_cursor_word(self):
         (mouse_x, mouse_y) = get_pointer_coordiante()
-        ocr_info = ocr_word(mouse_x, mouse_y)
-        if ocr_info:
-            self.show_translate(*ocr_info)
+        ocrword = ocr_word(mouse_x, mouse_y)
+        if ocrword:
+            self.show_translate(mouse_x, mouse_y, ocrword)
     
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
