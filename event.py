@@ -32,7 +32,7 @@ class RecordEvent(QObject):
     
     press_ctrl = pyqtSignal()    
     release_ctrl = pyqtSignal()    
-    
+
     left_button_press = pyqtSignal(int, int, int)
     right_button_press = pyqtSignal(int, int, int)    
     wheel_press = pyqtSignal()
@@ -50,6 +50,7 @@ class RecordEvent(QObject):
         
     def record_callback(self, reply):
         global press_ctrl
+        global press_alt
         
         check_valid_event(reply)
      
@@ -64,11 +65,15 @@ class RecordEvent(QObject):
                     
                     if not self.view.isVisible() or not self.view.in_translate_area():
                         self.press_ctrl.emit()
+                elif keyname in ["Alt_L", "Alt_R"]:
+                    press_alt = True
             elif event.type == X.KeyRelease:
                 keyname = get_keyname(event)
                 if keyname in ["Control_L", "Control_R"]:
                     press_ctrl = False
                     self.release_ctrl.emit()
+                elif keyname in ["Alt_L", "Alt_R"]:
+                    press_alt = False
             elif event.type == X.ButtonPress:
                 if event.detail == 1:
                     self.left_button_press.emit(event.root_x, event.root_y, event.time)
@@ -78,11 +83,12 @@ class RecordEvent(QObject):
                     self.wheel_press.emit()
             elif event.type == X.ButtonRelease:
                 if not self.view.isVisible() or not self.view.in_translate_area():
-                    selection_content = commands.getoutput("xsel -p -o")
-                    subprocess.Popen("xsel -c", shell=True).wait()
-                    
-                    if len(selection_content) > 1 and not selection_content.isspace():
-                        self.translate_selection.emit(event.root_x, event.root_y, selection_content)
+                    if press_alt:
+                        selection_content = commands.getoutput("xsel -p -o")
+                        subprocess.Popen("xsel -c", shell=True).wait()
+                        
+                        if len(selection_content) > 1 and not selection_content.isspace():
+                            self.translate_selection.emit(event.root_x, event.root_y, selection_content)
                 # Delete clipboard selection if user selection in visible area to avoid next time to translate those selection content.
                 elif self.view.isVisible() and self.view.in_translate_area():
                     subprocess.Popen("xsel -c", shell=True).wait()
