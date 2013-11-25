@@ -22,7 +22,6 @@
 
 from PyQt5.QtCore import QObject, pyqtSignal
 from Xlib import X
-from ocr import ocr_word
 from threading import Timer
 from xutils import record_event, get_keyname, check_valid_event, get_event_data
 import commands, subprocess
@@ -38,7 +37,7 @@ class RecordEvent(QObject):
     right_button_press = pyqtSignal(int, int, int)    
     wheel_press = pyqtSignal()
     
-    cursor_stop = pyqtSignal(int, int, str)
+    cursor_stop = pyqtSignal()
     
     translate_selection = pyqtSignal(int, int, str)
     
@@ -92,9 +91,7 @@ class RecordEvent(QObject):
                 
     def emit_cursor_stop(self, mouse_x, mouse_y):
         if press_ctrl and not self.view.in_translate_area():
-            ocr_info = ocr_word(mouse_x, mouse_y)
-            if ocr_info:
-                self.cursor_stop.emit(*ocr_info)
+            self.cursor_stop.emit()
                 
     def filter_event(self):
         record_event(self.record_callback)
