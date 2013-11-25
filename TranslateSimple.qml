@@ -196,6 +196,7 @@ TranslateWindow {
 					/* This is hacking way to make listview load models complete
 					   Listview can't load models complete if it haven't enough space.
 					 */
+		            itemHighlightIndex = 0
 					listviewArea.width = 1000
 					listviewArea.height = 1000
 		
