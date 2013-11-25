@@ -42,13 +42,6 @@ class TranslateInterface(QQuickView):
         self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
         
-        # This is hacking way.
-        # First, we set window flags with FramelessWindowHint, 
-        # then window get decrated features and accepted focus.
-        # 
-        # Second, we set window flags with Popup,
-        # we can make window skip taskbar same as Popup type window.
-        self.setFlags(QtCore.Qt.FramelessWindowHint)
         self.setFlags(QtCore.Qt.Popup)
         
         self.qml_context = self.rootContext()
@@ -60,12 +53,6 @@ class TranslateInterface(QQuickView):
         self.qml_context.setContextProperty("qApp", qApp)
         
         self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), qml_file)))
-        
-        self.activeChanged.connect(self.monitor_active)
-        
-    def monitor_active(self):
-        if not self.isActive():
-            self.hide()
         
     def init_translate_info(self):
         print "NOTE: Your should implement this function to init translate information!"
