@@ -47,9 +47,7 @@ class SystemTrayIcon(QSystemTrayIcon):
                     ("key_trigger_ocr", "按Ctrl键屏幕取词"),
                     ("key_trigger_select", "按Alt键翻译选区"),
                     None,
-                    ("select_word_translate_engine", "选择单词翻译引擎"),
-                    ("select_sentense_translate_engine", "选择长句翻译引擎"),
-                    None,
+                    ("settings", "设置"),
                     ("about", "关于"),
                     ("quit", "退出"),
                     ])
