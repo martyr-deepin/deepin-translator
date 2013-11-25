@@ -27,6 +27,7 @@ from xutils import record_event, get_keyname, check_valid_event, get_event_data
 import commands, subprocess
 
 press_ctrl = False
+press_alt = False
 
 class RecordEvent(QObject):
     
