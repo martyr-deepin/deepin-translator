@@ -35,5 +35,7 @@ RectWithCorner {
 		}
 		windowView.y = y
 		cornerDirection = direction
+        
+        print(y, cornerDirection)
 	}
 }
