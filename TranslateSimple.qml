@@ -289,6 +289,7 @@ TranslateWindow {
 						}
 						
                         Column {
+                            id: itemWrap
 						    anchors.left: parent.left
 						    anchors.right: parent.right
 						    anchors.leftMargin: borderMargin
@@ -311,7 +312,7 @@ TranslateWindow {
 							
 							Rectangle {
 								id: itemSplitline
-								width: listviewWidth
+								width: container.width - (borderMargin + container.blurRadius) * 2
 								height: 11
 								anchors.topMargin: height / 2
 								anchors.bottomMargin: anchors.topMargin
