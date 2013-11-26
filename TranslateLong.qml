@@ -107,6 +107,8 @@ TranslateWindow {
 			    selectByMouse: true
 			    font { pixelSize: 12 }
 			    color: "#FFFFFF"
+				selectionColor: "#11ffffff"
+				selectedTextColor: "#5da6ce"
                 width: parent.width
                 
                 onTextChanged: {
