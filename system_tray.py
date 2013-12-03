@@ -29,6 +29,18 @@ class SystemTrayIcon(QSystemTrayIcon):
     def __init__(self, icon, parent=None):
         QSystemTrayIcon.__init__(self, icon, parent)
         self.activated.connect(self.on_activated) 
+        self.menu = Menu([
+                    ("toggle_word", "暂停取词"),
+                    ("toggle_speecn", "取词后发音"),
+                    None,
+                    ("key_trigger_ocr", "按Ctrl键屏幕取词"),
+                    ("key_trigger_select", "按Alt键翻译选区"),
+                    None,
+                    ("settings", "设置"),
+                    ("about", "关于"),
+                    ("quit", "退出"),
+                    ])
+        self.menu.itemClicked.connect(self.click_menu)
         
     @pyqtSlot(str)
     def click_menu(self, menu_id):
@@ -40,16 +52,4 @@ class SystemTrayIcon(QSystemTrayIcon):
             geometry = self.geometry()
             mouse_x = int(geometry.x() / 2 + geometry.width() / 2)
             mouse_y = int(geometry.y() / 2)
-            self.menu = Menu([
-                    ("toggle_word", "暂停取词"),
-                    ("toggle_speecn", "取词后发音"),
-                    None,
-                    ("key_trigger_ocr", "按Ctrl键屏幕取词"),
-                    ("key_trigger_select", "按Alt键翻译选区"),
-                    None,
-                    ("settings", "设置"),
-                    ("about", "关于"),
-                    ("quit", "退出"),
-                    ])
-            self.menu.itemClicked.connect(self.click_menu)
             self.menu.showDockMenu(mouse_x, mouse_y)
