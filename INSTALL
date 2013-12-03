@@ -1,40 +1,9 @@
-To make pycairo support XCB, you need compile pycairo and xpyb like below:
+You need below depends before run:
 
-* Install xcb-proto
-git clone git://anongit.freedesktop.org/git/xcb/proto
-cd libxcb
-./autogen.sh
-make
-sudo make install
+    sudo apt-get install python-tesseract pyocr python-xlib python-xpyb 
 
-* Install libxcb
-git clone git://anongit.freedesktop.org/git/xcb/libxcb
-cd libxcb
-./autogen.sh
-make
-sudo make install
+You need install deepin-menu if you not use Linux Deepin:
+    cd ./deepin-menu && sudo python setup.py install
 
-* Remove python-xpyb (for import code from compile version of xpyb)
-sudo apt-get purge python-xpyb
-
-* Install xpyb
-git clone git://anongit.freedesktop.org/xcb/xpyb
-cd xpyb && ./autogen.sh
-./configure --enable-xinput
-sudo make install
-
-* Install cairo
-wget http://cairographics.org/releases/cairo-1.10.0.tar.gz
-tar xvzf cairo-1.10.0.tar.gz
-cd cairo-1.10.0
-./autogen.sh --enable-xcb
-make
-sudo make install
-
-* Install py2cairo
-git clone git://git.cairographics.org/git/py2cairo
-cd py2cairo
-./autogen.sh --enable-xcb
-make
-sudo make install
-
+Then switch deepin-translate to run:
+    cd ./deepin-translator && ./main.py 
