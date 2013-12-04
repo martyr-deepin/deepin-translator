@@ -52,6 +52,9 @@ class RecordEvent(QObject):
         self.stop_delay = 0.05
         self.view = view
         
+        # Delete selection first.
+        subprocess.Popen("xsel -c", shell=True).wait()
+        
     def record_callback(self, reply):
         global press_ctrl
         global press_alt
