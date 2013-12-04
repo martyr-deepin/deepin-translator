@@ -35,6 +35,10 @@ class SystemTrayIcon(QSystemTrayIcon):
     def click_menu(self, menu_id, state):
         if menu_id == "quit":
             qApp.quit()
+        elif menu_id == "wizard":
+            pass
+        elif menu_id == "about":
+            pass
         elif menu_id == "settings":
             pass
         else:
@@ -53,6 +57,9 @@ class SystemTrayIcon(QSystemTrayIcon):
                     CheckboxMenuItem("key_trigger_select", "按Alt键翻译选区", setting_config.get_trayicon_config("key_trigger_select")),
                     MenuSeparator(),
                     ("settings", "设置"),
+                    ("wizard", "向导"),
+                    ("about", "关于"),
+                    MenuSeparator(),
                     ("quit", "退出"),
                     ])
             self.menu.itemClicked.connect(self.click_menu)
