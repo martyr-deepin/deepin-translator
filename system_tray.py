@@ -22,7 +22,7 @@
 
 from PyQt5.QtWidgets import qApp, QSystemTrayIcon
 from PyQt5.QtCore import pyqtSlot
-from deepin_menu.menu import Menu
+from deepin_menu.menu import Menu, MenuSeparator, CheckboxMenuItem
 
 class SystemTrayIcon(QSystemTrayIcon):
     
@@ -30,22 +30,23 @@ class SystemTrayIcon(QSystemTrayIcon):
         QSystemTrayIcon.__init__(self, icon, parent)
         self.activated.connect(self.on_activated) 
         self.menu = Menu([
-                    ("toggle_word", "暂停取词"),
-                    ("toggle_speecn", "取词后发音"),
-                    None,
-                    ("key_trigger_ocr", "按Ctrl键屏幕取词"),
-                    ("key_trigger_select", "按Alt键翻译选区"),
-                    None,
-                    ("settings", "设置"),
-                    ("about", "关于"),
-                    ("quit", "退出"),
-                    ])
+                CheckboxMenuItem("toggle_word", "暂停取词", True),
+                CheckboxMenuItem("toggle_speecn", "取词后发音", True),
+                MenuSeparator(),
+                CheckboxMenuItem("key_trigger_ocr", "按Ctrl键屏幕取词", True),
+                CheckboxMenuItem("key_trigger_select", "按Alt键翻译选区", True),
+                MenuSeparator(),
+                ("settings", "设置"),
+                ("quit", "退出"),
+                ])
         self.menu.itemClicked.connect(self.click_menu)
         
     @pyqtSlot(str)
-    def click_menu(self, menu_id):
-        if menu_id == "quit":
-            qApp.quit()
+    def click_menu(self, *args):
+        print args
+        # print menu_id, state
+        # if menu_id == "quit":
+            # qApp.quit()
         
     def on_activated(self, reason):
         if reason == QSystemTrayIcon.Context:
