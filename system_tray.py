@@ -45,7 +45,7 @@ class SystemTrayIcon(QSystemTrayIcon):
             setting_config.update_trayicon_config(menu_id, state)
         
     def on_activated(self, reason):
-        if reason == QSystemTrayIcon.Context:
+        if reason in [QSystemTrayIcon.Context, QSystemTrayIcon.Trigger]:
             geometry = self.geometry()
             mouse_x = int(geometry.x() / 2 + geometry.width() / 2)
             mouse_y = int(geometry.y() / 2)
