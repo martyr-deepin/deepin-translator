@@ -53,6 +53,9 @@ class RecordEvent(QObject):
         self.view = view
         
         # Delete selection first.
+        self.delete_selection()
+        
+    def delete_selection(self):
         subprocess.Popen("xsel -c", shell=True).wait()
         
     def record_callback(self, reply):
@@ -96,13 +99,13 @@ class RecordEvent(QObject):
                     if not setting_config.get_trayicon_config("pause"):
                         if not setting_config.get_trayicon_config("key_trigger_select") or press_alt:
                             selection_content = commands.getoutput("xsel -p -o")
-                            subprocess.Popen("xsel -c", shell=True).wait()
+                            self.delete_selection()
                             
                             if len(selection_content) > 1 and not selection_content.isspace():
                                 self.translate_selection.emit(event.root_x, event.root_y, selection_content)
                 # Delete clipboard selection if user selection in visible area to avoid next time to translate those selection content.
                 elif self.view.isVisible() and self.view.in_translate_area():
-                    subprocess.Popen("xsel -c", shell=True).wait()
+                    self.delete_selection()
             elif event.type == X.MotionNotify:
                 if self.timer and self.timer.is_alive():
                     self.timer.cancel()
