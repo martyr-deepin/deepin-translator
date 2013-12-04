@@ -16,14 +16,20 @@ RectWithCorner {
 	property int mouseY: 0
 	
 	function adjustPosition() {
-		var x = mouseX + windowOffsetX
-		if (x < 0) {
-			x = windowPadding
-		} else if (x + windowView.width > Screen.width) {
-			x = Screen.width - windowView.width - windowPadding
-		}
-		windowView.x = x
-		cornerPos = mouseX - x
+        var x = 0
+        var pos = 0
+        if (mouseX - windowView.width / 2 < 0) {
+            x = windowPadding
+            pos = mouseX - x
+        } else if (mouseX + windowView.width / 2 > Screen.width) {
+            x = Screen.width - windowView.width - windowPadding
+            pos = mouseX - x
+        } else {
+            x = mouseX - windowView.width / 2
+            pos = windowView.width / 2
+        }
+        cornerPos = pos
+        windowView.x = x
 		
 		var y = mouseY + windowOffsetY
 		var direction = "up"
