@@ -125,10 +125,12 @@ TranslateWindow {
     }
     
     function autoSpeech() {
-        var speechlink = translateInfo.uslink ? translateInfo.uslink : translateInfo.uklink
-        if (speechlink) {
-		    audioPlayer.source = speechlink
-            audioPlayer.play()
+        if (settingConfig.get_trayicon_config("toggle_speech")) {
+            var speechlink = translateInfo.uslink ? translateInfo.uslink : translateInfo.uklink
+            if (speechlink) {
+		        audioPlayer.source = speechlink
+                audioPlayer.play()
+            }
         }
     }
 	

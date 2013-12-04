@@ -27,6 +27,7 @@ from PyQt5.QtQuick import QQuickView
 from PyQt5.QtWidgets import qApp
 from xutils import get_pointer_coordiante
 import os
+from config import setting_config
 
 class TranslateInterface(QQuickView):
 
@@ -50,6 +51,7 @@ class TranslateInterface(QQuickView):
         
         self.qml_context.setContextProperty("translateInfo", self.translate_info)
         self.qml_context.setContextProperty("windowView", self)
+        self.qml_context.setContextProperty("settingConfig", setting_config)
         self.qml_context.setContextProperty("qApp", qApp)
         
         self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), qml_file)))

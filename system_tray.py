@@ -23,34 +23,38 @@
 from PyQt5.QtWidgets import qApp, QSystemTrayIcon
 from PyQt5.QtCore import pyqtSlot
 from deepin_menu.menu import Menu, MenuSeparator, CheckboxMenuItem
+from config import setting_config
 
 class SystemTrayIcon(QSystemTrayIcon):
     
     def __init__(self, icon, parent=None):
         QSystemTrayIcon.__init__(self, icon, parent)
         self.activated.connect(self.on_activated) 
-        self.menu = Menu([
-                CheckboxMenuItem("toggle_word", "暂停取词", True),
-                CheckboxMenuItem("toggle_speecn", "取词后发音", True),
-                MenuSeparator(),
-                CheckboxMenuItem("key_trigger_ocr", "按Ctrl键屏幕取词", True),
-                CheckboxMenuItem("key_trigger_select", "按Alt键翻译选区", True),
-                MenuSeparator(),
-                ("settings", "设置"),
-                ("quit", "退出"),
-                ])
-        self.menu.itemClicked.connect(self.click_menu)
         
-    @pyqtSlot(str)
-    def click_menu(self, *args):
-        print args
-        # print menu_id, state
-        # if menu_id == "quit":
-            # qApp.quit()
+    @pyqtSlot(str, bool)
+    def click_menu(self, menu_id, state):
+        if menu_id == "quit":
+            qApp.quit()
+        elif menu_id == "settings":
+            pass
+        else:
+            setting_config.update_trayicon_config(menu_id, state)
         
     def on_activated(self, reason):
         if reason == QSystemTrayIcon.Context:
             geometry = self.geometry()
             mouse_x = int(geometry.x() / 2 + geometry.width() / 2)
             mouse_y = int(geometry.y() / 2)
+            
+            self.menu = Menu([
+                    CheckboxMenuItem("pause", "暂停翻译", setting_config.get_trayicon_config("pause")),
+                    CheckboxMenuItem("toggle_speech", "取词后发音", setting_config.get_trayicon_config("toggle_speech")),
+                    MenuSeparator(),
+                    CheckboxMenuItem("key_trigger_ocr", "按Ctrl键屏幕取词", setting_config.get_trayicon_config("key_trigger_ocr")),
+                    CheckboxMenuItem("key_trigger_select", "按Alt键翻译选区", setting_config.get_trayicon_config("key_trigger_select")),
+                    MenuSeparator(),
+                    ("settings", "设置"),
+                    ("quit", "退出"),
+                    ])
+            self.menu.itemClicked.connect(self.click_menu)
             self.menu.showDockMenu(mouse_x, mouse_y)

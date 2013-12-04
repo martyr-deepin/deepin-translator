@@ -25,6 +25,7 @@ from Xlib import X
 from threading import Timer
 from xutils import record_event, get_keyname, check_valid_event, get_event_data
 import commands, subprocess
+from config import setting_config
 
 press_ctrl = False
 press_alt = False
@@ -66,8 +67,9 @@ class RecordEvent(QObject):
                 if keyname in ["Control_L", "Control_R"]:
                     press_ctrl = True
                     
-                    if not self.view.isVisible() or not self.view.in_translate_area():
-                        self.press_ctrl.emit()
+                    if not setting_config.get_trayicon_config("pause"):
+                        if not self.view.isVisible() or not self.view.in_translate_area():
+                            self.press_ctrl.emit()
                 elif keyname in ["Alt_L", "Alt_R"]:
                     press_alt = True
                 elif keyname in ["Escape"]:
@@ -88,24 +90,26 @@ class RecordEvent(QObject):
                     self.wheel_press.emit()
             elif event.type == X.ButtonRelease:
                 if not self.view.isVisible() or not self.view.in_translate_area():
-                    if press_alt:
-                        selection_content = commands.getoutput("xsel -p -o")
-                        subprocess.Popen("xsel -c", shell=True).wait()
-                        
-                        if len(selection_content) > 1 and not selection_content.isspace():
-                            self.translate_selection.emit(event.root_x, event.root_y, selection_content)
+                    if not setting_config.get_trayicon_config("pause"):
+                        if not setting_config.get_trayicon_config("key_trigger_select") or press_alt:
+                            selection_content = commands.getoutput("xsel -p -o")
+                            subprocess.Popen("xsel -c", shell=True).wait()
+                            
+                            if len(selection_content) > 1 and not selection_content.isspace():
+                                self.translate_selection.emit(event.root_x, event.root_y, selection_content)
                 # Delete clipboard selection if user selection in visible area to avoid next time to translate those selection content.
                 elif self.view.isVisible() and self.view.in_translate_area():
                     subprocess.Popen("xsel -c", shell=True).wait()
             elif event.type == X.MotionNotify:
                 if self.timer and self.timer.is_alive():
                     self.timer.cancel()
-                    
-                self.timer = Timer(self.stop_delay, lambda : self.emit_cursor_stop(event.root_x, event.root_y))
-                self.timer.start()
+            
+                if not setting_config.get_trayicon_config("pause"):
+                    self.timer = Timer(self.stop_delay, lambda : self.emit_cursor_stop(event.root_x, event.root_y))
+                    self.timer.start()
                 
     def emit_cursor_stop(self, mouse_x, mouse_y):
-        if press_ctrl and (not self.view.isVisible() or not self.view.in_translate_area()):
+        if (not setting_config.get_trayicon_config("key_trigger_ocr") or press_ctrl) and (not self.view.isVisible() or not self.view.in_translate_area()):
             self.cursor_stop.emit()
                 
     def filter_event(self):
