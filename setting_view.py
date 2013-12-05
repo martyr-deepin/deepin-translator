@@ -38,7 +38,7 @@ class SettingView(QQuickView):
         self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
         
-        self.setFlags(QtCore.Qt.Popup)
+        self.setFlags(QtCore.Qt.FramelessWindowHint)
         
         self.qml_context = self.rootContext()
 

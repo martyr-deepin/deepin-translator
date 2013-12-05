@@ -1,9 +1,15 @@
 import QtQuick 2.1
 import QtGraphicalEffects 1.0
 import QtQuick.Window 2.1
+import QtQuick.Layouts 1.0
+import "./widgets"
 
 Item {
     id: window
+    
+    property color bgColor: "#232323"
+    property color fgColor: "#FFFFFF"
+    property color contentBgColor: "#FFFFFF"
 
     property int frameRadius: 3
     property int shadowRadius: 10
@@ -65,14 +71,57 @@ Item {
         }
         
         Text {
+            id: name
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.top: parent.top
-            anchors.topMargin: 20
+            height: paintedHeight + 40
+            verticalAlignment: Text.AlignVCenter
             horizontalAlignment: Text.AlignHCenter
-            text: "欢迎使用深度翻译"
+            text: "深度翻译设置"
             color: "#fff"
 			font { pixelSize: 20 }
+        }
+            
+        Column {
+            id: content
+            anchors.top: name.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.leftMargin: 1
+            anchors.rightMargin: 1
+            
+            DSwitcherButtonHeader {
+                text: "源语言"
+                width: parent.width
+            }
+
+            DSwitcherButtonHeader {
+                text: "目标语言"
+                width: parent.width
+            }
+
+            DSwitcherButtonHeader {
+                text: "单词翻译"
+                width: parent.width
+            }
+
+            DSwitcherButtonHeader {
+                text: "长句翻译"
+                width: parent.width
+            }
+        }
+            
+        DTextButton {
+            id: button
+            text: "确定"
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.margins: 5
+            
+            onClicked: {
+                windowView.hide()
+            }
         }
     }
     
