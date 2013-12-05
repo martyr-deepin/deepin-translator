@@ -20,6 +20,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
+from PyQt5 import QtCore
+from PyQt5.QtCore import QCoreApplication
+if os.name == 'posix':
+    QCoreApplication.setAttribute(QtCore.Qt.AA_X11InitThreads, True)
+    
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication
 from event import RecordEvent
