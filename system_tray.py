@@ -21,11 +21,13 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtWidgets import qApp, QSystemTrayIcon
-from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtCore import pyqtSlot, pyqtSignal
 from deepin_menu.menu import Menu, MenuSeparator, CheckboxMenuItem
 from config import setting_config
 
 class SystemTrayIcon(QSystemTrayIcon):
+    
+    showSettingView = pyqtSignal()
     
     def __init__(self, icon, parent=None):
         QSystemTrayIcon.__init__(self, icon, parent)
@@ -33,6 +35,7 @@ class SystemTrayIcon(QSystemTrayIcon):
         
     @pyqtSlot(str, bool)
     def click_menu(self, menu_id, state):
+        print menu_id
         if menu_id == "quit":
             qApp.quit()
         elif menu_id == "wizard":
@@ -40,7 +43,7 @@ class SystemTrayIcon(QSystemTrayIcon):
         elif menu_id == "about":
             pass
         elif menu_id == "settings":
-            pass
+            self.showSettingView.emit()
         else:
             setting_config.update_trayicon_config(menu_id, state)
         

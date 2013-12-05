@@ -37,6 +37,7 @@ import signal
 import sys  
 import threading
 from config import setting_config
+from setting_view import SettingView
     
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -45,11 +46,13 @@ if __name__ == "__main__":
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
 
     app = QApplication(sys.argv)  
-    trayIcon = SystemTrayIcon(QIcon("image/icon.png"), app)
-    trayIcon.show()
+    tray_icon = SystemTrayIcon(QIcon("image/icon.png"), app)
+    tray_icon.show()
     
     translate_simple = TranslateSimple()
     translate_long = TranslateLong()
+    
+    setting_view = SettingView()
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
@@ -71,7 +74,7 @@ if __name__ == "__main__":
     def handle_press_ctrl():
         if setting_config.get_trayicon_config("key_trigger_ocr"):
             translate_simple.translate_cursor_word
-        
+            
     record_event = RecordEvent(translate_simple)
     record_event.press_esc.connect(hide_translate)
     record_event.press_ctrl.connect(handle_press_ctrl)
@@ -80,6 +83,8 @@ if __name__ == "__main__":
     record_event.right_button_press.connect(hide_translate)
     record_event.cursor_stop.connect(translate_simple.translate_cursor_word)
     record_event.translate_selection.connect(show_translate)
+    
+    tray_icon.showSettingView.connect(setting_view.showNormal)
     
     thread = threading.Thread(target=record_event.filter_event)
     thread.setDaemon(True)
