@@ -20,30 +20,45 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5 import QtCore, QtQuick
-from PyQt5.QtGui import QSurfaceFormat, QColor
+from PyQt5.QtCore import QSize
+from PyQt5 import QtGui
 from PyQt5.QtQuick import QQuickView
-from xutils import screen_width, screen_height
-import os
+from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtGui import QSurfaceFormat, QColor
+from PyQt5 import QtCore, QtQuick
 
-class SettingView(QQuickView):
+class Window(QQuickView):
 
     def __init__(self):
         QQuickView.__init__(self)
-        
         surface_format = QSurfaceFormat()
         surface_format.setAlphaBufferSize(8)
         
         self.setColor(QColor(0, 0, 0, 0))
+        self.setFlags(QtCore.Qt.FramelessWindowHint)
         self.setResizeMode(QtQuick.QQuickView.SizeRootObjectToView)
         self.setFormat(surface_format)
         
-        self.setFlags(QtCore.Qt.FramelessWindowHint)
-        
         self.qml_context = self.rootContext()
-
-        self.qml_context.setContextProperty("screenWidth", screen_width)
-        self.qml_context.setContextProperty("screenHeight", screen_height)
-        self.qml_context.setContextProperty("windowView", self)
         
-        self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), "SettingView.qml")))
+    @pyqtSlot(result=int)    
+    def getState(self):
+        return self.windowState()
+    
+    @pyqtSlot()
+    def doMinimized(self):
+        # NOTE: This is bug of Qt5 that showMinimized() just can work once after restore window.
+        # I change window state before set it as WindowMinimized to fixed this bug!
+        self.setWindowState(QtCore.Qt.WindowMaximized)
+        
+        # Do minimized.
+        self.setWindowState(QtCore.Qt.WindowMinimized)
+        self.setVisible(True)
+        
+    @pyqtSlot(result="QVariant")    
+    def getCursorPos(self):
+        return QtGui.QCursor.pos()        
+    
+    @pyqtSlot(int, int)
+    def setMinSize(self, min_width, min_height):
+        self.setMinimumSize(QSize(min_width, min_height))

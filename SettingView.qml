@@ -81,6 +81,11 @@ Item {
             text: "深度翻译设置"
             color: "#fff"
 			font { pixelSize: 20 }
+            
+            DragArea {
+                anchors.fill: parent
+                window: windowView
+            }
         }
             
         Column {

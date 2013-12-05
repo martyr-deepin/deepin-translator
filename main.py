@@ -37,7 +37,8 @@ import signal
 import sys  
 import threading
 from config import setting_config
-from setting_view import SettingView
+from window import Window
+from xutils import screen_width, screen_height
     
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -52,7 +53,11 @@ if __name__ == "__main__":
     translate_simple = TranslateSimple()
     translate_long = TranslateLong()
     
-    setting_view = SettingView()
+    setting_view = Window()
+    setting_view.qml_context.setContextProperty("screenWidth", screen_width)
+    setting_view.qml_context.setContextProperty("screenHeight", screen_height)
+    setting_view.qml_context.setContextProperty("windowView", setting_view)
+    setting_view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'SettingView.qml')))
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
