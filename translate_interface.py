@@ -73,6 +73,5 @@ class TranslateInterface(QQuickView):
         return self.x() < mouse_x < self.x() + self.width() and self.y() < mouse_y < self.y() + self.height()
 
     def show_translate(self, x, y, text):
-        self.rootObject().showTextWin(x, y, text)
         self.rootObject().showTranslate(x, y, text)
     
