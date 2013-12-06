@@ -13,6 +13,7 @@ Item {
 
     property int frameRadius: 3
     property int shadowRadius: 10
+    property int expandHeight: 100
     
     Component.onCompleted: {
         windowView.width = 250
@@ -96,24 +97,130 @@ Item {
             anchors.leftMargin: 1
             anchors.rightMargin: 1
             
-            DSwitcherButtonHeader {
-                text: "源语言"
-                width: parent.width
+            property variant expandId: undefined
+            property variant expandValue: undefined
+            property bool changeLock: false
+            
+            signal turnOff(variant id)
+            
+            onExpandIdChanged: {
+                print("--------------------", content.expandValue)
+                if (content.expandId != undefined) {
+                    for (var i = 0; i < content.children.length; i++) {
+                        print(content.children[i], content.expandId, content.children[i] == content.expandId)
+                        if (content.children[i] == content.expandId) {
+                            content.children[i].expanded = content.expandValue
+                        } else {
+                            if (content.expandValue) {
+                                print("iiiiii", content.children[i])
+                                content.children[i].expanded = false
+                                /* content.children[i].checked = false */
+                            }
+                        }
+                    }
+                }
+                
+                content.expandId = undefined
+            }
+            
+            DBaseExpand {
+                id: sourceExpand
+	            expanded: false
+                property bool checked: false
+                
+                onExpandedChanged: {
+                    print("Source", expanded)
+                }
+                
+                header: DSwitcherButtonHeader {
+                    text: "源语言"
+                    width: parent.width
+		            checked: sourceExpand.expanded
+                    onCheckedChanged: {
+                        content.expandValue = checked
+                        content.expandId = sourceExpand
+                    }
+                }
+                
+                content: Rectangle {
+                    width: parent.width
+                    height: expandHeight
+                }
             }
 
-            DSwitcherButtonHeader {
-                text: "目标语言"
-                width: parent.width
+            DBaseExpand {
+                id: targetExpand
+	            expanded: false
+                property bool checked: false
+                
+                onExpandedChanged: {
+                    print("Target", expanded)
+                }
+                
+                header: DSwitcherButtonHeader {
+                    text: "目标语言"
+                    width: parent.width
+		            checked: targetExpand.expanded
+                    onCheckedChanged: {
+                        content.expandValue = checked
+                        content.expandId = targetExpand
+                    }
+                }
+                
+                content: Rectangle {
+                    width: parent.width
+                    height: expandHeight
+                }
+            }
+            
+            DBaseExpand {
+                id: wordExpand
+	            expanded: false
+                property bool checked: false
+                
+                onExpandedChanged: {
+                    print("Word", checked)
+                }
+                
+                header: DSwitcherButtonHeader {
+                    text: "单词翻译"
+                    width: parent.width
+		            checked: wordExpand.expanded
+                    onCheckedChanged: {
+                        content.expandValue = checked
+                        content.expandId = wordExpand
+                    }
+                }
+                
+                content: Rectangle {
+                    width: parent.width
+                    height: expandHeight
+                }
             }
 
-            DSwitcherButtonHeader {
-                text: "单词翻译"
-                width: parent.width
-            }
-
-            DSwitcherButtonHeader {
-                text: "长句翻译"
-                width: parent.width
+            DBaseExpand {
+                id: wordsExpand
+	            expanded: false
+                property bool checked: false
+                
+                onExpandedChanged: {
+                    print("Words", expanded)
+                }
+                
+                header: DSwitcherButtonHeader {
+                    text: "长句翻译"
+                    width: parent.width
+		            checked: wordExpand.expanded
+                    onCheckedChanged: {
+                        content.expandValue = checked
+                        content.expandId = wordsExpand
+                    }
+                }
+                
+                content: Rectangle {
+                    width: parent.width
+                    height: expandHeight
+                }
             }
         }
             

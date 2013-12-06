@@ -5,6 +5,7 @@ import QtQuick.Layouts 1.0
 Rectangle {
     id: expandRect
 
+    property alias headerRect: headerRect
     property alias header: headerRect.sourceComponent
     property alias content: content.sourceComponent
     property bool expanded: false
