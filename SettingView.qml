@@ -10,8 +10,8 @@ Item {
     property int frameRadius: 3
     property int shadowRadius: 10
     property int defaultWidth: 350
-    property int defaultHeight: 245
-    property int expandAreaHeight: 113
+    property int defaultHeight: 255
+    property int expandAreaHeight: 123
     property int listHeight: 240
     
     property alias expandArea: expandArea
@@ -148,7 +148,7 @@ Item {
                             header.item.active = expanded
                         }
                         
-                        header.sourceComponent: DSwitchButtonHeader {
+                        header.sourceComponent: DDownArrowHeader {
                             text: "源语言"
                             width: parent.width
                             anchors.left: parent.left
@@ -185,7 +185,7 @@ Item {
                             header.item.active = expanded
                         }
                         
-                        header.sourceComponent: DSwitchButtonHeader {
+                        header.sourceComponent: DDownArrowHeader {
                             text: "目标语言"
                             width: parent.width
                             anchors.left: parent.left
@@ -221,7 +221,7 @@ Item {
                             header.item.active = expanded
                         }
                         
-                        header.sourceComponent: DSwitchButtonHeader {
+                        header.sourceComponent: DDownArrowHeader {
                             text: "单词翻译"
                             width: parent.width
                             anchors.left: parent.left
@@ -257,7 +257,7 @@ Item {
                             header.item.active = expanded
                         }
                         
-                        header.sourceComponent: DSwitchButtonHeader {
+                        header.sourceComponent: DDownArrowHeader {
                             text: "长句翻译"
                             width: parent.width
                             anchors.left: parent.left
