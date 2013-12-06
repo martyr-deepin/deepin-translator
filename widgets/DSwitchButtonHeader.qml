@@ -1,12 +1,11 @@
-import QtQuick 2.0
-import QtQuick.Controls 1.0
-import QtQuick.Layouts 1.0
+import QtQuick 2.1
 
 Rectangle {
     id: header
 
-    property alias title: titleArea
-    property alias button: actionArea
+    property string text: dsTr("Untitled")
+    property alias active: actionArea.checked
+
     property int leftMargin: 18
     property int rightMargin: 5
     property var dconstants: DConstants {}
@@ -15,25 +14,31 @@ Rectangle {
     width: parent.width
     color: dconstants.bgColor
 
-    signal titleLoaded
-    signal buttonLoaded
+    signal clicked
 
-    Loader {
+    DLabel {
         id: titleArea
         anchors.left: parent.left
         anchors.leftMargin: leftMargin
         anchors.verticalCenter: parent.verticalCenter
-        //height: childrenRect.height
-        onLoaded: { header.titleLoaded() }
+        font.pixelSize: 13
+        text: header.text
     }
 
-    Loader {
-        id: actionArea
+    Item {
         anchors.right: parent.right
         anchors.rightMargin: rightMargin
         anchors.verticalCenter: parent.verticalCenter
-        anchors.verticalCenterOffset: -1
-        clip: true
-        onLoaded: { header.buttonLoaded() }
+        height: parent.height - 2
+        width: actionArea.width
+
+        DSwitchButton {
+            id: actionArea
+            anchors.centerIn: parent
+
+            onClicked: {
+                header.clicked()
+            }
+        }
     }
 }
