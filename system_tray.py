@@ -49,11 +49,16 @@ class SystemTrayIcon(QSystemTrayIcon):
                 if not state:
                     delete_selection()
                 
-                self.menu.setItemActivity("toggle_speech", not state)
-                self.menu.setItemActivity("key_trigger_ocr", not state)
-                self.menu.setItemActivity("key_trigger_select", not state)
+                self.set_menu_active(state)    
                 
             setting_config.update_trayicon_config(menu_id, state)
+            
+    def set_menu_active(self, state):
+        print state
+        
+        self.menu.setItemActivity("toggle_speech", not state)
+        self.menu.setItemActivity("key_trigger_ocr", not state)
+        self.menu.setItemActivity("key_trigger_select", not state)
         
     def on_activated(self, reason):
         if reason in [QSystemTrayIcon.Context, QSystemTrayIcon.Trigger]:
@@ -75,3 +80,4 @@ class SystemTrayIcon(QSystemTrayIcon):
                     ])
             self.menu.itemClicked.connect(self.click_menu)
             self.menu.showDockMenu(mouse_x, mouse_y)
+            self.set_menu_active(setting_config.get_trayicon_config("pause"))            
