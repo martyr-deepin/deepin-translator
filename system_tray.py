@@ -80,4 +80,4 @@ class SystemTrayIcon(QSystemTrayIcon):
                     ])
             self.menu.itemClicked.connect(self.click_menu)
             self.menu.showDockMenu(mouse_x, mouse_y)
-            self.set_menu_active(setting_config.get_trayicon_config("pause"))            
+            self.set_menu_active(setting_config.get_trayicon_config("pause"))
