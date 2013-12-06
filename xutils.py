@@ -26,6 +26,7 @@ from Xlib import X, XK
 from Xlib.protocol import rq
 import xcb
 import xcb.xproto
+import subprocess
 
 conn = xcb.connect()
 screen = conn.get_setup().roots[0]
@@ -76,3 +77,7 @@ def check_valid_event(reply):
         return
     if not len(reply.data) or ord(reply.data[0]) < 2:
         return
+
+def delete_selection():
+    subprocess.Popen("xsel -c", shell=True).wait()
+        

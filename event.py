@@ -23,8 +23,8 @@
 from PyQt5.QtCore import QObject, pyqtSignal
 from Xlib import X
 from threading import Timer
-from xutils import record_event, get_keyname, check_valid_event, get_event_data
-import commands, subprocess
+from xutils import record_event, get_keyname, check_valid_event, get_event_data, delete_selection
+import commands
 from config import setting_config
 
 press_ctrl = False
@@ -53,10 +53,7 @@ class RecordEvent(QObject):
         self.view = view
         
         # Delete selection first.
-        self.delete_selection()
-        
-    def delete_selection(self):
-        subprocess.Popen("xsel -c", shell=True).wait()
+        delete_selection()
         
     def record_callback(self, reply):
         global press_ctrl
@@ -99,13 +96,13 @@ class RecordEvent(QObject):
                     if not setting_config.get_trayicon_config("pause"):
                         if not setting_config.get_trayicon_config("key_trigger_select") or press_alt:
                             selection_content = commands.getoutput("xsel -p -o")
-                            self.delete_selection()
+                            delete_selection()
                             
                             if len(selection_content) > 1 and not selection_content.isspace():
                                 self.translate_selection.emit(event.root_x, event.root_y, selection_content)
                 # Delete clipboard selection if user selection in visible area to avoid next time to translate those selection content.
                 elif self.view.isVisible() and self.view.in_translate_area():
-                    self.delete_selection()
+                    delete_selection()
             elif event.type == X.MotionNotify:
                 if self.timer and self.timer.is_alive():
                     self.timer.cancel()

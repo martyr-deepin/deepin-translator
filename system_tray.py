@@ -24,6 +24,7 @@ from PyQt5.QtWidgets import qApp, QSystemTrayIcon
 from PyQt5.QtCore import pyqtSlot, pyqtSignal
 from deepin_menu.menu import Menu, MenuSeparator, CheckboxMenuItem
 from config import setting_config
+from xutils import delete_selection
 
 class SystemTrayIcon(QSystemTrayIcon):
     
@@ -45,10 +46,12 @@ class SystemTrayIcon(QSystemTrayIcon):
             self.showSettingView.emit()
         else:
             if menu_id == "pause":
-                print "hello", state
-                self.menu.setItemActivity("toggle_speech", state)
-                self.menu.setItemActivity("key_trigger_ocr", state)
-                self.menu.setItemActivity("key_trigger_select", state)
+                if not state:
+                    delete_selection()
+                
+                self.menu.setItemActivity("toggle_speech", not state)
+                self.menu.setItemActivity("key_trigger_ocr", not state)
+                self.menu.setItemActivity("key_trigger_select", not state)
                 
             setting_config.update_trayicon_config(menu_id, state)
         
