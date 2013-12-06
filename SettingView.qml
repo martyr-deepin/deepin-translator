@@ -90,7 +90,6 @@ Item {
                 id: name
                 anchors.left: parent.left
                 anchors.right: parent.right
-                /* anchors.top: parent.top */
                 height: paintedHeight + 40
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
@@ -292,7 +291,6 @@ Item {
             DTextButton {
                 id: button
                 text: "确定"
-                /* anchors.bottom: parent.bottom */
                 anchors.right: parent.right
                 anchors.rightMargin: 10
                 anchors.bottomMargin: 10
