@@ -101,6 +101,15 @@ Item {
                 DragArea {
                     anchors.fill: parent
                     window: windowView
+                    propagateComposedEvents: true
+                    
+                    onPositionChanged: {
+                        mouse.accepted = false
+                    }
+                    
+                    onClicked: {
+                        mouse.accepted = false
+                    }
                 }
             }
             
