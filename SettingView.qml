@@ -11,7 +11,7 @@ Item {
     property int shadowRadius: 10
     property int defaultWidth: 350
     property int defaultHeight: 255
-    property int expandAreaHeight: 123
+    property int expandAreaHeight: 127
     property int listHeight: 240
     
     property alias expandArea: expandArea
@@ -21,17 +21,6 @@ Item {
         windowView.height = defaultHeight
         windowView.x = (screenWidth - defaultWidth) / 2
         windowView.y = (screenHeight - defaultHeight) / 2
-    }
-    
-    Connections {
-        target: windowView
-        onHeightChanged: {
-            if (windowView.height == defaultHeight) {
-                shrinkAreaAnimation.restart()
-            } else {
-                expandAreaAnimation.restart()
-            }
-        }
     }
     
     Rectangle {
@@ -120,13 +109,25 @@ Item {
                 anchors.rightMargin: 1
                 height: expandAreaHeight
                 color: "transparent"
-                clip: true
                 
                 property alias expandItems: contentItems.children
                 property int expandItemIndex: -1
+                property int expandItemIndexHistory: -1
                 
                 onExpandItemIndexChanged: {
-                    windowView.height = expandItemIndex == -1 ? defaultHeight : defaultHeight + listHeight
+                    
+                    if (expandItemIndex == -1) {
+                        if (expandItemIndexHistory != -1) {
+                            shrinkAreaAnimation.restart()
+                        }
+                    } else {
+                        if (expandItemIndexHistory == -1) {
+                            windowView.height = defaultHeight + listHeight
+                            expandAreaAnimation.restart()
+                        }
+                    }
+                    
+                    expandItemIndexHistory = expandItemIndex
                 }
                 
                 Column {
@@ -254,26 +255,30 @@ Item {
     ParallelAnimation{
         id: expandAreaAnimation
         
-        PropertyAnimation {
+        SmoothedAnimation {
             target: expandArea
             property: "height"
             duration: 200
             from: expandAreaHeight
             to: expandAreaHeight + listHeight
-            easing.type: Easing.OutQuint
         }
     }    
 
     ParallelAnimation{
         id: shrinkAreaAnimation
         
-        PropertyAnimation {
+         SmoothedAnimation {
             target: expandArea
             property: "height"
             duration: 200
             from: expandAreaHeight + listHeight
             to: expandAreaHeight
-            easing.type: Easing.OutQuint
+        }
+         
+        onRunningChanged: {
+            if (!shrinkAreaAnimation.running) {
+                windowView.height = defaultHeight
+            }
         }
     }    
 }
