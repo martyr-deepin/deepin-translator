@@ -122,167 +122,105 @@ Item {
                 color: "transparent"
                 clip: true
                 
+                property alias expandItems: contentItems.children
+                property int expandItemIndex: -1
+                
+                onExpandItemIndexChanged: {
+                    windowView.height = expandItemIndex == -1 ? defaultHeight : defaultHeight + listHeight
+                }
+                
                 Column {
                     id: content
                     anchors.fill: parent
                     
-                    property variant expandId: undefined
-                    
-                    onExpandIdChanged: {
-                        windowView.height = content.expandId == undefined ? defaultHeight : defaultHeight + listHeight
-                        
-                        if (content.expandId != undefined) {
-                            for (var i = 0; i < content.children.length; i++) {
-                                if (content.children[i] != content.expandId) {
-                                    content.children[i].expanded = false
-                                }
-                            }
-                        }
-                    }
-                    
-                    DBaseExpand {
-                        id: sourceExpand
-	                    expanded: false
-
-                        onExpandedChanged: {
-                            header.item.active = expanded
-                        }
-                        
-                        header.sourceComponent: DDownArrowHeader {
-                            text: "源语言"
-                            width: parent.width
-                            anchors.left: parent.left
-                            anchors.leftMargin: 2
-                            anchors.right: parent.right
-                            anchors.rightMargin: 2
-                            
-                            Component.onCompleted: {
-                                active = sourceExpand.expanded
-                            }
-                            
-                            onClicked: {
-                                sourceExpand.expanded = active
-                                if (active) {
-                                    content.expandId = sourceExpand
-                                } else {
-                                    content.expandId = undefined
-                                }
-                            }
-                        }
-                        
-                        content.sourceComponent: Rectangle {
+                    Component {
+                        id: sourceContent
+                        Rectangle {
                             width: parent.width
                             height: listHeight
                             color: "#181818"
                         }
                     }
 
-                    DBaseExpand {
-                        id: targetExpand
-	                    expanded: false
-
-                        onExpandedChanged: {
-                            header.item.active = expanded
-                        }
-                        
-                        header.sourceComponent: DDownArrowHeader {
-                            text: "目标语言"
+                    Component {
+                        id: targetContent
+                        Rectangle {
                             width: parent.width
-                            anchors.left: parent.left
-                            anchors.leftMargin: 2
-                            anchors.right: parent.right
-                            anchors.rightMargin: 2
-                            
-                            Component.onCompleted: {
-                                active = targetExpand.expanded
-                            }
-                            onClicked: {
-                                targetExpand.expanded = active
-                                if (active) {
-                                    content.expandId = targetExpand
-                                } else {
-                                    content.expandId = undefined
-                                }
-                            }
+                            height: listHeight
+                            color: "#181818"
                         }
-                        
-                        content.sourceComponent: Rectangle {
+                    }
+
+                    Component {
+                        id: wordContent
+                        Rectangle {
+                            width: parent.width
+                            height: listHeight
+                            color: "#181818"
+                        }
+                    }
+
+                    Component {
+                        id: wordsContent
+                        Rectangle {
                             width: parent.width
                             height: listHeight
                             color: "#181818"
                         }
                     }
                     
-                    DBaseExpand {
-                        id: wordExpand
-	                    expanded: false
+                    Item {
+                        id: contentItems
+                        
+                        Item {
+                            property string name: "源语言"
+                            property variant item: sourceContent
+                        }
 
-                        onExpandedChanged: {
-                            header.item.active = expanded
+                        Item {
+                            property string name: "目标源"
+                            property variant item: targetContent
                         }
-                        
-                        header.sourceComponent: DDownArrowHeader {
-                            text: "单词翻译"
-                            width: parent.width
-                            anchors.left: parent.left
-                            anchors.leftMargin: 2
-                            anchors.right: parent.right
-                            anchors.rightMargin: 2
-                            
-                            Component.onCompleted: {
-                                active = wordExpand.expanded
-                            }
-                            onClicked: {
-                                wordExpand.expanded = active
-                                if (active) {
-                                    content.expandId = wordExpand
-                                } else {
-                                    content.expandId = undefined
-                                }
-                            }
+
+                        Item {
+                            property string name: "单词翻译"
+                            property variant item: wordContent
                         }
-                        
-                        content.sourceComponent: Rectangle {
-                            width: parent.width
-                            height: listHeight
-                            color: "#181818"
+
+                        Item {
+                            property string name: "长句翻译"
+                            property variant item: wordsContent
                         }
                     }
-
-                    DBaseExpand {
-                        id: wordsExpand
-	                    expanded: false
-
-                        onExpandedChanged: {
-                            header.item.active = expanded
-                        }
-                        
-                        header.sourceComponent: DDownArrowHeader {
-                            text: "长句翻译"
-                            width: parent.width
-                            anchors.left: parent.left
-                            anchors.leftMargin: 2
-                            anchors.right: parent.right
-                            anchors.rightMargin: 2
-
-                            Component.onCompleted: {
-                                active = wordsExpand.expanded
+                    
+                    Repeater {
+                        model: expandArea.expandItems.length
+                        delegate: DBaseExpand {
+                            id: expand
+                            expanded: expandArea.expandItemIndex == index
+                            
+                            onExpandedChanged: {
+                                header.item.active = expanded
                             }
-
-                            onClicked: {
-                                wordsExpand.expanded = active
-                                if (active) {
-                                    content.expandId = wordsExpand
-                                } else {
-                                    content.expandId = undefined
+                            
+                            header.sourceComponent: DDownArrowHeader {
+                                text: expandArea.expandItems[index].name
+                                width: parent.width
+                                anchors.left: parent.left
+                                anchors.leftMargin: 2
+                                anchors.right: parent.right
+                                anchors.rightMargin: 2
+                                
+                                Component.onCompleted: {
+                                    active = expand.expanded
+                                }
+                                
+                                onClicked: {
+                                    expandArea.expandItemIndex = active ? index : -1
                                 }
                             }
-                        }
-                        
-                        content.sourceComponent: Rectangle {
-                            width: parent.width
-                            height: listHeight
-                            color: "#181818"
+                            
+                            content.sourceComponent: expandArea.expandItems[index].item
                         }
                     }
                 }
