@@ -19,8 +19,12 @@ Item {
     Component.onCompleted: {
         windowView.width = defaultWidth
         windowView.height = defaultHeight
-        windowView.x = (screenWidth - windowView.width) / 2
-        windowView.y = (screenHeight - windowView.height) / 2
+        windowView.x = (screenWidth - defaultWidth) / 2
+        if (screenHeight / 2 > defaultHeight + listHeight) {
+            windowView.y = (screenHeight - defaultHeight) / 2
+        } else {
+            windowView.y = (screenHeight - defaultHeight - listHeight) / 2
+        }
     }
     
     Connections {
