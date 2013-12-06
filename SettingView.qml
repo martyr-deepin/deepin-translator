@@ -114,7 +114,6 @@ Item {
                             if (content.expandValue) {
                                 print("iiiiii", content.children[i])
                                 content.children[i].expanded = false
-                                /* content.children[i].checked = false */
                             }
                         }
                     }
@@ -126,11 +125,6 @@ Item {
             DBaseExpand {
                 id: sourceExpand
 	            expanded: false
-                property bool checked: false
-                
-                onExpandedChanged: {
-                    print("Source", expanded)
-                }
                 
                 header: DSwitcherButtonHeader {
                     text: "源语言"
@@ -151,11 +145,6 @@ Item {
             DBaseExpand {
                 id: targetExpand
 	            expanded: false
-                property bool checked: false
-                
-                onExpandedChanged: {
-                    print("Target", expanded)
-                }
                 
                 header: DSwitcherButtonHeader {
                     text: "目标语言"
@@ -176,11 +165,6 @@ Item {
             DBaseExpand {
                 id: wordExpand
 	            expanded: false
-                property bool checked: false
-                
-                onExpandedChanged: {
-                    print("Word", checked)
-                }
                 
                 header: DSwitcherButtonHeader {
                     text: "单词翻译"
@@ -201,11 +185,6 @@ Item {
             DBaseExpand {
                 id: wordsExpand
 	            expanded: false
-                property bool checked: false
-                
-                onExpandedChanged: {
-                    print("Words", expanded)
-                }
                 
                 header: DSwitcherButtonHeader {
                     text: "长句翻译"
