@@ -104,39 +104,40 @@ Item {
             signal turnOff(variant id)
             
             onExpandIdChanged: {
-                print("--------------------", content.expandValue)
                 if (content.expandId != undefined) {
                     for (var i = 0; i < content.children.length; i++) {
-                        print(content.children[i], content.expandId, content.children[i] == content.expandId)
-                        if (content.children[i] == content.expandId) {
-                            content.children[i].expanded = content.expandValue
-                        } else {
-                            if (content.expandValue) {
-                                print("iiiiii", content.children[i])
-                                content.children[i].expanded = false
-                            }
+                        if (content.children[i] != content.expandId) {
+                            content.children[i].expanded = false
                         }
                     }
                 }
                 
-                content.expandId = undefined
+                //content.expandId = undefined
             }
             
             DBaseExpand {
                 id: sourceExpand
 	            expanded: false
+
+                onExpandedChanged: {
+                    header.item.checked = expanded
+                }
                 
-                header: DSwitcherButtonHeader {
+                header.sourceComponent: DSwitcherButtonHeader {
                     text: "源语言"
                     width: parent.width
-		            checked: sourceExpand.expanded
-                    onCheckedChanged: {
-                        content.expandValue = checked
-                        content.expandId = sourceExpand
+                    Component.onCompleted: {
+                        checked = sourceExpand.expanded
+                    }
+                    onClicked: {
+                        sourceExpand.expanded = checked
+                        if (checked) {
+                            content.expandId = sourceExpand
+                        }
                     }
                 }
                 
-                content: Rectangle {
+                content.sourceComponent: Rectangle {
                     width: parent.width
                     height: expandHeight
                 }
@@ -145,18 +146,26 @@ Item {
             DBaseExpand {
                 id: targetExpand
 	            expanded: false
+
+                onExpandedChanged: {
+                    header.item.checked = expanded
+                }
                 
-                header: DSwitcherButtonHeader {
+                header.sourceComponent: DSwitcherButtonHeader {
                     text: "目标语言"
                     width: parent.width
-		            checked: targetExpand.expanded
-                    onCheckedChanged: {
-                        content.expandValue = checked
-                        content.expandId = targetExpand
+                    Component.onCompleted: {
+                        checked = targetExpand.expanded
+                    }
+                    onClicked: {
+                        targetExpand.expanded = checked
+                        if (checked) {
+                            content.expandId = targetExpand
+                        }
                     }
                 }
                 
-                content: Rectangle {
+                content.sourceComponent: Rectangle {
                     width: parent.width
                     height: expandHeight
                 }
@@ -165,18 +174,26 @@ Item {
             DBaseExpand {
                 id: wordExpand
 	            expanded: false
+
+                onExpandedChanged: {
+                    header.item.checked = expanded
+                }
                 
-                header: DSwitcherButtonHeader {
+                header.sourceComponent: DSwitcherButtonHeader {
                     text: "单词翻译"
                     width: parent.width
-		            checked: wordExpand.expanded
-                    onCheckedChanged: {
-                        content.expandValue = checked
-                        content.expandId = wordExpand
+                    Component.onCompleted: {
+                        checked = wordExpand.expanded
+                    }
+                    onClicked: {
+                        wordExpand.expanded = checked
+                        if (checked) {
+                            content.expandId = wordExpand
+                        }
                     }
                 }
                 
-                content: Rectangle {
+                content.sourceComponent: Rectangle {
                     width: parent.width
                     height: expandHeight
                 }
@@ -185,18 +202,28 @@ Item {
             DBaseExpand {
                 id: wordsExpand
 	            expanded: false
+
+                onExpandedChanged: {
+                    header.item.checked = expanded
+                }
                 
-                header: DSwitcherButtonHeader {
+                header.sourceComponent: DSwitcherButtonHeader {
                     text: "长句翻译"
                     width: parent.width
-		            checked: wordExpand.expanded
-                    onCheckedChanged: {
-                        content.expandValue = checked
-                        content.expandId = wordsExpand
+
+                    Component.onCompleted: {
+                        checked = wordsExpand.expanded
+                    }
+
+                    onClicked: {
+                        wordsExpand.expanded = checked
+                        if (checked) {
+                            content.expandId = wordsExpand
+                        }
                     }
                 }
                 
-                content: Rectangle {
+                content.sourceComponent: Rectangle {
                     width: parent.width
                     height: expandHeight
                 }
