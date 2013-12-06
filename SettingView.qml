@@ -7,17 +7,15 @@ import "./widgets"
 Item {
     id: window
     
-    property color bgColor: "#232323"
-    property color fgColor: "#FFFFFF"
-    property color contentBgColor: "#FFFFFF"
-
     property int frameRadius: 3
     property int shadowRadius: 10
-    property int expandHeight: 100
+    property int expandHeight: 240
+    property int defaultWidth: 350
+    property int defaultHeight: 260
     
     Component.onCompleted: {
-        windowView.width = 250
-        windowView.height = 350
+        windowView.width = defaultWidth
+        windowView.height = defaultHeight
         windowView.x = (screenWidth - windowView.width) / 2
         windowView.y = (screenHeight - windowView.height) / 2
     }
@@ -89,143 +87,177 @@ Item {
             }
         }
             
-        Column {
-            id: content
+        Rectangle {
             anchors.top: name.bottom
+            anchors.bottom: button.top
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.leftMargin: 1
             anchors.rightMargin: 1
+            color: "transparent"
+            clip: true
             
-            property variant expandId: undefined
-            property variant expandValue: undefined
-            property bool changeLock: false
-            
-            signal turnOff(variant id)
-            
-            onExpandIdChanged: {
-                if (content.expandId != undefined) {
-                    for (var i = 0; i < content.children.length; i++) {
-                        if (content.children[i] != content.expandId) {
-                            content.children[i].expanded = false
+            Column {
+                id: content
+                anchors.fill: parent
+                
+                property variant expandId: undefined
+                
+                onExpandIdChanged: {
+                    windowView.height = content.expandId == undefined ? defaultHeight : defaultHeight + expandHeight
+                    
+                    if (content.expandId != undefined) {
+                        for (var i = 0; i < content.children.length; i++) {
+                            if (content.children[i] != content.expandId) {
+                                content.children[i].expanded = false
+                            }
+                        }
+                    } 
+                }
+                
+                DBaseExpand {
+                    id: sourceExpand
+	                expanded: false
+
+                    onExpandedChanged: {
+                        header.item.checked = expanded
+                    }
+                    
+                    header.sourceComponent: DSwitchButtonHeader {
+                        text: "源语言"
+                        width: parent.width
+                        anchors.left: parent.left
+                        anchors.leftMargin: 2
+                        anchors.right: parent.right
+                        anchors.rightMargin: 2
+                        
+                        Component.onCompleted: {
+                            checked = sourceExpand.expanded
+                        }
+                        onClicked: {
+                            sourceExpand.expanded = checked
+                            if (checked) {
+                                content.expandId = sourceExpand
+                            } else {
+                                content.expandId = undefined
+                            }
                         }
                     }
-                }
-                
-                //content.expandId = undefined
-            }
-            
-            DBaseExpand {
-                id: sourceExpand
-	            expanded: false
-
-                onExpandedChanged: {
-                    header.item.checked = expanded
-                }
-                
-                header.sourceComponent: DSwitcherButtonHeader {
-                    text: "源语言"
-                    width: parent.width
-                    Component.onCompleted: {
-                        checked = sourceExpand.expanded
+                    
+                    content.sourceComponent: Rectangle {
+                        width: parent.width
+                        height: expandHeight
+                        color: "#181818"
                     }
-                    onClicked: {
-                        sourceExpand.expanded = checked
-                        if (checked) {
-                            content.expandId = sourceExpand
+                }
+
+                DBaseExpand {
+                    id: targetExpand
+	                expanded: false
+
+                    onExpandedChanged: {
+                        header.item.checked = expanded
+                    }
+                    
+                    header.sourceComponent: DSwitchButtonHeader {
+                        text: "目标语言"
+                        width: parent.width
+                        anchors.left: parent.left
+                        anchors.leftMargin: 2
+                        anchors.right: parent.right
+                        anchors.rightMargin: 2
+                        
+                        Component.onCompleted: {
+                            checked = targetExpand.expanded
+                        }
+                        onClicked: {
+                            targetExpand.expanded = checked
+                            if (checked) {
+                                content.expandId = targetExpand
+                            } else {
+                                content.expandId = undefined
+                            }
                         }
                     }
-                }
-                
-                content.sourceComponent: Rectangle {
-                    width: parent.width
-                    height: expandHeight
-                }
-            }
-
-            DBaseExpand {
-                id: targetExpand
-	            expanded: false
-
-                onExpandedChanged: {
-                    header.item.checked = expanded
-                }
-                
-                header.sourceComponent: DSwitcherButtonHeader {
-                    text: "目标语言"
-                    width: parent.width
-                    Component.onCompleted: {
-                        checked = targetExpand.expanded
+                    
+                    content.sourceComponent: Rectangle {
+                        width: parent.width
+                        height: expandHeight
+                        color: "#181818"
                     }
-                    onClicked: {
-                        targetExpand.expanded = checked
-                        if (checked) {
-                            content.expandId = targetExpand
+                }
+                
+                DBaseExpand {
+                    id: wordExpand
+	                expanded: false
+
+                    onExpandedChanged: {
+                        header.item.checked = expanded
+                    }
+                    
+                    header.sourceComponent: DSwitchButtonHeader {
+                        text: "单词翻译"
+                        width: parent.width
+                        anchors.left: parent.left
+                        anchors.leftMargin: 2
+                        anchors.right: parent.right
+                        anchors.rightMargin: 2
+                        
+                        Component.onCompleted: {
+                            checked = wordExpand.expanded
+                        }
+                        onClicked: {
+                            wordExpand.expanded = checked
+                            if (checked) {
+                                content.expandId = wordExpand
+                            } else {
+                                content.expandId = undefined
+                            }
                         }
                     }
-                }
-                
-                content.sourceComponent: Rectangle {
-                    width: parent.width
-                    height: expandHeight
-                }
-            }
-            
-            DBaseExpand {
-                id: wordExpand
-	            expanded: false
-
-                onExpandedChanged: {
-                    header.item.checked = expanded
-                }
-                
-                header.sourceComponent: DSwitcherButtonHeader {
-                    text: "单词翻译"
-                    width: parent.width
-                    Component.onCompleted: {
-                        checked = wordExpand.expanded
+                    
+                    content.sourceComponent: Rectangle {
+                        width: parent.width
+                        height: expandHeight
+                        color: "#181818"
                     }
-                    onClicked: {
-                        wordExpand.expanded = checked
-                        if (checked) {
-                            content.expandId = wordExpand
+                }
+
+                DBaseExpand {
+                    id: wordsExpand
+	                expanded: false
+
+                    onExpandedChanged: {
+                        header.item.checked = expanded
+                    }
+                    
+                    header.sourceComponent: DSwitchButtonHeader {
+                        text: "长句翻译"
+                        width: parent.width
+                        anchors.left: parent.left
+                        anchors.leftMargin: 2
+                        anchors.right: parent.right
+                        anchors.rightMargin: 2
+
+                        Component.onCompleted: {
+                            checked = wordsExpand.expanded
+                        }
+
+                        onClicked: {
+                            wordsExpand.expanded = checked
+                            if (checked) {
+                                content.expandId = wordsExpand
+                            } else {
+                                content.expandId = undefined
+                            }
                         }
                     }
-                }
-                
-                content.sourceComponent: Rectangle {
-                    width: parent.width
-                    height: expandHeight
-                }
-            }
-
-            DBaseExpand {
-                id: wordsExpand
-	            expanded: false
-
-                onExpandedChanged: {
-                    header.item.checked = expanded
-                }
-                
-                header.sourceComponent: DSwitcherButtonHeader {
-                    text: "长句翻译"
-                    width: parent.width
-
-                    Component.onCompleted: {
-                        checked = wordsExpand.expanded
+                    
+                    content.sourceComponent: Rectangle {
+                        width: parent.width
+                        height: expandHeight
+                        color: "#181818"
                     }
-
-                    onClicked: {
-                        wordsExpand.expanded = checked
-                        if (checked) {
-                            content.expandId = wordsExpand
-                        }
-                    }
-                }
-                
-                content.sourceComponent: Rectangle {
-                    width: parent.width
-                    height: expandHeight
                 }
             }
         }
@@ -235,7 +267,7 @@ Item {
             text: "确定"
             anchors.bottom: parent.bottom
             anchors.right: parent.right
-            anchors.margins: 5
+            anchors.margins: 10
             
             onClicked: {
                 windowView.hide()
@@ -252,4 +284,30 @@ Item {
         cornerRadius: frame.radius + shadowRadius
         visible: true
     }
+    
+    ParallelAnimation{
+        id: expandWindowAnimation
+        
+        PropertyAnimation {
+            target: windowView
+            property: "height"
+            duration: 200
+            from: defaultHeight
+            to: defaultHeight + expandHeight
+            easing.type: Easing.OutQuint
+        }
+    }    
+
+    ParallelAnimation{
+        id: shrinkWindowAnimation
+        
+        PropertyAnimation {
+            target: windowView
+            property: "height"
+            duration: 200
+            from: defaultHeight + expandHeight
+            to: defaultHeight
+            easing.type: Easing.OutQuint
+        }
+    }    
 }

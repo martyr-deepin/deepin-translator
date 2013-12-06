@@ -35,7 +35,6 @@ class SystemTrayIcon(QSystemTrayIcon):
         
     @pyqtSlot(str, bool)
     def click_menu(self, menu_id, state):
-        print menu_id
         if menu_id == "quit":
             qApp.quit()
         elif menu_id == "wizard":
@@ -45,6 +44,12 @@ class SystemTrayIcon(QSystemTrayIcon):
         elif menu_id == "settings":
             self.showSettingView.emit()
         else:
+            if menu_id == "pause":
+                print "hello", state
+                self.menu.setItemActivity("toggle_speech", state)
+                self.menu.setItemActivity("key_trigger_ocr", state)
+                self.menu.setItemActivity("key_trigger_select", state)
+                
             setting_config.update_trayicon_config(menu_id, state)
         
     def on_activated(self, reason):
