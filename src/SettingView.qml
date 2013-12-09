@@ -140,21 +140,25 @@ Item {
                         Item {
                             property string name: "源语言"
                             property variant model: sourceLangModel
+                            property string type: "src_lang"
                         }
 
                         Item {
                             property string name: "目标源"
                             property variant model: destLangModel
+                            property string type: "dst_lang"
                         }
 
                         Item {
                             property string name: "单词翻译"
                             property variant model: wordTranslateModel
+                            property string type: "word_engine"
                         }
 
                         Item {
                             property string name: "长句翻译"
                             property variant model: wordsTranslateModel
+                            property string type: "words_engine"
                         }
                     }
                     
@@ -195,16 +199,24 @@ Item {
                                         id: listview
                                         anchors.fill: parent
                                         model: expandArea.expandItems[index].model
+                                        
+                                        property string type: expandArea.expandItems[index].type
+                                        property string currentName: ""
+                                        
+                                        Component.onCompleted: {
+                                            listview.currentName = settingConfig.get_translate_config(listview.type)
+                                        }
+                                        
                                         delegate: Item {
-                                            id: sourceListView
                                             width: parent.width
                                             height: 24
                                             anchors.left: parent.left
                                             anchors.leftMargin: 15
                                             
                                             Text {
+                                                id: nameText
                                                 text: displayName
-                                                color: "#fff"
+                                                color: listview.currentName == name ? "#009EFF" : "#fff"
                                             }
                                             
                                             MouseArea {
@@ -213,6 +225,11 @@ Item {
                                                 
                                                 onEntered: {
                                                     listview.currentIndex = index
+                                                }
+                                                
+                                                onClicked: {
+                                                    settingConfig.update_translate_config(listview.type, name)
+                                                    listview.currentName = settingConfig.get_translate_config(listview.type)
                                                 }
                                             }
                                         }
@@ -226,6 +243,7 @@ Item {
                                             color: "#0D0D0D"
                                             radius: 4
                                         }                                        
+                                        highlightMoveDuration: 200
 				                        focus: true
 				                        interactive: true
                                     }

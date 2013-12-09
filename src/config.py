@@ -32,7 +32,14 @@ DEFAULT_CONFIG = [
       ("toggle_speech", True),
       ("key_trigger_ocr", True),
       ("key_trigger_select", False),
-      ])]
+      ]),
+    ("translate",
+     [("src_lang", "en"),
+      ("dst_lang", "zh-CN"),
+      ("word_engine", "google"),
+      ("words_engine", "google"),
+      ]),
+    ]
 
 class SettingConfig(QObject):
     
@@ -48,12 +55,22 @@ class SettingConfig(QObject):
             self.config.write()
             print self.config.default_config
             
+    @pyqtSlot(str, bool)        
     def update_trayicon_config(self, config_id, config_value):
         with self.config.save_config():
             self.config.set("trayicon", config_id, config_value)
+
+    @pyqtSlot(str, str)        
+    def update_translate_config(self, config_id, config_value):
+        with self.config.save_config():
+            self.config.set("translate", config_id, config_value)
             
     @pyqtSlot(str, result=bool)        
     def get_trayicon_config(self, option):
         return is_true(self.config.get_config("trayicon", option))
+    
+    @pyqtSlot(str, result=str)
+    def get_translate_config(self, option):
+        return self.config.get_config("translate", option)
             
 setting_config = SettingConfig()
