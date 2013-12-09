@@ -136,19 +136,53 @@ Item {
                     
                     Component {
                         id: sourceContent
-                        Rectangle {
+                        
+                        ScrollWidget {
                             width: parent.width
                             height: listHeight
-                            color: "#181818"
+                            
+                            ListView {
+                                anchors.fill: parent
+                                model: sourceLangModel
+                                delegate: Item {
+                                    id: sourceListView
+                                    width: parent.width
+                                    height: 24
+                                    anchors.left: parent.left
+                                    anchors.leftMargin: 10
+                                    
+                                    Text {
+                                        text: displayName
+                                        color: "#fff"
+                                    }
+                                }
+                            }
                         }
                     }
 
                     Component {
                         id: targetContent
-                        Rectangle {
+
+                        ScrollWidget {
                             width: parent.width
                             height: listHeight
-                            color: "#181818"
+                            
+                            ListView {
+                                anchors.fill: parent
+                                model: destLangModel
+                                delegate: Item {
+                                    id: sourceListView
+                                    width: parent.width
+                                    height: 24
+                                    anchors.left: parent.left
+                                    anchors.leftMargin: 10
+                                    
+                                    Text {
+                                        text: displayName
+                                        color: "#fff"
+                                    }
+                                }
+                            }
                         }
                     }
 
