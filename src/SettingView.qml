@@ -168,12 +168,14 @@ Item {
                             id: expand
                             expanded: expandArea.expandItemIndex == index
                             
+                            property string currentDisplayName: ""
+                            
                             onExpandedChanged: {
                                 header.item.active = expanded
                             }
                             
                             header.sourceComponent: DDownArrowHeader {
-                                text: expandArea.expandItems[index].name
+                                text: expandArea.expandItems[index].name + " (" + expand.currentDisplayName + ")"
                                 width: parent.width
                                 anchors.left: parent.left
                                 anchors.leftMargin: 2
@@ -205,6 +207,7 @@ Item {
                                         
                                         Component.onCompleted: {
                                             listview.currentName = settingConfig.get_translate_config(listview.type)
+                                            expand.currentDisplayName = model.getDisplayName(listview.currentName)
                                         }
                                         
                                         delegate: Item {
@@ -242,6 +245,8 @@ Item {
                                                 onClicked: {
                                                     settingConfig.update_translate_config(listview.type, name)
                                                     listview.currentName = settingConfig.get_translate_config(listview.type)
+                                                    
+                                                    expand.currentDisplayName = displayName
                                                 }
                                             }
                                         }

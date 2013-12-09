@@ -22,6 +22,7 @@
 
 from listmodel import QObjectListModel
 from PyQt5 import QtCore
+from PyQt5.QtCore import pyqtSlot
 from constant import LANGUAGES
 
 class Model(QObjectListModel):
@@ -31,8 +32,11 @@ class Model(QObjectListModel):
     
     _roles = {nameRole: "name", displayNameRole: "displayName"}
 
-    def __init__(self, parent=None):
+    def __init__(self, data, parent=None):
         QObjectListModel.__init__(self, parent)
+        
+        self.data_dict = dict(data)
+        self.setAll(data)
         
     def data(self, index, role):
         if not index.isValid() or index.row() > self.size:
@@ -49,8 +53,10 @@ class Model(QObjectListModel):
         
         return QtCore.QVariant()
 
+    @pyqtSlot(str, result=str)        
+    def getDisplayName(self, name):
+        return self.data_dict[name]
+
 class LanguageModel(Model):
     def __init__(self, parent=None):
-        Model.__init__(self, parent)
-        
-        self.setAll(LANGUAGES)
+        Model.__init__(self, LANGUAGES, parent)

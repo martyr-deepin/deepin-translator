@@ -56,10 +56,8 @@ if __name__ == "__main__":
     
     source_lang_model = LanguageModel()
     dest_lang_model = LanguageModel()
-    word_translate_mode = Model()
-    words_translate_mode = Model()
-    word_translate_mode.setAll([("google", "Google 翻译")])
-    words_translate_mode.setAll([("google", "Google 翻译")])
+    word_translate_mode = Model([("google", "Google 翻译")])
+    words_translate_mode = Model([("google", "Google 翻译")])
     
     setting_view = Window()
     setting_view.qml_context.setContextProperty("sourceLangModel", source_lang_model)
