@@ -26,6 +26,7 @@ from auto_object import AutoQObject
 from translate_interface import TranslateInterface
 from utils import encode_params
 import requests
+from config import setting_config
 
 def group(seq, size): 
     def take(seq, n):
@@ -107,14 +108,14 @@ class TranslateLong(TranslateInterface):
         return result.decode(encoding)
     
     @classmethod
-    def get_google_voices(cls, text):
+    def get_google_voices(cls, text, tl="en"):
         if not isinstance(text, unicode):
             text = text.decode("utf-8", "ignore")
             
         results = []    
         contents = group(text, 54)
         for c in contents:
-            results.append(cls.google_voice("".join(c)))
+            results.append(cls.google_voice("".join(c), tl=tl))
         return results    
     
     
@@ -135,5 +136,11 @@ class TranslateLong(TranslateInterface):
         
     @pyqtSlot(str)
     def get_translate(self, text):
-        self.translate_info.voices = self.get_google_voices(text)
-        self.translate_info.translate = self.google_translate(text)
+        self.translate_info.voices = self.get_google_voices(
+            text,
+            tl=setting_config.get_translate_config("src_lang"),
+            )
+        self.translate_info.translate = self.google_translate(
+            text,
+            tl=setting_config.get_translate_config("dst_lang"),
+            )
