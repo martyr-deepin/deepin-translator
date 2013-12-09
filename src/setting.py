@@ -56,6 +56,13 @@ class Model(QObjectListModel):
     @pyqtSlot(str, result=str)        
     def getDisplayName(self, name):
         return self.data_dict[name]
+    
+    @pyqtSlot(str, result=int)
+    def getNameIndex(self, name):
+        try:
+            return map(lambda (key, value): key, self._data).index(name)
+        except:
+            return 0
 
 class LanguageModel(Model):
     def __init__(self, parent=None):

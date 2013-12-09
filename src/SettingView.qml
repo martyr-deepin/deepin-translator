@@ -210,6 +210,15 @@ Item {
                                             expand.currentDisplayName = model.getDisplayName(listview.currentName)
                                         }
                                         
+                                        Connections {
+                                            target: expand
+                                            onExpandedChanged: {
+                                                if (expand.expanded) {
+                                                    listview.positionViewAtIndex(expandArea.expandItems[index].model.getNameIndex(listview.currentName), ListView.Center)
+                                                }
+                                            }
+                                        }
+                                        
                                         delegate: Item {
                                             width: parent.width
                                             height: 24
