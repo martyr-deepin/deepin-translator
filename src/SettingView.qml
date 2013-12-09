@@ -213,10 +213,22 @@ Item {
                                             anchors.left: parent.left
                                             anchors.leftMargin: 15
                                             
-                                            Text {
-                                                id: nameText
-                                                text: displayName
-                                                color: listview.currentName == name ? "#009EFF" : "#fff"
+                                            Row {
+                                                spacing: 3
+                                                
+                                                Image {
+                                                    id: nameImage
+                                                    anchors.verticalCenter: parent.verticalCenter
+                                                    source: "image/select.png"
+                                                    opacity: listview.currentName == name ? 1 : 0
+                                                }
+                                                
+                                                Text {
+                                                    id: nameText
+                                                    anchors.verticalCenter: parent.verticalCenter
+                                                    text: displayName
+                                                    color: listview.currentName == name ? "#009EFF" : "#fff"
+                                                }
                                             }
                                             
                                             MouseArea {
