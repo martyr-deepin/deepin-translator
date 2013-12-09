@@ -134,97 +134,27 @@ Item {
                     id: content
                     anchors.fill: parent
                     
-                    Component {
-                        id: sourceContent
-                        
-                        ScrollWidget {
-                            width: parent.width
-                            height: listHeight
-                            
-                            ListView {
-                                anchors.fill: parent
-                                model: sourceLangModel
-                                delegate: Item {
-                                    id: sourceListView
-                                    width: parent.width
-                                    height: 24
-                                    anchors.left: parent.left
-                                    anchors.leftMargin: 10
-                                    
-                                    Text {
-                                        text: displayName
-                                        color: "#fff"
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    Component {
-                        id: targetContent
-
-                        ScrollWidget {
-                            width: parent.width
-                            height: listHeight
-                            
-                            ListView {
-                                anchors.fill: parent
-                                model: destLangModel
-                                delegate: Item {
-                                    id: sourceListView
-                                    width: parent.width
-                                    height: 24
-                                    anchors.left: parent.left
-                                    anchors.leftMargin: 10
-                                    
-                                    Text {
-                                        text: displayName
-                                        color: "#fff"
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    Component {
-                        id: wordContent
-                        Rectangle {
-                            width: parent.width
-                            height: listHeight
-                            color: "#181818"
-                        }
-                    }
-
-                    Component {
-                        id: wordsContent
-                        Rectangle {
-                            width: parent.width
-                            height: listHeight
-                            color: "#181818"
-                        }
-                    }
-                    
                     Item {
                         id: contentItems
                         
                         Item {
                             property string name: "源语言"
-                            property variant item: sourceContent
+                            property variant model: sourceLangModel
                         }
 
                         Item {
                             property string name: "目标源"
-                            property variant item: targetContent
+                            property variant model: destLangModel
                         }
 
                         Item {
                             property string name: "单词翻译"
-                            property variant item: wordContent
+                            property variant model: wordTranslateModel
                         }
 
                         Item {
                             property string name: "长句翻译"
-                            property variant item: wordsContent
+                            property variant model: wordsTranslateModel
                         }
                     }
                     
@@ -255,7 +185,52 @@ Item {
                                 }
                             }
                             
-                            content.sourceComponent: expandArea.expandItems[index].item
+                            content.sourceComponent: Component {
+                                id: wordsContent
+                                ScrollWidget {
+                                    width: parent.width
+                                    height: listHeight
+                                    
+                                    ListView {
+                                        id: listview
+                                        anchors.fill: parent
+                                        model: expandArea.expandItems[index].model
+                                        delegate: Item {
+                                            id: sourceListView
+                                            width: parent.width
+                                            height: 24
+                                            anchors.left: parent.left
+                                            anchors.leftMargin: 15
+                                            
+                                            Text {
+                                                text: displayName
+                                                color: "#fff"
+                                            }
+                                            
+                                            MouseArea {
+                                                anchors.fill: parent
+                                                hoverEnabled: true
+                                                
+                                                onEntered: {
+                                                    listview.currentIndex = index
+                                                }
+                                            }
+                                        }
+                                        highlight: Rectangle {
+                                            width: parent.width
+                                            anchors.left: parent.left
+                                            anchors.right: parent.right
+                                            anchors.leftMargin: 5
+                                            anchors.rightMargin: 5
+                                            height: 24
+                                            color: "#0D0D0D"
+                                            radius: 4
+                                        }                                        
+				                        focus: true
+				                        interactive: true
+                                    }
+                                }
+                            }
                         }
                     }
                 }

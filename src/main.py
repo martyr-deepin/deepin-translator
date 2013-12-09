@@ -39,7 +39,7 @@ import threading
 from config import setting_config
 from window import Window
 from xutils import screen_width, screen_height
-from setting import LanguageModel
+from setting import LanguageModel, Model
     
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -56,10 +56,16 @@ if __name__ == "__main__":
     
     source_lang_model = LanguageModel()
     dest_lang_model = LanguageModel()
+    word_translate_mode = Model()
+    words_translate_mode = Model()
+    word_translate_mode.setAll([("google", "Google 翻译")])
+    words_translate_mode.setAll([("google", "Google 翻译")])
     
     setting_view = Window()
     setting_view.qml_context.setContextProperty("sourceLangModel", source_lang_model)
     setting_view.qml_context.setContextProperty("destLangModel", dest_lang_model)
+    setting_view.qml_context.setContextProperty("wordTranslateModel", word_translate_mode)
+    setting_view.qml_context.setContextProperty("wordsTranslateModel", words_translate_mode)
     setting_view.qml_context.setContextProperty("screenWidth", screen_width)
     setting_view.qml_context.setContextProperty("screenHeight", screen_height)
     setting_view.qml_context.setContextProperty("windowView", setting_view)

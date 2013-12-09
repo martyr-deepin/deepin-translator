@@ -24,7 +24,7 @@ from listmodel import QObjectListModel
 from PyQt5 import QtCore
 from constant import LANGUAGES
 
-class LanguageModel(QObjectListModel):
+class Model(QObjectListModel):
     
     nameRole = QtCore.Qt.UserRole + 1
     displayNameRole = QtCore.Qt.UserRole + 2
@@ -33,8 +33,6 @@ class LanguageModel(QObjectListModel):
 
     def __init__(self, parent=None):
         QObjectListModel.__init__(self, parent)
-        
-        self.setAll(LANGUAGES)
         
     def data(self, index, role):
         if not index.isValid() or index.row() > self.size:
@@ -51,3 +49,8 @@ class LanguageModel(QObjectListModel):
         
         return QtCore.QVariant()
 
+class LanguageModel(Model):
+    def __init__(self, parent=None):
+        Model.__init__(self, parent)
+        
+        self.setAll(LANGUAGES)

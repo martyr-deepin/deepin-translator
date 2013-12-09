@@ -11,7 +11,7 @@ ScrollView {
             implicitWidth: 14
             implicitHeight: 26
             Rectangle {
-                color: styleData.hovered ? Qt.rgba(66/255.0, 66/255.0, 70/255.0, 0.8) : Qt.rgba(100/255.0, 100/255.0, 100/255.0)
+                color: !styleData.hovered ? Qt.rgba(66/255.0, 66/255.0, 70/255.0, 0.8) : Qt.rgba(100/255.0, 100/255.0, 100/255.0)
                 anchors.fill: parent
                 anchors.topMargin: 6
                 anchors.leftMargin: 4
