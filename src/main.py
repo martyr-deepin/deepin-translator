@@ -89,7 +89,7 @@ if __name__ == "__main__":
             
     def handle_press_ctrl():
         if setting_config.get_trayicon_config("key_trigger_ocr"):
-            translate_simple.translate_cursor_word
+            translate_simple.translate_cursor_word()
             
     record_event = RecordEvent(translate_simple)
     record_event.press_esc.connect(hide_translate)
