@@ -228,6 +228,7 @@ Item {
                                             
                                             Row {
                                                 spacing: 5
+                                                anchors.verticalCenter: parent.verticalCenter
                                                 
                                                 Image {
                                                     id: nameImage
