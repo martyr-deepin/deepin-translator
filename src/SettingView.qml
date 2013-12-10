@@ -175,7 +175,7 @@ Item {
                             }
                             
                             header.sourceComponent: DDownArrowHeader {
-                                text: expandArea.expandItems[index].name + " (" + expand.currentDisplayName + ")"
+                                text: "<font color=\"#fff\">" + expandArea.expandItems[index].name + "</font>" + "<font color=\"#666\"> (" + expand.currentDisplayName + ")</font>"
                                 width: parent.width
                                 anchors.left: parent.left
                                 anchors.leftMargin: 2
@@ -226,7 +226,7 @@ Item {
                                             anchors.leftMargin: 15
                                             
                                             Row {
-                                                spacing: 3
+                                                spacing: 5
                                                 
                                                 Image {
                                                     id: nameImage
