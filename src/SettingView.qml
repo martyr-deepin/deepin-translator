@@ -175,7 +175,8 @@ Item {
                             }
                             
                             header.sourceComponent: DDownArrowHeader {
-                                text: "<font color=\"#fff\">" + expandArea.expandItems[index].name + "</font>" + "<font color=\"#666\"> (" + expand.currentDisplayName + ")</font>"
+                                text: expandArea.expandItems[index].name
+                                darkText: expand.currentDisplayName
                                 width: parent.width
                                 anchors.left: parent.left
                                 anchors.leftMargin: 2
@@ -240,6 +241,7 @@ Item {
                                                     anchors.verticalCenter: parent.verticalCenter
                                                     text: displayName
                                                     color: listview.currentName == name ? "#009EFF" : "#fff"
+                                                    font.pixelSize: 12
                                                 }
                                             }
                                             
