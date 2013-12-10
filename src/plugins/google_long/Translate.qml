@@ -1,6 +1,7 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
 import QtMultimedia 5.0
+import "../../../src"
 
 TranslateWindow {
 	id: container

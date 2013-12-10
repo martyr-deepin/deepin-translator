@@ -27,6 +27,7 @@ from translate_interface import TranslateInterface
 from utils import encode_params
 import requests
 from config import setting_config
+import os
 
 def group(seq, size): 
     def take(seq, n):
@@ -42,10 +43,10 @@ def group(seq, size):
         else:
             break
 
-class TranslateLong(TranslateInterface):
+class Translate(TranslateInterface):
     
     def __init__(self):
-        TranslateInterface.__init__(self, "TranslateLong.qml")
+        TranslateInterface.__init__(self, os.path.join(os.path.dirname(__file__), "Translate.qml"))
         
 
     def init_translate_info(self):

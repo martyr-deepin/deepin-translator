@@ -30,8 +30,6 @@ from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication
 from event import RecordEvent
 from system_tray import SystemTrayIcon
-from translate_long import TranslateLong
-from translate_simple import TranslateSimple
 from unique_service import UniqueService
 import signal
 import sys  
@@ -40,6 +38,7 @@ from config import setting_config
 from window import Window
 from xutils import screen_width, screen_height
 from setting import LanguageModel, Model
+import imp
     
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -51,8 +50,11 @@ if __name__ == "__main__":
     tray_icon = SystemTrayIcon(QIcon("image/icon.png"), app)
     tray_icon.show()
     
-    translate_simple = TranslateSimple()
-    translate_long = TranslateLong()
+    youdao = imp.load_source("youdao", os.path.join(os.path.dirname(__file__), "plugins", "youdao", "translate.py"))
+    google_long = imp.load_source("google_long", os.path.join(os.path.dirname(__file__), "plugins", "google_long", "translate.py"))
+    
+    translate_simple = youdao.Translate()
+    translate_long = google_long.Translate()
     
     source_lang_model = LanguageModel()
     dest_lang_model = LanguageModel()

@@ -30,11 +30,12 @@ from auto_object import AutoQObject
 from ocr import ocr_word
 from xutils import get_pointer_coordiante
 from pyquery import PyQuery
+import os
 
-class TranslateSimple(TranslateInterface):
+class Translate(TranslateInterface):
     
     def __init__(self):
-        TranslateInterface.__init__(self, "TranslateSimple.qml")
+        TranslateInterface.__init__(self, os.path.join(os.path.dirname(__file__), "Translate.qml"))
         
     def get_voice(self, text, lang):
         url = "http://dict.youdao.com/dictvoice"
