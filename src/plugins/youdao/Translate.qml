@@ -25,6 +25,9 @@ TranslateWindow {
     property int listviewWidth: 0
     property int listviewHeight: 0
 	property int listviewLength: 0
+    
+    property int suggestionWidth: 0
+    property int suggestionHeight: 0
 	
     Connections {
         target: suggestModel
@@ -111,19 +114,29 @@ TranslateWindow {
         listview.width = listviewWidth
         listview.height = listviewHeight
 		
-        var maxWidth = Math.max(listviewWidth, minWindowWidth) + (borderMargin + container.blurRadius) * 2
-        var maxHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
-        
-        windowView.width = maxWidth
-        windowView.height = maxHeight
-        
-        container.rectWidth = maxWidth
-        container.rectHeight = maxHeight
-        container.width = maxWidth
-        container.height = maxHeight
-		
-		adjustPosition()		
+        suggestionWidth = Math.max(listviewWidth, minWindowWidth) + (borderMargin + container.blurRadius) * 2
+        suggestionHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
+
+        adjustSuggestionTimer.restart()
     }
+    
+	Timer {
+		id: adjustSuggestionTimer
+		interval: 200
+		repeat: false
+		
+		onTriggered: {
+            windowView.width = suggestionWidth
+            windowView.height = suggestionHeight
+            
+            container.rectWidth = suggestionWidth
+            container.rectHeight = suggestionHeight
+            container.width = suggestionWidth
+            container.height = suggestionHeight
+		    
+		    adjustPosition()		
+		}
+	}
     
     function autoSpeech() {
         if (settingConfig.get_trayicon_config("toggle_speech")) {
