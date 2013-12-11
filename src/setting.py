@@ -31,7 +31,7 @@ class Model(QObjectListModel):
     displayNameRole = QtCore.Qt.UserRole + 2
     
     _roles = {nameRole: "name", displayNameRole: "displayName"}
-
+    
     def __init__(self, data, parent=None):
         QObjectListModel.__init__(self, parent)
         

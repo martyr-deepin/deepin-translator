@@ -113,6 +113,8 @@ Item {
                 property alias expandItems: contentItems.children
                 property int expandItemIndex: -1
                 property int expandItemIndexHistory: -1
+                property string wordEngine: ""
+                property string wordsEngine: ""
                 
                 onExpandItemIndexChanged: {
                     if (expandItemIndex == -1) {
@@ -205,9 +207,30 @@ Item {
                                         property string type: expandArea.expandItems[index].type
                                         property string currentName: ""
                                         
+                                        onCurrentNameChanged: {
+                                            expand.currentDisplayName = model.getDisplayName(listview.currentName)
+                                        }
+                                        
                                         Component.onCompleted: {
                                             listview.currentName = settingConfig.get_translate_config(listview.type)
-                                            expand.currentDisplayName = model.getDisplayName(listview.currentName)
+                                        }
+                                        
+                                        Connections {
+                                            target: expandArea
+                                            onWordEngineChanged: {
+                                                if (listview.type == "word_engine") {
+                                                    listview.currentName = settingConfig.get_translate_config(listview.type)
+                                                }
+                                            }
+                                        }
+                                        
+                                        Connections {
+                                            target: expandArea
+                                            onWordsEngineChanged: {
+                                                if (listview.type == "words_engine") {
+                                                    listview.currentName = settingConfig.get_translate_config(listview.type)
+                                                }
+                                            }
                                         }
                                         
                                         Connections {
@@ -257,12 +280,14 @@ Item {
                                                     settingConfig.update_translate_config(listview.type, name)
                                                     listview.currentName = settingConfig.get_translate_config(listview.type)
                                                     
-                                                    expand.currentDisplayName = displayName
-                                                    
                                                     if (listview.type == "src_lang") {
                                                         translateInfo.update_translate_engine()
+                                                        expandArea.wordEngine = settingConfig.get_translate_config("word_engine")
+                                                        expandArea.wordsEngine = settingConfig.get_translate_config("words_engine")
                                                     } else if (listview.type == "dst_lang") {
                                                         translateInfo.update_translate_engine()
+                                                        expandArea.wordEngine = settingConfig.get_translate_config("word_engine")
+                                                        expandArea.wordsEngine = settingConfig.get_translate_config("words_engine")
                                                     } else if (listview.type == "word_engine") {
                                                         translateInfo.update_word_module()
                                                     } else if (listview.type == "words_engine") {

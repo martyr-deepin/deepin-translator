@@ -62,6 +62,9 @@ class TranslateInfo(QObject):
         current_word_engine = setting_config.get_translate_config("word_engine")
         current_words_engine = setting_config.get_translate_config("words_engine")
         
+        word_translate_model.setAll(word_engines)    
+        words_translate_model.setAll(words_engines)    
+        
         if current_word_engine not in word_engine_names:
             setting_config.update_translate_config("word_engine", word_engine_names[0])
             translate_simple = imp.load_source("translate_simple", plugin.get_plugin_file(setting_config.get_translate_config("word_engine"))).Translate()
@@ -69,9 +72,6 @@ class TranslateInfo(QObject):
         if current_words_engine not in words_engine_names:
             setting_config.update_translate_config("words_engine", words_engine_names[0])
             translate_long = imp.load_source("translate_long", plugin.get_plugin_file(setting_config.get_translate_config("words_engine"))).Translate()
-            
-        word_translate_model.setAll(word_engines)    
-        words_translate_model.setAll(words_engines)    
             
     @pyqtSlot()
     def update_word_module(self):
@@ -95,8 +95,10 @@ if __name__ == "__main__":
     source_lang_model = LanguageModel()
     dest_lang_model = LanguageModel()
 
-    translate_simple = imp.load_source("translate_simple", plugin.get_plugin_file(setting_config.get_translate_config("word_engine"))).Translate()
-    translate_long = imp.load_source("translate_long", plugin.get_plugin_file(setting_config.get_translate_config("words_engine"))).Translate()
+    word_engine_name = setting_config.get_translate_config("word_engine")
+    words_engine_name = setting_config.get_translate_config("words_engine")
+    translate_simple = imp.load_source("translate_simple", plugin.get_plugin_file(word_engine_name)).Translate()
+    translate_long = imp.load_source("translate_long", plugin.get_plugin_file(words_engine_name)).Translate()
     word_translate_model = plugin.get_word_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
     words_translate_model = plugin.get_words_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
     
