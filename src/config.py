@@ -36,8 +36,8 @@ DEFAULT_CONFIG = [
     ("translate",
      [("src_lang", "en"),
       ("dst_lang", "zh-CN"),
-      ("word_engine", "google"),
-      ("words_engine", "google"),
+      ("word_engine", "youdao"),
+      ("words_engine", "google_long"),
       ]),
     ]
 
@@ -53,7 +53,6 @@ class SettingConfig(QObject):
         else:
             self.config = Config(self.config_file, DEFAULT_CONFIG)
             self.config.write()
-            print self.config.default_config
             
     @pyqtSlot(str, bool)        
     def update_trayicon_config(self, config_id, config_value):

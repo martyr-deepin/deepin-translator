@@ -37,7 +37,8 @@ import threading
 from config import setting_config
 from window import Window
 from xutils import screen_width, screen_height
-from setting import LanguageModel, Model
+from setting import LanguageModel
+from plugin import Plugin
 import imp
     
 APP_DBUS_NAME = "com.deepin.ocr"    
@@ -50,22 +51,41 @@ if __name__ == "__main__":
     tray_icon = SystemTrayIcon(QIcon("image/icon.png"), app)
     tray_icon.show()
     
-    youdao = imp.load_source("youdao", os.path.join(os.path.dirname(__file__), "plugins", "youdao", "translate.py"))
-    google_long = imp.load_source("google_long", os.path.join(os.path.dirname(__file__), "plugins", "google_long", "translate.py"))
-    
-    translate_simple = youdao.Translate()
-    translate_long = google_long.Translate()
+    plugin = Plugin()
     
     source_lang_model = LanguageModel()
     dest_lang_model = LanguageModel()
-    word_translate_mode = Model([("google", "Google 翻译")])
-    words_translate_mode = Model([("google", "Google 翻译")])
+
+    translate_simple = None
+    translate_long = None
+    word_translate_model = None
+    words_translate_model = None
+    
+    def update_translate_info():
+        global word_translate_model
+        global words_translate_model
+        global translate_simple
+        global translate_long
+        
+        translate_simple = imp.load_source("translate_simple", plugin.get_plugin_file(setting_config.get_translate_config("word_engine"))).Translate()
+        translate_long = imp.load_source("translate_long", plugin.get_plugin_file(setting_config.get_translate_config("words_engine"))).Translate()
+        word_translate_model = plugin.get_word_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
+        words_translate_model = plugin.get_words_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
+        
+    update_translate_info()
+
+    def update_config(config, section, option, value):
+        if section == "translate":
+            update_translate_info()
+            
+    setting_config.config.connect("config-changed", update_config)
     
     setting_view = Window()
     setting_view.qml_context.setContextProperty("sourceLangModel", source_lang_model)
     setting_view.qml_context.setContextProperty("destLangModel", dest_lang_model)
-    setting_view.qml_context.setContextProperty("wordTranslateModel", word_translate_mode)
-    setting_view.qml_context.setContextProperty("wordsTranslateModel", words_translate_mode)
+    setting_view.qml_context.setContextProperty("plugin", plugin)
+    setting_view.qml_context.setContextProperty("wordTranslateModel", word_translate_model)
+    setting_view.qml_context.setContextProperty("wordsTranslateModel", words_translate_model)
     setting_view.qml_context.setContextProperty("screenWidth", screen_width)
     setting_view.qml_context.setContextProperty("screenHeight", screen_height)
     setting_view.qml_context.setContextProperty("windowView", setting_view)

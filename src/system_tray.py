@@ -54,8 +54,6 @@ class SystemTrayIcon(QSystemTrayIcon):
             setting_config.update_trayicon_config(menu_id, state)
             
     def set_menu_active(self, state):
-        print state
-        
         self.menu.setItemActivity("toggle_speech", not state)
         self.menu.setItemActivity("key_trigger_ocr", not state)
         self.menu.setItemActivity("key_trigger_select", not state)

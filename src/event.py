@@ -71,7 +71,6 @@ class RecordEvent(QObject):
                     press_ctrl = True
                     
                     if not setting_config.get_trayicon_config("pause"):
-                        # print not self.view.isVisible() or not self.view.in_translate_area()
                         if not self.view.isVisible() or not self.view.in_translate_area():
                             self.press_ctrl.emit()
                 elif keyname in ["Alt_L", "Alt_R"]:

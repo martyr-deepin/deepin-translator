@@ -115,7 +115,6 @@ Item {
                 property int expandItemIndexHistory: -1
                 
                 onExpandItemIndexChanged: {
-                    
                     if (expandItemIndex == -1) {
                         if (expandItemIndexHistory != -1) {
                             shrinkAreaAnimation.restart()
@@ -259,6 +258,10 @@ Item {
                                                     listview.currentName = settingConfig.get_translate_config(listview.type)
                                                     
                                                     expand.currentDisplayName = displayName
+                                                    
+                                                    if (listview.type == "src_lang") {
+                                                    } else if (listview.type == "dst_lang") {
+                                                    }
                                                 }
                                             }
                                         }
