@@ -298,14 +298,17 @@ Item {
                                         }
                                         
                                         highlight: Rectangle {
-                                            width: parent.width
-                                            anchors.left: parent.left
-                                            anchors.right: parent.right
                                             anchors.leftMargin: 5
                                             anchors.rightMargin: 5
                                             height: 24
                                             color: "#0D0D0D"
                                             radius: 4
+                                            
+                                            /* We shoulde set parent when onCompleted signal to fixed 'Result of expression is not an object' */
+                                            Component.onCompleted: {
+                                                anchors.left = parent.left
+                                                anchors.right = parent.right
+                                            }
                                         }                                        
                                         highlightMoveDuration: 200
 				                        focus: true
