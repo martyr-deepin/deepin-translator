@@ -265,6 +265,7 @@ Item {
                                                 }
                                             }
                                         }
+                                        
                                         highlight: Rectangle {
                                             width: parent.width
                                             anchors.left: parent.left
