@@ -24,6 +24,8 @@
 from PyQt5.QtCore import pyqtSlot
 from auto_object import AutoQObject
 from translate_interface import TranslateInterface
+from xutils import get_pointer_coordiante
+from ocr import ocr_word
 from utils import encode_params
 import requests
 from config import setting_config
@@ -135,6 +137,12 @@ class Translate(TranslateInterface):
         args = encode_params(data)
         return "%s?%s" % (url, args)
         
+    def translate_cursor_word(self):
+        (mouse_x, mouse_y) = get_pointer_coordiante()
+        ocrword = ocr_word(mouse_x, mouse_y)
+        if ocrword:
+            self.show_translate(mouse_x, mouse_y, ocrword)
+    
     @pyqtSlot(str)
     def get_translate(self, text):
         self.translate_info.voices = self.get_google_voices(

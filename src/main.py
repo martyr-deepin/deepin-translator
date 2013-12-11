@@ -26,6 +26,7 @@ from PyQt5.QtCore import QCoreApplication
 if os.name == 'posix':
     QCoreApplication.setAttribute(QtCore.Qt.AA_X11InitThreads, True)
     
+from PyQt5.QtCore import pyqtSlot, QObject
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication
 from event import RecordEvent
@@ -44,6 +45,44 @@ import imp
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
 
+class TranslateInfo(QObject):
+
+    @pyqtSlot()
+    def update_translate_engine(self):
+        global translate_simple
+        global translate_long
+        global word_translate_model
+        global words_translate_model
+        
+        word_engines = plugin.get_word_engines(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
+        words_engines = plugin.get_words_engines(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
+        word_engine_names = map(lambda (name, display_name): name, word_engines)
+        words_engine_names = map(lambda (name, display_name): name, words_engines)
+        
+        current_word_engine = setting_config.get_translate_config("word_engine")
+        current_words_engine = setting_config.get_translate_config("words_engine")
+        
+        if current_word_engine not in word_engine_names:
+            setting_config.update_translate_config("word_engine", word_engine_names[0])
+            translate_simple = imp.load_source("translate_simple", plugin.get_plugin_file(setting_config.get_translate_config("word_engine"))).Translate()
+            
+        if current_words_engine not in words_engine_names:
+            setting_config.update_translate_config("words_engine", words_engine_names[0])
+            translate_long = imp.load_source("translate_long", plugin.get_plugin_file(setting_config.get_translate_config("words_engine"))).Translate()
+            
+        word_translate_model.setAll(word_engines)    
+        words_translate_model.setAll(words_engines)    
+            
+    @pyqtSlot()
+    def update_word_module(self):
+        global translate_simple
+        translate_simple = imp.load_source("translate_simple", plugin.get_plugin_file(setting_config.get_translate_config("word_engine"))).Translate()
+
+    @pyqtSlot()   
+    def update_words_module(self):
+        global translate_long
+        translate_long = imp.load_source("translate_long", plugin.get_plugin_file(setting_config.get_translate_config("words_engine"))).Translate()
+    
 if __name__ == "__main__":
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
 
@@ -61,6 +100,8 @@ if __name__ == "__main__":
     word_translate_model = plugin.get_word_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
     words_translate_model = plugin.get_words_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
     
+    translate_info = TranslateInfo()
+    
     setting_view = Window()
     setting_view.qml_context.setContextProperty("sourceLangModel", source_lang_model)
     setting_view.qml_context.setContextProperty("destLangModel", dest_lang_model)
@@ -71,6 +112,7 @@ if __name__ == "__main__":
     setting_view.qml_context.setContextProperty("screenHeight", screen_height)
     setting_view.qml_context.setContextProperty("windowView", setting_view)
     setting_view.qml_context.setContextProperty("settingConfig", setting_config)
+    setting_view.qml_context.setContextProperty("translateInfo", translate_info)
     setting_view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'SettingView.qml')))
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)

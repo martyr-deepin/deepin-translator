@@ -260,7 +260,13 @@ Item {
                                                     expand.currentDisplayName = displayName
                                                     
                                                     if (listview.type == "src_lang") {
+                                                        translateInfo.update_translate_engine()
                                                     } else if (listview.type == "dst_lang") {
+                                                        translateInfo.update_translate_engine()
+                                                    } else if (listview.type == "word_engine") {
+                                                        translateInfo.update_word_module()
+                                                    } else if (listview.type == "words_engine") {
+                                                        translateInfo.update_words_module()
                                                     }
                                                 }
                                             }
