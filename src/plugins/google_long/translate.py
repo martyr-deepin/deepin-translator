@@ -91,7 +91,7 @@ class Translate(TranslateInterface):
         source_language = sl
         input_encoding = output_encoding = encoding
         data = dict(client="t",
-                    hl="zh-CN",
+                    hl=tl,
                     sl=source_language,
                     tl=target_language,
                     ie=input_encoding,

@@ -107,12 +107,12 @@ class Translate(TranslateInterface):
         except:
             return "翻译失败"
     
-    def google_translate(self, text, sl="auto", tl="zh-CN", encoding="UTF-8"):
+    def google_translate(self, text, sl="auto", tl="en", encoding="UTF-8"):
         target_language = tl
         source_language = sl
         input_encoding = output_encoding = encoding
         data = dict(client="t",
-                    hl="zh-CN",
+                    hl=tl,
                     sl=source_language,
                     tl=target_language,
                     ie=input_encoding,
