@@ -38,7 +38,7 @@ import threading
 from config import setting_config
 from window import Window
 from xutils import screen_width, screen_height
-from setting import LanguageModel
+from model import LanguageModel
 from plugin import Plugin
 import imp
     

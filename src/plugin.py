@@ -22,7 +22,7 @@
 
 from PyQt5.QtCore import pyqtSlot, QObject
 import os
-from setting import Model
+from model import Model
 from deepin_utils.config import Config
 from deepin_utils.core import is_true
 import locale
