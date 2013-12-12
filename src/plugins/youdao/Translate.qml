@@ -164,7 +164,9 @@ TranslateWindow {
         
 		SelectEffect {
 			id: itemHighlight
-			y: parent.y + keyword.height + itemHighlightIndex * itemHighlightHeight
+			y: cornerDirection == "down" ? selectY + container.cornerHeight : selectY
+            
+            property int selectY: parent.y + keyword.height + itemHighlightIndex * itemHighlightHeight
 		}
                 
 	    Column {

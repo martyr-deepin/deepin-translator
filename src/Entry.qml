@@ -36,6 +36,7 @@ Item {
                 color: "#f7d303"
                 selectionColor: "#11ffffff"
                 selectedTextColor: "#5da6ce"
+			    selectByMouse: true
 		        font { pixelSize: 18 }
                 cursorDelegate: Rectangle {
                     width: cursorWidth
