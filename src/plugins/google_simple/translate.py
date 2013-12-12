@@ -66,23 +66,42 @@ class Translate(TranslateInterface):
             return eval(dlist)
         except SyntaxError:
             return []
+        
+    def get_word_translate(self, glist):
+        
+        def parse_list(word_list):
+            try:
+                title = word_list[0]
+                content = ";".join(word_list[1])
+                return "%s: %s" % (title, content)
+            except:
+                return None
+        
+        try:
+            noun_list = glist[1][0]
+        except IndexError:    
+            noun = None
+        else:    
+            noun = parse_list(noun_list)
+            
+        try:    
+            verb_list = glist[1][1]
+        except IndexError:    
+            verb = None
+        else:    
+            verb = parse_list(verb_list)
+            
+        if not noun and not verb:
+            return self.get_sample_result(glist)
+        
+        ret = []
+        if noun is not None:
+            ret.append(noun)
+        if verb is not None:    
+            ret.append(verb)
+        return "<br/>".join(ret)    
      
     def get_sample_result(self, glist):
-        '''
-        翻译详细: a[5]
-        
-        原始字符:      a[5][<i>][0]
-        句子ID:       a[5][<i>][1]
-        可选翻译:      a[5][<i>][2] | 判断长度， 取每一列表的[0], 取出翻译后字符: a[5][<i>][2][0][0]
-        字符位置(pos): a[5][<i>][3] | 取出[0], 并判断是否为None     
-    
-        In [104]: print a[4][1]
-        ['reparents', [5], 1, 0, 1000, 1, 2, 0]
-    
-        In [105]: print a[5][1]
-        ['reparents', 5, [['reparents', 1000, 1, 0]], [[13, 22]], '']    
-    
-        '''    
         try:
             return  ''.join([dl[0] for dl in glist[0]])
         except:
@@ -107,7 +126,7 @@ class Translate(TranslateInterface):
         url = "http://translate.google.cn/translate_a/t"
         dummy_list = requests.get(url, params=data).text
         plist = self.parse_dummy_list(dummy_list)
-        result = self.get_sample_result(plist)
+        result = self.get_word_translate(plist)
         return result.decode(encoding)
     
     @classmethod
