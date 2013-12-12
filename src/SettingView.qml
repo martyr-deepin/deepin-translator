@@ -13,7 +13,7 @@ Item {
     property int defaultHeight: 255
     property int expandAreaHeight: 127
     property int listHeight: 240
-    
+    property int itemHeight: 30
     property alias expandArea: expandArea
     
     Component.onCompleted: {
@@ -244,7 +244,7 @@ Item {
                                         
                                         delegate: Item {
                                             width: parent.width
-                                            height: 30
+                                            height: itemHeight
                                             anchors.left: parent.left
                                             anchors.leftMargin: 15
                                             
@@ -315,7 +315,7 @@ Item {
                                         highlight: Rectangle {
                                             anchors.leftMargin: 5
                                             anchors.rightMargin: 5
-                                            height: 30
+                                            height: itemHeight
                                             color: "#0D0D0D"
                                             radius: 4
                                             
