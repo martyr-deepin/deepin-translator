@@ -26,8 +26,6 @@ import requests
 from utils import encode_params
 from translate_interface import TranslateInterface
 from auto_object import AutoQObject
-from ocr import ocr_word
-from xutils import get_pointer_coordiante
 from models import suggestModel, historyModel
 from pyquery import PyQuery
 import os
@@ -42,12 +40,6 @@ class Translate(TranslateInterface):
         data = { "keyfrom" : "deskdict.mini.word", "audio" : text, "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
                  "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "type" : lang}
         return "%s?%s" % (url, encode_params(data))
-    
-    def translate_cursor_word(self):
-        (mouse_x, mouse_y) = get_pointer_coordiante()
-        ocrword = ocr_word(mouse_x, mouse_y)
-        if ocrword:
-            self.show_translate(mouse_x, mouse_y, ocrword)
     
     def init_translate_info(self):
         TranslateInfo = AutoQObject(

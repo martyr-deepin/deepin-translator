@@ -26,6 +26,7 @@ from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtWidgets import qApp
 from xutils import get_pointer_coordiante
+from ocr import ocr_word
 import os
 from config import setting_config
 
@@ -74,4 +75,11 @@ class TranslateInterface(QQuickView):
 
     def show_translate(self, x, y, text):
         self.rootObject().showTranslate(x, y, text)
+
+    def translate_cursor_word(self):
+        (mouse_x, mouse_y) = get_pointer_coordiante()
+        ocrword = ocr_word(mouse_x, mouse_y)
+        if ocrword:
+            self.show_translate(mouse_x, mouse_y, ocrword)
+    
     
