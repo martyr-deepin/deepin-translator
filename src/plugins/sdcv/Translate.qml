@@ -56,7 +56,7 @@ TranslateWindow {
 			    text: translateInfo.translate
 			    wrapMode: TextEdit.WordWrap
 			    selectByMouse: true
-			    font { pixelSize: 12 }
+			    font { pixelSize: 14 }
 			    color: "#FFFFFF"
 				selectionColor: "#11ffffff"
 				selectedTextColor: "#5da6ce"
