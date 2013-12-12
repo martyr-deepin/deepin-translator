@@ -4,11 +4,9 @@ import QtQuick.Window 2.1
 import QtQuick.Layouts 1.0
 import "./widgets"
 
-Item {
+WindowFrame {
     id: window
     
-    property int frameRadius: 3
-    property int shadowRadius: 10
     property int defaultWidth: 350
     property int defaultHeight: 255
     property int expandAreaHeight: 127
@@ -23,15 +21,8 @@ Item {
         windowView.y = (screenHeight - defaultHeight) / 2
     }
     
-    Rectangle {
-        id: frame
-        anchors.centerIn: parent
-        color: "#232323"
-        radius: frameRadius
-        border.width: 1
-        border.color: Qt.rgba(1, 1, 1, 0.3)
-        width: window.width - (shadowRadius + frameRadius) * 2
-        height: window.height - (shadowRadius + frameRadius) * 2
+    Item {
+        anchors.fill: parent
         
         Item {
             anchors.top: parent.top
@@ -324,7 +315,7 @@ Item {
                                                 anchors.left = parent.left
                                                 anchors.right = parent.right
                                             }
-                                        }                                        
+                                        }
                                         highlightMoveDuration: 200
 				                        focus: true
 				                        interactive: true
@@ -349,45 +340,35 @@ Item {
                 }
             }
         }
-    }
-    
-    RectangularGlow {
-        id: shadow
-        anchors.fill: frame
-        glowRadius: shadowRadius
-        spread: 0.2
-        color: Qt.rgba(0, 0, 0, 0.3)
-        cornerRadius: frame.radius + shadowRadius
-        visible: true
-    }
-    
-    ParallelAnimation{
-        id: expandAreaAnimation
-        
-        SmoothedAnimation {
-            target: expandArea
-            property: "height"
-            duration: 200
-            from: expandAreaHeight
-            to: expandAreaHeight + listHeight
-        }
-    }    
 
-    ParallelAnimation{
-        id: shrinkAreaAnimation
-        
-         SmoothedAnimation {
-            target: expandArea
-            property: "height"
-            duration: 200
-            from: expandAreaHeight + listHeight
-            to: expandAreaHeight
-        }
-         
-        onRunningChanged: {
-            if (!shrinkAreaAnimation.running) {
-                windowView.height = defaultHeight
+        ParallelAnimation{
+            id: expandAreaAnimation
+            
+            SmoothedAnimation {
+                target: expandArea
+                property: "height"
+                duration: 200
+                from: expandAreaHeight
+                to: expandAreaHeight + listHeight
             }
         }
-    }    
+
+        ParallelAnimation{
+            id: shrinkAreaAnimation
+            
+            SmoothedAnimation {
+                target: expandArea
+                property: "height"
+                duration: 200
+                from: expandAreaHeight + listHeight
+                to: expandAreaHeight
+            }
+            
+            onRunningChanged: {
+                if (!shrinkAreaAnimation.running) {
+                    windowView.height = defaultHeight
+                }
+            }
+        }
+    }
 }
