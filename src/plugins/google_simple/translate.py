@@ -79,14 +79,14 @@ class Translate(TranslateInterface):
         
         try:
             noun_list = glist[1][0]
-        except IndexError:    
+        except:    
             noun = None
         else:    
             noun = parse_list(noun_list)
             
         try:    
             verb_list = glist[1][1]
-        except IndexError:    
+        except:
             verb = None
         else:    
             verb = parse_list(verb_list)
