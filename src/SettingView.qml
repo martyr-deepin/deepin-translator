@@ -244,7 +244,7 @@ Item {
                                         
                                         delegate: Item {
                                             width: parent.width
-                                            height: 24
+                                            height: 30
                                             anchors.left: parent.left
                                             anchors.leftMargin: 15
                                             
@@ -315,7 +315,7 @@ Item {
                                         highlight: Rectangle {
                                             anchors.leftMargin: 5
                                             anchors.rightMargin: 5
-                                            height: 24
+                                            height: 30
                                             color: "#0D0D0D"
                                             radius: 4
                                             
