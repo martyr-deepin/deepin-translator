@@ -258,6 +258,21 @@ Item {
                                                     source: "image/select.png"
                                                     opacity: listview.currentName == name ? 1 : 0
                                                 }
+
+                                                Image {
+                                                    id: iconImage
+                                                    anchors.verticalCenter: parent.verticalCenter
+                                                    visible: listview.type == "word_engine" || listview.type == "words_engine"
+                                                    
+                                                    Component.onCompleted: {
+                                                        if (listview.type == "word_engine" || listview.type == "words_engine") {
+                                                            source = "plugins/" + name + "/icon.png"
+                                                        } else {
+                                                            source = ""
+                                                        }
+
+                                                    }
+                                                }
                                                 
                                                 Text {
                                                     id: nameText
