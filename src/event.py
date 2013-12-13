@@ -48,8 +48,12 @@ class RecordEvent(QObject):
     def __init__(self, view):
         QObject.__init__(self)
 
-        self.timer = None
+        self.stop_timer = None
         self.stop_delay = 0.05
+        
+        self.press_ctrl_timer = None
+        self.press_ctrl_delay = 0.3
+        
         self.view = view
         
         # Delete selection first.
@@ -67,12 +71,17 @@ class RecordEvent(QObject):
             
             if event.type == X.KeyPress:
                 keyname = get_keyname(event)
+                
+                if keyname not in ["Control_L", "Control_R"]:
+                    self.try_stop_timer(self.press_ctrl_timer)
+        
                 if keyname in ["Control_L", "Control_R"]:
                     press_ctrl = True
                     
                     if not setting_config.get_trayicon_config("pause"):
                         if not self.view.isVisible() or not self.view.in_translate_area():
-                            self.press_ctrl.emit()
+                            self.press_ctrl_timer = Timer(self.press_ctrl_delay, self.emit_press_ctrl)
+                            self.press_ctrl_timer.start()
                 elif keyname in ["Alt_L", "Alt_R"]:
                     press_alt = True
                 elif keyname in ["Escape"]:
@@ -104,13 +113,19 @@ class RecordEvent(QObject):
                 elif self.view.isVisible() and self.view.in_translate_area():
                     delete_selection()
             elif event.type == X.MotionNotify:
-                if self.timer and self.timer.is_alive():
-                    self.timer.cancel()
+                self.try_stop_timer(self.stop_timer)
             
                 if not setting_config.get_trayicon_config("pause"):
-                    self.timer = Timer(self.stop_delay, lambda : self.emit_cursor_stop(event.root_x, event.root_y))
-                    self.timer.start()
+                    self.stop_timer = Timer(self.stop_delay, lambda : self.emit_cursor_stop(event.root_x, event.root_y))
+                    self.stop_timer.start()
+                    
+    def try_stop_timer(self, timer):
+        if timer and timer.is_alive():
+            timer.cancel()
                 
+    def emit_press_ctrl(self):
+        self.press_ctrl.emit()
+        
     def emit_cursor_stop(self, mouse_x, mouse_y):
         if (not setting_config.get_trayicon_config("key_trigger_ocr") or press_ctrl) and (not self.view.isVisible() or not self.view.in_translate_area()):
             self.cursor_stop.emit()
