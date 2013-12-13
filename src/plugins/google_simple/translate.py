@@ -30,6 +30,9 @@ from config import setting_config
 import os
 from deepin_utils.file import get_parent_dir
 
+true = False
+false = False
+            
 def group(seq, size): 
     def take(seq, n):
         for i in xrange(n):
@@ -62,6 +65,8 @@ class Translate(TranslateInterface):
         while ",," in dlist or "[," in dlist:
             dlist = dlist.replace(",,", ",None,").replace("[,", "[None,")
         try:    
+            global false
+            global true
             return eval(dlist)
         except SyntaxError:
             return []
