@@ -115,6 +115,7 @@ if __name__ == "__main__":
     setting_view.qml_context.setContextProperty("windowView", setting_view)
     setting_view.qml_context.setContextProperty("settingConfig", setting_config)
     setting_view.qml_context.setContextProperty("translateInfo", translate_info)
+    print QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'SettingView.qml')), os.path.join(os.path.dirname(__file__), 'SettingView.qml')
     setting_view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'SettingView.qml')))
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)
