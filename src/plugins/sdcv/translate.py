@@ -43,7 +43,7 @@ class Translate(TranslateInterface):
         self.translate_info = TranslateInfo()        
         
     def check_before_translate(self):
-        self.need_install_packages = get_install_packages(["stardict", "sdcv"])
+        self.need_install_packages = get_install_packages(["stardict", "sdcv", "stardict-xdict-ce-gb", "stardict-xdict-ec-gb"])
         if len(self.need_install_packages) > 0:
             show_message("需要安装星际译王以启用翻译功能", "取消", "安装", self.install_sdcv)
             return False
