@@ -29,11 +29,12 @@ from auto_object import AutoQObject
 from models import suggestModel, historyModel
 from pyquery import PyQuery
 import os
+from deepin_utils.file import get_parent_dir
 
 class Translate(TranslateInterface):
     
     def __init__(self):
-        TranslateInterface.__init__(self, os.path.join(os.path.dirname(__file__), "Translate.qml"))
+        TranslateInterface.__init__(self, os.path.join(get_parent_dir(__file__), "Translate.qml"))
         
     def get_voice(self, text, lang):
         url = "http://dict.youdao.com/dictvoice"

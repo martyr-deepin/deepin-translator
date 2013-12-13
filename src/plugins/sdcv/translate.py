@@ -28,11 +28,12 @@ import os
 import commands
 from message_view import show_message
 from pkg_manager import get_install_packages, install_packages
+from deepin_utils.file import get_parent_dir
 
 class Translate(TranslateInterface):
     
     def __init__(self):
-        TranslateInterface.__init__(self, os.path.join(os.path.dirname(__file__), "Translate.qml"))
+        TranslateInterface.__init__(self, os.path.join(get_parent_dir(__file__), "Translate.qml"))
         self.need_install_packages = []
 
     def init_translate_info(self):

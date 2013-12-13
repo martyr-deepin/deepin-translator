@@ -41,6 +41,7 @@ from xutils import screen_width, screen_height
 from model import LanguageModel
 from plugin import Plugin
 import imp
+from deepin_utils.file import get_parent_dir
     
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -115,8 +116,7 @@ if __name__ == "__main__":
     setting_view.qml_context.setContextProperty("windowView", setting_view)
     setting_view.qml_context.setContextProperty("settingConfig", setting_config)
     setting_view.qml_context.setContextProperty("translateInfo", translate_info)
-    print QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'SettingView.qml')), os.path.join(os.path.dirname(__file__), 'SettingView.qml')
-    setting_view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'SettingView.qml')))
+    setting_view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(get_parent_dir(__file__), 'SettingView.qml')))
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     

@@ -26,6 +26,7 @@ from model import Model
 from deepin_utils.config import Config
 from deepin_utils.core import is_true
 import locale
+from deepin_utils.file import get_parent_dir
 
 class Plugin(QObject):
     
@@ -34,7 +35,7 @@ class Plugin(QObject):
         
         self.plugin_config_name = "config.ini"
         self.plugin_module_name = "translate.py"
-        self.plugin_dir = os.path.join(os.path.dirname(__file__), "plugins")
+        self.plugin_dir = os.path.join(get_parent_dir(__file__), "plugins")
         
         self.scan_plugin_info()
         

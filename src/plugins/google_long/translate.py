@@ -28,6 +28,7 @@ from utils import encode_params
 import requests
 from config import setting_config
 import os
+from deepin_utils.file import get_parent_dir
 
 def group(seq, size): 
     def take(seq, n):
@@ -46,7 +47,7 @@ def group(seq, size):
 class Translate(TranslateInterface):
     
     def __init__(self):
-        TranslateInterface.__init__(self, os.path.join(os.path.dirname(__file__), "Translate.qml"))
+        TranslateInterface.__init__(self, os.path.join(get_parent_dir(__file__), "Translate.qml"))
         
 
     def init_translate_info(self):

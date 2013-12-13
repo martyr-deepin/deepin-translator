@@ -29,6 +29,7 @@ from xutils import get_pointer_coordiante
 from ocr import ocr_word
 import os
 from config import setting_config
+from deepin_utils.file import get_parent_dir
 
 class TranslateInterface(QQuickView):
 
@@ -55,7 +56,7 @@ class TranslateInterface(QQuickView):
         self.qml_context.setContextProperty("settingConfig", setting_config)
         self.qml_context.setContextProperty("qApp", qApp)
         
-        self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), qml_file)))
+        self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(get_parent_dir(__file__), qml_file)))
         
     def init_translate_info(self):
         print "NOTE: Your should implement function 'init_translate_info' to init translate information!"

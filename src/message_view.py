@@ -25,6 +25,7 @@ from xutils import screen_width, screen_height
 from PyQt5 import QtCore
 from PyQt5.QtCore import pyqtSlot
 import os
+from deepin_utils.file import get_parent_dir
 
 class MessageView(Window):
 
@@ -33,7 +34,7 @@ class MessageView(Window):
         self.qml_context.setContextProperty("screenWidth", screen_width)
         self.qml_context.setContextProperty("screenHeight", screen_height)
         self.qml_context.setContextProperty("windowView", self)
-        self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'MessageBox.qml')))
+        self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(get_parent_dir(__file__), 'MessageBox.qml')))
         
     def set_action(self, action):
         self.action = action
