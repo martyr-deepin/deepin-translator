@@ -5,15 +5,17 @@ import QtQuick.Layouts 1.0
 Rectangle {
     id: expandRect
 
-    property alias header: headerRect
+    property alias header: header
     property alias content: content
+    property alias headerData: header.componentData
+    property alias contentData: content.componentData
     property bool expanded: false
 
     property var dconstants: DConstants {}
 
     property int separatorPadding: expanded ? 4 : 2
 
-    height: header.height + contentRect.height + separatorPadding
+    height: headerRect.height + contentRect.height + separatorPadding
     width: parent.width
 
     signal contentLoaded
@@ -22,20 +24,21 @@ Rectangle {
         width: parent.width
 
         Rectangle {
-            id: header
+            id: headerRect
             width: parent.width
             height: 28
             clip: true
             color: dconstants.bgColor
 
             Loader {
-                id: headerRect
-                width: header.width
+                id: header
+                width: headerRect.width
+                property var componentData: undefined
                 anchors.verticalCenter: parent.verticalCenter
             }
         }
 
-        DSepratorHorizontal {}
+        DSeparatorHorizontal {}
 
         Rectangle {
             id: contentRect
@@ -45,8 +48,9 @@ Rectangle {
             color: dconstants.contentBgColor
 
             Loader { 
-                width: header.width
                 id: content 
+                width: headerRect.width
+                property var componentData: undefined
                 onLoaded: { 
                     content.height = content.childrenRect.height 
                     expandRect.contentLoaded()
@@ -60,7 +64,7 @@ Rectangle {
             }
         }
 
-        DSepratorHorizontal { visible: expanded }
+        DSeparatorHorizontal { visible: expanded }
     }
 }
 

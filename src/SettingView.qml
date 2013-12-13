@@ -24,42 +24,9 @@ WindowFrame {
     Item {
         anchors.fill: parent
         
-        Item {
-            anchors.top: parent.top
-            anchors.right: parent.right
-            width: closeImage.width
-            height: closeImage.height
-            
-            Rectangle {
-                id: closeBackground
-                anchors.fill: parent
-                anchors.topMargin: 3
-                anchors.rightMargin: 3
-                anchors.bottomMargin: 1
-                anchors.leftMargin: 1
-                color: Qt.rgba(0, 0, 0, 0)
-            }
-            
-            Image {
-                id: closeImage
-                source: "image/window_close.png"
-            }
-            
-            MouseArea {
-                anchors.fill: parent
-                hoverEnabled: true
-                
-                onEntered: {
-                    closeBackground.color = Qt.rgba(1, 1, 1, 0.3)
-                }
-                
-                onExited: {
-                    closeBackground.color = Qt.rgba(1, 1, 1, 0)
-                }
-                
-                onClicked: {
-                    windowView.hide()
-                }
+        CloseButton {
+            onClicked: {
+                windowView.hide()
             }
         }
         
@@ -168,7 +135,7 @@ WindowFrame {
                             
                             header.sourceComponent: DDownArrowHeader {
                                 text: expandArea.expandItems[index].name
-                                darkText: expand.currentDisplayName
+                                hintText: expand.currentDisplayName
                                 width: parent.width
                                 anchors.left: parent.left
                                 anchors.leftMargin: 2

@@ -26,11 +26,14 @@ from auto_object import AutoQObject
 from translate_interface import TranslateInterface
 import os
 import commands
+from message_view import show_message
+from pkg_manager import get_install_packages, install_packages
 
 class Translate(TranslateInterface):
     
     def __init__(self):
         TranslateInterface.__init__(self, os.path.join(os.path.dirname(__file__), "Translate.qml"))
+        self.need_install_packages = []
 
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
@@ -39,6 +42,19 @@ class Translate(TranslateInterface):
           name="TranslateInfo")
         self.translate_info = TranslateInfo()        
         
+    def check_before_translate(self):
+        self.need_install_packages = get_install_packages(["stardict", "sdcv"])
+        if len(self.need_install_packages) > 0:
+            show_message("需要安装星际译王以启用翻译功能", "取消", "安装", self.install_sdcv)
+            return False
+        else:
+            return True
+        
     @pyqtSlot(str)
     def get_translate(self, text):
         self.translate_info.translate = '\n'.join(commands.getoutput("sdcv %s" % text).split("\n")[1::])
+        
+    @pyqtSlot()    
+    def install_sdcv(self):
+        print "Install", self.need_install_packages
+        install_packages(self.need_install_packages)

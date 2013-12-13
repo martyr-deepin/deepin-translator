@@ -58,11 +58,14 @@ class TranslateInterface(QQuickView):
         self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), qml_file)))
         
     def init_translate_info(self):
-        print "NOTE: Your should implement this function to init translate information!"
+        print "NOTE: Your should implement function 'init_translate_info' to init translate information!"
         
     @pyqtSlot(str)    
     def get_translate(self, text):
-        print "NOTE: Your should implement this function to update translate information!"
+        print "NOTE: Your should implement function 'get_translate' to update translate information!"
+        
+    def check_before_translate(self):    
+        return True
         
     def hide_translate(self):
         if self.isVisible() and not self.in_translate_area():
@@ -74,7 +77,8 @@ class TranslateInterface(QQuickView):
         return self.x() < mouse_x < self.x() + self.width() and self.y() < mouse_y < self.y() + self.height()
 
     def show_translate(self, x, y, text):
-        self.rootObject().showTranslate(x, y, text)
+        if self.check_before_translate():
+            self.rootObject().showTranslate(x, y, text)
 
     def translate_cursor_word(self):
         (mouse_x, mouse_y) = get_pointer_coordiante()

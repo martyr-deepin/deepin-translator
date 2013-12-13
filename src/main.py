@@ -117,12 +117,6 @@ if __name__ == "__main__":
     setting_view.qml_context.setContextProperty("translateInfo", translate_info)
     setting_view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'SettingView.qml')))
     
-    message_view = Window()
-    message_view.qml_context.setContextProperty("windowView", message_view)
-    message_view.qml_context.setContextProperty("screenWidth", screen_width)
-    message_view.qml_context.setContextProperty("screenHeight", screen_height)
-    message_view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(os.path.dirname(__file__), 'MessageBox.qml')))
-    
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
     rootObject = translate_simple.rootObject()
