@@ -27,7 +27,7 @@ def is_package_installed(pkg_name):
     # python-apt is better way to check package is whether installed.
     # But we use 'dpkg --get-selections' to avoid conflict with apt program, such as deepin software center.
     result = commands.getoutput("dpkg --get-selections %s" % pkg_name)
-    return not result.startswith("dpkg: no packages found")
+    return result.endswith("install")
 
 def get_install_packages(pkg_names):
     need_install_packages = []
@@ -38,6 +38,7 @@ def get_install_packages(pkg_names):
     return need_install_packages        
 
 def install_packages(pkg_names):
-    iface = QDBusInterface("com.linuxdeepin.softwarecenter", "/com/linuxdeepin/softwarecenter", '', QDBusConnection.systemBus())
-    iface.asyncCall("install_pkg", pkg_names)
-    commands.getoutput("deepin-software-center --page=install")
+    iface = QDBusInterface("com.linuxdeepin.softwarecenter_frontend", "/com/linuxdeepin/softwarecenter_frontend", '', QDBusConnection.sessionBus())
+    iface.asyncCall("install_pkgs", pkg_names)
+    iface.asyncCall("show_page", "install")
+    iface.asyncCall("raise_to_top")
