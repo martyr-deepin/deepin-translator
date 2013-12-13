@@ -27,6 +27,11 @@ import pyocr.builders
 import re
 import xcb
 import xcb.xproto
+from config import setting_config
+from constant import LANGUAGE_OCR_DICT
+from message_view import show_message
+from nls import _
+from pkg_manager import get_install_packages, install_packages
 
 screenshot_width = 600
 screenshot_height = 100
@@ -35,42 +40,57 @@ def filter_punctuation(text):
     return re.sub("[^A-Za-z_-]", " ", text)
 
 def ocr_word(mouse_x, mouse_y):
-    # Ocr word under cursor.
-    x = max(mouse_x - screenshot_width / 2, 0) 
-    y = max(mouse_y - screenshot_height / 2, 0)
-    width = min(mouse_x + screenshot_width / 2, screen_width) - x
-    height = min(mouse_y + screenshot_height / 2, screen_height) - y
-                    
-    scale = 2
-    tool = pyocr.get_available_tools()[0]
-    lang = "eng"
+    def log(src_lang):
+        print "%s is not support" % src_lang
         
-    output_format = xcb.xproto.ImageFormat.ZPixmap
-    plane_mask = 2**32 - 1
-    
-    reply = conn.core.GetImage(
-        output_format, 
-        root, 
-        x,
-        y,
-        width,
-        height,
-        plane_mask).reply()
-    image_data = reply.data.buf()
-    image = Image.frombuffer("RGBX", (width, height), image_data, "raw", "BGRX").convert("RGB")
-    
-    word_boxes = tool.image_to_string(
-        image.convert("L").resize((width * scale, height * scale)),
-        lang=lang,
-        builder=pyocr.builders.WordBoxBuilder())
-    
-    cursor_x = (mouse_x - x) * scale
-    cursor_y = (mouse_y - y) * scale
-    
-    for word_box in word_boxes[::-1]:
-        ((left_x, left_y), (right_x, right_y)) = word_box.position
-        if (left_x <= cursor_x <= right_x and left_y <= cursor_y <= right_y):
-            word = filter_punctuation(word_box.content)
-            return word
-        
-    return None    
+    src_lang = setting_config.get_translate_config("src_lang")
+    if not LANGUAGE_OCR_DICT.has_key(src_lang):
+        show_message("对不起， 屏幕取词当前还不支持%s" % _(src_lang), "取消", "我知道了", lambda : log(src_lang))
+        return None
+    else:
+        ocr_pkg_name = LANGUAGE_OCR_DICT[src_lang]
+        pkg_names = get_install_packages([ocr_pkg_name])
+        if len(pkg_names):
+            show_message("需要安装OCR语言包以启用翻译功能", "取消", "安装", lambda : install_packages(pkg_names))
+            return None
+        else:
+            lang = ocr_pkg_name.split("tesseract-ocr-")[1]
+            
+            # Ocr word under cursor.
+            x = max(mouse_x - screenshot_width / 2, 0) 
+            y = max(mouse_y - screenshot_height / 2, 0)
+            width = min(mouse_x + screenshot_width / 2, screen_width) - x
+            height = min(mouse_y + screenshot_height / 2, screen_height) - y
+                            
+            scale = 2
+            tool = pyocr.get_available_tools()[0]
+                
+            output_format = xcb.xproto.ImageFormat.ZPixmap
+            plane_mask = 2**32 - 1
+            
+            reply = conn.core.GetImage(
+                output_format, 
+                root, 
+                x,
+                y,
+                width,
+                height,
+                plane_mask).reply()
+            image_data = reply.data.buf()
+            image = Image.frombuffer("RGBX", (width, height), image_data, "raw", "BGRX").convert("RGB")
+            
+            word_boxes = tool.image_to_string(
+                image.convert("L").resize((width * scale, height * scale)),
+                lang=lang,
+                builder=pyocr.builders.WordBoxBuilder())
+            
+            cursor_x = (mouse_x - x) * scale
+            cursor_y = (mouse_y - y) * scale
+            
+            for word_box in word_boxes[::-1]:
+                ((left_x, left_y), (right_x, right_y)) = word_box.position
+                if (left_x <= cursor_x <= right_x and left_y <= cursor_y <= right_y):
+                    word = filter_punctuation(word_box.content)
+                    return word
+                
+            return None    

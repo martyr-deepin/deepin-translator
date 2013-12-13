@@ -56,5 +56,4 @@ class Translate(TranslateInterface):
         
     @pyqtSlot()    
     def install_sdcv(self):
-        print "Install", self.need_install_packages
         install_packages(self.need_install_packages)
