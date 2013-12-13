@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Deepin Translator
+Name[zh_CN]=深度翻译
+Name[zh_TW]=深度翻譯
+Exec=deepin-translator %f
+Icon=deepin-translator
+Terminal=false
+X-MultipleArgs=false
+Type=Application
+Encoding=UTF-8
+Categories=Application
+StartupNotify=false
