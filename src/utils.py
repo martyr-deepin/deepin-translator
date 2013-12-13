@@ -9,6 +9,16 @@ import fcntl
 import cPickle
 from urllib import urlencode
 
+true = True
+false = False
+null = None
+
+def safe_eval(string):
+    global true
+    global false
+    global null
+    return eval(string)
+
 def to_key_val_list(value):
     """Take an object and test to see if it can be represented as a
     dictionary. If it can be, return a list of tuples, e.g.,
