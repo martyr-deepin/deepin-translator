@@ -68,7 +68,7 @@ class SystemTrayIcon(QSystemTrayIcon):
                     CheckboxMenuItem("pause", "暂停翻译", setting_config.get_trayicon_config("pause")),
                     CheckboxMenuItem("toggle_speech", "取词后发音", setting_config.get_trayicon_config("toggle_speech")),
                     CheckboxMenuItem("key_trigger_ocr", "按Ctrl键屏幕取词", setting_config.get_trayicon_config("key_trigger_ocr")),
-                    CheckboxMenuItem("key_trigger_select", "按Shift键翻译选区", setting_config.get_trayicon_config("key_trigger_select")),
+                    CheckboxMenuItem("key_trigger_select", "按Alt键翻译选区", setting_config.get_trayicon_config("key_trigger_select")),
                     MenuSeparator(),
                     ("settings", "设置"),
                     ("wizard", "向导"),

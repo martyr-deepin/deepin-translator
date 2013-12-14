@@ -28,7 +28,7 @@ import commands
 from config import setting_config
 
 press_ctrl = False
-press_shift = False
+press_alt = False
 
 class RecordEvent(QObject):
     
@@ -61,7 +61,7 @@ class RecordEvent(QObject):
         
     def record_callback(self, reply):
         global press_ctrl
-        global press_shift
+        global press_alt
         
         check_valid_event(reply)
      
@@ -82,8 +82,8 @@ class RecordEvent(QObject):
                         if not self.view.isVisible() or not self.view.in_translate_area():
                             self.press_ctrl_timer = Timer(self.press_ctrl_delay, self.emit_press_ctrl)
                             self.press_ctrl_timer.start()
-                elif keyname in ["Shift_L", "Shift_R"]:
-                    press_shift = True
+                elif keyname in ["Alt_L", "Alt_R"]:
+                    press_alt = True
                 elif keyname in ["Escape"]:
                     self.press_esc.emit()
             elif event.type == X.KeyRelease:
@@ -91,8 +91,8 @@ class RecordEvent(QObject):
                 if keyname in ["Control_L", "Control_R"]:
                     press_ctrl = False
                     self.release_ctrl.emit()
-                elif keyname in ["Shift_L", "Shift_R"]:
-                    press_shift = False
+                elif keyname in ["Alt_L", "Alt_R"]:
+                    press_alt = False
             elif event.type == X.ButtonPress:
                 if event.detail == 1:
                     self.left_button_press.emit(event.root_x, event.root_y, event.time)
@@ -103,7 +103,7 @@ class RecordEvent(QObject):
             elif event.type == X.ButtonRelease:
                 if not self.view.isVisible() or not self.view.in_translate_area():
                     if not setting_config.get_trayicon_config("pause"):
-                        if not setting_config.get_trayicon_config("key_trigger_select") or press_shift:
+                        if not setting_config.get_trayicon_config("key_trigger_select") or press_alt:
                             selection_content = commands.getoutput("xsel -p -o")
                             delete_selection()
                             
