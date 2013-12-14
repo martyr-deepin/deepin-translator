@@ -25,7 +25,7 @@ from PyQt5.QtCore import pyqtSlot
 from auto_object import AutoQObject
 from translate_interface import TranslateInterface
 import os
-import commands
+import subprocess
 from message_view import show_message
 from pkg_manager import get_install_packages, install_packages
 from deepin_utils.file import get_parent_dir
@@ -54,7 +54,8 @@ class Translate(TranslateInterface):
         
     @pyqtSlot(str)
     def get_translate(self, text):
-        self.translate_info.translate = '\n'.join(commands.getoutput("sdcv %s" % text).split("\n")[1::])
+        pipe = subprocess.Popen(["sdcv", text], stdout=subprocess.PIPE)
+        self.translate_info.translate = '\n'.join(pipe.communicate()[0].split("\n")[1::])
         
     @pyqtSlot()    
     def install_sdcv(self):
