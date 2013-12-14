@@ -33,6 +33,7 @@ from message_view import show_message
 from nls import _
 from pkg_manager import get_install_packages, install_packages
 import constant
+import ImageEnhance
 
 screenshot_width = 600
 screenshot_height = 100
@@ -86,11 +87,22 @@ def ocr_word(mouse_x, mouse_y):
         width,
         height,
         plane_mask).reply()
+    
+    # Get screenshot image data.
     image_data = reply.data.buf()
     image = Image.frombuffer("RGBX", (width, height), image_data, "raw", "BGRX").convert("RGB")
     
+    # First make image grey and scale bigger.
+    image = image.convert("L").resize((width * scale, height * scale))
+    # image.save("old.png")       # debug
+    
+    # Second enhance image with contrast and sharpness.
+    image = ImageEnhance.Contrast(image).enhance(1.5)
+    image = ImageEnhance.Sharpness(image).enhance(2.0)
+    # image.save("new.png")       # debug
+    
     word_boxes = tool.image_to_string(
-        image.convert("L").resize((width * scale, height * scale)),
+        image,
         lang=lang,
         builder=pyocr.builders.WordBoxBuilder())
     
