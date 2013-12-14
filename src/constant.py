@@ -144,3 +144,6 @@ LANGUAGES = [
     ('yi', _('Yiddish')),
     ('zh-CN', _('Chinese')),
     ]
+
+TRAYAREA_TOP = 0
+TRAYAREA_BOTTOM = 0

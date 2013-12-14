@@ -42,6 +42,7 @@ from model import LanguageModel
 from plugin import Plugin
 import imp
 from deepin_utils.file import get_parent_dir
+import constant
     
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -90,6 +91,7 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)  
     tray_icon = SystemTrayIcon(QIcon(os.path.join(get_parent_dir(__file__), "image", "trayicon.png")), app)
     tray_icon.show()
+    (constant.TRAYAREA_TOP, constant.TRAYAREA_BOTTOM) = tray_icon.get_trayarea()
     
     plugin = Plugin()
     

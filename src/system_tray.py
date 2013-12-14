@@ -79,3 +79,7 @@ class SystemTrayIcon(QSystemTrayIcon):
             self.menu.itemClicked.connect(self.click_menu)
             self.menu.showDockMenu(mouse_x, mouse_y)
             self.set_menu_active(setting_config.get_trayicon_config("pause"))
+            
+    def get_trayarea(self):
+        geometry = self.geometry()
+        return (geometry.y() / 2, geometry.y() / 2 + geometry.height())
