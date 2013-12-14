@@ -88,7 +88,7 @@ if __name__ == "__main__":
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
 
     app = QApplication(sys.argv)  
-    tray_icon = SystemTrayIcon(QIcon(os.path.join(get_parent_dir(__file__), "image", "icon.png")), app)
+    tray_icon = SystemTrayIcon(QIcon(os.path.join(get_parent_dir(__file__), "image", "trayicon.png")), app)
     tray_icon.show()
     
     plugin = Plugin()
