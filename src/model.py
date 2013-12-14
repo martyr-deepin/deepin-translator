@@ -66,4 +66,4 @@ class Model(QObjectListModel):
 
 class LanguageModel(Model):
     def __init__(self, parent=None):
-        Model.__init__(self, LANGUAGES, parent)
+        Model.__init__(self, sorted(LANGUAGES, key=lambda (code, name): name), parent)
