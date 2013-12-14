@@ -62,7 +62,7 @@ def ocr_word(mouse_x, mouse_y):
         return None
 
     # Ocr word under cursor.
-    lang = ocr_pkg_name.split("tesseract-ocr-")[1]
+    lang = ocr_pkg_name.split("tesseract-ocr-")[1].replace("-", "_")
     x = max(mouse_x - screenshot_width / 2, 0) 
     y = max(mouse_y - screenshot_height / 2, 0)
     width = min(mouse_x + screenshot_width / 2, screen_width) - x
