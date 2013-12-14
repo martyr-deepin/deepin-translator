@@ -86,6 +86,8 @@ WindowFrame {
                 property int expandItemIndexHistory: -1
                 property string wordEngine: ""
                 property string wordsEngine: ""
+                property string srcLang: ""
+                property string dstLang: ""
                 
                 onExpandItemIndexChanged: {
                     if (expandItemIndex == -1) {
@@ -153,7 +155,7 @@ WindowFrame {
                                 anchors.left: parent.left
                                 anchors.leftMargin: 2
                                 anchors.right: parent.right
-                                anchors.rightMargin: 2
+                                anchors.rightMargin: 10
                                 
                                 Component.onCompleted: {
                                     active = expand.expanded
@@ -199,6 +201,24 @@ WindowFrame {
                                             target: expandArea
                                             onWordsEngineChanged: {
                                                 if (listview.type == "words_engine") {
+                                                    listview.currentName = settingConfig.get_translate_config(listview.type)
+                                                }
+                                            }
+                                        }
+                                        
+                                        Connections {
+                                            target: expandArea
+                                            onSrcLangChanged: {
+                                                if (listview.type == "src_lang") {
+                                                    listview.currentName = settingConfig.get_translate_config(listview.type)
+                                                }
+                                            }
+                                        }
+
+                                        Connections {
+                                            target: expandArea
+                                            onDstLangChanged: {
+                                                if (listview.type == "dst_lang") {
                                                     listview.currentName = settingConfig.get_translate_config(listview.type)
                                                 }
                                             }
@@ -307,16 +327,39 @@ WindowFrame {
                 }
             }
             
-            DTextButton {
-                id: button
-                text: dsTr("OK")
-                anchors.right: parent.right
-                anchors.rightMargin: 10
-                anchors.bottomMargin: 10
-                anchors.topMargin: 25
+            Item {
+                width: parent.width
+                anchors.bottom: parent.bottom
                 
-                onClicked: {
-                    windowView.hide()
+                DTextButton {
+                    id: reverseButton
+                    text: dsTr("Reverse translation")
+                    anchors.left: parent.left
+                    anchors.leftMargin: 10
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 10
+                    
+                    onClicked: {
+                        var srcLang = settingConfig.get_translate_config("src_lang")
+                        var dstLang = settingConfig.get_translate_config("dst_lang")
+                        settingConfig.update_translate_config("src_lang", dstLang)
+                        settingConfig.update_translate_config("dst_lang", srcLang)
+                        expandArea.srcLang = dstLang
+                        expandArea.dstLang = srcLang
+                    }
+                }
+                
+                DTextButton {
+                    id: button
+                    text: dsTr("OK")
+                    anchors.right: parent.right
+                    anchors.rightMargin: 10
+                    anchors.bottom: parent.bottom
+                    anchors.bottomMargin: 10
+                    
+                    onClicked: {
+                        windowView.hide()
+                    }
                 }
             }
         }

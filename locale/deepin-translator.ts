@@ -29,7 +29,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="312"/>
+        <location filename="../src/SettingView.qml" line="316"/>
+        <source>Reverse translation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingView.qml" line="325"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>

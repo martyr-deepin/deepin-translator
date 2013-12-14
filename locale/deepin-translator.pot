@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-14 16:04+0800\n"
+"POT-Creation-Date: 2013-12-14 23:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,11 @@ msgstr ""
 msgid "Sentences Translate"
 msgstr ""
 
-#: ../src/SettingView.qml:312
+#: ../src/SettingView.qml:316
+msgid "Reverse translation"
+msgstr ""
+
+#: ../src/SettingView.qml:325
 msgid "OK"
 msgstr ""
 
@@ -310,7 +314,7 @@ msgstr ""
 msgid "Chinese"
 msgstr ""
 
-#: ../src/system_tray.py:69
+#: ../src/system_tray.py:68
 msgid "Pause translate"
 msgstr ""
 
@@ -318,48 +322,44 @@ msgstr ""
 msgid "Voice after translate"
 msgstr ""
 
-#: ../src/system_tray.py:71
-msgid "Press alt to screen ocr"
-msgstr ""
-
 #: ../src/system_tray.py:72
 msgid "Press ctrl to translate selection"
 msgstr ""
 
-#: ../src/system_tray.py:74
+#: ../src/system_tray.py:75
 msgid "Settings"
 msgstr ""
 
-#: ../src/system_tray.py:75
+#: ../src/system_tray.py:76
 msgid "Wizard"
 msgstr ""
 
-#: ../src/system_tray.py:76
+#: ../src/system_tray.py:77
 msgid "About"
 msgstr ""
 
-#: ../src/system_tray.py:78
+#: ../src/system_tray.py:79
 msgid "Exit"
 msgstr ""
 
-#: ../src/ocr.py:50
+#: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, screen ocr not support %s yet"
 msgstr ""
 
-#: ../src/ocr.py:50 ../src/ocr.py:57 ../src/plugins/sdcv/translate.py:50
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/plugins/sdcv/translate.py:50
 msgid "Cancel"
 msgstr ""
 
-#: ../src/ocr.py:50
+#: ../src/ocr.py:55
 msgid "Ok, I know"
 msgstr ""
 
-#: ../src/ocr.py:57
+#: ../src/ocr.py:62
 msgid "Need install OCR package to enable translate feature"
 msgstr ""
 
-#: ../src/ocr.py:57 ../src/plugins/sdcv/translate.py:50
+#: ../src/ocr.py:62 ../src/plugins/sdcv/translate.py:50
 msgid "Install"
 msgstr ""
 

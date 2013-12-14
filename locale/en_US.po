@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-14 16:04+0800\n"
+"POT-Creation-Date: 2013-12-14 23:21+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -39,7 +39,12 @@ msgstr "Voice after translate"
 msgid "Sentences Translate"
 msgstr "Voice after translate"
 
-#: ../src/SettingView.qml:312
+#: ../src/SettingView.qml:316
+#, fuzzy
+msgid "Reverse translation"
+msgstr "Pause translate"
+
+#: ../src/SettingView.qml:325
 msgid "OK"
 msgstr ""
 
@@ -312,7 +317,7 @@ msgstr "Yiddish"
 msgid "Chinese"
 msgstr "Chinese"
 
-#: ../src/system_tray.py:69
+#: ../src/system_tray.py:68
 msgid "Pause translate"
 msgstr "Pause translate"
 
@@ -320,50 +325,45 @@ msgstr "Pause translate"
 msgid "Voice after translate"
 msgstr "Voice after translate"
 
-#: ../src/system_tray.py:71
-#, fuzzy
-msgid "Press alt to screen ocr"
-msgstr "Press ctrl to screen ocr"
-
 #: ../src/system_tray.py:72
 #, fuzzy
 msgid "Press ctrl to translate selection"
 msgstr "Press shift to translate selection"
 
-#: ../src/system_tray.py:74
+#: ../src/system_tray.py:75
 msgid "Settings"
 msgstr "Settings"
 
-#: ../src/system_tray.py:75
+#: ../src/system_tray.py:76
 msgid "Wizard"
 msgstr "Wizard"
 
-#: ../src/system_tray.py:76
+#: ../src/system_tray.py:77
 msgid "About"
 msgstr "About"
 
-#: ../src/system_tray.py:78
+#: ../src/system_tray.py:79
 msgid "Exit"
 msgstr "Exit"
 
-#: ../src/ocr.py:50
+#: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, screen ocr not support %s yet"
 msgstr "Sorry, screen ocr not support %s yet"
 
-#: ../src/ocr.py:50 ../src/ocr.py:57 ../src/plugins/sdcv/translate.py:50
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/plugins/sdcv/translate.py:50
 msgid "Cancel"
 msgstr "Cancel"
 
-#: ../src/ocr.py:50
+#: ../src/ocr.py:55
 msgid "Ok, I know"
 msgstr "Ok, I know"
 
-#: ../src/ocr.py:57
+#: ../src/ocr.py:62
 msgid "Need install OCR package to enable translate feature"
 msgstr "Need install OCR package to enable translate feature"
 
-#: ../src/ocr.py:57 ../src/plugins/sdcv/translate.py:50
+#: ../src/ocr.py:62 ../src/plugins/sdcv/translate.py:50
 msgid "Install"
 msgstr "Install"
 
@@ -374,3 +374,7 @@ msgstr "Translate failed"
 #: ../src/plugins/sdcv/translate.py:50
 msgid "Need install sdcv package to enable translate feature"
 msgstr "Need install sdcv package to enable translate feature"
+
+#, fuzzy
+#~ msgid "Press alt to screen ocr"
+#~ msgstr "Press ctrl to screen ocr"

@@ -26,6 +26,7 @@ from deepin_menu.menu import Menu, MenuSeparator, CheckboxMenuItem
 from config import setting_config
 from xutils import delete_selection
 from nls import _
+from constant import LANGUAGES
 
 class SystemTrayIcon(QSystemTrayIcon):
     
@@ -71,6 +72,8 @@ class SystemTrayIcon(QSystemTrayIcon):
                                      setting_config.get_trayicon_config("toggle_speech")),
                     CheckboxMenuItem("key_trigger_select", _("Press ctrl to translate selection"), 
                                      setting_config.get_trayicon_config("key_trigger_select")),
+                    MenuSeparator(),
+                    ("lang", (dict(LANGUAGES))[setting_config.get_translate_config("src_lang")] + " -> " + (dict(LANGUAGES))[setting_config.get_translate_config("dst_lang")]),
                     MenuSeparator(),
                     ("settings", _("Settings")),
                     ("wizard", _("Wizard")),
