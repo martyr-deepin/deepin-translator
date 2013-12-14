@@ -40,8 +40,6 @@ class RecordEvent(QObject):
     right_button_press = pyqtSignal(int, int, int)    
     wheel_press = pyqtSignal()
     
-    cursor_stop = pyqtSignal()
-    
     translate_selection = pyqtSignal(int, int, str)
     
     def __init__(self, view):
@@ -122,20 +120,10 @@ class RecordEvent(QObject):
                 # Delete clipboard selection if user selection in visible area to avoid next time to translate those selection content.
                 elif self.view.isVisible() and self.view.in_translate_area():
                     delete_selection()
-            elif event.type == X.MotionNotify:
-                self.try_stop_timer(self.stop_timer)
-            
-                if not setting_config.get_trayicon_config("pause"):
-                    self.stop_timer = Timer(self.stop_delay, lambda : self.emit_cursor_stop(event.root_x, event.root_y))
-                    self.stop_timer.start()
                     
     def try_stop_timer(self, timer):
         if timer and timer.is_alive():
             timer.cancel()
-                
-    def emit_cursor_stop(self, mouse_x, mouse_y):
-        if (not setting_config.get_trayicon_config("key_trigger_ocr") or self.press_alt_flag) and (not self.view.isVisible() or not self.view.in_translate_area()):
-            self.cursor_stop.emit()
                 
     def filter_event(self):
         record_event(self.record_callback)

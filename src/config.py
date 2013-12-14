@@ -30,7 +30,6 @@ DEFAULT_CONFIG = [
     ("trayicon", 
      [("pause", False),
       ("toggle_speech", True),
-      ("key_trigger_ocr", True),
       ("key_trigger_select", False),
       ]),
     ("translate",

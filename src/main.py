@@ -143,8 +143,7 @@ if __name__ == "__main__":
             translate_long.hide_translate()
             
     def handle_press_alt():
-        if setting_config.get_trayicon_config("key_trigger_ocr"):
-            translate_simple.translate_cursor_word()
+        translate_simple.translate_cursor_word()
             
     record_event = RecordEvent(translate_simple)
     record_event.press_esc.connect(hide_translate)
@@ -152,7 +151,6 @@ if __name__ == "__main__":
     record_event.wheel_press.connect(hide_translate)
     record_event.left_button_press.connect(hide_translate)
     record_event.right_button_press.connect(hide_translate)
-    record_event.cursor_stop.connect(translate_simple.translate_cursor_word)
     record_event.translate_selection.connect(show_translate)
     
     tray_icon.showSettingView.connect(setting_view.showNormal)
