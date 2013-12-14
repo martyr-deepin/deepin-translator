@@ -40,10 +40,10 @@ screenshot_height = 100
 
 def filter_punctuation(text):
     src_lang = setting_config.get_translate_config("src_lang")
-    if src_lang in ["zh-CN"]:
-        return text
+    if src_lang in ["eng"]:
+        return re.sub("[^A-Za-z_-]", " ", text).strip()
     else:
-        return re.sub("[^A-Za-z_-]", " ", text)
+        return text
 
 def ocr_log(src_lang):
     print "%s is not support" % src_lang
@@ -94,11 +94,14 @@ def ocr_word(mouse_x, mouse_y):
     
     # First make image grey and scale bigger.
     image = image.convert("L").resize((width * scale, height * scale))
-    # image.save("old.png")       # debug
     
+    # image.save("old.png")       # debug
     # Second enhance image with contrast and sharpness.
     image = ImageEnhance.Contrast(image).enhance(1.5)
-    image = ImageEnhance.Sharpness(image).enhance(2.0)
+    
+    # I found uncomment below code have better result. ;)
+    # image = ImageEnhance.Sharpness(image).enhance(2.0)
+    
     # image.save("new.png")       # debug
     
     word_boxes = tool.image_to_string(
