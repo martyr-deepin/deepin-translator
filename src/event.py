@@ -27,9 +27,6 @@ from xutils import record_event, get_keyname, check_valid_event, get_event_data,
 import commands
 from config import setting_config
 
-press_ctrl = False
-press_shift = False
-
 class RecordEvent(QObject):
     
     press_ctrl = pyqtSignal()    
@@ -48,6 +45,9 @@ class RecordEvent(QObject):
     def __init__(self, view):
         QObject.__init__(self)
 
+        self.press_ctrl_flag = False
+        self.press_shift_flag = False
+
         self.stop_timer = None
         self.stop_delay = 0.05
         
@@ -60,9 +60,6 @@ class RecordEvent(QObject):
         delete_selection()
         
     def record_callback(self, reply):
-        global press_ctrl
-        global press_shift
-        
         check_valid_event(reply)
      
         data = reply.data
@@ -76,23 +73,23 @@ class RecordEvent(QObject):
                     self.try_stop_timer(self.press_ctrl_timer)
         
                 if keyname in ["Control_L", "Control_R"]:
-                    press_ctrl = True
+                    self.press_ctrl_flag = True
                     
                     if not setting_config.get_trayicon_config("pause"):
                         if not self.view.isVisible() or not self.view.in_translate_area():
                             self.press_ctrl_timer = Timer(self.press_ctrl_delay, self.emit_press_ctrl)
                             self.press_ctrl_timer.start()
                 elif keyname in ["Shift_L", "Shift_R"]:
-                    press_shift = True
+                    self.press_shift_flag = True
                 elif keyname in ["Escape"]:
                     self.press_esc.emit()
             elif event.type == X.KeyRelease:
                 keyname = get_keyname(event)
                 if keyname in ["Control_L", "Control_R"]:
-                    press_ctrl = False
+                    self.press_ctrl_flag = False
                     self.release_ctrl.emit()
                 elif keyname in ["Shift_L", "Shift_R"]:
-                    press_shift = False
+                    self.press_shift_flag = False
             elif event.type == X.ButtonPress:
                 if event.detail == 1:
                     self.left_button_press.emit(event.root_x, event.root_y, event.time)
@@ -103,7 +100,7 @@ class RecordEvent(QObject):
             elif event.type == X.ButtonRelease:
                 if not self.view.isVisible() or not self.view.in_translate_area():
                     if not setting_config.get_trayicon_config("pause"):
-                        if not setting_config.get_trayicon_config("key_trigger_select") or press_shift:
+                        if not setting_config.get_trayicon_config("key_trigger_select") or self.press_shift_flag:
                             selection_content = commands.getoutput("xsel -p -o")
                             delete_selection()
                             
@@ -127,7 +124,7 @@ class RecordEvent(QObject):
         self.press_ctrl.emit()
         
     def emit_cursor_stop(self, mouse_x, mouse_y):
-        if (not setting_config.get_trayicon_config("key_trigger_ocr") or press_ctrl) and (not self.view.isVisible() or not self.view.in_translate_area()):
+        if (not setting_config.get_trayicon_config("key_trigger_ocr") or self.press_ctrl_flag) and (not self.view.isVisible() or not self.view.in_translate_area()):
             self.cursor_stop.emit()
                 
     def filter_event(self):
