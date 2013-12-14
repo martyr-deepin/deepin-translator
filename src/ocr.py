@@ -38,7 +38,11 @@ screenshot_width = 600
 screenshot_height = 100
 
 def filter_punctuation(text):
-    return re.sub("[^A-Za-z_-]", " ", text)
+    src_lang = setting_config.get_translate_config("src_lang")
+    if src_lang in ["zh-CN"]:
+        return text
+    else:
+        return re.sub("[^A-Za-z_-]", " ", text)
 
 def ocr_log(src_lang):
     print "%s is not support" % src_lang
@@ -94,9 +98,11 @@ def ocr_word(mouse_x, mouse_y):
     cursor_y = (mouse_y - y) * scale
     
     for word_box in word_boxes[::-1]:
+        print word_box.content
         ((left_x, left_y), (right_x, right_y)) = word_box.position
         if (left_x <= cursor_x <= right_x and left_y <= cursor_y <= right_y):
             word = filter_punctuation(word_box.content)
+            print "'%s'" % word
             # Return None if ocr word is space string.
             if word.isspace():
                 return None
