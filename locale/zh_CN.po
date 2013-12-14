@@ -1,0 +1,372 @@
+# Chinese translations for PACKAGE package
+# PACKAGE 软件包的简体中文翻译.
+# Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-14 14:28+0800\n"
+"PO-Revision-Date: 2013-12-14 14:06+0800\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/SettingView.qml:57
+msgid "Deepin Translator Settings"
+msgstr "深度系统设置"
+
+#: ../src/SettingView.qml:114
+msgid "Source Language"
+msgstr "源语言"
+
+#: ../src/SettingView.qml:120
+msgid "Target Language"
+msgstr "目标语言"
+
+#: ../src/SettingView.qml:126
+msgid "Word Translate"
+msgstr "单词翻译"
+
+#: ../src/SettingView.qml:132
+msgid "Sentences Translate"
+msgstr "长句翻译"
+
+#: ../src/SettingView.qml:313
+msgid "OK"
+msgstr "确定"
+
+#: ../src/plugins/google_long/Translate.qml:102
+#: ../src/plugins/google_simple/Translate.qml:102
+msgid "Read"
+msgstr "朗读"
+
+#: ../src/plugins/youdao/Translate.qml:384
+msgid "[US]"
+msgstr "[美]"
+
+#: ../src/plugins/youdao/Translate.qml:395
+msgid "[UK]"
+msgstr "[英]"
+
+#: ../src/constant.py:82
+msgid "Afrikaans"
+msgstr "南非荷兰语"
+
+#: ../src/constant.py:83
+msgid "Arabic"
+msgstr "阿拉伯语"
+
+#: ../src/constant.py:84
+msgid "Azerbaijani"
+msgstr "阿塞拜疆语"
+
+#: ../src/constant.py:85
+msgid "Belarusian"
+msgstr "白俄罗斯语"
+
+#: ../src/constant.py:86
+msgid "Bulgarian"
+msgstr "保加利亚语"
+
+#: ../src/constant.py:87
+msgid "Bengali"
+msgstr "孟加拉语"
+
+#: ../src/constant.py:88
+msgid "Catalan"
+msgstr "加泰罗尼亚语"
+
+#: ../src/constant.py:89
+msgid "Czech"
+msgstr "捷克语"
+
+#: ../src/constant.py:90
+msgid "Welsh"
+msgstr "威尔士语"
+
+#: ../src/constant.py:91
+msgid "Danish"
+msgstr "丹麦语"
+
+#: ../src/constant.py:92
+msgid "German"
+msgstr "德语"
+
+#: ../src/constant.py:93
+msgid "English"
+msgstr "英语"
+
+#: ../src/constant.py:94
+msgid "Esperanto"
+msgstr "世界语"
+
+#: ../src/constant.py:95
+msgid "Spanish"
+msgstr "西班牙语"
+
+#: ../src/constant.py:96
+msgid "Estonian"
+msgstr "爱沙尼亚语"
+
+#: ../src/constant.py:97
+msgid "Basque"
+msgstr "巴斯克语"
+
+#: ../src/constant.py:98
+msgid "Persian"
+msgstr "波斯语"
+
+#: ../src/constant.py:99
+msgid "Finnish"
+msgstr "芬兰语"
+
+#: ../src/constant.py:100
+msgid "French"
+msgstr "法语"
+
+#: ../src/constant.py:101
+msgid "Irish"
+msgstr "爱尔兰语"
+
+#: ../src/constant.py:102
+msgid "Galician"
+msgstr "加利西亚语"
+
+#: ../src/constant.py:103
+msgid "Greek"
+msgstr "希腊语"
+
+#: ../src/constant.py:104
+msgid "Gujarati"
+msgstr "古吉拉特语"
+
+#: ../src/constant.py:105
+msgid "Hindi"
+msgstr "北印度语"
+
+#: ../src/constant.py:106
+msgid "Croatian"
+msgstr "克罗地亚语"
+
+#: ../src/constant.py:107
+msgid "Haitian"
+msgstr "海地语"
+
+#: ../src/constant.py:108
+msgid "Hungaric"
+msgstr "匈牙利语"
+
+#: ../src/constant.py:109
+msgid "Armenian"
+msgstr "亚美尼亚语"
+
+#: ../src/constant.py:110
+msgid "Indonesian"
+msgstr "印度尼西亚语"
+
+#: ../src/constant.py:111
+msgid "Icelandic"
+msgstr "冰岛语"
+
+#: ../src/constant.py:112
+msgid "Italian"
+msgstr "意大利语"
+
+#: ../src/constant.py:113
+msgid "Hebrew"
+msgstr "希伯来语"
+
+#: ../src/constant.py:114
+msgid "Japanese"
+msgstr "日语"
+
+#: ../src/constant.py:115
+msgid "Georgian"
+msgstr "格鲁吉亚"
+
+#: ../src/constant.py:116
+msgid "Kannada"
+msgstr "卡纳达语"
+
+#: ../src/constant.py:117
+msgid "Korean"
+msgstr "韩语"
+
+#: ../src/constant.py:118
+msgid "Latin"
+msgstr "拉丁语"
+
+#: ../src/constant.py:119
+msgid "Lithuanian"
+msgstr "立陶宛语"
+
+#: ../src/constant.py:120
+msgid "Latvian"
+msgstr "拉脱维亚语"
+
+#: ../src/constant.py:121
+msgid "Macedonian"
+msgstr "马其顿语"
+
+#: ../src/constant.py:122
+msgid "Malay"
+msgstr "马来西亚语"
+
+#: ../src/constant.py:123
+msgid "Maltese"
+msgstr "马耳他语"
+
+#: ../src/constant.py:124
+msgid "Dutch"
+msgstr "荷兰语"
+
+#: ../src/constant.py:125
+msgid "Norwegian"
+msgstr "挪威语"
+
+#: ../src/constant.py:126
+msgid "Polish"
+msgstr "波兰语"
+
+#: ../src/constant.py:127
+msgid "Portuguese"
+msgstr "葡萄牙语"
+
+#: ../src/constant.py:128
+msgid "Romanian"
+msgstr "罗马尼亚语"
+
+#: ../src/constant.py:129
+msgid "Russian"
+msgstr "俄语"
+
+#: ../src/constant.py:130
+msgid "Slovak"
+msgstr "斯洛伐克语"
+
+#: ../src/constant.py:131
+msgid "Slovenian"
+msgstr "斯洛维尼亚语"
+
+#: ../src/constant.py:132
+msgid "Albanian"
+msgstr "阿尔巴尼亚语"
+
+#: ../src/constant.py:133
+msgid "Serbian"
+msgstr "塞尔维亚语"
+
+#: ../src/constant.py:134
+msgid "Swedish"
+msgstr "瑞典语"
+
+#: ../src/constant.py:135
+msgid "Swahili"
+msgstr "斯瓦西里语"
+
+#: ../src/constant.py:136
+msgid "Tamil"
+msgstr "泰米尔语"
+
+#: ../src/constant.py:137
+msgid "Telugu"
+msgstr "泰卢固语"
+
+#: ../src/constant.py:138
+msgid "Thai"
+msgstr "泰语"
+
+#: ../src/constant.py:139
+msgid "Filipino"
+msgstr "菲律宾语"
+
+#: ../src/constant.py:140
+msgid "Turkish"
+msgstr "土耳其语"
+
+#: ../src/constant.py:141
+msgid "Ukrainian"
+msgstr "乌克兰语"
+
+#: ../src/constant.py:142
+msgid "Urdu"
+msgstr "乌尔都语"
+
+#: ../src/constant.py:143
+msgid "Vietnamese"
+msgstr "越南语"
+
+#: ../src/constant.py:144
+msgid "Yiddish"
+msgstr "意第绪语"
+
+#: ../src/constant.py:145
+msgid "Chinese"
+msgstr "汉语"
+
+#: ../src/system_tray.py:69
+msgid "Pause translate"
+msgstr "暂停翻译"
+
+#: ../src/system_tray.py:70
+msgid "Voice after translate"
+msgstr "取词后发音"
+
+#: ../src/system_tray.py:71
+msgid "Press ctrl to screen ocr"
+msgstr "按Ctrl键屏幕取词"
+
+#: ../src/system_tray.py:72
+msgid "Press shift to translate selection"
+msgstr "按Shift键翻译选区"
+
+#: ../src/system_tray.py:74
+msgid "Settings"
+msgstr "设置"
+
+#: ../src/system_tray.py:75
+msgid "Wizard"
+msgstr "向导"
+
+#: ../src/system_tray.py:76
+msgid "About"
+msgstr "关于"
+
+#: ../src/system_tray.py:78
+msgid "Exit"
+msgstr "退出"
+
+#: ../src/ocr.py:50
+#, python-format
+msgid "Sorry, screen ocr not support %s yet"
+msgstr "对不起， 屏幕取词现在还不支持%s"
+
+#: ../src/ocr.py:50 ../src/ocr.py:57 ../src/plugins/sdcv/translate.py:50
+msgid "Cancel"
+msgstr "取消"
+
+#: ../src/ocr.py:50
+msgid "Ok, I know"
+msgstr "我知道了"
+
+#: ../src/ocr.py:57
+msgid "Need install OCR package to enable translate feature"
+msgstr "需要安装取词库以开启翻译"
+
+#: ../src/ocr.py:57 ../src/plugins/sdcv/translate.py:50
+msgid "Install"
+msgstr "安装"
+
+#: ../src/plugins/google_simple/translate.py:109
+msgid "Translate failed"
+msgstr "翻译失败"
+
+#: ../src/plugins/sdcv/translate.py:50
+msgid "Need install sdcv package to enable translate feature"
+msgstr "需要安装星际译王以开启翻译"

@@ -30,6 +30,7 @@ from config import setting_config
 import os
 from deepin_utils.file import get_parent_dir
 from utils import safe_eval
+from nls import _
             
 def group(seq, size): 
     def take(seq, n):
@@ -105,7 +106,7 @@ class Translate(TranslateInterface):
         try:
             return  ''.join([dl[0] for dl in glist[0]])
         except:
-            return "翻译失败"
+            return _("Translate failed")
     
     def google_translate(self, text, sl="auto", tl="en", encoding="UTF-8"):
         target_language = tl

@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import Deepin.Locale 1.0
 import QtQuick.Window 2.1
 import QtMultimedia 5.0
 import "../../../src"
@@ -8,6 +9,16 @@ TranslateWindow {
     
 	property int voiceIndex: 0
 	property bool isManualStop: false
+    
+    property variant dsslocale: DLocale {
+        id: dsslocale
+        domain: "deepin-translator"
+        dirname: "../../../locale"
+    }
+    
+    function dsTr(s){
+        return dsslocale.dsTr(s)
+    }
     
     function showTranslate(x, y, text) {
 		mouseX = x
@@ -87,7 +98,7 @@ TranslateWindow {
 		    
 			Speech { 
                 id: voice
-				text: "朗读"
+				text: dsTr("Read")
 				visible: translateInfo.voices.length > 0
                 
 				onClicked: {

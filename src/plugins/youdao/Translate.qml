@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import Deepin.Locale 1.0
 import QtMultimedia 5.0
 import QtGraphicalEffects 1.0
 import "../../../src"
@@ -29,6 +30,17 @@ TranslateWindow {
     property int suggestionWidth: 0
     property int suggestionHeight: 0
 	
+    property variant dsslocale: DLocale {
+        id: dsslocale
+        domain: "deepin-translator"
+        dirname: "../../../locale"
+    }
+    
+    function dsTr(s){
+        print(dsslocale.dirname, dsslocale.lang)
+        return dsslocale.dsTr(s)
+    }
+    
     Connections {
         target: suggestModel
         onFinished: {
@@ -369,22 +381,23 @@ TranslateWindow {
 			    Speech { 
                     id: usSpeech
                     text: translateInfo.usphone
-                    type: "[美]"
+                    type: dsTr("[US]")
                     
-					onClicked: {
-						audioPlayer.source = translateInfo.uslink
-						audioPlayer.play()
-					}
+                    onClicked: {
+                        audioPlayer.source = translateInfo.uslink
+                        audioPlayer.play()
+                    }
                 }			
                 
 			    Speech { 
                     id: ukSpeech
                     text: translateInfo.ukphone 
-                    type: "[英]"
-					onClicked: {
-						audioPlayer.source = translateInfo.uklink
-						audioPlayer.play()
-					}
+                    type: dsTr("[UK]")
+                    
+                    onClicked: {
+                        audioPlayer.source = translateInfo.uklink
+                        audioPlayer.play()
+                    }
                 }
 		    }
             

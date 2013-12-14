@@ -82,13 +82,6 @@ class ThreadFetch(threading.Thread):
         result = self.fetch_funcs[0](*self.fetch_funcs[1])
         if self.success_funcs:
             self.success_funcs[0](result, *self.success_funcs[1])
-        
-        # if result:
-        #     if self.success_funcs:
-        #         self.success_funcs[0](result, *self.success_funcs[1])
-        # else:        
-        #     if self.fail_funcs:
-        #         self.fail_funcs[0](*self.fail_funcs[1])
     
 def save_db(objs, fn):
     '''Save object to db file.'''

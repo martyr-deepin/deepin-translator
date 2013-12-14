@@ -25,6 +25,7 @@ from PyQt5.QtCore import pyqtSlot, pyqtSignal
 from deepin_menu.menu import Menu, MenuSeparator, CheckboxMenuItem
 from config import setting_config
 from xutils import delete_selection
+from nls import _
 
 class SystemTrayIcon(QSystemTrayIcon):
     
@@ -65,16 +66,16 @@ class SystemTrayIcon(QSystemTrayIcon):
             mouse_y = int(geometry.y() / 2)
             
             self.menu = Menu([
-                    CheckboxMenuItem("pause", "暂停翻译", setting_config.get_trayicon_config("pause")),
-                    CheckboxMenuItem("toggle_speech", "取词后发音", setting_config.get_trayicon_config("toggle_speech")),
-                    CheckboxMenuItem("key_trigger_ocr", "按Ctrl键屏幕取词", setting_config.get_trayicon_config("key_trigger_ocr")),
-                    CheckboxMenuItem("key_trigger_select", "按Shift键翻译选区", setting_config.get_trayicon_config("key_trigger_select")),
+                    CheckboxMenuItem("pause", _("Pause translate"), setting_config.get_trayicon_config("pause")),
+                    CheckboxMenuItem("toggle_speech", _("Voice after translate"), setting_config.get_trayicon_config("toggle_speech")),
+                    CheckboxMenuItem("key_trigger_ocr", _("Press ctrl to screen ocr"), setting_config.get_trayicon_config("key_trigger_ocr")),
+                    CheckboxMenuItem("key_trigger_select", _("Press shift to translate selection"), setting_config.get_trayicon_config("key_trigger_select")),
                     MenuSeparator(),
-                    ("settings", "设置"),
-                    ("wizard", "向导"),
-                    ("about", "关于"),
+                    ("settings", _("Settings")),
+                    ("wizard", _("Wizard")),
+                    ("about", _("About")),
                     MenuSeparator(),
-                    ("quit", "退出"),
+                    ("quit", _("Exit")),
                     ])
             self.menu.itemClicked.connect(self.click_menu)
             self.menu.showDockMenu(mouse_x, mouse_y)

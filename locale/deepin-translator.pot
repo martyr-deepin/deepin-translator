@@ -1,0 +1,372 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-14 14:28+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../src/SettingView.qml:57
+msgid "Deepin Translator Settings"
+msgstr ""
+
+#: ../src/SettingView.qml:114
+msgid "Source Language"
+msgstr ""
+
+#: ../src/SettingView.qml:120
+msgid "Target Language"
+msgstr ""
+
+#: ../src/SettingView.qml:126
+msgid "Word Translate"
+msgstr ""
+
+#: ../src/SettingView.qml:132
+msgid "Sentences Translate"
+msgstr ""
+
+#: ../src/SettingView.qml:313
+msgid "OK"
+msgstr ""
+
+#: ../src/plugins/google_long/Translate.qml:102
+#: ../src/plugins/google_simple/Translate.qml:102
+msgid "Read"
+msgstr ""
+
+#: ../src/plugins/youdao/Translate.qml:384
+msgid "[US]"
+msgstr ""
+
+#: ../src/plugins/youdao/Translate.qml:395
+msgid "[UK]"
+msgstr ""
+
+#: ../src/constant.py:82
+msgid "Afrikaans"
+msgstr ""
+
+#: ../src/constant.py:83
+msgid "Arabic"
+msgstr ""
+
+#: ../src/constant.py:84
+msgid "Azerbaijani"
+msgstr ""
+
+#: ../src/constant.py:85
+msgid "Belarusian"
+msgstr ""
+
+#: ../src/constant.py:86
+msgid "Bulgarian"
+msgstr ""
+
+#: ../src/constant.py:87
+msgid "Bengali"
+msgstr ""
+
+#: ../src/constant.py:88
+msgid "Catalan"
+msgstr ""
+
+#: ../src/constant.py:89
+msgid "Czech"
+msgstr ""
+
+#: ../src/constant.py:90
+msgid "Welsh"
+msgstr ""
+
+#: ../src/constant.py:91
+msgid "Danish"
+msgstr ""
+
+#: ../src/constant.py:92
+msgid "German"
+msgstr ""
+
+#: ../src/constant.py:93
+msgid "English"
+msgstr ""
+
+#: ../src/constant.py:94
+msgid "Esperanto"
+msgstr ""
+
+#: ../src/constant.py:95
+msgid "Spanish"
+msgstr ""
+
+#: ../src/constant.py:96
+msgid "Estonian"
+msgstr ""
+
+#: ../src/constant.py:97
+msgid "Basque"
+msgstr ""
+
+#: ../src/constant.py:98
+msgid "Persian"
+msgstr ""
+
+#: ../src/constant.py:99
+msgid "Finnish"
+msgstr ""
+
+#: ../src/constant.py:100
+msgid "French"
+msgstr ""
+
+#: ../src/constant.py:101
+msgid "Irish"
+msgstr ""
+
+#: ../src/constant.py:102
+msgid "Galician"
+msgstr ""
+
+#: ../src/constant.py:103
+msgid "Greek"
+msgstr ""
+
+#: ../src/constant.py:104
+msgid "Gujarati"
+msgstr ""
+
+#: ../src/constant.py:105
+msgid "Hindi"
+msgstr ""
+
+#: ../src/constant.py:106
+msgid "Croatian"
+msgstr ""
+
+#: ../src/constant.py:107
+msgid "Haitian"
+msgstr ""
+
+#: ../src/constant.py:108
+msgid "Hungaric"
+msgstr ""
+
+#: ../src/constant.py:109
+msgid "Armenian"
+msgstr ""
+
+#: ../src/constant.py:110
+msgid "Indonesian"
+msgstr ""
+
+#: ../src/constant.py:111
+msgid "Icelandic"
+msgstr ""
+
+#: ../src/constant.py:112
+msgid "Italian"
+msgstr ""
+
+#: ../src/constant.py:113
+msgid "Hebrew"
+msgstr ""
+
+#: ../src/constant.py:114
+msgid "Japanese"
+msgstr ""
+
+#: ../src/constant.py:115
+msgid "Georgian"
+msgstr ""
+
+#: ../src/constant.py:116
+msgid "Kannada"
+msgstr ""
+
+#: ../src/constant.py:117
+msgid "Korean"
+msgstr ""
+
+#: ../src/constant.py:118
+msgid "Latin"
+msgstr ""
+
+#: ../src/constant.py:119
+msgid "Lithuanian"
+msgstr ""
+
+#: ../src/constant.py:120
+msgid "Latvian"
+msgstr ""
+
+#: ../src/constant.py:121
+msgid "Macedonian"
+msgstr ""
+
+#: ../src/constant.py:122
+msgid "Malay"
+msgstr ""
+
+#: ../src/constant.py:123
+msgid "Maltese"
+msgstr ""
+
+#: ../src/constant.py:124
+msgid "Dutch"
+msgstr ""
+
+#: ../src/constant.py:125
+msgid "Norwegian"
+msgstr ""
+
+#: ../src/constant.py:126
+msgid "Polish"
+msgstr ""
+
+#: ../src/constant.py:127
+msgid "Portuguese"
+msgstr ""
+
+#: ../src/constant.py:128
+msgid "Romanian"
+msgstr ""
+
+#: ../src/constant.py:129
+msgid "Russian"
+msgstr ""
+
+#: ../src/constant.py:130
+msgid "Slovak"
+msgstr ""
+
+#: ../src/constant.py:131
+msgid "Slovenian"
+msgstr ""
+
+#: ../src/constant.py:132
+msgid "Albanian"
+msgstr ""
+
+#: ../src/constant.py:133
+msgid "Serbian"
+msgstr ""
+
+#: ../src/constant.py:134
+msgid "Swedish"
+msgstr ""
+
+#: ../src/constant.py:135
+msgid "Swahili"
+msgstr ""
+
+#: ../src/constant.py:136
+msgid "Tamil"
+msgstr ""
+
+#: ../src/constant.py:137
+msgid "Telugu"
+msgstr ""
+
+#: ../src/constant.py:138
+msgid "Thai"
+msgstr ""
+
+#: ../src/constant.py:139
+msgid "Filipino"
+msgstr ""
+
+#: ../src/constant.py:140
+msgid "Turkish"
+msgstr ""
+
+#: ../src/constant.py:141
+msgid "Ukrainian"
+msgstr ""
+
+#: ../src/constant.py:142
+msgid "Urdu"
+msgstr ""
+
+#: ../src/constant.py:143
+msgid "Vietnamese"
+msgstr ""
+
+#: ../src/constant.py:144
+msgid "Yiddish"
+msgstr ""
+
+#: ../src/constant.py:145
+msgid "Chinese"
+msgstr ""
+
+#: ../src/system_tray.py:69
+msgid "Pause translate"
+msgstr ""
+
+#: ../src/system_tray.py:70
+msgid "Voice after translate"
+msgstr ""
+
+#: ../src/system_tray.py:71
+msgid "Press ctrl to screen ocr"
+msgstr ""
+
+#: ../src/system_tray.py:72
+msgid "Press shift to translate selection"
+msgstr ""
+
+#: ../src/system_tray.py:74
+msgid "Settings"
+msgstr ""
+
+#: ../src/system_tray.py:75
+msgid "Wizard"
+msgstr ""
+
+#: ../src/system_tray.py:76
+msgid "About"
+msgstr ""
+
+#: ../src/system_tray.py:78
+msgid "Exit"
+msgstr ""
+
+#: ../src/ocr.py:50
+#, python-format
+msgid "Sorry, screen ocr not support %s yet"
+msgstr ""
+
+#: ../src/ocr.py:50 ../src/ocr.py:57 ../src/plugins/sdcv/translate.py:50
+msgid "Cancel"
+msgstr ""
+
+#: ../src/ocr.py:50
+msgid "Ok, I know"
+msgstr ""
+
+#: ../src/ocr.py:57
+msgid "Need install OCR package to enable translate feature"
+msgstr ""
+
+#: ../src/ocr.py:57 ../src/plugins/sdcv/translate.py:50
+msgid "Install"
+msgstr ""
+
+#: ../src/plugins/google_simple/translate.py:109
+msgid "Translate failed"
+msgstr ""
+
+#: ../src/plugins/sdcv/translate.py:50
+msgid "Need install sdcv package to enable translate feature"
+msgstr ""

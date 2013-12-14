@@ -47,14 +47,14 @@ def ocr_word(mouse_x, mouse_y):
     # Return None if occur unsupported language.
     src_lang = setting_config.get_translate_config("src_lang")
     if not LANGUAGE_OCR_DICT.has_key(src_lang):
-        show_message("对不起， 屏幕取词当前还不支持%s" % _(src_lang), "取消", "我知道了", lambda : ocr_log(src_lang))
+        show_message(_("Sorry, screen ocr not support %s yet") % _(src_lang), _("Cancel"), _("Ok, I know"), lambda : ocr_log(src_lang))
         return None
 
     # Return None if found any ocr package need install before continue. 
     ocr_pkg_name = LANGUAGE_OCR_DICT[src_lang]
     pkg_names = get_install_packages([ocr_pkg_name])
     if len(pkg_names):
-        show_message("需要安装OCR语言包以启用翻译功能", "取消", "安装", lambda : install_packages(pkg_names))
+        show_message(_("Need install OCR package to enable translate feature"), _("Cancel"), _("Install"), lambda : install_packages(pkg_names))
         return None
     
     # Return None if mouse at trayicon area.

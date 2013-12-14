@@ -29,6 +29,7 @@ import commands
 from message_view import show_message
 from pkg_manager import get_install_packages, install_packages
 from deepin_utils.file import get_parent_dir
+from nls import _
 
 class Translate(TranslateInterface):
     
@@ -46,7 +47,7 @@ class Translate(TranslateInterface):
     def check_before_translate(self):
         self.need_install_packages = get_install_packages(["stardict", "sdcv", "stardict-xdict-ce-gb", "stardict-xdict-ec-gb"])
         if len(self.need_install_packages) > 0:
-            show_message("需要安装星际译王以启用翻译功能", "取消", "安装", self.install_sdcv)
+            show_message(_("Need install sdcv package to enable translate feature"), _("Cancel"), _("Install"), self.install_sdcv)
             return False
         else:
             return True

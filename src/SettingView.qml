@@ -2,7 +2,8 @@ import QtQuick 2.1
 import QtGraphicalEffects 1.0
 import QtQuick.Window 2.1
 import QtQuick.Layouts 1.0
-import "./widgets"
+import Deepin.Locale 1.0
+import "../widgets"
 
 WindowFrame {
     id: window
@@ -14,6 +15,17 @@ WindowFrame {
     property int itemHeight: 30
     property alias expandArea: expandArea
     
+    property variant dsslocale: DLocale {
+        id: dsslocale
+        domain: "deepin-translator"
+        dirname: "../locale"
+    }
+    
+    function dsTr(s){
+        print("*** ", dsslocale.dirname, dsslocale.lang)
+        return dsslocale.dsTr(s)
+    }
+    
     Component.onCompleted: {
         windowView.width = defaultWidth
         windowView.height = defaultHeight
@@ -22,6 +34,8 @@ WindowFrame {
     }
     
     Item {
+        id: windowItem
+        
         anchors.fill: parent
         
         CloseButton {
@@ -40,7 +54,7 @@ WindowFrame {
                 height: paintedHeight + 40
                 verticalAlignment: Text.AlignVCenter
                 horizontalAlignment: Text.AlignHCenter
-                text: "深度翻译设置"
+                text: dsTr("Deepin Translator Settings")
                 color: "#fff"
 			    font { pixelSize: 20 }
                 
@@ -97,25 +111,25 @@ WindowFrame {
                         id: contentItems
                         
                         Item {
-                            property string name: "源语言"
+                            property string name: dsTr("Source Language")
                             property variant model: sourceLangModel
                             property string type: "src_lang"
                         }
 
                         Item {
-                            property string name: "目标源"
+                            property string name: dsTr("Target Language")
                             property variant model: destLangModel
                             property string type: "dst_lang"
                         }
 
                         Item {
-                            property string name: "单词翻译"
+                            property string name: dsTr("Word Translate")
                             property variant model: wordTranslateModel
                             property string type: "word_engine"
                         }
 
                         Item {
-                            property string name: "长句翻译"
+                            property string name: dsTr("Sentences Translate")
                             property variant model: wordsTranslateModel
                             property string type: "words_engine"
                         }
@@ -296,7 +310,7 @@ WindowFrame {
             
             DTextButton {
                 id: button
-                text: "确定"
+                text: dsTr("OK")
                 anchors.right: parent.right
                 anchors.rightMargin: 10
                 anchors.bottomMargin: 10
