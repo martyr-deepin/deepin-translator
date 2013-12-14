@@ -23,6 +23,12 @@ Row {
         anchors.verticalCenter: parent.verticalCenter 
 		font { pixelSize: 15 }
 		color: "#a0a0a0"
+
+        HoverArea {
+            target: speaker
+            
+            onClicked: speech.clicked()
+        }
     }
     
 	Text { 
@@ -30,6 +36,12 @@ Row {
         anchors.verticalCenter: parent.verticalCenter 
 		font { pixelSize: 15 }
 		color: "#5da6ce"
+
+        HoverArea {
+            target: speaker
+            
+            onClicked: speech.clicked()
+        }
 	}
 	
 	Image {
@@ -47,26 +59,10 @@ Row {
 			NumberAnimation { properties: "opacity"; duration: 350 }
 		}
 		
-		MouseArea {
-			id: mouseArea
-			anchors.fill: speaker
-            hoverEnabled: true
-			
-			onClicked: speech.clicked()
+        HoverArea {
+            target: speaker
             
-			onEntered: {
-                speaker.state = "hovered"
-                mouseArea.cursorShape = Qt.PointingHandCursor
-            }
-            
-			onExited: {
-                speaker.state = ""
-                mouseArea.cursorShape = Qt.ArrowCursor
-            }
-            
-			onReleased: { 
-                speaker.state = mouseArea.containsMouse ? "hovered" : ""
-            }
-		}
+            onClicked: speech.clicked()
+        }
 	}
 }
