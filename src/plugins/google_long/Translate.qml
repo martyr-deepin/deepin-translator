@@ -71,8 +71,10 @@ TranslateWindow {
 			if (!container.isManualStop) {
 				container.voiceIndex += 1
 				if (container.voiceIndex <= translateInfo.voices.length) {
-					audioPlayer.source = translateInfo.voices[container.voiceIndex]
-					audioPlayer.play()
+                    if (translateInfo.voices[container.voiceIndex] != undefined) {
+					    audioPlayer.source = translateInfo.voices[container.voiceIndex]
+					    audioPlayer.play()
+                    }
 				} else {
 					container.voiceIndex = 0
 				}
