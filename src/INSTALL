@@ -1,9 +1,0 @@
-You need below depends before run:
-
-    sudo apt-get install python-tesseract pyocr python-xlib python-xpyb 
-
-You need install deepin-menu if you not use Linux Deepin:
-    cd ./deepin-menu && sudo python setup.py install
-
-Then switch deepin-translate to run:
-    cd ./deepin-translator && ./main.py 
