@@ -12,8 +12,8 @@ TranslateWindow {
     
     property variant dsslocale: DLocale {
         id: dsslocale
-        domain: "deepin-translator"
         dirname: "../../../locale"
+        domain: "deepin-translator"
     }
     
     function dsTr(s){
