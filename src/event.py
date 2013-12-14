@@ -31,8 +31,8 @@ class RecordEvent(QObject):
     
     press_ctrl = pyqtSignal()
     release_ctrl = pyqtSignal()    
-    press_shift = pyqtSignal()
-    release_shift = pyqtSignal()
+    press_alt = pyqtSignal()
+    release_alt = pyqtSignal()
     
     press_esc = pyqtSignal()
 
@@ -48,7 +48,7 @@ class RecordEvent(QObject):
         QObject.__init__(self)
 
         self.press_ctrl_flag = False
-        self.press_shift_flag = False
+        self.press_alt_flag = False
 
         self.stop_timer = None
         self.stop_delay = 0.05
@@ -56,8 +56,8 @@ class RecordEvent(QObject):
         self.press_ctrl_timer = None
         self.press_ctrl_delay = 0.3
 
-        self.press_shift_timer = None
-        self.press_shift_delay = 0.3
+        self.press_alt_timer = None
+        self.press_alt_delay = 0.3
         
         self.view = view
         
@@ -76,8 +76,8 @@ class RecordEvent(QObject):
                 
                 if keyname not in ["Control_L", "Control_R"]:
                     self.try_stop_timer(self.press_ctrl_timer)
-                elif keyname not in ["Shift_L", "Shift_R"]:
-                    self.try_stop_timer(self.press_shift_timer)
+                elif keyname not in ["Alt_L", "Alt_R"]:
+                    self.try_stop_timer(self.press_alt_timer)
         
                 if keyname in ["Control_L", "Control_R"]:
                     self.press_ctrl_flag = True
@@ -86,15 +86,15 @@ class RecordEvent(QObject):
                         if not self.view.isVisible() or not self.view.in_translate_area():
                             self.press_ctrl_timer = Timer(self.press_ctrl_delay, lambda : self.press_ctrl.emit())
                             self.press_ctrl_timer.start()
-                elif keyname in ["Shift_L", "Shift_R"]:
-                    self.press_shift_flag = True
+                elif keyname in ["Alt_L", "Alt_R"]:
+                    self.press_alt_flag = True
                     
                     if not setting_config.get_trayicon_config("pause"):
                         if not self.view.isVisible() or not self.view.in_translate_area():
-                            self.press_shift_timer = Timer(self.press_shift_delay, lambda : self.press_shift.emit())
-                            self.press_shift_timer.start()
-                elif keyname in ["Shift_L", "Shift_R"]:
-                    self.press_shift_flag = True
+                            self.press_alt_timer = Timer(self.press_alt_delay, lambda : self.press_alt.emit())
+                            self.press_alt_timer.start()
+                elif keyname in ["Alt_L", "Alt_R"]:
+                    self.press_alt_flag = True
                 elif keyname in ["Escape"]:
                     self.press_esc.emit()
             elif event.type == X.KeyRelease:
@@ -102,9 +102,9 @@ class RecordEvent(QObject):
                 if keyname in ["Control_L", "Control_R"]:
                     self.press_ctrl_flag = False
                     self.release_ctrl.emit()
-                elif keyname in ["Shift_L", "Shift_R"]:
-                    self.press_shift_flag = False
-                    self.release_shift.emit()
+                elif keyname in ["Alt_L", "Alt_R"]:
+                    self.press_alt_flag = False
+                    self.release_alt.emit()
             elif event.type == X.ButtonPress:
                 if event.detail == 1:
                     self.left_button_press.emit(event.root_x, event.root_y, event.time)
@@ -115,7 +115,7 @@ class RecordEvent(QObject):
             elif event.type == X.ButtonRelease:
                 if not self.view.isVisible() or not self.view.in_translate_area():
                     if not setting_config.get_trayicon_config("pause"):
-                        if not setting_config.get_trayicon_config("key_trigger_select") or self.press_shift_flag:
+                        if not setting_config.get_trayicon_config("key_trigger_select") or self.press_alt_flag:
                             selection_content = commands.getoutput("xsel -p -o")
                             delete_selection()
                             

@@ -68,8 +68,8 @@ class SystemTrayIcon(QSystemTrayIcon):
             self.menu = Menu([
                     CheckboxMenuItem("pause", _("Pause translate"), setting_config.get_trayicon_config("pause")),
                     CheckboxMenuItem("toggle_speech", _("Voice after translate"), setting_config.get_trayicon_config("toggle_speech")),
-                    CheckboxMenuItem("key_trigger_ocr", _("Press ctrl to screen ocr"), setting_config.get_trayicon_config("key_trigger_ocr")),
-                    CheckboxMenuItem("key_trigger_select", _("Press shift to translate selection"), setting_config.get_trayicon_config("key_trigger_select")),
+                    CheckboxMenuItem("key_trigger_ocr", _("Press alt to screen ocr"), setting_config.get_trayicon_config("key_trigger_ocr")),
+                    CheckboxMenuItem("key_trigger_select", _("Press ctrl to translate selection"), setting_config.get_trayicon_config("key_trigger_select")),
                     MenuSeparator(),
                     ("settings", _("Settings")),
                     ("wizard", _("Wizard")),
