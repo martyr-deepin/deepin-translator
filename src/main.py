@@ -47,6 +47,11 @@ import constant
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
 
+def change_engine(engine_module, module_name, engine_name):
+    # We need hide view before change engine.
+    engine_module.hide_translate()
+    engine_module = imp.load_source(module_name, plugin.get_plugin_file(setting_config.get_translate_config(engine_name))).Translate()
+
 class TranslateInfo(QObject):
 
     @pyqtSlot()
@@ -69,21 +74,21 @@ class TranslateInfo(QObject):
         
         if current_word_engine not in word_engine_names:
             setting_config.update_translate_config("word_engine", word_engine_names[0])
-            translate_simple = imp.load_source("translate_simple", plugin.get_plugin_file(setting_config.get_translate_config("word_engine"))).Translate()
+            change_engine(translate_simple, "translate_simple", "word_engine")
             
         if current_words_engine not in words_engine_names:
             setting_config.update_translate_config("words_engine", words_engine_names[0])
-            translate_long = imp.load_source("translate_long", plugin.get_plugin_file(setting_config.get_translate_config("words_engine"))).Translate()
+            change_engine(translate_long, "translate_long", "words_engine")
             
     @pyqtSlot()
     def update_word_module(self):
         global translate_simple
-        translate_simple = imp.load_source("translate_simple", plugin.get_plugin_file(setting_config.get_translate_config("word_engine"))).Translate()
+        change_engine(translate_simple, "translate_simple", "word_engine")
 
     @pyqtSlot()   
     def update_words_module(self):
         global translate_long
-        translate_long = imp.load_source("translate_long", plugin.get_plugin_file(setting_config.get_translate_config("words_engine"))).Translate()
+        change_engine(translate_long, "translate_long", "words_engine")
     
 if __name__ == "__main__":
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
