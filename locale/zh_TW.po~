@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-14 14:06+0800\n"
+"POT-Creation-Date: 2013-12-14 14:28+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -39,6 +39,19 @@ msgstr "長句翻譯"
 #: ../src/SettingView.qml:313
 msgid "OK"
 msgstr "確定"
+
+#: ../src/plugins/google_long/Translate.qml:102
+#: ../src/plugins/google_simple/Translate.qml:102
+msgid "Read"
+msgstr "朗讀"
+
+#: ../src/plugins/youdao/Translate.qml:384
+msgid "[US]"
+msgstr "[美]"
+
+#: ../src/plugins/youdao/Translate.qml:395
+msgid "[UK]"
+msgstr "[英]"
 
 #: ../src/constant.py:82
 msgid "Afrikaans"
@@ -329,6 +342,7 @@ msgid "Exit"
 msgstr "退出"
 
 #: ../src/ocr.py:50
+#, python-format
 msgid "Sorry, screen ocr not support %s yet"
 msgstr "對不起， 屏幕取詞現在還不支持%s"
 

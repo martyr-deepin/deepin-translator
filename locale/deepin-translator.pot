@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-14 14:28+0800\n"
+"POT-Creation-Date: 2013-12-14 16:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,40 +17,40 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/SettingView.qml:57
+#: ../src/SettingView.qml:56
 msgid "Deepin Translator Settings"
 msgstr ""
 
-#: ../src/SettingView.qml:114
+#: ../src/SettingView.qml:113
 msgid "Source Language"
 msgstr ""
 
-#: ../src/SettingView.qml:120
+#: ../src/SettingView.qml:119
 msgid "Target Language"
 msgstr ""
 
-#: ../src/SettingView.qml:126
+#: ../src/SettingView.qml:125
 msgid "Word Translate"
 msgstr ""
 
-#: ../src/SettingView.qml:132
+#: ../src/SettingView.qml:131
 msgid "Sentences Translate"
 msgstr ""
 
-#: ../src/SettingView.qml:313
+#: ../src/SettingView.qml:312
 msgid "OK"
 msgstr ""
 
-#: ../src/plugins/google_long/Translate.qml:102
-#: ../src/plugins/google_simple/Translate.qml:102
+#: ../src/plugins/google_long/Translate.qml:103
+#: ../src/plugins/google_simple/Translate.qml:103
 msgid "Read"
 msgstr ""
 
-#: ../src/plugins/youdao/Translate.qml:384
+#: ../src/plugins/youdao/Translate.qml:383
 msgid "[US]"
 msgstr ""
 
-#: ../src/plugins/youdao/Translate.qml:395
+#: ../src/plugins/youdao/Translate.qml:394
 msgid "[UK]"
 msgstr ""
 
@@ -319,11 +319,11 @@ msgid "Voice after translate"
 msgstr ""
 
 #: ../src/system_tray.py:71
-msgid "Press ctrl to screen ocr"
+msgid "Press alt to screen ocr"
 msgstr ""
 
 #: ../src/system_tray.py:72
-msgid "Press shift to translate selection"
+msgid "Press ctrl to translate selection"
 msgstr ""
 
 #: ../src/system_tray.py:74

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-14 14:06+0800\n"
+"POT-Creation-Date: 2013-12-14 14:28+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -41,6 +41,19 @@ msgstr "Voice after translate"
 
 #: ../src/SettingView.qml:313
 msgid "OK"
+msgstr ""
+
+#: ../src/plugins/google_long/Translate.qml:102
+#: ../src/plugins/google_simple/Translate.qml:102
+msgid "Read"
+msgstr ""
+
+#: ../src/plugins/youdao/Translate.qml:384
+msgid "[US]"
+msgstr ""
+
+#: ../src/plugins/youdao/Translate.qml:395
+msgid "[UK]"
 msgstr ""
 
 #: ../src/constant.py:82

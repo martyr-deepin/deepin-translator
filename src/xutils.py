@@ -81,3 +81,8 @@ def check_valid_event(reply):
 def delete_selection():
     subprocess.Popen("xsel -c", shell=True).wait()
         
+def is_ctrl_key(keyname):
+    return keyname in ["Control_L", "Control_R"]
+
+def is_alt_key(keyname):
+    return keyname in ["Alt_L", "Alt_R"]

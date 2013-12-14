@@ -142,13 +142,13 @@ if __name__ == "__main__":
         if translate_long.isVisible() and not translate_long.in_translate_area():
             translate_long.hide_translate()
             
-    def handle_press_ctrl():
+    def handle_press_alt():
         if setting_config.get_trayicon_config("key_trigger_ocr"):
             translate_simple.translate_cursor_word()
             
     record_event = RecordEvent(translate_simple)
     record_event.press_esc.connect(hide_translate)
-    record_event.press_ctrl.connect(handle_press_ctrl)
+    record_event.press_alt.connect(handle_press_alt)
     record_event.wheel_press.connect(hide_translate)
     record_event.left_button_press.connect(hide_translate)
     record_event.right_button_press.connect(hide_translate)

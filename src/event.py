@@ -23,16 +23,16 @@
 from PyQt5.QtCore import QObject, pyqtSignal
 from Xlib import X
 from threading import Timer
-from xutils import record_event, get_keyname, check_valid_event, get_event_data, delete_selection
+from xutils import record_event, get_keyname, check_valid_event, get_event_data, delete_selection, is_ctrl_key, is_alt_key
 import commands
 from config import setting_config
 
 class RecordEvent(QObject):
     
-    press_ctrl = pyqtSignal()
-    release_ctrl = pyqtSignal()    
     press_alt = pyqtSignal()
-    release_alt = pyqtSignal()
+    release_alt = pyqtSignal()    
+    press_ctrl = pyqtSignal()
+    release_ctrl = pyqtSignal()
     
     press_esc = pyqtSignal()
 
@@ -47,17 +47,17 @@ class RecordEvent(QObject):
     def __init__(self, view):
         QObject.__init__(self)
 
-        self.press_ctrl_flag = False
         self.press_alt_flag = False
+        self.press_ctrl_flag = False
 
         self.stop_timer = None
         self.stop_delay = 0.05
         
-        self.press_ctrl_timer = None
-        self.press_ctrl_delay = 0.3
-
         self.press_alt_timer = None
         self.press_alt_delay = 0.3
+
+        self.press_ctrl_timer = None
+        self.press_ctrl_delay = 0.3
         
         self.view = view
         
@@ -74,37 +74,35 @@ class RecordEvent(QObject):
             if event.type == X.KeyPress:
                 keyname = get_keyname(event)
                 
-                if keyname not in ["Control_L", "Control_R"]:
-                    self.try_stop_timer(self.press_ctrl_timer)
-                elif keyname not in ["Alt_L", "Alt_R"]:
+                if not is_alt_key(keyname):
                     self.try_stop_timer(self.press_alt_timer)
+                elif not is_ctrl_key(keyname):
+                    self.try_stop_timer(self.press_ctrl_timer)
         
-                if keyname in ["Control_L", "Control_R"]:
-                    self.press_ctrl_flag = True
-                    
-                    if not setting_config.get_trayicon_config("pause"):
-                        if not self.view.isVisible() or not self.view.in_translate_area():
-                            self.press_ctrl_timer = Timer(self.press_ctrl_delay, lambda : self.press_ctrl.emit())
-                            self.press_ctrl_timer.start()
-                elif keyname in ["Alt_L", "Alt_R"]:
+                if is_alt_key(keyname):
                     self.press_alt_flag = True
                     
                     if not setting_config.get_trayicon_config("pause"):
                         if not self.view.isVisible() or not self.view.in_translate_area():
                             self.press_alt_timer = Timer(self.press_alt_delay, lambda : self.press_alt.emit())
                             self.press_alt_timer.start()
-                elif keyname in ["Alt_L", "Alt_R"]:
-                    self.press_alt_flag = True
+                elif is_ctrl_key(keyname):
+                    self.press_ctrl_flag = True
+                    
+                    if not setting_config.get_trayicon_config("pause"):
+                        if not self.view.isVisible() or not self.view.in_translate_area():
+                            self.press_ctrl_timer = Timer(self.press_ctrl_delay, lambda : self.press_ctrl.emit())
+                            self.press_ctrl_timer.start()
                 elif keyname in ["Escape"]:
                     self.press_esc.emit()
             elif event.type == X.KeyRelease:
                 keyname = get_keyname(event)
-                if keyname in ["Control_L", "Control_R"]:
-                    self.press_ctrl_flag = False
-                    self.release_ctrl.emit()
-                elif keyname in ["Alt_L", "Alt_R"]:
+                if is_alt_key(keyname):
                     self.press_alt_flag = False
                     self.release_alt.emit()
+                elif is_ctrl_key(keyname):
+                    self.press_ctrl_flag = False
+                    self.release_ctrl.emit()
             elif event.type == X.ButtonPress:
                 if event.detail == 1:
                     self.left_button_press.emit(event.root_x, event.root_y, event.time)
@@ -115,7 +113,7 @@ class RecordEvent(QObject):
             elif event.type == X.ButtonRelease:
                 if not self.view.isVisible() or not self.view.in_translate_area():
                     if not setting_config.get_trayicon_config("pause"):
-                        if not setting_config.get_trayicon_config("key_trigger_select") or self.press_alt_flag:
+                        if not setting_config.get_trayicon_config("key_trigger_select") or self.press_ctrl_flag:
                             selection_content = commands.getoutput("xsel -p -o")
                             delete_selection()
                             
@@ -136,7 +134,7 @@ class RecordEvent(QObject):
             timer.cancel()
                 
     def emit_cursor_stop(self, mouse_x, mouse_y):
-        if (not setting_config.get_trayicon_config("key_trigger_ocr") or self.press_ctrl_flag) and (not self.view.isVisible() or not self.view.in_translate_area()):
+        if (not setting_config.get_trayicon_config("key_trigger_ocr") or self.press_alt_flag) and (not self.view.isVisible() or not self.view.in_translate_area()):
             self.cursor_stop.emit()
                 
     def filter_event(self):
