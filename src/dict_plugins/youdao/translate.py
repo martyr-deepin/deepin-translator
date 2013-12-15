@@ -39,9 +39,7 @@ class Translate(TranslateInterface):
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
             ("keyword", str),
-            ("ukphone", str),
             ("usphone", str),
-            ("uklink", str),
             ("uslink", str),
             ("webtrans", str),                         
             ("trans", str),
@@ -70,23 +68,13 @@ class Translate(TranslateInterface):
             
         pq = PyQuery(ret, parser="xml")
         self.translate_info.keyword = text    
-        self.translate_info.ukphone = None
         self.translate_info.usphone = None
         self.translate_info.trans = None
         self.translate_info.uslink = None
-        self.translate_info.uklink = None
         
         self.translate_info.trans = '<br>'.join([PyQuery(e).text() for e in pq('trs i')])
         
-        # ukphone
-        try: self.translate_info.ukphone = pq.find('ukphone').text()
-        except: pass    
-        else: self.translate_info.uklink = voice_simple(text, 1)            
-            
-        # usphone
-        try: self.translate_info.usphone = pq.find('usphone').text()
-        except: pass    
-        else: self.translate_info.uslink = voice_simple(text, 2)
+        self.translate_info.uslink = voice_simple(text)
         
         # web translations
         self.translate_info.webtrans = "web. " + "; ".join([ PyQuery(e).text() for e in pq.find('web-translation:first')('trans value')])

@@ -92,10 +92,10 @@ TranslateWindow {
 			minWindowWidth,
             trans.paintedWidth, 
             webtrans.paintedWidth, 
-            usSpeech.getWidth() + ukSpeech.getWidth()
+            usSpeech.getWidth()
         ) + (borderMargin + container.blurRadius) * 2
         
-        var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + ukSpeech.getHeight() + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding + splitHeight
+        var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + usSpeech.getHeight() + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding + splitHeight
         
         windowView.width = maxWidth
         windowView.height = maxHeight
@@ -151,7 +151,7 @@ TranslateWindow {
     
     function autoSpeech() {
         if (settingConfig.get_trayicon_config("toggle_speech")) {
-            var speechlink = translateInfo.uslink ? translateInfo.uslink : translateInfo.uklink
+            var speechlink = translateInfo.uslink
             if (speechlink) {
 		        audioPlayer.source = speechlink
                 audioPlayer.play()
@@ -368,37 +368,17 @@ TranslateWindow {
 				}
             }
             
-		    Row {
-                id: speech
-			    spacing: 10
+			Speech { 
+                id: usSpeech
+				text: dsTr("Read")
                 anchors.left: parent.left
-                anchors.right: parent.right
 		        anchors.leftMargin: textMargin
-		        anchors.rightMargin: textMargin
-                visible: !listviewArea.visible
-			    
-			    Speech { 
-                    id: usSpeech
-                    text: translateInfo.usphone
-                    type: dsTr("[US]")
-                    
-                    onClicked: {
-                        audioPlayer.source = translateInfo.uslink
-                        audioPlayer.play()
-                    }
-                }			
                 
-			    Speech { 
-                    id: ukSpeech
-                    text: translateInfo.ukphone 
-                    type: dsTr("[UK]")
-                    
-                    onClicked: {
-                        audioPlayer.source = translateInfo.uklink
-                        audioPlayer.play()
-                    }
-                }
-		    }
+				onClicked: {
+					audioPlayer.source = translateInfo.uslink
+					audioPlayer.play()
+				}
+            }
             
             Rectangle {
                 anchors.left: parent.left

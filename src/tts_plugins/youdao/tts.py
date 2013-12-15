@@ -22,9 +22,32 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from utils import encode_params
+import requests
+from pyquery import PyQuery
 
-def get_voice(text, lang_type=2):
+VOICE_UK = 1
+VOICE_US = 2
+
+def get_voice_type(text):
+    data = { "keyfrom" : "deskdict.mini", "q" : text, "doctype" : "xml", "xmlVersion" : 8.2,
+             "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
+             "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "le" : "eng", "LTH" : 40}
+    ret = requests.get("http://dict.youdao.com/search", params=data).text
+    if isinstance(ret, unicode):
+        ret = ret.encode('utf-8')
+    pq = PyQuery(ret, parser="xml")
+    
+    try:    
+        if pq.find('usphone').text() == None:
+            return VOICE_UK
+    except: 
+        pass
+    
+    return VOICE_US
+        
+def get_voice(text):
     url = "http://dict.youdao.com/dictvoice"
     data = { "keyfrom" : "deskdict.mini.word", "audio" : text, "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
-             "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "type" : lang_type}
+             "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "type" : get_voice_type(text)}
+    
     return "%s?%s" % (url, encode_params(data))
