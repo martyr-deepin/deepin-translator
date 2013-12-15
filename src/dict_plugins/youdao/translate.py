@@ -71,6 +71,6 @@ class Translate(TranslateInterface):
         self.translate_info.voices = None
         
         self.translate_info.trans = '<br>'.join([PyQuery(e).text() for e in pq('trs i')])
-        self.translate_info.voices = voice_simple(text)
+        self.translate_info.voices = voice_simple.get_voice(text)
         self.translate_info.webtrans = "web. " + "; ".join([ PyQuery(e).text() for e in pq.find('web-translation:first')('trans value')])
         

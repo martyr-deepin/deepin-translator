@@ -26,11 +26,14 @@ from message_view import show_message
 from nls import _
 
 def get_voice(text):
+    wav_file = "/tmp/deepin-translator-svox.wav"
+    subprocess.Popen('''pico2wave -w %s %s''' % (wav_file, text), shell=True).wait()
+    return [wav_file]
+
+def check_before_voice():
     need_install_packages = get_install_packages(["libttspico-utils"])
     if len(need_install_packages) > 0:
         show_message(_("Need install svox to enable voice feature"), _("Cancel"), _("Install"), lambda : install_packages(need_install_packages))
-        return []
+        return False
     else:
-        wav_file = "/tmp/deepin-translator-svox.wav"
-        subprocess.Popen('''pico2wave -w %s %s''' % (wav_file, text), shell=True).wait()
-        return [wav_file]
+        return True

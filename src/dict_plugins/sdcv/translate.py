@@ -57,7 +57,7 @@ class Translate(TranslateInterface):
     @pyqtSlot(str)
     def get_translate(self, text):
         pipe = subprocess.Popen(["sdcv", text], stdout=subprocess.PIPE)
-        self.translate_info.voices = voice_simple(text)
+        self.translate_info.voices = voice_simple.get_voice(text)
         self.translate_info.translate = '\n'.join(pipe.communicate()[0].split("\n")[1::])
         
     @pyqtSlot()    

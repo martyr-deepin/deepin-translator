@@ -118,7 +118,7 @@ class Translate(TranslateInterface):
         
     @pyqtSlot(str)
     def get_translate(self, text):
-        self.translate_info.voices = voice_simple(text)
+        self.translate_info.voices = voice_simple.get_voice(text)
         self.translate_info.translate = self.google_translate(
             text,
             tl=setting_config.get_translate_config("dst_lang"),

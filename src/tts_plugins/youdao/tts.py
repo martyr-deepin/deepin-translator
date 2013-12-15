@@ -51,3 +51,6 @@ def get_voice(text):
              "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "type" : get_voice_type(text)}
     
     return ["%s?%s" % (url, encode_params(data))]
+
+def check_before_voice():
+    return True

@@ -29,8 +29,8 @@ from config import setting_config
 tts_plugin = TtsPlugin()
 word_voice_engine_name = setting_config.get_translate_config("word_voice_engine")
 words_voice_engine_name = setting_config.get_translate_config("words_voice_engine")
-voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_voice_engine_name)).get_voice
-voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name)).get_voice
+voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_voice_engine_name))
+voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name))
 word_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
 words_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
     
@@ -41,11 +41,11 @@ def get_tts_interface(tts_name):
 
 def update_word_voice_module():
     global voice_simple
-    voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_voice_engine_name)).get_voice
+    voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_voice_engine_name))
 
 def update_words_voice_module():
     global voice_long
-    voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name)).get_voice
+    voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name))
         
 def update_voice_with_src_lang():
     voice_engines = tts_plugin.get_voice_engines(setting_config.get_translate_config("src_lang"))

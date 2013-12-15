@@ -63,3 +63,6 @@ def google_voice(text, tl="en", encoding="UTF-8"):
                 )
     args = encode_params(data)
     return "%s?%s" % (url, args)
+
+def check_before_voice():
+    return True
