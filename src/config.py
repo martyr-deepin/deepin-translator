@@ -25,6 +25,17 @@ import os
 from xdg import get_config_file
 from deepin_utils.config import Config
 from deepin_utils.core import is_true
+from nls import LANGUAGE
+
+init_lang = LANGUAGE.replace("_", "-")
+if init_lang in ["zh-CN"]:
+    init_word_dict = "youdao"
+    init_word_voice = "youdao"
+    init_words_voice = "google"
+else:
+    init_word_dict = "google_simple"
+    init_word_voice = "google"
+    init_words_voice = "google"
 
 DEFAULT_CONFIG = [
     ("trayicon", 
@@ -34,11 +45,11 @@ DEFAULT_CONFIG = [
       ]),
     ("translate",
      [("src_lang", "en"),
-      ("dst_lang", "zh-CN"),
-      ("word_engine", "youdao"),
+      ("dst_lang", init_lang),
+      ("word_engine", init_word_dict),
       ("words_engine", "google_long"),
-      ("word_voice_engine", "youdao"),
-      ("words_voice_engine", "google"),
+      ("word_voice_engine", init_word_voice),
+      ("words_voice_engine", init_words_voice),
       ]),
     ]
 
