@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
+import Deepin.Locale 1.0
 import QtMultimedia 5.0
 import "../../../src"
 
@@ -8,6 +9,18 @@ TranslateWindow {
     
     property int scrollHeight: 200
     property int scrollWidth: 355
+    
+	property bool isManualStop: false
+    
+    property variant dsslocale: DLocale {
+        id: dsslocale
+        dirname: "../../../locale"
+        domain: "deepin-translator"
+    }
+    
+    function dsTr(s){
+        return dsslocale.dsTr(s)
+    }
     
     function showTranslate(x, y, text) {
 		mouseX = x
@@ -20,6 +33,7 @@ TranslateWindow {
 		windowView.get_translate(text)
 		
 		adjustTranslateSize()
+        autoSpeech()
     }
 	
     function adjustTranslateSize() {
@@ -37,6 +51,19 @@ TranslateWindow {
         adjustPosition()
     }    
 	
+    function autoSpeech() {
+        if (settingConfig.get_trayicon_config("toggle_speech")) {
+            if (translateInfo.voice != undefined) {
+				audioPlayer.source = translateInfo.voice
+				audioPlayer.play()
+            }
+        }
+    }
+    
+    Audio {
+        id: audioPlayer
+    }
+    
 	Rectangle {
         id: border
         radius: 6
@@ -47,26 +74,46 @@ TranslateWindow {
 		anchors.rightMargin: borderMargin
         color: Qt.rgba(0, 0, 0, 0)
         
-	    ScrollWidget {
+	    Column {
+		    spacing: 10
 		    anchors.fill: parent
 		    anchors.margins: textMargin
 		    
-		    TextEdit { 
-                id: trans
-			    text: translateInfo.translate
-			    wrapMode: TextEdit.WordWrap
-			    selectByMouse: true
-			    font { pixelSize: 14 }
-			    color: "#FFFFFF"
-				selectionColor: "#11ffffff"
-				selectedTextColor: "#5da6ce"
-                width: scrollWidth
+			Speech { 
+                id: voice
+				text: dsTr("Read")
                 
-                onTextChanged: {
-                    cursorPosition: 0
-                    cursorVislble: false
-                }
-		    }		
+				onClicked: {
+					container.isManualStop = true
+					audioPlayer.stop()
+					audioPlayer.source = translateInfo.voice
+					audioPlayer.play()
+					container.isManualStop = false
+				}
+            }
+            
+	        ScrollWidget {
+		        width: parent.width
+                height: parent.height - voice.height
+		        anchors.margins: textMargin
+		        
+		        TextEdit { 
+                    id: trans
+			        text: translateInfo.translate
+			        wrapMode: TextEdit.WordWrap
+			        selectByMouse: true
+			        font { pixelSize: 14 }
+			        color: "#FFFFFF"
+				    selectionColor: "#11ffffff"
+				    selectedTextColor: "#5da6ce"
+                    width: scrollWidth
+                    
+                    onTextChanged: {
+                        cursorPosition: 0
+                        cursorVislble: false
+                    }
+		        }		
+            }
 	    }        
 	}
 }
