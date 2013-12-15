@@ -36,9 +36,6 @@ class Translate(TranslateInterface):
     def __init__(self):
         TranslateInterface.__init__(self, os.path.join(get_parent_dir(__file__), "Translate.qml"))
         
-    def get_voice(self, text, lang):
-        return get_tts_interface("youdao")(text, lang)
-    
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
             ("keyword", str),
@@ -84,12 +81,12 @@ class Translate(TranslateInterface):
         # ukphone
         try: self.translate_info.ukphone = pq.find('ukphone').text()
         except: pass    
-        else: self.translate_info.uklink = self.get_voice(text, 1)            
+        else: self.translate_info.uklink = get_tts_interface("youdao")(text, 1)            
             
         # usphone
         try: self.translate_info.usphone = pq.find('usphone').text()
         except: pass    
-        else: self.translate_info.uslink = self.get_voice(text, 2)
+        else: self.translate_info.uslink = get_tts_interface("youdao")(text, 2)
         
         # web translations
         self.translate_info.webtrans = "web. " + "; ".join([ PyQuery(e).text() for e in pq.find('web-translation:first')('trans value')])
