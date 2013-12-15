@@ -23,13 +23,13 @@
 
 from PyQt5.QtCore import pyqtSlot
 import requests
-from utils import encode_params
 from translate_interface import TranslateInterface
 from auto_object import AutoQObject
 from models import suggestModel, historyModel
 from pyquery import PyQuery
 import os
 from deepin_utils.file import get_parent_dir
+from tts_interface import get_tts_interface
 
 class Translate(TranslateInterface):
     
@@ -37,10 +37,7 @@ class Translate(TranslateInterface):
         TranslateInterface.__init__(self, os.path.join(get_parent_dir(__file__), "Translate.qml"))
         
     def get_voice(self, text, lang):
-        url = "http://dict.youdao.com/dictvoice"
-        data = { "keyfrom" : "deskdict.mini.word", "audio" : text, "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
-                 "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "type" : lang}
-        return "%s?%s" % (url, encode_params(data))
+        return get_tts_interface("youdao")(text, lang)
     
     def init_translate_info(self):
         TranslateInfo = AutoQObject(

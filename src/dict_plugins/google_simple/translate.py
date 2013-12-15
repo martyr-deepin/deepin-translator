@@ -24,28 +24,14 @@
 from PyQt5.QtCore import pyqtSlot
 from auto_object import AutoQObject
 from translate_interface import TranslateInterface
-from utils import encode_params
 import requests
 from config import setting_config
 import os
 from deepin_utils.file import get_parent_dir
 from utils import safe_eval
 from nls import _
+from tts_interface import get_tts_interface
             
-def group(seq, size): 
-    def take(seq, n):
-        for i in xrange(n):
-            yield seq.next()
-
-    if not hasattr(seq, 'next'):  
-        seq = iter(seq)
-    while True: 
-        x = list(take(seq, size))
-        if x:
-            yield x
-        else:
-            break
-
 class Translate(TranslateInterface):
     
     def __init__(self):
@@ -129,40 +115,12 @@ class Translate(TranslateInterface):
         plist = self.parse_dummy_list(dummy_list)
         result = self.get_word_translate(plist)
         return result.decode(encoding)
-    
-    @classmethod
-    def get_google_voices(cls, text, tl="en"):
-        if not isinstance(text, unicode):
-            text = text.decode("utf-8", "ignore")
-            
-        results = []    
-        contents = group(text, 54)
-        for c in contents:
-            results.append(cls.google_voice("".join(c), tl=tl))
-        return results    
-    
-    
-    @classmethod
-    def google_voice(cls, text, tl="en", encoding="UTF-8"):
-        url = "http://translate.google.cn/translate_tts"
-        text = text.encode("utf-8", "ignore")
-        data = dict(ie=encoding,
-                    tl=tl,
-                    total=1,
-                    idx=0,
-                    textlen=len(text),
-                    prev="input",
-                    q=text
-                    )
-        args = encode_params(data)
-        return "%s?%s" % (url, args)
         
     @pyqtSlot(str)
     def get_translate(self, text):
-        self.translate_info.voices = self.get_google_voices(
-            text,
-            tl=setting_config.get_translate_config("src_lang"),
-            )
+        self.translate_info.voices = get_tts_interface("google")(
+            text, 
+            tl=setting_config.get_translate_config("src_lang"))
         self.translate_info.translate = self.google_translate(
             text,
             tl=setting_config.get_translate_config("dst_lang"),
