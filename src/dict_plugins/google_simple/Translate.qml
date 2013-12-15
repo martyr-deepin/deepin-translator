@@ -31,6 +31,7 @@ TranslateWindow {
 		windowView.get_translate(text)
 		
 		adjustTranslateSize()
+        autoSpeech()
     }
 	
     function adjustTranslateSize() {
@@ -47,6 +48,15 @@ TranslateWindow {
 		
 		adjustPosition()
     }    
+    
+    function autoSpeech() {
+        if (settingConfig.get_trayicon_config("toggle_speech")) {
+            if (translateInfo.voices[container.voiceIndex] != undefined) {
+				audioPlayer.source = translateInfo.voices[container.voiceIndex]
+				audioPlayer.play()
+            }
+        }
+    }
 	
 	function manualStopAudio() {
 		container.isManualStop = true
