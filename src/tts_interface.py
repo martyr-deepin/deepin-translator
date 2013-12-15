@@ -20,6 +20,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from PyQt5.QtCore import pyqtSlot, QObject
 import os
 import imp
 from deepin_utils.file import get_parent_dir
@@ -39,26 +40,36 @@ def get_tts_interface(tts_name):
     voice_plugin = imp.load_source("voice_plugin", path)
     return voice_plugin.get_voice
 
-def update_word_voice_module():
-    global voice_simple
-    voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_voice_engine_name))
-
-def update_words_voice_module():
-    global voice_long
-    voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name))
-        
-def update_voice_with_src_lang():
-    voice_engines = tts_plugin.get_voice_engines(setting_config.get_translate_config("src_lang"))
-    voice_engine_names = map(lambda (name, display_name): name, voice_engines)
-    word_voice_model.setAll(voice_engines)
-    words_voice_model.setAll(voice_engines)
-    current_word_voice_engine = setting_config.get_translate_config("word_voice_engine")
-    current_words_voice_engine = setting_config.get_translate_config("words_voice_engine")
-        
-    if current_word_voice_engine not in voice_engine_names:
-        setting_config.update_translate_config("word_voice_engine", voice_engine_names[0])
-        update_word_voice_module()
+class TtsInterface(QObject):
     
-    if current_words_voice_engine not in voice_engine_names:
-        setting_config.update_translate_config("words_voice_engine", voice_engine_names[0])
-        update_words_voice_module()
+    def __init__(self):
+        QObject.__init__(self)
+
+    @pyqtSlot()    
+    def update_word_voice_module(self):
+        global voice_simple
+        voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_voice_engine_name))
+    
+    @pyqtSlot()    
+    def update_words_voice_module(self):
+        global voice_long
+        voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name))
+            
+    @pyqtSlot()    
+    def update_voice_with_src_lang(self):
+        voice_engines = tts_plugin.get_voice_engines(setting_config.get_translate_config("src_lang"))
+        voice_engine_names = map(lambda (name, display_name): name, voice_engines)
+        word_voice_model.setAll(voice_engines)
+        words_voice_model.setAll(voice_engines)
+        current_word_voice_engine = setting_config.get_translate_config("word_voice_engine")
+        current_words_voice_engine = setting_config.get_translate_config("words_voice_engine")
+            
+        if current_word_voice_engine not in voice_engine_names:
+            setting_config.update_translate_config("word_voice_engine", voice_engine_names[0])
+            self.update_word_voice_module()
+        
+        if current_words_voice_engine not in voice_engine_names:
+            setting_config.update_translate_config("words_voice_engine", voice_engine_names[0])
+            self.update_words_voice_module()
+
+tts_interface = TtsInterface()

@@ -26,7 +26,6 @@ from PyQt5.QtCore import QCoreApplication
 if os.name == 'posix':
     QCoreApplication.setAttribute(QtCore.Qt.AA_X11InitThreads, True)
     
-from PyQt5.QtCore import pyqtSlot, QObject
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication
 from event import RecordEvent
@@ -35,116 +34,21 @@ from unique_service import UniqueService
 import signal
 import sys  
 import threading
-from config import setting_config
-from window import Window
-from xutils import screen_width, screen_height
-from model import LanguageModel
-from dict_plugin import DictPlugin
-import imp
 from deepin_utils.file import get_parent_dir
-from tts_interface import (update_word_voice_module, update_words_voice_module,
-                           update_voice_with_src_lang, word_voice_model, words_voice_model)
 import constant
     
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
 
-def change_engine(engine_module, module_name, engine_name):
-    # We need hide view before change engine.
-    engine_module.hide_translate()
-    engine_module = imp.load_source(module_name, dict_plugin.get_plugin_file(setting_config.get_translate_config(engine_name))).Translate()
-    
-class TranslateInfo(QObject):
-
-    @pyqtSlot(str)
-    def update_translate_engine(self, option_type):
-        if option_type in ["src_lang", "dst_lang"]:
-            global word_translate_model
-            global words_translate_model
-            
-            word_engines = dict_plugin.get_word_engines(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
-            words_engines = dict_plugin.get_words_engines(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
-            
-            word_engine_names = map(lambda (name, display_name): name, word_engines)
-            words_engine_names = map(lambda (name, display_name): name, words_engines)
-            
-            current_word_engine = setting_config.get_translate_config("word_engine")
-            current_words_engine = setting_config.get_translate_config("words_engine")
-            
-            word_translate_model.setAll(word_engines)    
-            words_translate_model.setAll(words_engines)    
-            
-            if current_word_engine not in word_engine_names:
-                setting_config.update_translate_config("word_engine", word_engine_names[0])
-                self.update_word_module()
-                
-            if current_words_engine not in words_engine_names:
-                setting_config.update_translate_config("words_engine", words_engine_names[0])
-                self.update_words_module()
-        
-        if option_type in ["src_lang"]:
-            update_voice_with_src_lang()
-            
-    @pyqtSlot()
-    def update_word_module(self):
-        global translate_simple
-        change_engine(translate_simple, "translate_simple", "word_engine")
-
-    @pyqtSlot()   
-    def update_words_module(self):
-        global translate_long
-        change_engine(translate_long, "translate_long", "words_engine")
-        
-    @pyqtSlot()    
-    def update_word_voice_module(self):
-        update_word_voice_module()
-        
-    @pyqtSlot()    
-    def update_words_voice_module(self):
-        update_words_voice_module()
-        
 if __name__ == "__main__":
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
 
     app = QApplication(sys.argv)  
-    tray_icon = SystemTrayIcon(QIcon(os.path.join(get_parent_dir(__file__), "image", "trayicon.png")), app)
-    tray_icon.show()
-    (constant.TRAYAREA_TOP, constant.TRAYAREA_BOTTOM) = tray_icon.get_trayarea()
-    
-    dict_plugin = DictPlugin()
-    
-    source_lang_model = LanguageModel()
-    dest_lang_model = LanguageModel()
-
-    word_engine_name = setting_config.get_translate_config("word_engine")
-    words_engine_name = setting_config.get_translate_config("words_engine")
-    
-    translate_simple = imp.load_source("translate_simple", dict_plugin.get_plugin_file(word_engine_name)).Translate()
-    translate_long = imp.load_source("translate_long", dict_plugin.get_plugin_file(words_engine_name)).Translate()
-    
-    word_translate_model = dict_plugin.get_word_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
-    words_translate_model = dict_plugin.get_words_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
-    
-    translate_info = TranslateInfo()
-    
-    setting_view = Window()
-    setting_view.qml_context.setContextProperty("sourceLangModel", source_lang_model)
-    setting_view.qml_context.setContextProperty("destLangModel", dest_lang_model)
-    setting_view.qml_context.setContextProperty("wordTranslateModel", word_translate_model)
-    setting_view.qml_context.setContextProperty("wordsTranslateModel", words_translate_model)
-    setting_view.qml_context.setContextProperty("wordVoiceModel", word_voice_model)
-    setting_view.qml_context.setContextProperty("wordsVoiceModel", words_voice_model)
-    setting_view.qml_context.setContextProperty("screenWidth", screen_width)
-    setting_view.qml_context.setContextProperty("screenHeight", screen_height)
-    setting_view.qml_context.setContextProperty("windowView", setting_view)
-    setting_view.qml_context.setContextProperty("settingConfig", setting_config)
-    setting_view.qml_context.setContextProperty("translateInfo", translate_info)
-    setting_view.setSource(QtCore.QUrl.fromLocalFile(os.path.join(get_parent_dir(__file__), 'SettingView.qml')))
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
-    rootObject = translate_simple.rootObject()
-    
+    from dict_interface import translate_simple, translate_long
+
     def show_translate(x, y, text):
         if len(filter(lambda word: word != "", (text.split(" ")))) > 1:
             translate_long.show_translate(x, y, text)
@@ -170,6 +74,11 @@ if __name__ == "__main__":
     record_event.translate_selection.connect(show_translate)
     record_event.cursor_stop.connect(translate_simple.translate_cursor_word)
     
+    from setting_view import SettingView
+    setting_view = SettingView()
+    tray_icon = SystemTrayIcon(QIcon(os.path.join(get_parent_dir(__file__), "image", "trayicon.png")), app)
+    tray_icon.show()
+    (constant.TRAYAREA_TOP, constant.TRAYAREA_BOTTOM) = tray_icon.get_trayarea()
     tray_icon.showSettingView.connect(setting_view.showNormal)
     
     thread = threading.Thread(target=record_event.filter_event)

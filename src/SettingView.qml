@@ -321,23 +321,24 @@ WindowFrame {
                                                     listview.currentName = settingConfig.get_translate_config(listview.type)
                                                     
                                                     if (listview.type == "src_lang") {
-                                                        translateInfo.update_translate_engine(listview.type)
+                                                        dictInterface.update_translate_engine(listview.type)
+                                                        ttsIntreface.update_voice_with_src_lang()
                                                         expandArea.wordEngine = settingConfig.get_translate_config("word_engine")
                                                         expandArea.wordsEngine = settingConfig.get_translate_config("words_engine")
                                                         expandArea.wordVoiceEngine = settingConfig.get_translate_config("word_voice_engine")
                                                         expandArea.wordsVoiceEngine = settingConfig.get_translate_config("words_voice_engine")
                                                     } else if (listview.type == "dst_lang") {
-                                                        translateInfo.update_translate_engine(listview.type)
+                                                        dictInterface.update_translate_engine(listview.type)
                                                         expandArea.wordEngine = settingConfig.get_translate_config("word_engine")
                                                         expandArea.wordsEngine = settingConfig.get_translate_config("words_engine")
                                                     } else if (listview.type == "word_engine") {
-                                                        translateInfo.update_word_module()
+                                                        dictInterface.update_word_module()
                                                     } else if (listview.type == "words_engine") {
-                                                        translateInfo.update_words_module()
+                                                        dictInterface.update_words_module()
                                                     } else if (listview.type == "word_voice_engine") {
-                                                        translateInfo.update_word_voice_module()
+                                                        ttsIntreface.update_word_voice_module()
                                                     } else if (listview.type == "words_voice_engine") {
-                                                        translateInfo.update_words_voice_module()
+                                                        ttsIntreface.update_words_voice_module()
                                                     }
                                                 }
                                             }

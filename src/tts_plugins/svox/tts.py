@@ -27,7 +27,7 @@ from nls import _
 
 def get_voice(text):
     wav_file = "/tmp/deepin-translator-svox.wav"
-    subprocess.Popen('''pico2wave -w %s %s''' % (wav_file, text), shell=True).wait()
+    subprocess.Popen(["pico2wave", "-w", wav_file, text]).wait()
     return [wav_file]
 
 def check_before_voice():
