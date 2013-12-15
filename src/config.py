@@ -31,7 +31,7 @@ init_lang = LANGUAGE.replace("_", "-")
 if init_lang in ["zh-CN"]:
     init_word_dict = "youdao"
     init_word_voice = "youdao"
-    init_words_voice = "youdao"
+    init_words_voice = "google"
 else:
     init_word_dict = "google_simple"
     init_word_voice = "google"
