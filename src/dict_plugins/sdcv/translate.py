@@ -30,7 +30,7 @@ from message_view import show_message
 from pkg_manager import get_install_packages, install_packages
 from deepin_utils.file import get_parent_dir
 from nls import _
-from tts_interface import voice_simple
+from tts_interface import get_voice_simple
 
 class Translate(TranslateWindow):
     
@@ -57,7 +57,7 @@ class Translate(TranslateWindow):
     @pyqtSlot(str)
     def get_translate(self, text):
         pipe = subprocess.Popen(["sdcv", text], stdout=subprocess.PIPE)
-        self.translate_info.voices = voice_simple.get_voice(text)
+        self.translate_info.voices = get_voice_simple(text)
         self.translate_info.translate = '\n'.join(pipe.communicate()[0].split("\n")[1::])
         
     @pyqtSlot()    

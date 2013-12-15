@@ -28,7 +28,6 @@ if os.name == 'posix':
     
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication
-from event import RecordEvent
 from system_tray import SystemTrayIcon
 from unique_service import UniqueService
 import signal
@@ -47,32 +46,50 @@ if __name__ == "__main__":
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
-    from dict_interface import translate_simple, translate_long
+    from dict_interface import get_translate_simple, get_translate_long
 
     def show_translate(x, y, text):
         if len(filter(lambda word: word != "", (text.split(" ")))) > 1:
-            translate_long.show_translate(x, y, text)
+            translate_long = get_translate_long()
+            if translate_long:
+                translate_long.show_translate(x, y, text)
         else:
-            translate_simple.show_translate(x, y, text)
+            translate_simple = get_translate_simple()
+            if translate_simple:
+                translate_simple.show_translate(x, y, text)
             
     def hide_translate():
-        if translate_simple.isVisible() and not translate_simple.in_translate_area():
-            translate_simple.hide_translate()
+        translate_simple = get_translate_simple()
+        if translate_simple:
+            if translate_simple.isVisible() and not translate_simple.in_translate_area():
+                translate_simple.hide_translate()
 
-        if translate_long.isVisible() and not translate_long.in_translate_area():
-            translate_long.hide_translate()
+        translate_long = get_translate_long()
+        if translate_long:
+            if translate_long.isVisible() and not translate_long.in_translate_area():
+                translate_long.hide_translate()
             
     def handle_press_alt():
-        translate_simple.translate_cursor_word()
+        translate_simple = get_translate_simple()
+        if translate_simple:
+            translate_simple.translate_cursor_word()
             
-    record_event = RecordEvent(translate_simple)
-    record_event.press_esc.connect(hide_translate)
-    record_event.press_alt.connect(handle_press_alt)
-    record_event.wheel_press.connect(hide_translate)
-    record_event.left_button_press.connect(hide_translate)
-    record_event.right_button_press.connect(hide_translate)
-    record_event.translate_selection.connect(show_translate)
-    record_event.cursor_stop.connect(translate_simple.translate_cursor_word)
+    def translate_cursor_word():
+        translate_simple = get_translate_simple()
+        if translate_simple:
+            translate_simple.translate_cursor_word()
+            
+    from record_event import RecordEvent
+    from event_handler import EventHandler
+    
+    event_handler = EventHandler()
+    event_handler.press_esc.connect(hide_translate)
+    event_handler.press_alt.connect(handle_press_alt)
+    event_handler.wheel_press.connect(hide_translate)
+    event_handler.left_button_press.connect(hide_translate)
+    event_handler.right_button_press.connect(hide_translate)
+    event_handler.translate_selection.connect(show_translate)
+    event_handler.cursor_stop.connect(translate_cursor_word)
     
     from setting_view import SettingView
     setting_view = SettingView()
@@ -81,8 +98,11 @@ if __name__ == "__main__":
     (constant.TRAYAREA_TOP, constant.TRAYAREA_BOTTOM) = tray_icon.get_trayarea()
     tray_icon.showSettingView.connect(setting_view.showNormal)
     
+    record_event = RecordEvent()
     thread = threading.Thread(target=record_event.filter_event)
     thread.setDaemon(True)
     thread.start()
+    
+    record_event.capture_event.connect(event_handler.handle_event)
 
     sys.exit(app.exec_())

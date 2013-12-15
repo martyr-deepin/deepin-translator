@@ -30,7 +30,7 @@ import os
 from deepin_utils.file import get_parent_dir
 from utils import safe_eval
 from nls import _
-from tts_interface import voice_simple
+from tts_interface import get_voice_simple
             
 class Translate(TranslateWindow):
     
@@ -118,7 +118,7 @@ class Translate(TranslateWindow):
         
     @pyqtSlot(str)
     def get_translate(self, text):
-        self.translate_info.voices = voice_simple.get_voice(text)
+        self.translate_info.voices = get_voice_simple(text)
         self.translate_info.translate = self.google_translate(
             text,
             tl=setting_config.get_translate_config("dst_lang"),

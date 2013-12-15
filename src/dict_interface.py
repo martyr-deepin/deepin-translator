@@ -25,6 +25,7 @@ from dict_plugin import DictPlugin
 from model import LanguageModel
 import imp
 from config import setting_config
+from deepin_utils.net import is_network_connected
 
 dict_plugin = DictPlugin()
 
@@ -40,6 +41,39 @@ translate_long = imp.load_source("translate_long", dict_plugin.get_plugin_file(w
 word_translate_model = dict_plugin.get_word_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
 words_translate_model = dict_plugin.get_words_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
 
+def get_translate_local_simple():
+    word_engines = dict_plugin.get_word_engines(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"), False)
+    word_engine_names = map(lambda (name, display_name): name, word_engines)
+    if len(word_engine_names) > 0:
+        local_simple = imp.load_source("local_simple", dict_plugin.get_plugin_file(word_engine_names[0])).Translate()
+        return local_simple
+    else:
+        return None
+
+def get_translate_local_long():
+    words_engines = dict_plugin.get_words_engines(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"), False)
+    words_engine_names = map(lambda (name, display_name): name, words_engines)
+    if len(words_engine_names) > 0:
+        local_long = imp.load_source("local_long", dict_plugin.get_plugin_file(words_engine_names[0])).Translate()
+        return local_long
+    else:
+        return None
+
+translate_local_simple = get_translate_local_simple()
+translate_local_long = get_translate_local_long()
+
+def get_translate_simple():
+    if is_network_connected():
+        return translate_simple
+    else:
+        return translate_local_simple
+
+def get_translate_long():
+    if is_network_connected():
+        return translate_long
+    else:
+        return translate_local_long
+
 class DictInterface(QObject):
     
     def __init__(self):
@@ -49,6 +83,8 @@ class DictInterface(QObject):
     def update_translate_engine(self, option_type):
         global word_translate_model
         global words_translate_model
+        global translate_local_simple
+        global translate_local_long
         
         word_engines = dict_plugin.get_word_engines(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
         words_engines = dict_plugin.get_words_engines(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
@@ -69,6 +105,9 @@ class DictInterface(QObject):
         if current_words_engine not in words_engine_names:
             setting_config.update_translate_config("words_engine", words_engine_names[0])
             self.update_words_module()
+            
+        translate_local_simple = get_translate_local_simple()
+        translate_local_long = get_translate_local_long()
             
     @pyqtSlot()
     def update_word_module(self):

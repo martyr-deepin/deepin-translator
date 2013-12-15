@@ -52,19 +52,21 @@ class DictPlugin(QObject):
         self.words_model = Model(self.get_words_engines(src_lang, dst_lang))
         return self.words_model
     
-    def get_word_engines(self, src_lang, dst_lang):
+    def get_word_engines(self, src_lang, dst_lang, connected=True):
         engine_list = []
         if self.word_dict.has_key(src_lang) and self.word_dict[src_lang].has_key(dst_lang):
             engine_list = self.word_dict[src_lang][dst_lang]
             
-        return engine_list + self.word_all_list
+        return map(lambda (name, display_name, need_network): (name, display_name), 
+                   filter(lambda (name, display_name, need_network): need_network == connected, engine_list + self.word_all_list))
     
-    def get_words_engines(self, src_lang, dst_lang):
+    def get_words_engines(self, src_lang, dst_lang, connected=True):
         engine_list = []
         if self.words_dict.has_key(src_lang) and self.words_dict[src_lang].has_key(dst_lang):
             engine_list = self.words_dict[src_lang][dst_lang]
 
-        return engine_list + self.words_all_list    
+        return map(lambda (name, display_name, need_network): (name, display_name), 
+                   filter(lambda (name, display_name, need_network): need_network == connected, engine_list + self.words_all_list))
 
     def scan_plugin_info(self):
         self.word_all_list = []
@@ -85,26 +87,27 @@ class DictPlugin(QObject):
             two_way_translate = is_true(plugin_config.get("Language Info", "two_way_translate"))
             src_language = plugin_config.get("Language Info", "src_language")
             dst_language = plugin_config.get("Language Info", "dst_language")
+            need_network = is_true(plugin_config.get("Language Info", "need_network"))
             
             if is_support_word:
                 if support_all_language:
-                    self.word_all_list.append((plugin_name, plugin_display_name))
+                    self.word_all_list.append((plugin_name, plugin_display_name, need_network))
                 else:
-                    self.update_dict(self.word_dict, src_language, dst_language, plugin_name, plugin_display_name)
+                    self.update_dict(self.word_dict, src_language, dst_language, plugin_name, plugin_display_name, need_network)
                     
                     if two_way_translate:
-                        self.update_dict(self.word_dict, dst_language, src_language, plugin_name, plugin_display_name)    
+                        self.update_dict(self.word_dict, dst_language, src_language, plugin_name, plugin_display_name, need_network)    
                         
             if is_support_words:
                 if support_all_language:
-                    self.words_all_list.append((plugin_name, plugin_display_name))
+                    self.words_all_list.append((plugin_name, plugin_display_name, need_network))
                 else:
-                    self.update_dict(self.words_dict, src_language, dst_language, plugin_name, plugin_display_name)
+                    self.update_dict(self.words_dict, src_language, dst_language, plugin_name, plugin_display_name, need_network)
                     
                     if two_way_translate:
-                        self.update_dict(self.words_dict, dst_language, src_language, plugin_name, plugin_display_name)    
+                        self.update_dict(self.words_dict, dst_language, src_language, plugin_name, plugin_display_name, need_network)    
                         
-    def update_dict(self, info_dict, first_key, second_key, plugin_name, plugin_display_name):
+    def update_dict(self, info_dict, first_key, second_key, plugin_name, plugin_display_name, need_network):
         if not info_dict.has_key(first_key):
             info_dict[first_key] = {}
             
@@ -112,4 +115,4 @@ class DictPlugin(QObject):
             info_dict[first_key][second_key] = []
             
         info_list = info_dict[first_key][second_key]
-        info_list.append((plugin_name, plugin_display_name))    
+        info_list.append((plugin_name, plugin_display_name, need_network))    

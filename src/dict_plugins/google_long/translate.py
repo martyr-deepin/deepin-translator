@@ -29,7 +29,7 @@ from config import setting_config
 import os
 from deepin_utils.file import get_parent_dir
 from utils import safe_eval
-from tts_interface import voice_long
+from tts_interface import get_voice_long
 
 class Translate(TranslateWindow):
     
@@ -98,7 +98,7 @@ class Translate(TranslateWindow):
         
     @pyqtSlot(str)
     def get_translate(self, text):
-        self.translate_info.voices = voice_long.get_voice(text)
+        self.translate_info.voices = get_voice_long(text)
         self.translate_info.translate = self.google_translate(
             text,
             tl=setting_config.get_translate_config("dst_lang"),

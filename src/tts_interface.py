@@ -24,6 +24,7 @@ from PyQt5.QtCore import pyqtSlot, QObject
 import imp
 from tts_plugin import TtsPlugin
 from config import setting_config
+from deepin_utils.net import is_network_connected
 
 tts_plugin = TtsPlugin()
 word_voice_engine_name = setting_config.get_translate_config("word_voice_engine")
@@ -32,6 +33,24 @@ voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_v
 voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name))
 word_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
 words_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
+
+def get_voice(text, voice):
+    if is_network_connected():
+        return voice.get_voice(text)
+    else:
+        voice_engines = tts_plugin.get_voice_engines(setting_config.get_translate_config("src_lang"), False)
+        voice_engine_names = map(lambda (name, display_name): name, voice_engines)
+        if len(voice_engine_names) > 0:
+            local_simple = imp.load_source("local_simple", tts_plugin.get_plugin_file(voice_engine_names[0]))
+            return local_simple.get_voice(text)
+        else:
+            return []
+        
+def get_voice_simple(text):
+    return get_voice(text, voice_simple)
+
+def get_voice_long(text):
+    return get_voice(text, voice_long)
     
 class TtsInterface(QObject):
     

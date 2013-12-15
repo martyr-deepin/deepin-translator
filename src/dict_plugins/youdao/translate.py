@@ -29,7 +29,7 @@ from models import suggestModel, historyModel
 from pyquery import PyQuery
 import os
 from deepin_utils.file import get_parent_dir
-from tts_interface import voice_simple
+from tts_interface import get_voice_simple
 
 class Translate(TranslateWindow):
     
@@ -71,6 +71,6 @@ class Translate(TranslateWindow):
         self.translate_info.voices = None
         
         self.translate_info.trans = '<br>'.join([PyQuery(e).text() for e in pq('trs i')])
-        self.translate_info.voices = voice_simple.get_voice(text)
+        self.translate_info.voices = get_voice_simple(text)
         self.translate_info.webtrans = "web. " + "; ".join([ PyQuery(e).text() for e in pq.find('web-translation:first')('trans value')])
         
