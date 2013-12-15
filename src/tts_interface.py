@@ -21,9 +21,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtCore import pyqtSlot, QObject
-import os
 import imp
-from deepin_utils.file import get_parent_dir
 from tts_plugin import TtsPlugin
 from config import setting_config
 
@@ -35,11 +33,6 @@ voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voic
 word_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
 words_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
     
-def get_tts_interface(tts_name):
-    path = os.path.join(get_parent_dir(__file__), "tts_plugins", tts_name, "tts.py")
-    voice_plugin = imp.load_source("voice_plugin", path)
-    return voice_plugin.get_voice
-
 class TtsInterface(QObject):
     
     def __init__(self):
