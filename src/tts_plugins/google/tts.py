@@ -22,6 +22,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from utils import encode_params
+from config import setting_config
 
 def group(seq, size): 
     def take(seq, n):
@@ -37,7 +38,9 @@ def group(seq, size):
         else:
             break
         
-def get_voice(text, tl="en"):
+def get_voice(text):
+    tl = setting_config.get_translate_config("src_lang")
+    
     if not isinstance(text, unicode):
         text = text.decode("utf-8", "ignore")
         
