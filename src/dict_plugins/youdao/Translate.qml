@@ -57,6 +57,20 @@ TranslateWindow {
 		}
 	}
 	
+	Connections {
+		target: windowView
+		onVisibleChanged: {
+			if (!arg) {
+                speechPlayer.stopAudio()
+			}
+		}
+	}
+    
+    Player {
+        id: speechPlayer
+        voices: translateInfo.voices
+    }
+	
     function showTranslate(x, y, text) {
 		mouseX = x
 		mouseY = y
@@ -71,7 +85,7 @@ TranslateWindow {
 		itemHighlight.visible = false
 		
         adjustTranslateSize()
-        autoSpeech()
+        speechPlayer.autoplayAudio()
     }
 	
 	function handleAccepted(text) {
@@ -148,20 +162,6 @@ TranslateWindow {
 		    adjustPosition()		
 		}
 	}
-    
-    function autoSpeech() {
-        if (settingConfig.get_trayicon_config("toggle_speech")) {
-            var speechlink = translateInfo.uslink
-            if (speechlink) {
-		        audioPlayer.source = speechlink
-                audioPlayer.play()
-            }
-        }
-    }
-	
-    Audio {
-        id: audioPlayer
-    }
     
 	Rectangle {
         id: border
@@ -375,8 +375,7 @@ TranslateWindow {
 		        anchors.leftMargin: textMargin
                 
 				onClicked: {
-					audioPlayer.source = translateInfo.uslink
-					audioPlayer.play()
+                    speechPlayer.playAudio()
 				}
             }
             

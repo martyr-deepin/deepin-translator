@@ -117,7 +117,7 @@ def ocr_word(mouse_x, mouse_y):
         ((left_x, left_y), (right_x, right_y)) = word_box.position
         if (left_x <= cursor_x <= right_x and left_y <= cursor_y <= right_y):
             word = filter_punctuation(word_box.content)
-            print "'%s'" % word
+            # print "'%s'" % word
             # Return None if ocr word is space string.
             if word.isspace():
                 return None

@@ -7,9 +7,6 @@ import "../../../src"
 TranslateWindow {
 	id: container
     
-	property int voiceIndex: 0
-	property bool isManualStop: false
-    
     property variant dsslocale: DLocale {
         id: dsslocale
         dirname: "../../../locale"
@@ -48,41 +45,20 @@ TranslateWindow {
 		adjustPosition()
     }    
 	
-	function manualStopAudio() {
-		container.isManualStop = true
-		container.voiceIndex = 0
-		audioPlayer.stop()
-		container.isManualStop = false
-	}
-	
 	Connections {
 		target: windowView
 		onVisibleChanged: {
 			if (!arg) {
-				manualStopAudio()
+                speechPlayer.stopAudio()
 			}
 		}
 	}
-	
-	
-    Audio {
-        id: audioPlayer
-		onStopped: {
-			if (!container.isManualStop) {
-				container.voiceIndex += 1
-				if (container.voiceIndex <= translateInfo.voices.length) {
-                    if (translateInfo.voices[container.voiceIndex] != undefined) {
-					    audioPlayer.source = translateInfo.voices[container.voiceIndex]
-					    audioPlayer.play()
-                    }
-				} else {
-					container.voiceIndex = 0
-				}
-
-			}
-		}
+    
+    Player {
+        id: speechPlayer
+        voices: translateInfo.voices
     }
-	    
+	
 	Rectangle {
         id: border
         radius: 6
@@ -104,12 +80,7 @@ TranslateWindow {
 				visible: translateInfo.voices.length > 0
                 
 				onClicked: {
-					container.isManualStop = true
-					container.voiceIndex = 0
-					audioPlayer.stop()
-					audioPlayer.source = translateInfo.voices[container.voiceIndex]
-					audioPlayer.play()
-					container.isManualStop = false
+                    speechPlayer.playAudio()
 				}
             }
 

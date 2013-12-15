@@ -33,7 +33,7 @@ TranslateWindow {
 		windowView.get_translate(text)
 		
 		adjustTranslateSize()
-        autoSpeech()
+        speechPlayer.autoplayAudio()
     }
 	
     function adjustTranslateSize() {
@@ -50,20 +50,21 @@ TranslateWindow {
 		
         adjustPosition()
     }    
+    
+	Connections {
+		target: windowView
+		onVisibleChanged: {
+			if (!arg) {
+                speechPlayer.stopAudio()
+			}
+		}
+	}
+    
+    Player {
+        id: speechPlayer
+        voices: translateInfo.voices
+    }
 	
-    function autoSpeech() {
-        if (settingConfig.get_trayicon_config("toggle_speech")) {
-            if (translateInfo.voice != undefined) {
-				audioPlayer.source = translateInfo.voice
-				audioPlayer.play()
-            }
-        }
-    }
-    
-    Audio {
-        id: audioPlayer
-    }
-    
 	Rectangle {
         id: border
         radius: 6
@@ -84,11 +85,7 @@ TranslateWindow {
 				text: dsTr("Read")
                 
 				onClicked: {
-					container.isManualStop = true
-					audioPlayer.stop()
-					audioPlayer.source = translateInfo.voice
-					audioPlayer.play()
-					container.isManualStop = false
+                    speechPlayer.playAudio()
 				}
             }
             

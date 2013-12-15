@@ -41,7 +41,7 @@ class Translate(TranslateInterface):
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
             ("translate", str),
-            ("voice", str),
+            ("voices", 'QVariant'),
             ("fixed", str),
           name="TranslateInfo")
         self.translate_info = TranslateInfo()        
@@ -57,7 +57,7 @@ class Translate(TranslateInterface):
     @pyqtSlot(str)
     def get_translate(self, text):
         pipe = subprocess.Popen(["sdcv", text], stdout=subprocess.PIPE)
-        self.translate_info.voice = voice_simple(text)
+        self.translate_info.voices = voice_simple(text)
         self.translate_info.translate = '\n'.join(pipe.communicate()[0].split("\n")[1::])
         
     @pyqtSlot()    

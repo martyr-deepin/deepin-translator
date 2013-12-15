@@ -39,8 +39,7 @@ class Translate(TranslateInterface):
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
             ("keyword", str),
-            ("usphone", str),
-            ("uslink", str),
+            ("voices", 'QVariant'),
             ("webtrans", str),                         
             ("trans", str),
             ("weba", str),
@@ -68,14 +67,10 @@ class Translate(TranslateInterface):
             
         pq = PyQuery(ret, parser="xml")
         self.translate_info.keyword = text    
-        self.translate_info.usphone = None
         self.translate_info.trans = None
-        self.translate_info.uslink = None
+        self.translate_info.voices = None
         
         self.translate_info.trans = '<br>'.join([PyQuery(e).text() for e in pq('trs i')])
-        
-        self.translate_info.uslink = voice_simple(text)
-        
-        # web translations
+        self.translate_info.voices = voice_simple(text)
         self.translate_info.webtrans = "web. " + "; ".join([ PyQuery(e).text() for e in pq.find('web-translation:first')('trans value')])
         

@@ -50,4 +50,4 @@ def get_voice(text):
     data = { "keyfrom" : "deskdict.mini.word", "audio" : text, "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
              "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "type" : get_voice_type(text)}
     
-    return "%s?%s" % (url, encode_params(data))
+    return ["%s?%s" % (url, encode_params(data))]
