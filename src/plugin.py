@@ -35,7 +35,7 @@ class Plugin(QObject):
         
         self.plugin_config_name = "config.ini"
         self.plugin_module_name = "translate.py"
-        self.plugin_dir = os.path.join(get_parent_dir(__file__), "plugins")
+        self.plugin_dir = os.path.join(get_parent_dir(__file__), "dict_plugins")
         
         self.scan_plugin_info()
         

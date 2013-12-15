@@ -257,7 +257,7 @@ WindowFrame {
                                                     
                                                     Component.onCompleted: {
                                                         if (listview.type == "word_engine" || listview.type == "words_engine") {
-                                                            source = "plugins/" + name + "/icon.png"
+                                                            source = "dict_plugins/" + name + "/icon.png"
                                                         } else {
                                                             source = ""
                                                         }
