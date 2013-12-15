@@ -32,7 +32,7 @@ from config import setting_config
 from deepin_utils.file import get_parent_dir
 from tts_interface import voice_simple, voice_long
 
-class TranslateInterface(QQuickView):
+class TranslateWindow(QQuickView):
 
     hided = QtCore.pyqtSignal()
     

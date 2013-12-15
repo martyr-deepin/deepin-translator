@@ -23,7 +23,7 @@
 
 from PyQt5.QtCore import pyqtSlot
 import requests
-from translate_interface import TranslateInterface
+from translate_window import TranslateWindow
 from auto_object import AutoQObject
 from models import suggestModel, historyModel
 from pyquery import PyQuery
@@ -31,10 +31,10 @@ import os
 from deepin_utils.file import get_parent_dir
 from tts_interface import voice_simple
 
-class Translate(TranslateInterface):
+class Translate(TranslateWindow):
     
     def __init__(self):
-        TranslateInterface.__init__(self, os.path.join(get_parent_dir(__file__), "Translate.qml"))
+        TranslateWindow.__init__(self, os.path.join(get_parent_dir(__file__), "Translate.qml"))
         
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
