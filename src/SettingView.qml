@@ -9,7 +9,7 @@ WindowFrame {
     id: window
     
     property int defaultWidth: 350
-    property int defaultHeight: 255
+    property int defaultHeight: 320
     property int expandAreaHeight: 127
     property int listHeight: 240
     property int itemHeight: 30
@@ -86,6 +86,8 @@ WindowFrame {
                 property int expandItemIndexHistory: -1
                 property string wordEngine: ""
                 property string wordsEngine: ""
+                property string wordVoiceEngine: ""
+                property string wordsVoiceEngine: ""
                 property string srcLang: ""
                 property string dstLang: ""
                 
@@ -130,9 +132,21 @@ WindowFrame {
                         }
 
                         Item {
+                            property string name: dsTr("Word Voice")
+                            property variant model: wordVoiceModel
+                            property string type: "word_voice_engine"
+                        }
+
+                        Item {
                             property string name: dsTr("Sentences Translate")
                             property variant model: wordsTranslateModel
                             property string type: "words_engine"
+                        }
+
+                        Item {
+                            property string name: dsTr("Sentences Voice")
+                            property variant model: wordVoiceModel
+                            property string type: "words_voice_engine"
                         }
                     }
                     
@@ -205,6 +219,24 @@ WindowFrame {
                                                 }
                                             }
                                         }
+
+                                        Connections {
+                                            target: expandArea
+                                            onWordVoiceEngineChanged: {
+                                                if (listview.type == "word_voice_engine") {
+                                                    listview.currentName = settingConfig.get_translate_config(listview.type)
+                                                }
+                                            }
+                                        }
+                                        
+                                        Connections {
+                                            target: expandArea
+                                            onWordsVoiceEngineChanged: {
+                                                if (listview.type == "words_voice_engine") {
+                                                    listview.currentName = settingConfig.get_translate_config(listview.type)
+                                                }
+                                            }
+                                        }
                                         
                                         Connections {
                                             target: expandArea
@@ -253,11 +285,13 @@ WindowFrame {
                                                 Image {
                                                     id: iconImage
                                                     anchors.verticalCenter: parent.verticalCenter
-                                                    visible: listview.type == "word_engine" || listview.type == "words_engine"
+                                                    visible: ["src_lang", "dst_lang"].indexOf(listview.type) < 0
                                                     
                                                     Component.onCompleted: {
-                                                        if (listview.type == "word_engine" || listview.type == "words_engine") {
+                                                        if (["word_engine", "words_engine"].indexOf(listview.type) >= 0) {
                                                             source = "dict_plugins/" + name + "/icon.png"
+                                                        } else if (["word_voice_engine", "words_voice_engine"].indexOf(listview.type) >= 0) {
+                                                            source = "tts_plugins/" + name + "/icon.png"
                                                         } else {
                                                             source = ""
                                                         }
@@ -287,17 +321,23 @@ WindowFrame {
                                                     listview.currentName = settingConfig.get_translate_config(listview.type)
                                                     
                                                     if (listview.type == "src_lang") {
-                                                        translateInfo.update_translate_engine()
+                                                        translateInfo.update_translate_engine(listview.type)
                                                         expandArea.wordEngine = settingConfig.get_translate_config("word_engine")
                                                         expandArea.wordsEngine = settingConfig.get_translate_config("words_engine")
+                                                        expandArea.wordVoiceEngine = settingConfig.get_translate_config("word_voice_engine")
+                                                        expandArea.wordsVoiceEngine = settingConfig.get_translate_config("words_voice_engine")
                                                     } else if (listview.type == "dst_lang") {
-                                                        translateInfo.update_translate_engine()
+                                                        translateInfo.update_translate_engine(listview.type)
                                                         expandArea.wordEngine = settingConfig.get_translate_config("word_engine")
                                                         expandArea.wordsEngine = settingConfig.get_translate_config("words_engine")
                                                     } else if (listview.type == "word_engine") {
                                                         translateInfo.update_word_module()
                                                     } else if (listview.type == "words_engine") {
                                                         translateInfo.update_words_module()
+                                                    } else if (listview.type == "word_voice_engine") {
+                                                        translateInfo.update_word_voice_module()
+                                                    } else if (listview.type == "words_voice_engine") {
+                                                        translateInfo.update_words_voice_module()
                                                     }
                                                 }
                                             }

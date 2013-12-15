@@ -29,12 +29,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="336"/>
+        <location filename="../src/SettingView.qml" line="139"/>
+        <source>Word Voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingView.qml" line="145"/>
+        <source>Sentences Voice</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingView.qml" line="348"/>
         <source>Reverse translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="354"/>
+        <location filename="../src/SettingView.qml" line="366"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>

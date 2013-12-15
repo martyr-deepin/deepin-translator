@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-15 14:34+0800\n"
+"POT-Creation-Date: 2013-12-15 16:16+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -21,43 +21,53 @@ msgstr ""
 msgid "Deepin Translator Settings"
 msgstr ""
 
-#: ../src/SettingView.qml:113
+#: ../src/SettingView.qml:115
 msgid "Source Language"
 msgstr ""
 
-#: ../src/SettingView.qml:119
+#: ../src/SettingView.qml:121
 msgid "Target Language"
 msgstr ""
 
-#: ../src/SettingView.qml:125
+#: ../src/SettingView.qml:127
 #, fuzzy
 msgid "Word Translate"
 msgstr "Voice after translate"
 
-#: ../src/SettingView.qml:131
+#: ../src/SettingView.qml:133
 #, fuzzy
 msgid "Sentences Translate"
 msgstr "Voice after translate"
 
-#: ../src/SettingView.qml:316
+#: ../src/SettingView.qml:139
+msgid "Word Voice"
+msgstr ""
+
+#: ../src/SettingView.qml:145
+#, fuzzy
+msgid "Sentences Voice"
+msgstr "Voice after translate"
+
+#: ../src/SettingView.qml:348
 #, fuzzy
 msgid "Reverse translation"
 msgstr "Pause translate"
 
-#: ../src/SettingView.qml:325
+#: ../src/SettingView.qml:366
 msgid "OK"
 msgstr ""
 
-#: ../src/plugins/google_long/Translate.qml:103
-#: ../src/plugins/google_simple/Translate.qml:103
+#: ../src/dict_plugins/google_long/Translate.qml:103
+#: ../src/dict_plugins/google_simple/Translate.qml:113
+#: ../src/dict_plugins/sdcv/Translate.qml:84
 msgid "Read"
 msgstr ""
 
-#: ../src/plugins/youdao/Translate.qml:383
+#: ../src/dict_plugins/youdao/Translate.qml:383
 msgid "[US]"
 msgstr ""
 
-#: ../src/plugins/youdao/Translate.qml:394
+#: ../src/dict_plugins/youdao/Translate.qml:394
 msgid "[UK]"
 msgstr ""
 
@@ -317,32 +327,32 @@ msgstr "Yiddish"
 msgid "Chinese"
 msgstr "Chinese"
 
-#: ../src/system_tray.py:68 ../src/system_tray.py:69
+#: ../src/system_tray.py:69
 msgid "Pause translate"
 msgstr "Pause translate"
 
-#: ../src/system_tray.py:70 ../src/system_tray.py:71
+#: ../src/system_tray.py:71
 msgid "Voice after translate"
 msgstr "Voice after translate"
 
-#: ../src/system_tray.py:72 ../src/system_tray.py:73
+#: ../src/system_tray.py:73
 #, fuzzy
 msgid "Press ctrl to translate selection"
 msgstr "Press shift to translate selection"
 
-#: ../src/system_tray.py:75 ../src/system_tray.py:78
+#: ../src/system_tray.py:78
 msgid "Settings"
 msgstr "Settings"
 
-#: ../src/system_tray.py:76 ../src/system_tray.py:79
+#: ../src/system_tray.py:79
 msgid "Wizard"
 msgstr "Wizard"
 
-#: ../src/system_tray.py:77 ../src/system_tray.py:80
+#: ../src/system_tray.py:80
 msgid "About"
 msgstr "About"
 
-#: ../src/system_tray.py:79 ../src/system_tray.py:82
+#: ../src/system_tray.py:82
 msgid "Exit"
 msgstr "Exit"
 
@@ -351,8 +361,8 @@ msgstr "Exit"
 msgid "Sorry, screen ocr not support %s yet"
 msgstr "Sorry, screen ocr not support %s yet"
 
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/plugins/sdcv/translate.py:50
-#: ../src/dict_plugins/sdcv/translate.py:52 ../src/tts_plugins/svox/tts.py:31
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:52
+#: ../src/tts_plugins/svox/tts.py:31
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -364,17 +374,15 @@ msgstr "Ok, I know"
 msgid "Need install OCR package to enable translate feature"
 msgstr "Need install OCR package to enable translate feature"
 
-#: ../src/ocr.py:62 ../src/plugins/sdcv/translate.py:50
-#: ../src/dict_plugins/sdcv/translate.py:52 ../src/tts_plugins/svox/tts.py:31
+#: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:52
+#: ../src/tts_plugins/svox/tts.py:31
 msgid "Install"
 msgstr "Install"
 
-#: ../src/plugins/google_simple/translate.py:109
 #: ../src/dict_plugins/google_simple/translate.py:95
 msgid "Translate failed"
 msgstr "Translate failed"
 
-#: ../src/plugins/sdcv/translate.py:50
 #: ../src/dict_plugins/sdcv/translate.py:52
 msgid "Need install sdcv package to enable translate feature"
 msgstr "Need install sdcv package to enable translate feature"

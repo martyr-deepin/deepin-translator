@@ -37,6 +37,8 @@ DEFAULT_CONFIG = [
       ("dst_lang", "zh-CN"),
       ("word_engine", "youdao"),
       ("words_engine", "google_long"),
+      ("word_voice_engine", "youdao"),
+      ("words_voice_engine", "google"),
       ]),
     ]
 

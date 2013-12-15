@@ -28,7 +28,7 @@ from deepin_utils.core import is_true
 import locale
 from deepin_utils.file import get_parent_dir
 
-class Plugin(QObject):
+class DictPlugin(QObject):
     
     def __init__(self):
         QObject.__init__(self)
