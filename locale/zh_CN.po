@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-15 16:16+0800\n"
+"POT-Creation-Date: 2013-12-15 18:45+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -21,51 +21,44 @@ msgstr ""
 msgid "Deepin Translator Settings"
 msgstr "深度系统设置"
 
-#: ../src/SettingView.qml:115
+#: ../src/SettingView.qml:117
 msgid "Source Language"
 msgstr "源语言"
 
-#: ../src/SettingView.qml:121
+#: ../src/SettingView.qml:123
 msgid "Target Language"
 msgstr "目标语言"
 
-#: ../src/SettingView.qml:127
+#: ../src/SettingView.qml:129
 msgid "Word Translate"
 msgstr "单词翻译"
 
-#: ../src/SettingView.qml:133
+#: ../src/SettingView.qml:141
 msgid "Sentences Translate"
 msgstr "长句翻译"
 
-#: ../src/SettingView.qml:139
+#: ../src/SettingView.qml:135
 msgid "Word Voice"
 msgstr "单词发音"
 
-#: ../src/SettingView.qml:145
+#: ../src/SettingView.qml:147
 msgid "Sentences Voice"
 msgstr "长句发音"
 
-#: ../src/SettingView.qml:348
+#: ../src/SettingView.qml:376
 msgid "Reverse translation"
 msgstr "反向翻译"
 
-#: ../src/SettingView.qml:366
+#: ../src/SettingView.qml:394
 msgid "OK"
 msgstr "确定"
 
 #: ../src/dict_plugins/google_long/Translate.qml:103
 #: ../src/dict_plugins/google_simple/Translate.qml:113
 #: ../src/dict_plugins/sdcv/Translate.qml:84
+#: ../src/dict_plugins/youdao/Translate.qml:373
 msgid "Read"
 msgstr "朗读"
-
-#: ../src/dict_plugins/youdao/Translate.qml:383
-msgid "[US]"
-msgstr "[美]"
-
-#: ../src/dict_plugins/youdao/Translate.qml:394
-msgid "[UK]"
-msgstr "[英]"
 
 #: ../src/constant.py:82
 msgid "Afrikaans"
@@ -320,8 +313,12 @@ msgid "Yiddish"
 msgstr "意第绪语"
 
 #: ../src/constant.py:145
-msgid "Chinese"
-msgstr "汉语"
+msgid "Chinese Simplified"
+msgstr "简体中文"
+
+#: ../src/constant.py:146
+msgid "Chinese Traditional"
+msgstr "繁体中文"
 
 #: ../src/system_tray.py:69
 msgid "Pause translate"
@@ -385,6 +382,15 @@ msgstr "需要安装星际译王以开启翻译"
 #: ../src/tts_plugins/svox/tts.py:31
 msgid "Need install svox to enable voice feature"
 msgstr "需要安装SVOX语音引擎以开启翻译"
+
+#~ msgid "[US]"
+#~ msgstr "[美]"
+
+#~ msgid "[UK]"
+#~ msgstr "[英]"
+
+#~ msgid "Chinese"
+#~ msgstr "汉语"
 
 #~ msgid "Press alt to screen ocr"
 #~ msgstr "按Alt键屏幕取词"

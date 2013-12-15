@@ -9,42 +9,42 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="115"/>
+        <location filename="../src/SettingView.qml" line="117"/>
         <source>Source Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="121"/>
+        <location filename="../src/SettingView.qml" line="123"/>
         <source>Target Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="127"/>
+        <location filename="../src/SettingView.qml" line="129"/>
         <source>Word Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="133"/>
+        <location filename="../src/SettingView.qml" line="141"/>
         <source>Sentences Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="139"/>
+        <location filename="../src/SettingView.qml" line="135"/>
         <source>Word Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="145"/>
+        <location filename="../src/SettingView.qml" line="147"/>
         <source>Sentences Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="348"/>
+        <location filename="../src/SettingView.qml" line="376"/>
         <source>Reverse translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="366"/>
+        <location filename="../src/SettingView.qml" line="394"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
@@ -55,17 +55,8 @@
         <location filename="../src/dict_plugins/google_long/Translate.qml" line="103"/>
         <location filename="../src/dict_plugins/google_simple/Translate.qml" line="113"/>
         <location filename="../src/dict_plugins/sdcv/Translate.qml" line="84"/>
+        <location filename="../src/dict_plugins/youdao/Translate.qml" line="373"/>
         <source>Read</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/dict_plugins/youdao/Translate.qml" line="383"/>
-        <source>[US]</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/dict_plugins/youdao/Translate.qml" line="394"/>
-        <source>[UK]</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

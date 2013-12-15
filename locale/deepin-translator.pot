@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-15 16:16+0800\n"
+"POT-Creation-Date: 2013-12-15 18:45+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,50 +21,43 @@ msgstr ""
 msgid "Deepin Translator Settings"
 msgstr ""
 
-#: ../src/SettingView.qml:115
+#: ../src/SettingView.qml:117
 msgid "Source Language"
 msgstr ""
 
-#: ../src/SettingView.qml:121
+#: ../src/SettingView.qml:123
 msgid "Target Language"
 msgstr ""
 
-#: ../src/SettingView.qml:127
+#: ../src/SettingView.qml:129
 msgid "Word Translate"
 msgstr ""
 
-#: ../src/SettingView.qml:133
+#: ../src/SettingView.qml:141
 msgid "Sentences Translate"
 msgstr ""
 
-#: ../src/SettingView.qml:139
+#: ../src/SettingView.qml:135
 msgid "Word Voice"
 msgstr ""
 
-#: ../src/SettingView.qml:145
+#: ../src/SettingView.qml:147
 msgid "Sentences Voice"
 msgstr ""
 
-#: ../src/SettingView.qml:348
+#: ../src/SettingView.qml:376
 msgid "Reverse translation"
 msgstr ""
 
-#: ../src/SettingView.qml:366
+#: ../src/SettingView.qml:394
 msgid "OK"
 msgstr ""
 
 #: ../src/dict_plugins/google_long/Translate.qml:103
 #: ../src/dict_plugins/google_simple/Translate.qml:113
 #: ../src/dict_plugins/sdcv/Translate.qml:84
+#: ../src/dict_plugins/youdao/Translate.qml:373
 msgid "Read"
-msgstr ""
-
-#: ../src/dict_plugins/youdao/Translate.qml:383
-msgid "[US]"
-msgstr ""
-
-#: ../src/dict_plugins/youdao/Translate.qml:394
-msgid "[UK]"
 msgstr ""
 
 #: ../src/constant.py:82
@@ -320,7 +313,11 @@ msgid "Yiddish"
 msgstr ""
 
 #: ../src/constant.py:145
-msgid "Chinese"
+msgid "Chinese Simplified"
+msgstr ""
+
+#: ../src/constant.py:146
+msgid "Chinese Traditional"
 msgstr ""
 
 #: ../src/system_tray.py:69
