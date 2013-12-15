@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-14 16:04+0800\n"
+"POT-Creation-Date: 2013-12-14 23:21+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -37,7 +37,11 @@ msgstr "单词翻译"
 msgid "Sentences Translate"
 msgstr "长句翻译"
 
-#: ../src/SettingView.qml:312
+#: ../src/SettingView.qml:316
+msgid "Reverse translation"
+msgstr "反向翻译"
+
+#: ../src/SettingView.qml:325
 msgid "OK"
 msgstr "确定"
 
@@ -310,7 +314,7 @@ msgstr "意第绪语"
 msgid "Chinese"
 msgstr "汉语"
 
-#: ../src/system_tray.py:69
+#: ../src/system_tray.py:68
 msgid "Pause translate"
 msgstr "暂停翻译"
 
@@ -318,48 +322,44 @@ msgstr "暂停翻译"
 msgid "Voice after translate"
 msgstr "取词后发音"
 
-#: ../src/system_tray.py:71
-msgid "Press alt to screen ocr"
-msgstr "按Alt键屏幕取词"
-
 #: ../src/system_tray.py:72
 msgid "Press ctrl to translate selection"
 msgstr "按Ctrl键翻译选区"
 
-#: ../src/system_tray.py:74
+#: ../src/system_tray.py:75
 msgid "Settings"
 msgstr "设置"
 
-#: ../src/system_tray.py:75
+#: ../src/system_tray.py:76
 msgid "Wizard"
 msgstr "向导"
 
-#: ../src/system_tray.py:76
+#: ../src/system_tray.py:77
 msgid "About"
 msgstr "关于"
 
-#: ../src/system_tray.py:78
+#: ../src/system_tray.py:79
 msgid "Exit"
 msgstr "退出"
 
-#: ../src/ocr.py:50
+#: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, screen ocr not support %s yet"
 msgstr "对不起， 屏幕取词现在还不支持%s"
 
-#: ../src/ocr.py:50 ../src/ocr.py:57 ../src/plugins/sdcv/translate.py:50
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/plugins/sdcv/translate.py:50
 msgid "Cancel"
 msgstr "取消"
 
-#: ../src/ocr.py:50
+#: ../src/ocr.py:55
 msgid "Ok, I know"
 msgstr "我知道了"
 
-#: ../src/ocr.py:57
+#: ../src/ocr.py:62
 msgid "Need install OCR package to enable translate feature"
 msgstr "需要安装取词库以开启翻译"
 
-#: ../src/ocr.py:57 ../src/plugins/sdcv/translate.py:50
+#: ../src/ocr.py:62 ../src/plugins/sdcv/translate.py:50
 msgid "Install"
 msgstr "安装"
 
@@ -370,3 +370,6 @@ msgstr "翻译失败"
 #: ../src/plugins/sdcv/translate.py:50
 msgid "Need install sdcv package to enable translate feature"
 msgstr "需要安装星际译王以开启翻译"
+
+#~ msgid "Press alt to screen ocr"
+#~ msgstr "按Alt键屏幕取词"

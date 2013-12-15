@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-14 23:21+0800\n"
+"POT-Creation-Date: 2013-12-15 14:34+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -317,32 +317,32 @@ msgstr "Yiddish"
 msgid "Chinese"
 msgstr "Chinese"
 
-#: ../src/system_tray.py:68
+#: ../src/system_tray.py:68 ../src/system_tray.py:69
 msgid "Pause translate"
 msgstr "Pause translate"
 
-#: ../src/system_tray.py:70
+#: ../src/system_tray.py:70 ../src/system_tray.py:71
 msgid "Voice after translate"
 msgstr "Voice after translate"
 
-#: ../src/system_tray.py:72
+#: ../src/system_tray.py:72 ../src/system_tray.py:73
 #, fuzzy
 msgid "Press ctrl to translate selection"
 msgstr "Press shift to translate selection"
 
-#: ../src/system_tray.py:75
+#: ../src/system_tray.py:75 ../src/system_tray.py:78
 msgid "Settings"
 msgstr "Settings"
 
-#: ../src/system_tray.py:76
+#: ../src/system_tray.py:76 ../src/system_tray.py:79
 msgid "Wizard"
 msgstr "Wizard"
 
-#: ../src/system_tray.py:77
+#: ../src/system_tray.py:77 ../src/system_tray.py:80
 msgid "About"
 msgstr "About"
 
-#: ../src/system_tray.py:79
+#: ../src/system_tray.py:79 ../src/system_tray.py:82
 msgid "Exit"
 msgstr "Exit"
 
@@ -352,6 +352,7 @@ msgid "Sorry, screen ocr not support %s yet"
 msgstr "Sorry, screen ocr not support %s yet"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/plugins/sdcv/translate.py:50
+#: ../src/dict_plugins/sdcv/translate.py:52 ../src/tts_plugins/svox/tts.py:31
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -364,15 +365,23 @@ msgid "Need install OCR package to enable translate feature"
 msgstr "Need install OCR package to enable translate feature"
 
 #: ../src/ocr.py:62 ../src/plugins/sdcv/translate.py:50
+#: ../src/dict_plugins/sdcv/translate.py:52 ../src/tts_plugins/svox/tts.py:31
 msgid "Install"
 msgstr "Install"
 
 #: ../src/plugins/google_simple/translate.py:109
+#: ../src/dict_plugins/google_simple/translate.py:95
 msgid "Translate failed"
 msgstr "Translate failed"
 
 #: ../src/plugins/sdcv/translate.py:50
+#: ../src/dict_plugins/sdcv/translate.py:52
 msgid "Need install sdcv package to enable translate feature"
+msgstr "Need install sdcv package to enable translate feature"
+
+#: ../src/tts_plugins/svox/tts.py:31
+#, fuzzy
+msgid "Need install svox to enable voice feature"
 msgstr "Need install sdcv package to enable translate feature"
 
 #, fuzzy
