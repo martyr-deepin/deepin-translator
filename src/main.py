@@ -40,9 +40,10 @@ from window import Window
 from xutils import screen_width, screen_height
 from model import LanguageModel
 from dict_plugin import DictPlugin
-from tts_plugin import TtsPlugin
 import imp
 from deepin_utils.file import get_parent_dir
+from tts_interface import (update_word_voice_module, update_words_voice_module,
+                           update_voice_with_src_lang, word_voice_model, words_voice_model)
 import constant
     
 APP_DBUS_NAME = "com.deepin.ocr"    
@@ -60,8 +61,6 @@ class TranslateInfo(QObject):
         if option_type in ["src_lang", "dst_lang"]:
             global word_translate_model
             global words_translate_model
-            global word_voice_model
-            global words_voice_model
             
             word_engines = dict_plugin.get_word_engines(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
             words_engines = dict_plugin.get_words_engines(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
@@ -84,20 +83,7 @@ class TranslateInfo(QObject):
                 self.update_words_module()
         
         if option_type in ["src_lang"]:
-            voice_engines = tts_plugin.get_voice_engines(setting_config.get_translate_config("src_lang"))
-            voice_engine_names = map(lambda (name, display_name): name, voice_engines)
-            word_voice_model.setAll(voice_engines)
-            words_voice_model.setAll(voice_engines)
-            current_word_voice_engine = setting_config.get_translate_config("word_voice_engine")
-            current_words_voice_engine = setting_config.get_translate_config("words_voice_engine")
-                
-            if current_word_voice_engine not in voice_engine_names:
-                setting_config.update_translate_config("word_voice_engine", voice_engine_names[0])
-                self.update_word_voice_module()
-            
-            if current_words_voice_engine not in voice_engine_names:
-                setting_config.update_translate_config("words_voice_engine", voice_engine_names[0])
-                self.update_words_voice_module()
+            update_voice_with_src_lang()
             
     @pyqtSlot()
     def update_word_module(self):
@@ -111,13 +97,11 @@ class TranslateInfo(QObject):
         
     @pyqtSlot()    
     def update_word_voice_module(self):
-        global voice_simple
-        voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_voice_engine_name)).get_voice
-
+        update_word_voice_module()
+        
     @pyqtSlot()    
     def update_words_voice_module(self):
-        global voice_long
-        voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name)).get_voice
+        update_words_voice_module()
         
 if __name__ == "__main__":
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
@@ -128,25 +112,18 @@ if __name__ == "__main__":
     (constant.TRAYAREA_TOP, constant.TRAYAREA_BOTTOM) = tray_icon.get_trayarea()
     
     dict_plugin = DictPlugin()
-    tts_plugin = TtsPlugin()
     
     source_lang_model = LanguageModel()
     dest_lang_model = LanguageModel()
 
     word_engine_name = setting_config.get_translate_config("word_engine")
     words_engine_name = setting_config.get_translate_config("words_engine")
-    word_voice_engine_name = setting_config.get_translate_config("word_voice_engine")
-    words_voice_engine_name = setting_config.get_translate_config("words_voice_engine")
     
     translate_simple = imp.load_source("translate_simple", dict_plugin.get_plugin_file(word_engine_name)).Translate()
     translate_long = imp.load_source("translate_long", dict_plugin.get_plugin_file(words_engine_name)).Translate()
-    voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_voice_engine_name)).get_voice
-    voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name)).get_voice
     
     word_translate_model = dict_plugin.get_word_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
     words_translate_model = dict_plugin.get_words_model(setting_config.get_translate_config("src_lang"), setting_config.get_translate_config("dst_lang"))
-    word_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
-    words_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
     
     translate_info = TranslateInfo()
     
@@ -156,7 +133,7 @@ if __name__ == "__main__":
     setting_view.qml_context.setContextProperty("wordTranslateModel", word_translate_model)
     setting_view.qml_context.setContextProperty("wordsTranslateModel", words_translate_model)
     setting_view.qml_context.setContextProperty("wordVoiceModel", word_voice_model)
-    setting_view.qml_context.setContextProperty("wordsVoiceModel", word_voice_model)
+    setting_view.qml_context.setContextProperty("wordsVoiceModel", words_voice_model)
     setting_view.qml_context.setContextProperty("screenWidth", screen_width)
     setting_view.qml_context.setContextProperty("screenHeight", screen_height)
     setting_view.qml_context.setContextProperty("windowView", setting_view)

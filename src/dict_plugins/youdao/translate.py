@@ -29,7 +29,7 @@ from models import suggestModel, historyModel
 from pyquery import PyQuery
 import os
 from deepin_utils.file import get_parent_dir
-from tts_interface import get_tts_interface
+from tts_interface import voice_simple
 
 class Translate(TranslateInterface):
     
@@ -81,12 +81,12 @@ class Translate(TranslateInterface):
         # ukphone
         try: self.translate_info.ukphone = pq.find('ukphone').text()
         except: pass    
-        else: self.translate_info.uklink = get_tts_interface("youdao")(text, 1)            
+        else: self.translate_info.uklink = voice_simple(text, 1)            
             
         # usphone
         try: self.translate_info.usphone = pq.find('usphone').text()
         except: pass    
-        else: self.translate_info.uslink = get_tts_interface("youdao")(text, 2)
+        else: self.translate_info.uslink = voice_simple(text, 2)
         
         # web translations
         self.translate_info.webtrans = "web. " + "; ".join([ PyQuery(e).text() for e in pq.find('web-translation:first')('trans value')])

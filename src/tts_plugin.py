@@ -25,8 +25,8 @@ import os
 from model import Model
 from deepin_utils.config import Config
 from deepin_utils.core import is_true
-import locale
 from deepin_utils.file import get_parent_dir
+from nls import LANGUAGE
 
 class TtsPlugin(QObject):
     
@@ -68,7 +68,7 @@ class TtsPlugin(QObject):
             plugin_config = Config(plugin_config_file)
             plugin_config.load()
             
-            language = locale.getlocale()[0].replace("_", "-")
+            language = LANGUAGE.replace("_", "-")
             plugin_display_name = plugin_config.get("Plugin Info", "name[%s]" % language) or plugin_config.get("Plugin Info", "name[en]")
             
             need_network = is_true(plugin_config.get("Voice Info", "need_network"))
