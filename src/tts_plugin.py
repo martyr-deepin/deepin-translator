@@ -44,13 +44,10 @@ class TtsPlugin(QObject):
     
     def get_voice_engines(self, src_lang):
         engine_list = []
-        if self.network_dict.has_key(src_lang):
-            engine_list += self.network_dict[src_lang]
+        if self.engine_dict.has_key(src_lang):
+            engine_list += self.engine_dict[src_lang]
             
-        if self.local_dict.has_key(src_lang):
-            engine_list += self.local_dict[src_lang]
-            
-        voice_list = engine_list + self.network_all_list + self.local_all_list
+        voice_list = engine_list + self.engine_list
         voice_list = sorted(voice_list, key=lambda (name, display_name, priority): priority, reverse=True)
         
         return map(lambda (name, display_name, priority): (name, display_name), voice_list)
@@ -61,10 +58,8 @@ class TtsPlugin(QObject):
         return self.voice_model
     
     def scan_plugin_info(self):
-        self.network_all_list = []
-        self.local_all_list = []
-        self.network_dict = {}
-        self.local_dict = {}
+        self.engine_list = []
+        self.engine_dict = {}
         
         for plugin_name in os.listdir(self.plugin_dir):
             plugin_config_file = os.path.join(self.plugin_dir, plugin_name, self.plugin_config_name)
@@ -74,7 +69,6 @@ class TtsPlugin(QObject):
             language = LANGUAGE.replace("_", "-")
             plugin_display_name = plugin_config.get("Plugin Info", "name[%s]" % language) or plugin_config.get("Plugin Info", "name[en]")
             
-            need_network = is_true(plugin_config.get("Voice Info", "need_network"))
             support_all_language = is_true(plugin_config.get("Voice Info", "support_all_language"))
             support_languages_info = plugin_config.get("Voice Info", "support_languages")
             priority = plugin_config.get("Voice Info", "priority")
@@ -83,16 +77,10 @@ class TtsPlugin(QObject):
             else:
                 support_languages = support_languages_info.split(",")
                 
-            if need_network:
-                if support_all_language:
-                    self.network_all_list.append((plugin_name, plugin_display_name, priority))
-                else:
-                    self.update_dict(self.network_dict, support_languages, plugin_name, plugin_display_name, priority)
+            if support_all_language:
+                self.engine_list.append((plugin_name, plugin_display_name, priority))
             else:
-                if support_all_language:
-                    self.local_all_list.append((plugin_name, plugin_display_name, priority))
-                else:
-                    self.update_dict(self.local_dict, support_languages, plugin_name, plugin_display_name, priority)
+                self.update_dict(self.engine_dict, support_languages, plugin_name, plugin_display_name, priority)
 
         # import pprint            
         # pp = pprint.PrettyPrinter()
