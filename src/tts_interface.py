@@ -20,14 +20,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import sys
 import os
 import imp
 from deepin_utils.file import get_parent_dir
 
 def get_tts_interface(tts_name):
     path = os.path.join(get_parent_dir(__file__), "tts_plugins", tts_name, "tts.py")
-    sys.path.insert(0, path)
     voice_plugin = imp.load_source("voice_plugin", path)
-    sys.path = sys.path[1:]
     return voice_plugin.get_voice
