@@ -73,7 +73,7 @@ class SystemTrayIcon(QSystemTrayIcon):
                     CheckboxMenuItem("key_trigger_select", _("Press ctrl to translate selection"), 
                                      setting_config.get_trayicon_config("key_trigger_select")),
                     MenuSeparator(),
-                    ("lang", (dict(LANGUAGES))[setting_config.get_translate_config("src_lang")] + " -> " + (dict(LANGUAGES))[setting_config.get_translate_config("dst_lang")]),
+                    CheckboxMenuItem("lang", (dict(LANGUAGES))[setting_config.get_translate_config("src_lang")] + " -> " + (dict(LANGUAGES))[setting_config.get_translate_config("dst_lang")], showCheckmark=False),
                     MenuSeparator(),
                     ("settings", _("Settings")),
                     ("wizard", _("Wizard")),
