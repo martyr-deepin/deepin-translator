@@ -79,6 +79,7 @@ class EventHandler(QObject):
         
     @pyqtSlot("QVariant")    
     def handle_event(self, event):
+        print "*****************"
         if event.type == X.KeyPress:
             keyname = get_keyname(event)
             
@@ -91,6 +92,7 @@ class EventHandler(QObject):
                 self.press_alt_flag = True
                 
                 if not setting_config.get_trayicon_config("pause"):
+                    print "Press alt", not self.is_view_visible() or not self.is_cursor_in_view_area()
                     if not self.is_view_visible() or not self.is_cursor_in_view_area():
                         self.press_alt_timer = Timer(self.press_alt_delay, lambda : self.press_alt.emit())
                         self.press_alt_timer.start()
@@ -98,6 +100,7 @@ class EventHandler(QObject):
                 self.press_ctrl_flag = True
                 
                 if not setting_config.get_trayicon_config("pause"):
+                    print "Press ctrl", not self.is_view_visible() or not self.is_cursor_in_view_area()
                     if not self.is_view_visible() or not self.is_cursor_in_view_area():
                         self.press_ctrl_timer = Timer(self.press_ctrl_delay, lambda : self.press_ctrl.emit())
                         self.press_ctrl_timer.start()
@@ -119,6 +122,7 @@ class EventHandler(QObject):
             elif event.detail == 5:
                 self.wheel_press.emit()
         elif event.type == X.ButtonRelease:
+            print "Button release", not self.is_view_visible() or not self.is_cursor_in_view_area()
             if not self.is_view_visible() or not self.is_cursor_in_view_area():
                 if not setting_config.get_trayicon_config("pause"):
                     if not setting_config.get_trayicon_config("key_trigger_select") or self.press_ctrl_flag:

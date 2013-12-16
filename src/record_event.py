@@ -37,6 +37,7 @@ class RecordEvent(QObject):
         while len(data):
             event, data = get_event_data(data)
             self.capture_event.emit(event)
+            print "########### ", event
             
     def filter_event(self):
         record_event(self.record_callback)
