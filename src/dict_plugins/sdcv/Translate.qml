@@ -89,27 +89,54 @@ TranslateWindow {
 				}
             }
             
-	        ScrollWidget {
+	        Rectangle {
 		        width: parent.width
                 height: parent.height - voice.height
 		        anchors.margins: textMargin
-		        
-		        TextEdit { 
-                    id: trans
-			        text: translateInfo.translate
-			        wrapMode: TextEdit.WordWrap
-			        selectByMouse: true
-			        font { pixelSize: 14 }
-			        color: "#FFFFFF"
-				    selectionColor: "#11ffffff"
-				    selectedTextColor: "#5da6ce"
-                    width: scrollWidth
-                    
-                    onTextChanged: {
-                        cursorPosition: 0
-                        cursorVislble: false
+                color: "transparent"
+                
+                Flickable {
+                    id: flick
+
+                    width: parent.width; 
+                    height: parent.height;
+                    contentWidth: trans.paintedWidth
+                    contentHeight: trans.paintedHeight
+                    clip: true
+
+                    function ensureVisible(r)
+                    {
+                        if (contentX >= r.x)
+                        contentX = r.x;
+                        else if (contentX+width <= r.x+r.width)
+                        contentX = r.x+r.width-width;
+                        if (contentY >= r.y)
+                        contentY = r.y;
+                        else if (contentY+height <= r.y+r.height)
+                        contentY = r.y+r.height-height;
                     }
-		        }		
+
+		            TextEdit { 
+                        id: trans
+			            text: translateInfo.translate
+			            wrapMode: TextEdit.WordWrap
+			            selectByMouse: true
+			            font { pixelSize: 14 }
+			            color: "#FFFFFF"
+				        selectionColor: "#11ffffff"
+				        selectedTextColor: "#5da6ce"
+                        width: scrollWidth
+                        
+                        onTextChanged: {
+                            cursorPosition: 0
+                            cursorVislble: false
+                        }
+		            }
+                }
+                
+                Scrollbar {
+                    flickable: flick
+                }
             }
 	    }        
 	}

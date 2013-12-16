@@ -200,9 +200,10 @@ WindowFrame {
                             
                             content.sourceComponent: Component {
                                 id: wordsContent
-                                ScrollWidget {
+                                Rectangle {
                                     width: parent.width
                                     height: listHeight
+                                    color: "transparent"
                                     
                                     ListView {
                                         id: listview
@@ -378,6 +379,10 @@ WindowFrame {
                                         highlightMoveDuration: 200
 				                        focus: true
 				                        interactive: true
+                                    }
+                                    
+                                    Scrollbar {
+                                        flickable: listview
                                     }
                                 }
                             }
