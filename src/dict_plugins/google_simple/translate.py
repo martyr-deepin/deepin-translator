@@ -60,7 +60,7 @@ class Translate(TranslateWindow):
             try:
                 title = word_list[0]
                 content = ";".join(word_list[1])
-                return "%s: %s" % (title, content)
+                return "%s:  %s" % (title, content)
             except:
                 return None
         
@@ -114,7 +114,7 @@ class Translate(TranslateWindow):
         dummy_list = requests.get(url, params=data).text
         plist = self.parse_dummy_list(dummy_list)
         result = self.get_word_translate(plist)
-        return result.decode(encoding)
+        return result.decode(encoding).strip()
         
     @pyqtSlot(str)
     def get_translate(self, text):

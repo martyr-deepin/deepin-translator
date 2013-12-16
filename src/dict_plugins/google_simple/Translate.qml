@@ -32,8 +32,8 @@ TranslateWindow {
     }
 	
     function adjustTranslateSize() {
-		var maxWidth = trans.paintedWidth + (borderMargin + textMargin + container.blurRadius) * 2
-        var maxHeight = trans.paintedHeight + voice.height + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 
+		var maxWidth = Math.max(100, trans.paintedWidth) + (borderMargin + container.blurRadius) * 2
+        var maxHeight = trans.paintedHeight + voice.height + cornerHeight + (borderMargin + container.blurRadius) * 2 
         
         windowView.width = maxWidth
         windowView.height = maxHeight
@@ -89,7 +89,7 @@ TranslateWindow {
                 id: trans
 			    text: translateInfo.translate
                 textFormat: TextEdit.RichText
-			    wrapMode: TextEdit.Wrap
+			    wrapMode: TextEdit.WordWrap
 			    selectByMouse: true
 			    font { pixelSize: 12 }
 			    color: "#FFFFFF"
