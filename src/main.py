@@ -97,9 +97,16 @@ if __name__ == "__main__":
     (constant.TRAYAREA_TOP, constant.TRAYAREA_BOTTOM) = tray_icon.get_trayarea()
     tray_icon.showSettingView.connect(setting_view.showNormal)
     
-    record_event = RecordEvent()
-    record_event.start()
+    def test_start(*args):
+        print "Start ", args
+        
+    def test_finish(*args):
+        print "Finish ", args
     
+    record_event = RecordEvent()
+    record_event.started.connect(test_start)
+    record_event.finished.connect(test_start)
     record_event.capture_event.connect(event_handler.handle_event)
+    record_event.start()
 
     sys.exit(app.exec_())

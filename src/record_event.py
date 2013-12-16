@@ -20,17 +20,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from PyQt5.QtCore import QObject, pyqtSignal
+from PyQt5.QtCore import pyqtSignal, QThread
 from xutils import get_event_data, record_event, check_valid_event
-import threading
 
-class RecordEvent(QObject, threading.Thread):
+class RecordEvent(QThread):
     
     capture_event = pyqtSignal("QVariant")
     
-    def __init__(self, parent=None):
-        QObject.__init__(self, parent)
-        self.setDaemon(True)
+    def __init__(self):
+        QThread.__init__(self)
         
     def record_callback(self, reply):
         check_valid_event(reply)
