@@ -5,23 +5,24 @@ WindowFrame {
     id: window
     
     property int defaultWidth: 300
-    property int defaultHeight: 150
+    property int defaultHeight: 140
+    property int paddingX: 30
+    property int paddingY: 60
     
     property alias messageText: messageText
     property alias cancelText: cancelText
     property alias confirmText: confirmText
     
-    Component.onCompleted: {
-        windowView.width = defaultWidth
-        windowView.height = defaultHeight
-        windowView.x = (screenWidth - defaultWidth) / 2
-        windowView.y = (screenHeight - defaultHeight) / 2
-    }
-    
     function showMessage(message, cancel, confirm) {
         messageText.text = message
         cancelText.text = cancel
         confirmText.text = confirm
+        
+        windowView.width = Math.max(defaultWidth, messageText.paintedWidth + paddingX * 2)
+        windowView.height = Math.max(defaultHeight, messageText.paintedHeight + paddingY * 2)
+        windowView.x = (screenWidth - defaultWidth) / 2
+        windowView.y = (screenHeight - defaultHeight) / 2
+        
         windowView.showNormal()
     }
     
