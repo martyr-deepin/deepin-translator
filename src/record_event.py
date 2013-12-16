@@ -22,13 +22,15 @@
 
 from PyQt5.QtCore import QObject, pyqtSignal
 from xutils import get_event_data, record_event, check_valid_event
+import threading
 
-class RecordEvent(QObject):
+class RecordEvent(QObject, threading.Thread):
     
     capture_event = pyqtSignal("QVariant")
     
-    def __init__(self):
-        QObject.__init__(self)
+    def __init__(self, parent=None):
+        QObject.__init__(self, parent)
+        self.setDaemon(True)
         
     def record_callback(self, reply):
         check_valid_event(reply)
@@ -39,5 +41,5 @@ class RecordEvent(QObject):
             self.capture_event.emit(event)
             print "########### ", event
             
-    def filter_event(self):
+    def run(self):
         record_event(self.record_callback)

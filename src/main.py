@@ -98,9 +98,7 @@ if __name__ == "__main__":
     tray_icon.showSettingView.connect(setting_view.showNormal)
     
     record_event = RecordEvent()
-    thread = threading.Thread(target=record_event.filter_event)
-    thread.setDaemon(True)
-    thread.start()
+    record_event.start()
     
     record_event.capture_event.connect(event_handler.handle_event)
 
