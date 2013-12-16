@@ -31,7 +31,6 @@ from PyQt5.QtWidgets import QApplication
 from unique_service import UniqueService
 import signal
 import sys  
-import threading
 from deepin_utils.file import get_parent_dir
 import constant
     
@@ -97,15 +96,7 @@ if __name__ == "__main__":
     (constant.TRAYAREA_TOP, constant.TRAYAREA_BOTTOM) = tray_icon.get_trayarea()
     tray_icon.showSettingView.connect(setting_view.showNormal)
     
-    def test_start(*args):
-        print "Start ", args
-        
-    def test_finish(*args):
-        print "Finish ", args
-    
     record_event = RecordEvent()
-    record_event.started.connect(test_start)
-    record_event.finished.connect(test_start)
     record_event.capture_event.connect(event_handler.handle_event)
     record_event.start()
 
