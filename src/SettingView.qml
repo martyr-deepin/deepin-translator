@@ -106,6 +106,24 @@ WindowFrame {
                     expandItemIndexHistory = expandItemIndex
                 }
                 
+                function updateLanguage() {
+                    var srcLang = settingConfig.get_translate_config("src_lang")
+                    var dstLang = settingConfig.get_translate_config("dst_lang")
+                    settingConfig.update_translate_config("src_lang", dstLang)
+                    settingConfig.update_translate_config("dst_lang", srcLang)
+                    expandArea.srcLang = dstLang
+                    expandArea.dstLang = srcLang
+                    print(expandArea.srcLang, expandArea.dstLang)
+                }
+                
+                Connections {
+                    target: windowView
+                    onUpdateLang: {
+                        expandArea.srcLang = settingConfig.get_translate_config("src_lang")
+                        expandArea.dstLang = settingConfig.get_translate_config("dst_lang")
+                    }
+                }
+                
                 Column {
                     id: content
                     anchors.fill: parent
@@ -381,12 +399,7 @@ WindowFrame {
                     anchors.bottomMargin: 10
                     
                     onClicked: {
-                        var srcLang = settingConfig.get_translate_config("src_lang")
-                        var dstLang = settingConfig.get_translate_config("dst_lang")
-                        settingConfig.update_translate_config("src_lang", dstLang)
-                        settingConfig.update_translate_config("dst_lang", srcLang)
-                        expandArea.srcLang = dstLang
-                        expandArea.dstLang = srcLang
+                        expandArea.updateLanguage()
                     }
                 }
                 

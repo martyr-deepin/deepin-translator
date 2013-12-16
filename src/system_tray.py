@@ -27,6 +27,7 @@ from config import setting_config
 from xutils import delete_selection
 from nls import _
 from constant import LANGUAGES
+from setting_view import setting_view
 
 class SystemTrayIcon(QSystemTrayIcon):
     
@@ -46,6 +47,15 @@ class SystemTrayIcon(QSystemTrayIcon):
             pass
         elif menu_id == "settings":
             self.showSettingView.emit()
+        elif menu_id == "lang":
+            src_lang = setting_config.get_translate_config("src_lang")
+            dst_lang = setting_config.get_translate_config("dst_lang")
+            setting_config.update_translate_config("src_lang", dst_lang)
+            setting_config.update_translate_config("dst_lang", src_lang)
+            
+            self.menu.setItemText("lang", self.get_lang_value())
+            
+            setting_view.updateLang.emit()
         else:
             if menu_id == "pause":
                 if not state:
@@ -58,6 +68,9 @@ class SystemTrayIcon(QSystemTrayIcon):
     def set_menu_active(self, state):
         self.menu.setItemActivity("toggle_speech", not state)
         self.menu.setItemActivity("key_trigger_select", not state)
+        
+    def get_lang_value(self):
+        return (dict(LANGUAGES))[setting_config.get_translate_config("src_lang")] + " -> " + (dict(LANGUAGES))[setting_config.get_translate_config("dst_lang")]
         
     def on_activated(self, reason):
         if reason in [QSystemTrayIcon.Context, QSystemTrayIcon.Trigger]:
@@ -73,7 +86,7 @@ class SystemTrayIcon(QSystemTrayIcon):
                     CheckboxMenuItem("key_trigger_select", _("Press ctrl to translate selection"), 
                                      setting_config.get_trayicon_config("key_trigger_select")),
                     MenuSeparator(),
-                    CheckboxMenuItem("lang", (dict(LANGUAGES))[setting_config.get_translate_config("src_lang")] + " -> " + (dict(LANGUAGES))[setting_config.get_translate_config("dst_lang")], showCheckmark=False),
+                    CheckboxMenuItem("lang", self.get_lang_value(), showCheckmark=False),
                     MenuSeparator(),
                     ("settings", _("Settings")),
                     ("wizard", _("Wizard")),

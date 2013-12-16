@@ -21,6 +21,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5 import QtCore
+from PyQt5.QtCore import pyqtSignal
 from config import setting_config
 from window import Window
 import os
@@ -28,6 +29,8 @@ from deepin_utils.file import get_parent_dir
 from xutils import screen_width, screen_height
     
 class SettingView(Window):
+    
+    updateLang = pyqtSignal()
 
     def __init__(self):
         Window.__init__(self)
@@ -50,3 +53,5 @@ class SettingView(Window):
         self.qml_context.setContextProperty("windowView", self)
         self.qml_context.setContextProperty("settingConfig", setting_config)
         self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(get_parent_dir(__file__), 'SettingView.qml')))
+
+setting_view = SettingView()

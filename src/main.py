@@ -28,7 +28,6 @@ if os.name == 'posix':
     
 from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication
-from system_tray import SystemTrayIcon
 from unique_service import UniqueService
 import signal
 import sys  
@@ -91,8 +90,8 @@ if __name__ == "__main__":
     event_handler.translate_selection.connect(show_translate)
     event_handler.cursor_stop.connect(translate_cursor_word)
     
-    from setting_view import SettingView
-    setting_view = SettingView()
+    from setting_view import setting_view
+    from system_tray import SystemTrayIcon
     tray_icon = SystemTrayIcon(QIcon(os.path.join(get_parent_dir(__file__), "image", "trayicon.png")), app)
     tray_icon.show()
     (constant.TRAYAREA_TOP, constant.TRAYAREA_BOTTOM) = tray_icon.get_trayarea()
