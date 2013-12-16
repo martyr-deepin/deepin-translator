@@ -40,8 +40,8 @@ screenshot_height = 100
 
 def filter_punctuation(text):
     src_lang = setting_config.get_translate_config("src_lang")
-    if src_lang in ["eng"]:
-        return re.sub("[^A-Za-z_-]", " ", text).strip()
+    if src_lang in ["en"]:
+        return re.sub("[^A-Za-z_-]", " ", text).strip().split(" ")[0]
     else:
         return text
 
