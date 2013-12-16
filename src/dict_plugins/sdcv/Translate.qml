@@ -8,7 +8,7 @@ TranslateWindow {
 	id: container
     
     property int scrollHeight: 200
-    property int scrollWidth: 355
+    property int scrollWidth: 400
     
 	property bool isManualStop: false
     
@@ -37,7 +37,7 @@ TranslateWindow {
     }
 	
     function adjustTranslateSize() {
-        var maxWidth = Math.min(trans.paintedWidth, scrollWidth) + (borderMargin + textMargin + container.blurRadius) * 2
+        var maxWidth = Math.max(Math.min(trans.paintedWidth, scrollWidth), 100) + (borderMargin + container.blurRadius) * 2
         var maxHeight = Math.min(trans.paintedHeight + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2, scrollHeight)
         
         windowView.width = maxWidth
@@ -101,7 +101,7 @@ TranslateWindow {
                     width: parent.width; 
                     height: parent.height;
                     contentWidth: trans.paintedWidth
-                    contentHeight: trans.paintedHeight
+                    contentHeight: trans.paintedHeight - voice.height
                     clip: true
 
                     function ensureVisible(r)

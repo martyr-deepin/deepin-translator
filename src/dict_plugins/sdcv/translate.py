@@ -57,8 +57,17 @@ class Translate(TranslateWindow):
     @pyqtSlot(str)
     def get_translate(self, text):
         pipe = subprocess.Popen(["sdcv", text], stdout=subprocess.PIPE)
+        
+        result = '\n'.join(pipe.communicate()[0].split("\n")[3::]).strip()
+        translate_lines = result.split("\n")
+        if len(translate_lines) > 1:
+            first_line = translate_lines[0]
+            if first_line.startswith("[") and first_line.endswith("]"):
+                translate_lines = translate_lines[1::]
+        translate_text = '\n'.join(translate_lines)
+        
         self.translate_info.voices = get_voice_simple(text)
-        self.translate_info.translate = '\n'.join(pipe.communicate()[0].split("\n")[1::])
+        self.translate_info.translate = translate_text
         
     @pyqtSlot()    
     def install_sdcv(self):
