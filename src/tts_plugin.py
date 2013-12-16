@@ -50,8 +50,11 @@ class TtsPlugin(QObject):
         voice_list = engine_list + self.engine_list
         voice_list = sorted(voice_list, key=lambda (name, display_name, priority, need_network): priority, reverse=True)
         
-        return map(lambda (name, display_name, priority, need_network): (name, display_name), 
-                   filter(lambda (name, display_name, priority, need_network): need_network == connected, voice_list))
+        if connected:
+            return map(lambda (name, display_name, priority, need_network): (name, display_name), voice_list)
+        else:
+            return map(lambda (name, display_name, priority, need_network): (name, display_name), 
+                       filter(lambda (name, display_name, priority, need_network): need_network == connected, voice_list))
     
     @pyqtSlot(str, result="QVariant")
     def get_voice_model(self, src_lang):

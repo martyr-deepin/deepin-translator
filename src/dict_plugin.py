@@ -56,8 +56,11 @@ class DictPlugin(QObject):
         engine_list = []
         if self.word_dict.has_key(src_lang) and self.word_dict[src_lang].has_key(dst_lang):
             engine_list = self.word_dict[src_lang][dst_lang]
-            
-        return map(lambda (name, display_name, need_network): (name, display_name), 
+
+        if connected:    
+            return map(lambda (name, display_name, need_network): (name, display_name), engine_list + self.word_all_list)
+        else:
+            return map(lambda (name, display_name, need_network): (name, display_name), 
                    filter(lambda (name, display_name, need_network): need_network == connected, engine_list + self.word_all_list))
     
     def get_words_engines(self, src_lang, dst_lang, connected=True):
@@ -65,7 +68,10 @@ class DictPlugin(QObject):
         if self.words_dict.has_key(src_lang) and self.words_dict[src_lang].has_key(dst_lang):
             engine_list = self.words_dict[src_lang][dst_lang]
 
-        return map(lambda (name, display_name, need_network): (name, display_name), 
+        if connected:    
+            return map(lambda (name, display_name, need_network): (name, display_name), engine_list + self.words_all_list)
+        else:
+            return map(lambda (name, display_name, need_network): (name, display_name), 
                    filter(lambda (name, display_name, need_network): need_network == connected, engine_list + self.words_all_list))
 
     def scan_plugin_info(self):
