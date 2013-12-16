@@ -27,10 +27,8 @@ from config import setting_config
 from deepin_utils.net import is_network_connected
 
 tts_plugin = TtsPlugin()
-word_voice_engine_name = setting_config.get_translate_config("word_voice_engine")
-words_voice_engine_name = setting_config.get_translate_config("words_voice_engine")
-voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_voice_engine_name))
-voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name))
+voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(setting_config.get_translate_config("word_voice_engine")))
+voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(setting_config.get_translate_config("words_voice_engine")))
 word_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
 words_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
 
@@ -47,9 +45,11 @@ def get_voice(text, voice):
             return []
         
 def get_voice_simple(text):
+    global voice_simple
     return get_voice(text, voice_simple)
 
 def get_voice_long(text):
+    global voice_long
     return get_voice(text, voice_long)
     
 class TtsInterface(QObject):
@@ -60,12 +60,12 @@ class TtsInterface(QObject):
     @pyqtSlot()    
     def update_word_voice_module(self):
         global voice_simple
-        voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(word_voice_engine_name))
+        voice_simple = imp.load_source("voice_simple", tts_plugin.get_plugin_file(setting_config.get_translate_config("word_voice_engine")))
     
     @pyqtSlot()    
     def update_words_voice_module(self):
         global voice_long
-        voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(words_voice_engine_name))
+        voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(setting_config.get_translate_config("words_voice_engine")))
             
     @pyqtSlot()    
     def update_voice_with_src_lang(self):
