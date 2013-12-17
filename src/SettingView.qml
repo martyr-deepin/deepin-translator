@@ -113,7 +113,6 @@ WindowFrame {
                     settingConfig.update_translate_config("dst_lang", srcLang)
                     expandArea.srcLang = dstLang
                     expandArea.dstLang = srcLang
-                    print(expandArea.srcLang, expandArea.dstLang)
                 }
                 
                 Connections {
