@@ -37,7 +37,7 @@ class RecordEvent(QThread):
         while len(data):
             event, data = get_event_data(data)
             self.capture_event.emit(event)
-            print "########### ", event
+            # print "########### ", event
             
     def run(self):
         record_event(self.record_callback)

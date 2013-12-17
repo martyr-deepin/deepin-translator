@@ -79,7 +79,7 @@ class EventHandler(QObject):
         
     @pyqtSlot("QVariant")    
     def handle_event(self, event):
-        print "*****************"
+        # print "*****************"
         if event.type == X.KeyPress:
             keyname = get_keyname(event)
             
