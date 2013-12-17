@@ -21,7 +21,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from PyQt5.QtCore import pyqtSlot
-from PyQt5 import QtCore, QtQuick
+from PyQt5 import QtCore, QtQuick, QtWidgets
 from PyQt5.QtGui import QSurfaceFormat, QColor
 from PyQt5.QtQuick import QQuickView
 from PyQt5.QtWidgets import qApp
@@ -88,4 +88,8 @@ class TranslateWindow(QQuickView):
         if ocrword:
             self.show_translate(mouse_x, mouse_y, ocrword)
     
+    @pyqtSlot(str)
+    def save_to_clipboard(self, text):
+        QtWidgets.QApplication.clipboard().setText(text)
+
     

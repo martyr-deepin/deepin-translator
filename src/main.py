@@ -26,12 +26,10 @@ from PyQt5.QtCore import QCoreApplication
 if os.name == 'posix':
     QCoreApplication.setAttribute(QtCore.Qt.AA_X11InitThreads, True)
     
-from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication
 from unique_service import UniqueService
 import signal
 import sys  
-from deepin_utils.file import get_parent_dir
 import constant
     
 APP_DBUS_NAME = "com.deepin.ocr"    
@@ -45,7 +43,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     
     from dict_interface import get_translate_simple, get_translate_long
-
+    
     def show_translate(x, y, text):
         if len(filter(lambda word: word != "", (text.split(" ")))) > 1:
             translate_long = get_translate_long()

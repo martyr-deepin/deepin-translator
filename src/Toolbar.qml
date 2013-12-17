@@ -74,6 +74,8 @@ Row {
                 
                 onClicked: {
                     window.hide()
+                    
+                    window.save_to_clipboard(text)
                 }
             }
 
