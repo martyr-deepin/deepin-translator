@@ -33,9 +33,7 @@ word_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_confi
 words_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
 
 def get_voice(text, voice):
-    if is_network_connected():
-        return voice.get_voice(text)
-    else:
+    if not is_network_connected() or setting_config.get_trayicon_config("local_translate"):
         voice_engines = tts_plugin.get_voice_engines(setting_config.get_translate_config("src_lang"), False)
         voice_engine_names = map(lambda (name, display_name): name, voice_engines)
         if len(voice_engine_names) > 0:
@@ -43,6 +41,8 @@ def get_voice(text, voice):
             return local_simple.get_voice(text)
         else:
             return []
+    else:
+        return voice.get_voice(text)
         
 def get_voice_simple(text):
     global voice_simple

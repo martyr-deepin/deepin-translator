@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-15 18:45+0800\n"
+"POT-Creation-Date: 2013-12-17 23:38+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -21,47 +21,35 @@ msgstr ""
 msgid "Deepin Translator Settings"
 msgstr ""
 
-#: ../src/SettingView.qml:117
+#: ../src/SettingView.qml:135
 msgid "Source Language"
 msgstr ""
 
-#: ../src/SettingView.qml:123
-msgid "Target Language"
-msgstr ""
-
-#: ../src/SettingView.qml:129
-#, fuzzy
-msgid "Word Translate"
-msgstr "Voice after translate"
-
 #: ../src/SettingView.qml:141
-#, fuzzy
-msgid "Sentences Translate"
-msgstr "Voice after translate"
-
-#: ../src/SettingView.qml:135
-msgid "Word Voice"
+msgid "Target Language"
 msgstr ""
 
 #: ../src/SettingView.qml:147
 #, fuzzy
+msgid "Word Translate"
+msgstr "Voice after translate"
+
+#: ../src/SettingView.qml:159
+#, fuzzy
+msgid "Sentences Translate"
+msgstr "Voice after translate"
+
+#: ../src/SettingView.qml:153
+msgid "Word Voice"
+msgstr ""
+
+#: ../src/SettingView.qml:165
+#, fuzzy
 msgid "Sentences Voice"
 msgstr "Voice after translate"
 
-#: ../src/SettingView.qml:376
-#, fuzzy
-msgid "Reverse translation"
-msgstr "Pause translate"
-
-#: ../src/SettingView.qml:394
+#: ../src/SettingView.qml:400
 msgid "OK"
-msgstr ""
-
-#: ../src/dict_plugins/google_long/Translate.qml:103
-#: ../src/dict_plugins/google_simple/Translate.qml:113
-#: ../src/dict_plugins/sdcv/Translate.qml:84
-#: ../src/dict_plugins/youdao/Translate.qml:373
-msgid "Read"
 msgstr ""
 
 #: ../src/constant.py:82
@@ -324,32 +312,37 @@ msgstr ""
 msgid "Chinese Traditional"
 msgstr ""
 
-#: ../src/system_tray.py:69
+#: ../src/system_tray.py:99
 msgid "Pause translate"
 msgstr "Pause translate"
 
-#: ../src/system_tray.py:71
+#: ../src/system_tray.py:101
 msgid "Voice after translate"
 msgstr "Voice after translate"
 
-#: ../src/system_tray.py:73
+#: ../src/system_tray.py:103
 #, fuzzy
 msgid "Press ctrl to translate selection"
 msgstr "Press shift to translate selection"
 
-#: ../src/system_tray.py:78
+#: ../src/system_tray.py:105
+#, fuzzy
+msgid "Enable local translate"
+msgstr "Pause translate"
+
+#: ../src/system_tray.py:110
 msgid "Settings"
 msgstr "Settings"
 
-#: ../src/system_tray.py:79
+#: ../src/system_tray.py:111
 msgid "Wizard"
 msgstr "Wizard"
 
-#: ../src/system_tray.py:80
+#: ../src/system_tray.py:112
 msgid "About"
 msgstr "About"
 
-#: ../src/system_tray.py:82
+#: ../src/system_tray.py:114
 msgid "Exit"
 msgstr "Exit"
 
@@ -358,8 +351,8 @@ msgstr "Exit"
 msgid "Sorry, screen ocr not support %s yet"
 msgstr "Sorry, screen ocr not support %s yet"
 
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:52
-#: ../src/tts_plugins/svox/tts.py:31
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
+#: ../src/tts_plugins/svox/tts.py:36
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -371,23 +364,27 @@ msgstr "Ok, I know"
 msgid "Need install OCR package to enable translate feature"
 msgstr "Need install OCR package to enable translate feature"
 
-#: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:52
-#: ../src/tts_plugins/svox/tts.py:31
+#: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
+#: ../src/tts_plugins/svox/tts.py:36
 msgid "Install"
 msgstr "Install"
 
-#: ../src/dict_plugins/google_simple/translate.py:95
+#: ../src/dict_plugins/google_simple/translate.py:96
 msgid "Translate failed"
 msgstr "Translate failed"
 
-#: ../src/dict_plugins/sdcv/translate.py:52
+#: ../src/dict_plugins/sdcv/translate.py:53
 msgid "Need install sdcv package to enable translate feature"
 msgstr "Need install sdcv package to enable translate feature"
 
-#: ../src/tts_plugins/svox/tts.py:31
+#: ../src/tts_plugins/svox/tts.py:36
 #, fuzzy
 msgid "Need install svox to enable voice feature"
 msgstr "Need install sdcv package to enable translate feature"
+
+#, fuzzy
+#~ msgid "Reverse translation"
+#~ msgstr "Pause translate"
 
 #~ msgid "Chinese"
 #~ msgstr "Chinese"

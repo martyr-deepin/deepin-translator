@@ -60,16 +60,16 @@ translate_local_simple = get_translate_local_simple()
 translate_local_long = get_translate_local_long()
 
 def get_translate_simple():
-    if is_network_connected():
-        return translate_simple
-    else:
+    if not is_network_connected() or setting_config.get_trayicon_config("local_translate"):
         return translate_local_simple
+    else:
+        return translate_simple
 
 def get_translate_long():
-    if is_network_connected():
-        return translate_long
-    else:
+    if not is_network_connected() or setting_config.get_trayicon_config("local_translate"):
         return translate_local_long
+    else:
+        return translate_long
 
 class DictInterface(QObject):
     

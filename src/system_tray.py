@@ -102,6 +102,8 @@ class SystemTrayIcon(QSystemTrayIcon):
                                      setting_config.get_trayicon_config("toggle_speech")),
                     CheckboxMenuItem("key_trigger_select", _("Press ctrl to translate selection"), 
                                      setting_config.get_trayicon_config("key_trigger_select")),
+                    CheckboxMenuItem("local_translate", _("Enable local translate"),
+                                     setting_config.get_trayicon_config("local_translate")),
                     MenuSeparator(),
                     CheckboxMenuItem("lang", self.get_lang_value(), showCheckmark=False),
                     MenuSeparator(),

@@ -42,6 +42,7 @@ DEFAULT_CONFIG = [
      [("pause", False),
       ("toggle_speech", True),
       ("key_trigger_select", False),
+      ("local_translate", False),
       ]),
     ("translate",
      [("src_lang", "en"),

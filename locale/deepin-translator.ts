@@ -9,54 +9,38 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="117"/>
+        <location filename="../src/SettingView.qml" line="135"/>
         <source>Source Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="123"/>
+        <location filename="../src/SettingView.qml" line="141"/>
         <source>Target Language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="129"/>
+        <location filename="../src/SettingView.qml" line="147"/>
         <source>Word Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="141"/>
+        <location filename="../src/SettingView.qml" line="159"/>
         <source>Sentences Translate</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="135"/>
+        <location filename="../src/SettingView.qml" line="153"/>
         <source>Word Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="147"/>
+        <location filename="../src/SettingView.qml" line="165"/>
         <source>Sentences Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="376"/>
-        <source>Reverse translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SettingView.qml" line="394"/>
+        <location filename="../src/SettingView.qml" line="400"/>
         <source>OK</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Translate</name>
-    <message>
-        <location filename="../src/dict_plugins/google_long/Translate.qml" line="103"/>
-        <location filename="../src/dict_plugins/google_simple/Translate.qml" line="113"/>
-        <location filename="../src/dict_plugins/sdcv/Translate.qml" line="84"/>
-        <location filename="../src/dict_plugins/youdao/Translate.qml" line="373"/>
-        <source>Read</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
