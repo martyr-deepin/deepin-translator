@@ -8,7 +8,7 @@ TranslateWindow {
 	id: container
     
     property alias toolbar: toolbar
-    property int minWindowWidth: 300
+    property int minWindowWidth: 400
     
     property variant dsslocale: DLocale {
         id: dsslocale
