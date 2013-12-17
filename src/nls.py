@@ -53,3 +53,10 @@ def get_locale_code(domain_name, locale_dir):
         return "en_US"
 
 LANGUAGE = get_locale_code(domain_name, LOCALE_DIR)
+
+def get_language():
+    lang = LANGUAGE.replace("_", "-")
+    if lang not in ["zh-CN", "zh-TW"]:
+        lang = lang.split("-")[0]
+        
+    return lang    

@@ -25,7 +25,7 @@ import os
 from model import Model
 from deepin_utils.config import Config
 from deepin_utils.core import is_true
-from nls import LANGUAGE
+from nls import get_language
 from deepin_utils.file import get_parent_dir
 
 class DictPlugin(QObject):
@@ -85,7 +85,7 @@ class DictPlugin(QObject):
             plugin_config = Config(plugin_config_file)
             plugin_config.load()
             
-            language = LANGUAGE.replace("_", "-")
+            language = get_language()
             plugin_display_name = plugin_config.get("Plugin Info", "name[%s]" % language) or plugin_config.get("Plugin Info", "name[en]")
             is_support_word = is_true(plugin_config.get("Language Info", "word_translate"))
             is_support_words = is_true(plugin_config.get("Language Info", "words_translate"))

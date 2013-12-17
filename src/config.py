@@ -25,9 +25,9 @@ import os
 from xdg import get_config_file
 from deepin_utils.config import Config
 from deepin_utils.core import is_true
-from nls import LANGUAGE
+from nls import get_language
 
-init_lang = LANGUAGE.replace("_", "-")
+init_lang = get_language()
 if init_lang in ["zh-CN"]:
     init_word_dict = "youdao"
     init_word_voice = "youdao"
