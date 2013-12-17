@@ -91,7 +91,7 @@ if __name__ == "__main__":
     
     from setting_view import setting_view
     from system_tray import SystemTrayIcon
-    tray_icon = SystemTrayIcon(QIcon(os.path.join(get_parent_dir(__file__), "image", "trayicon.png")), app)
+    tray_icon = SystemTrayIcon(app)
     tray_icon.show()
     (constant.TRAYAREA_TOP, constant.TRAYAREA_BOTTOM) = tray_icon.get_trayarea()
     tray_icon.showSettingView.connect(setting_view.showNormal)

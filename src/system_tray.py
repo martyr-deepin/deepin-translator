@@ -22,21 +22,36 @@
 
 from PyQt5.QtWidgets import qApp, QSystemTrayIcon
 from PyQt5.QtCore import pyqtSlot, pyqtSignal
+from PyQt5.QtGui import QIcon
 from deepin_menu.menu import Menu, MenuSeparator, CheckboxMenuItem
 from config import setting_config
 from xutils import delete_selection
 from nls import _
 from constant import LANGUAGES
 from setting_view import setting_view
+import os
+from deepin_utils.file import get_parent_dir
+from deepin_utils.core import is_true
 
 class SystemTrayIcon(QSystemTrayIcon):
     
     showSettingView = pyqtSignal()
     
-    def __init__(self, icon, parent=None):
-        QSystemTrayIcon.__init__(self, icon, parent)
+    def __init__(self, parent=None):
+        QSystemTrayIcon.__init__(self, self.get_trayicon(), parent)
         self.activated.connect(self.on_activated) 
         
+    def set_trayicon(self):
+        self.setIcon(self.get_trayicon())
+        
+    def get_trayicon(self):
+        if is_true(setting_config.get_trayicon_config("pause")):
+            icon_name = "pause_trayicon.png"
+        else:
+            icon_name = "trayicon.png"
+            
+        return QIcon(os.path.join(get_parent_dir(__file__), "image", icon_name))
+    
     @pyqtSlot(str, bool)
     def click_menu(self, menu_id, state):
         if menu_id == "quit":
@@ -64,6 +79,8 @@ class SystemTrayIcon(QSystemTrayIcon):
                 self.set_menu_active(state)    
                 
             setting_config.update_trayicon_config(menu_id, state)
+            
+            self.set_trayicon()
             
     def set_menu_active(self, state):
         self.menu.setItemActivity("toggle_speech", not state)
