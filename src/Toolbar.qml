@@ -20,12 +20,19 @@ Row {
     property int itemSpacing: 5
     property int itemWidth: imageWidth + itemSpacing
     
-    function init() {
+    function init(resetPosition) {
         entryArea.width = splitView.width - itemWidth
-        entry.textInput.cursorPosition = 0
         entry.cursorWidth = 0
         arrow.expand = false
         arrow.source = "image/left_arrow.png"
+        
+        if (resetPosition) {
+            entry.textInput.cursorPosition = 0
+        }
+    }
+    
+    function resetCursor() {
+        entry.textInput.cursorPosition = 0
     }
     
     SplitView {

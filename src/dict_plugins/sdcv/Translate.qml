@@ -36,7 +36,7 @@ TranslateWindow {
 		adjustTranslateSize()
         speechPlayer.autoplayAudio()
         
-        toolbar.init()
+        toolbar.init(false)
     }
 	
     function adjustTranslateSize() {
@@ -61,6 +61,10 @@ TranslateWindow {
                 speechPlayer.stopAudio()
 			}
 		}
+        
+        onHided: {
+            toolbar.resetCursor()
+        }
 	}
     
     Player {

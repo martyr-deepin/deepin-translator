@@ -16,10 +16,10 @@ TranslateWindow {
     property alias trans: trans
     property alias webtrans: webtrans
     property int webPadding: 10
-    property int splitHeight: 2 /* two split line's height */
 	property int itemHighlightHeight: 45
 	property int itemHighlightIndex: 0
 	property bool inItem: false
+    property int listviewPadding: 5
 
     property int listviewWidth: 0
     property int listviewHeight: 0
@@ -43,6 +43,7 @@ TranslateWindow {
         onFinished: {
 			if (listviewArea.visible) {
 				adjustSuggestionSize()
+                print("#########################")
 			}
         }
     }
@@ -61,6 +62,10 @@ TranslateWindow {
                 speechPlayer.stopAudio()
 			}
 		}
+        
+        onHided: {
+            toolbar.resetCursor()
+        }
 	}
     
     Player {
@@ -93,7 +98,7 @@ TranslateWindow {
 		itemHighlight.visible = false
 		
         adjustTranslateSize()
-        autoSpeech()
+        speechPlayer.autoplayAudio()
 		
 		historyModel.addSearchData(translateInfo.keyword, translateInfo.trans, translateInfo.webtrans)
 	}
@@ -105,7 +110,7 @@ TranslateWindow {
                                 ) + (borderMargin + container.blurRadius) * 2,
                                minWindowWidth)
         
-        var maxHeight = toolbar.height + trans.paintedHeight + webtrans.paintedHeight + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding + splitHeight
+        var maxHeight = toolbar.height + trans.paintedHeight + webtrans.paintedHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2
         
         windowView.width = maxWidth
         windowView.height = maxHeight
@@ -117,7 +122,7 @@ TranslateWindow {
 		
 		adjustPosition()		
         
-        toolbar.init()
+        toolbar.init(false)
     }
     
     function adjustSuggestionSize() {
@@ -138,7 +143,7 @@ TranslateWindow {
         listview.height = listviewHeight
 		
         suggestionWidth = Math.max(listviewWidth, minWindowWidth) + (borderMargin + container.blurRadius) * 2
-        suggestionHeight = toolbar.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
+        suggestionHeight = toolbar.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2
 
         adjustSuggestionTimer.restart()
     }
@@ -158,6 +163,10 @@ TranslateWindow {
             container.height = suggestionHeight
 		    
 		    adjustPosition()		
+            
+            toolbar.init(false)
+            
+            print("*******************")
 		}
 	}
     
@@ -173,13 +182,11 @@ TranslateWindow {
         
 		SelectEffect {
 			id: itemHighlight
-			y: cornerDirection == "down" ? selectY + container.cornerHeight : selectY
-            
-            property int selectY: parent.y + toolbar.height + itemHighlightIndex * itemHighlightHeight
+			y: listviewArea.y + itemHighlightIndex * itemHighlightHeight + listviewPadding
 		}
                 
 	    Column {
-		    spacing: 5
+		    spacing: listviewPadding
 		    anchors.fill: parent
 		    anchors.topMargin: textMargin
 		    anchors.bottomMargin: textMargin
@@ -357,20 +364,11 @@ TranslateWindow {
 				}
             }
             
-            Rectangle {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: 10
-                color: Qt.rgba(0, 0, 0, 0)
-                visible: !listviewArea.visible
-            }
-            
             Column {
                 anchors.left: parent.left
                 anchors.right: parent.right
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
-                spacing: webPadding
                 visible: !listviewArea.visible
                 
 		        TextEdit { 
