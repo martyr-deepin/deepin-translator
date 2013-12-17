@@ -19,7 +19,6 @@ TranslateWindow {
     property int splitHeight: 2 /* two split line's height */
 	property int itemHighlightHeight: 45
 	property int itemHighlightIndex: 0
-	property int minWindowWidth: 200
 	property bool inItem: false
 
     property int listviewWidth: 0
@@ -100,11 +99,11 @@ TranslateWindow {
 	}
 	
     function adjustTranslateSize() {
-        var maxWidth = Math.max(
-			minWindowWidth,
-            trans.paintedWidth, 
-            webtrans.paintedWidth
-        ) + (borderMargin + container.blurRadius) * 2
+        var maxWidth = Math.max(Math.max(
+                                    trans.paintedWidth, 
+                                    webtrans.paintedWidth
+                                ) + (borderMargin + container.blurRadius) * 2,
+                               minWindowWidth)
         
         var maxHeight = toolbar.height + trans.paintedHeight + webtrans.paintedHeight + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding + splitHeight
         

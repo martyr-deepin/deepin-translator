@@ -8,6 +8,7 @@ TranslateWindow {
 	id: container
     
     property alias toolbar: toolbar
+    property int minWindowWidth: 400
     
     property variant dsslocale: DLocale {
         id: dsslocale
@@ -35,8 +36,8 @@ TranslateWindow {
     }
 	
     function adjustTranslateSize() {
-		var maxWidth = trans.paintedWidth + (borderMargin + container.blurRadius) * 2
-        var maxHeight = trans.paintedHeight + toolbar.height + container.cornerHeight + (borderMargin + container.blurRadius) * 2 
+		var maxWidth = Math.max(trans.paintedWidth + (borderMargin + container.blurRadius) * 2, minWindowWidth)
+        var maxHeight = trans.paintedHeight + toolbar.height + container.cornerHeight + (borderMargin + container.blurRadius) * 2
         
         windowView.width = maxWidth
         windowView.height = maxHeight
@@ -86,7 +87,7 @@ TranslateWindow {
                 window: windowView
             }
 		    
-		    TextEdit { 
+            TextEdit { 
                 id: trans
 			    text: translateInfo.translate
                 textFormat: TextEdit.RichText
@@ -96,13 +97,13 @@ TranslateWindow {
 			    color: "#FFFFFF"
 				selectionColor: "#11ffffff"
 				selectedTextColor: "#5da6ce"
-                width: parent.width
+		        width: parent.width
                 
                 onTextChanged: {
                     cursorPosition: 0
                     cursorVislble: false
                 }
-		    }		
+		    }
 	    }        
 	}
 }

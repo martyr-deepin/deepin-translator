@@ -11,6 +11,7 @@ RectWithCorner {
 	property int windowPadding: 10
 	property int windowOffsetX: -50
 	property int windowOffsetY: 5
+    property int minWindowWidth: 200
 	
 	property int mouseX: 0
 	property int mouseY: 0

@@ -36,7 +36,7 @@ TranslateWindow {
     }
 	
     function adjustTranslateSize() {
-		var maxWidth = Math.max(100, trans.paintedWidth) + (borderMargin + container.blurRadius) * 2
+		var maxWidth = Math.max(trans.paintedWidth + (borderMargin + container.blurRadius) * 2, minWindowWidth)
         var maxHeight = trans.paintedHeight + toolbar.height + cornerHeight + (borderMargin + container.blurRadius) * 2 
         
         windowView.width = maxWidth
