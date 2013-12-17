@@ -43,7 +43,6 @@ TranslateWindow {
         onFinished: {
 			if (listviewArea.visible) {
 				adjustSuggestionSize()
-                print("#########################")
 			}
         }
     }
@@ -165,8 +164,6 @@ TranslateWindow {
 		    adjustPosition()		
             
             toolbar.init(false)
-            
-            print("*******************")
 		}
 	}
     
@@ -210,7 +207,7 @@ TranslateWindow {
 						    itemHighlightIndex = Math.max(0, itemHighlightIndex - 1)
 					    } else {
 						    itemHighlightIndex = listviewLength - 1
-						    itemHighlight.visible = true
+						    itemHighlight.visible = listviewArea.visible
 					    }
 				    }
 				    
@@ -219,14 +216,14 @@ TranslateWindow {
 						    itemHighlightIndex = Math.min(listviewLength - 1, itemHighlightIndex + 1)
 					    } else {
 						    itemHighlightIndex = 0
-						    itemHighlight.visible = true
+						    itemHighlight.visible = listviewArea.visible
 					    }
 				    }
 				    
                     onAccepted: {
 					    if (itemHighlight.visible) {
 						    handleAccepted(listview.model.getTitle(itemHighlightIndex))
-					    } else if (toolbar.text != "") {
+					    } else if (toolbar.entry.text != "") {
 						    handleAccepted(text)
 					    }
                     }
@@ -241,7 +238,7 @@ TranslateWindow {
 		                
 					    itemHighlight.visible = false
 					    
-					    if (toolbar.text == "") {
+					    if (toolbar.entry.text == "") {
                             listviewArea.visible = true
 						    itemHighlight.visible = false
 						    
@@ -249,7 +246,7 @@ TranslateWindow {
 						    
 						    adjustSuggestionSize()
 					    } else {
-                            suggestModel.suggestWithNum(toolbar.text, 5)
+                            suggestModel.suggestWithNum(toolbar.entry.text, 5)
 						    
                             listviewArea.visible = true
 						    listview.model = suggestModel
@@ -287,7 +284,7 @@ TranslateWindow {
 							onEntered: {
 								inItem = true
 								itemHighlightIndex = index
-								itemHighlight.visible = true
+								itemHighlight.visible = listviewArea.visible
 								
 								explainText.color = "#ffffff"
 							}
