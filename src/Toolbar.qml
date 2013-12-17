@@ -81,6 +81,8 @@ Row {
                 source: "image/wikipedia.png"
 
                 onClicked: {
+                    var lang = settingConfig.get_translate_config("src_lang")
+                    Qt.openUrlExternally("https://" + lang + ".wikipedia.org/wiki/" + toolbar.text)
                     window.hide()
                 }
             }
@@ -89,6 +91,7 @@ Row {
                 source: "image/search.png"
 
                 onClicked: {
+                    Qt.openUrlExternally("https://www.google.com/search?q=" + toolbar.text)
                     window.hide()
                 }
             }
