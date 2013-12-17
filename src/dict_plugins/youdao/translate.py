@@ -49,6 +49,22 @@ class Translate(TranslateWindow):
         self.qml_context.setContextProperty("suggestModel", suggestModel)
         self.qml_context.setContextProperty("historyModel", historyModel)
         
+    def wrap_web_trans(self, pq):
+        tran_lines = [PyQuery(e).text() for e in pq.find('web-translation:first')('trans value')]
+        
+        result_lines = [""]
+        for tran_line in tran_lines:
+            current_line = result_lines[-1]
+            if len(current_line) + len(tran_line) > 50:
+                result_lines.append(tran_line)
+            else:
+                result_lines[-1] += tran_line + "; "
+                
+        for (index, result_line) in enumerate(result_lines):        
+            result_lines[index] = "w. " + result_lines[index]
+                
+        return '\n'.join(result_lines)        
+    
     @pyqtSlot(str)    
     def get_translate(self, text):
         if not text:
@@ -70,7 +86,7 @@ class Translate(TranslateWindow):
         self.translate_info.trans = None
         self.translate_info.voices = None
         
-        self.translate_info.trans = '<br>'.join([PyQuery(e).text() for e in pq('trs i')])
+        self.translate_info.trans = '\n'.join([PyQuery(e).text() for e in pq('trs i')])
         self.translate_info.voices = get_voice_simple(text)
-        self.translate_info.webtrans = "web. " + "; ".join([ PyQuery(e).text() for e in pq.find('web-translation:first')('trans value')])
+        self.translate_info.webtrans = self.wrap_web_trans(pq)
         

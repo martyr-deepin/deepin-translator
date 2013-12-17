@@ -108,4 +108,3 @@ def load_db(fn):
             objs = None
         f.close()    
     return objs    
-                
