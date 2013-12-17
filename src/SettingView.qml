@@ -396,19 +396,6 @@ WindowFrame {
                 anchors.bottom: parent.bottom
                 
                 DTextButton {
-                    id: reverseButton
-                    text: dsTr("Reverse translation")
-                    anchors.left: parent.left
-                    anchors.leftMargin: 10
-                    anchors.bottom: parent.bottom
-                    anchors.bottomMargin: 10
-                    
-                    onClicked: {
-                        expandArea.updateLanguage()
-                    }
-                }
-                
-                DTextButton {
                     id: button
                     text: dsTr("OK")
                     anchors.right: parent.right
