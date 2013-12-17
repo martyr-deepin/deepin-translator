@@ -94,7 +94,6 @@ TranslateWindow {
 		    TextEdit { 
                 id: trans
 			    text: translateInfo.translate
-                textFormat: TextEdit.RichText
 			    wrapMode: TextEdit.WordWrap
 			    selectByMouse: true
 			    font { pixelSize: 12 }

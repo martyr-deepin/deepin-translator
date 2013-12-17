@@ -371,8 +371,7 @@ TranslateWindow {
 		        TextEdit { 
                     id: trans
 			        text: translateInfo.trans
-                    textFormat: TextEdit.RichText
-			        wrapMode: TextEdit.Wrap
+			        wrapMode: TextEdit.WordWrap
 			        selectByMouse: true
 			        font { pixelSize: 14 }
 			        color: "#FFFFFF"
@@ -388,8 +387,7 @@ TranslateWindow {
 		        TextEdit {
                     id: webtrans
 			        text: translateInfo.webtrans
-                    textFormat: TextEdit.RichText
-			        wrapMode: TextEdit.Wrap
+			        wrapMode: TextEdit.WordWrap
 			        selectByMouse: true
 			        font { pixelSize: 14 }
 			        color: "#FFFFFF"
