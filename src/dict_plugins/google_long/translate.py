@@ -39,6 +39,7 @@ class Translate(TranslateWindow):
 
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
+            ("text", str),
             ("translate", str),
             ("voices", 'QVariant'),
             ("fixed", str),
@@ -98,6 +99,7 @@ class Translate(TranslateWindow):
         
     @pyqtSlot(str)
     def get_translate(self, text):
+        self.translate_info.text = text
         self.translate_info.voices = get_voice_long(text)
         self.translate_info.translate = self.google_translate(
             text,

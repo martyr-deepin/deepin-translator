@@ -40,6 +40,7 @@ class Translate(TranslateWindow):
 
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
+            ("text", str),
             ("translate", str),
             ("voices", 'QVariant'),
             ("fixed", str),
@@ -66,6 +67,7 @@ class Translate(TranslateWindow):
                 translate_lines = translate_lines[1::]
         translate_text = '\n'.join(translate_lines)
         
+        self.translate_info.text = text
         self.translate_info.voices = get_voice_simple(text)
         self.translate_info.translate = translate_text
         

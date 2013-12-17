@@ -9,6 +9,7 @@ TranslateWindow {
     
     property int scrollHeight: 200
     property int scrollWidth: 400
+    property alias toolbar: toolbar
     
 	property bool isManualStop: false
     
@@ -34,6 +35,8 @@ TranslateWindow {
 		
 		adjustTranslateSize()
         speechPlayer.autoplayAudio()
+        
+        toolbar.init()
     }
 	
     function adjustTranslateSize() {
@@ -80,18 +83,17 @@ TranslateWindow {
 		    anchors.fill: parent
 		    anchors.margins: textMargin
 		    
-			Speech { 
-                id: voice
-				text: dsTr("Read")
-                
-				onClicked: {
-                    speechPlayer.playAudio()
-				}
+            Toolbar {
+                id: toolbar
+                width: parent.width
+                text: translateInfo.text
+                player: speechPlayer
+                window: windowView
             }
             
 	        Rectangle {
 		        width: parent.width
-                height: parent.height - voice.height
+                height: parent.height
 		        anchors.margins: textMargin
                 color: "transparent"
                 
@@ -101,7 +103,7 @@ TranslateWindow {
                     width: parent.width; 
                     height: parent.height;
                     contentWidth: trans.paintedWidth
-                    contentHeight: trans.paintedHeight - voice.height
+                    contentHeight: trans.paintedHeight
                     clip: true
 
                     function ensureVisible(r)

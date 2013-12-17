@@ -7,6 +7,8 @@ import "../../../src"
 TranslateWindow {
 	id: container
     
+    property alias toolbar: toolbar
+    
     property variant dsslocale: DLocale {
         id: dsslocale
         dirname: "../../../locale"
@@ -28,11 +30,13 @@ TranslateWindow {
 		windowView.get_translate(text)
 		
 		adjustTranslateSize()
+        
+        toolbar.init()
     }
 	
     function adjustTranslateSize() {
 		var maxWidth = trans.paintedWidth + (borderMargin + container.blurRadius) * 2
-        var maxHeight = trans.paintedHeight + voice.height + container.cornerHeight + (borderMargin + container.blurRadius) * 2 
+        var maxHeight = trans.paintedHeight + toolbar.height + container.cornerHeight + (borderMargin + container.blurRadius) * 2 
         
         windowView.width = maxWidth
         windowView.height = maxHeight
@@ -73,24 +77,22 @@ TranslateWindow {
 		    spacing: 10
 		    anchors.fill: parent
 		    anchors.margins: textMargin
-		    
-			Speech { 
-                id: voice
-				text: dsTr("Read")
-				visible: translateInfo.voices.length > 0
-                
-				onClicked: {
-                    speechPlayer.playAudio()
-				}
+            
+            Toolbar {
+                id: toolbar
+                width: parent.width
+                text: translateInfo.text
+                player: speechPlayer
+                window: windowView
             }
-
+		    
 		    TextEdit { 
                 id: trans
 			    text: translateInfo.translate
                 textFormat: TextEdit.RichText
 			    wrapMode: TextEdit.WordWrap
 			    selectByMouse: true
-			    font { pixelSize: 12 }
+			    font { pixelSize: 14 }
 			    color: "#FFFFFF"
 				selectionColor: "#11ffffff"
 				selectedTextColor: "#5da6ce"

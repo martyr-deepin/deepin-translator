@@ -7,6 +7,8 @@ import "../../../src"
 TranslateWindow {
 	id: container
     
+    property alias toolbar: toolbar
+    
     property variant dsslocale: DLocale {
         id: dsslocale
         dirname: "../../../locale"
@@ -29,11 +31,13 @@ TranslateWindow {
 		
 		adjustTranslateSize()
         speechPlayer.autoplayAudio()
+        
+        toolbar.init()
     }
 	
     function adjustTranslateSize() {
 		var maxWidth = Math.max(100, trans.paintedWidth) + (borderMargin + container.blurRadius) * 2
-        var maxHeight = trans.paintedHeight + voice.height + cornerHeight + (borderMargin + container.blurRadius) * 2 
+        var maxHeight = trans.paintedHeight + toolbar.height + cornerHeight + (borderMargin + container.blurRadius) * 2 
         
         windowView.width = maxWidth
         windowView.height = maxHeight
@@ -75,16 +79,14 @@ TranslateWindow {
 		    anchors.fill: parent
 		    anchors.margins: textMargin
 		    
-			Speech { 
-                id: voice
-				text: dsTr("Read")
-				visible: translateInfo.voices.length > 0
-                
-				onClicked: {
-                    speechPlayer.playAudio()
-				}
+            Toolbar {
+                id: toolbar
+                width: parent.width
+                text: translateInfo.text
+                player: speechPlayer
+                window: windowView
             }
-
+            
 		    TextEdit { 
                 id: trans
 			    text: translateInfo.translate

@@ -76,7 +76,7 @@ Item {
         
         Image {
             id: actionButton
-            source: "image/search.png"
+            source: "image/enter.png"
             width: 16
             anchors.verticalCenter: parent.verticalCenter
             anchors.right: entryBorder.right

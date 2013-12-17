@@ -8,8 +8,7 @@ import "../../../src"
 TranslateWindow {
 	id: container
     
-    property alias keyword: keyword
-    property alias splitline: splitline
+    property alias toolbar: toolbar
     property alias itemHighlight: itemHighlight
     property alias border: border
     property alias listview: listview
@@ -52,8 +51,7 @@ TranslateWindow {
 	Connections {
 		target: windowView
 		onHided: {
-			keyword.textInput.focus = false
-			keyword.cursorWidth = 0
+			toolbar.entry.cursorWidth = 0
 		}
 	}
 	
@@ -105,11 +103,10 @@ TranslateWindow {
         var maxWidth = Math.max(
 			minWindowWidth,
             trans.paintedWidth, 
-            webtrans.paintedWidth, 
-            usSpeech.getWidth()
+            webtrans.paintedWidth
         ) + (borderMargin + container.blurRadius) * 2
         
-        var maxHeight = keyword.height + trans.paintedHeight + webtrans.paintedHeight + usSpeech.getHeight() + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding + splitHeight
+        var maxHeight = toolbar.height + trans.paintedHeight + webtrans.paintedHeight + container.cornerHeight + (borderMargin + textMargin + container.blurRadius) * 2 + webPadding + splitHeight
         
         windowView.width = maxWidth
         windowView.height = maxHeight
@@ -120,6 +117,8 @@ TranslateWindow {
         container.height = maxHeight
 		
 		adjustPosition()		
+        
+        toolbar.init()
     }
     
     function adjustSuggestionSize() {
@@ -140,7 +139,7 @@ TranslateWindow {
         listview.height = listviewHeight
 		
         suggestionWidth = Math.max(listviewWidth, minWindowWidth) + (borderMargin + container.blurRadius) * 2
-        suggestionHeight = keyword.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
+        suggestionHeight = toolbar.height + listviewHeight + container.cornerHeight + (borderMargin + container.blurRadius) * 2 + splitHeight
 
         adjustSuggestionTimer.restart()
     }
@@ -177,7 +176,7 @@ TranslateWindow {
 			id: itemHighlight
 			y: cornerDirection == "down" ? selectY + container.cornerHeight : selectY
             
-            property int selectY: parent.y + keyword.height + itemHighlightIndex * itemHighlightHeight
+            property int selectY: parent.y + toolbar.height + itemHighlightIndex * itemHighlightHeight
 		}
                 
 	    Column {
@@ -186,80 +185,71 @@ TranslateWindow {
 		    anchors.topMargin: textMargin
 		    anchors.bottomMargin: textMargin
 		    
-            Entry {
-                id: keyword
-                objectName: "textInput"
+            Toolbar {
+                id: toolbar
+                width: parent.width
                 text: translateInfo.keyword
+                player: speechPlayer
+                window: windowView
                 anchors.left: parent.left
                 anchors.right: parent.right
 		        anchors.leftMargin: textMargin
 		        anchors.rightMargin: textMargin
                 
-				onPressUp: {
-					if (itemHighlight.visible) {
-						itemHighlightIndex = Math.max(0, itemHighlightIndex - 1)
-					} else {
-						itemHighlightIndex = listviewLength - 1
-						itemHighlight.visible = true
-					}
-				}
-				
-				onPressDown: {
-					if (itemHighlight.visible) {
-						itemHighlightIndex = Math.min(listviewLength - 1, itemHighlightIndex + 1)
-					} else {
-						itemHighlightIndex = 0
-						itemHighlight.visible = true
-					}
-				}
-				
-                onAccepted: {
-					if (itemHighlight.visible) {
-						handleAccepted(listview.model.getTitle(itemHighlightIndex))
-					} else if (keyword.text != "") {
-						handleAccepted(text)
-					}
-                }
-                
-                onInputChanged: {
-					/* This is hacking way to make listview load models complete
-					   Listview can't load models complete if it haven't enough space.
-					 */
-		            itemHighlightIndex = 0
-					listviewArea.width = 1000
-					listviewArea.height = 1000
-		
-					itemHighlight.visible = false
-					
-					if (keyword.text == "") {
-                        listviewArea.visible = true
-						itemHighlight.visible = false
-						
-						listview.model = historyModel
-						
-						adjustSuggestionSize()
-					} else {
-                        suggestModel.suggestWithNum(keyword.text, 5)
-						
-                        listviewArea.visible = true
-						listview.model = suggestModel
-					}
-                }
-            }
-            
-            Rectangle {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: 1
-                color: "#11000000"
-            }
+                Connections {
+                    target: toolbar.entry
 
-            Rectangle {
-				id: splitline
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: 1
-                color: "#11FFFFFF"
+				    onPressUp: {
+					    if (itemHighlight.visible) {
+						    itemHighlightIndex = Math.max(0, itemHighlightIndex - 1)
+					    } else {
+						    itemHighlightIndex = listviewLength - 1
+						    itemHighlight.visible = true
+					    }
+				    }
+				    
+				    onPressDown: {
+					    if (itemHighlight.visible) {
+						    itemHighlightIndex = Math.min(listviewLength - 1, itemHighlightIndex + 1)
+					    } else {
+						    itemHighlightIndex = 0
+						    itemHighlight.visible = true
+					    }
+				    }
+				    
+                    onAccepted: {
+					    if (itemHighlight.visible) {
+						    handleAccepted(listview.model.getTitle(itemHighlightIndex))
+					    } else if (toolbar.text != "") {
+						    handleAccepted(text)
+					    }
+                    }
+                    
+                    onInputChanged: {
+					    /* This is hacking way to make listview load models complete
+					       Listview can't load models complete if it haven't enough space.
+					       */
+		                itemHighlightIndex = 0
+					    listviewArea.width = 1000
+					    listviewArea.height = 1000
+		                
+					    itemHighlight.visible = false
+					    
+					    if (toolbar.text == "") {
+                            listviewArea.visible = true
+						    itemHighlight.visible = false
+						    
+						    listview.model = historyModel
+						    
+						    adjustSuggestionSize()
+					    } else {
+                            suggestModel.suggestWithNum(toolbar.text, 5)
+						    
+                            listviewArea.visible = true
+						    listview.model = suggestModel
+					    }
+                    }
+                }
             }
             
             Rectangle {
@@ -365,17 +355,6 @@ TranslateWindow {
                     delegate: contactDelegate
 					focus: true
 					visible: listviewArea.visible
-				}
-            }
-            
-			Speech { 
-                id: usSpeech
-				text: dsTr("Read")
-                anchors.left: parent.left
-		        anchors.leftMargin: textMargin
-                
-				onClicked: {
-                    speechPlayer.playAudio()
 				}
             }
             
