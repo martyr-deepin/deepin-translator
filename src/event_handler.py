@@ -60,6 +60,8 @@ class EventHandler(QObject):
         self.press_ctrl_timer = None
         self.press_ctrl_delay = 0.3
         
+        self.hover_flag = False
+        
         # Delete selection first.
         delete_selection()
         
@@ -114,23 +116,33 @@ class EventHandler(QObject):
         elif event.type == X.ButtonPress:
             if event.detail == 1:
                 self.left_button_press.emit(event.root_x, event.root_y, event.time)
+                
+                # Set hover flag when press.
+                self.hover_flag = False    
             elif event.detail == 3:
                 self.right_button_press.emit(event.root_x, event.root_y, event.time)
             elif event.detail == 5:
                 self.wheel_press.emit()
         elif event.type == X.ButtonRelease:
             if not self.is_view_visible() or not self.is_cursor_in_view_area():
-                if not setting_config.get_trayicon_config("pause"):
-                    if not setting_config.get_trayicon_config("key_trigger_select") or self.press_ctrl_flag:
-                        selection_content = commands.getoutput("xsel -p -o")
-                        delete_selection()
-                        
-                        if len(selection_content) > 1 and not selection_content.isspace():
-                            self.translate_selection.emit(event.root_x, event.root_y, selection_content)
+                # Selection is not create by user if hover flag is False.
+                if self.hover_flag:
+                    if not setting_config.get_trayicon_config("pause"):
+                        if not setting_config.get_trayicon_config("key_trigger_select") or self.press_ctrl_flag:
+                            selection_content = commands.getoutput("xsel -p -o")
+                            delete_selection()
+                            
+                            if len(selection_content) > 1 and not selection_content.isspace():
+                                self.translate_selection.emit(event.root_x, event.root_y, selection_content)
             # Delete clipboard selection if user selection in visible area to avoid next time to translate those selection content.
             elif self.is_view_visible() and self.is_cursor_in_view_area():
                 delete_selection()
+                
+            self.hover_flag = False    
         elif event.type == X.MotionNotify:
+            # Set hover flag to prove selection action.
+            self.hover_flag = True
+            
             self.try_stop_timer(self.stop_timer)
         
             if not setting_config.get_trayicon_config("pause"):
