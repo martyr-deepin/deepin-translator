@@ -31,6 +31,11 @@ WindowFrame {
         windowView.height = defaultHeight
         windowView.x = (screenWidth - defaultWidth) / 2
         windowView.y = (screenHeight - defaultHeight) / 2
+        
+        /* This setting is make window don't below at Deepin Dock. */
+        if (screenHeight <= 768) {
+            windowView.y -= 60  /* Dock height */
+        }
     }
     
     Item {
