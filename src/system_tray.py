@@ -114,12 +114,12 @@ class SystemTrayIcon(QSystemTrayIcon):
                     ("quit", _("Exit")),
                     ])
             
-            if mouse_y < screen_height / 2:
-                self.menu.cornerDirection = "up"
-                self.menu.showDockMenu(mouse_x, mouse_y)
+            if mouse_y > screen_height / 2:
+                # self.menu.cornerDirection = "up"
+                self.menu.showDockMenu(mouse_x, mouse_y, cornerDirection="down")
             else:
-                self.menu.cornerDirection = "down"
-                self.menu.showDockMenu(0, 0)
+                # self.menu.cornerDirection = "down"
+                self.menu.showDockMenu(0, 0, cornerDirection="up")
                 
             self.menu.itemClicked.connect(self.click_menu)
             self.set_menu_active(setting_config.get_trayicon_config("pause"))

@@ -102,6 +102,7 @@ class Translate(TranslateWindow):
                     try: 
                         for e in m[1]: print "\t--", e
                     except: pass
+                    
         self.translate_info.text = text
         self.translate_info.voices = get_voice_simple(text)
         self.translate_info.translate = means
