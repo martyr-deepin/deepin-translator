@@ -190,10 +190,14 @@ WindowFrame {
                                 
                                 Component.onCompleted: {
                                     active = expand.expanded
+                                    
+                                    print(hintText, expand.currentDisplayName)
                                 }
                                 
                                 onClicked: {
                                     expandArea.expandItemIndex = active ? index : -1
+                                    
+                                    print("**********", hintText, expand.currentDisplayName)
                                 }
                             }
                             
