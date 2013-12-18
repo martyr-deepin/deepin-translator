@@ -172,8 +172,8 @@ Row {
                     }
                     
                     onClicked: {
-                        var lang = settingConfig.get_translate_config("src_lang")
-                        Qt.openUrlExternally("https://" + lang.split("-", 1)[0] + ".wikipedia.org/wiki/" + toolbar.text)
+                        var lang = settingConfig.get_translate_config("dst_lang").toLowerCase()
+                        Qt.openUrlExternally("https://" + lang.split("-", 1)[0] + ".wikipedia.org/" + lang + "/" + toolbar.text)
                         window.hide()
                     }
                 }
