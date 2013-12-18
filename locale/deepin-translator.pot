@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 09:41+0800\n"
+"POT-Creation-Date: 2013-12-18 16:13+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,32 +17,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/SettingView.qml:56
+#: ../src/SettingView.qml:57
 msgid "Deepin Translator Settings"
 msgstr ""
 
-#: ../src/SettingView.qml:134
-msgid "Source Language"
+#: ../src/SettingView.qml:135
+msgid "Translate from"
 msgstr ""
 
-#: ../src/SettingView.qml:140
-msgid "Target Language"
+#: ../src/SettingView.qml:141
+msgid "Translate to"
 msgstr ""
 
-#: ../src/SettingView.qml:146
-msgid "Word Translate"
+#: ../src/SettingView.qml:147
+msgid "Word Translation"
 msgstr ""
 
-#: ../src/SettingView.qml:158
-msgid "Sentences Translate"
+#: ../src/SettingView.qml:153
+msgid "Read out words"
 msgstr ""
 
-#: ../src/SettingView.qml:152
-msgid "Word Voice"
+#: ../src/SettingView.qml:159
+msgid "Full text translation"
 msgstr ""
 
-#: ../src/SettingView.qml:164
-msgid "Sentences Voice"
+#: ../src/SettingView.qml:165
+msgid "Read out sentences"
 msgstr ""
 
 #: ../src/SettingView.qml:399
@@ -318,27 +318,27 @@ msgid "Yiddish"
 msgstr ""
 
 #: ../src/constant.py:145
-msgid "Chinese Simplified"
+msgid "Chinese (Simplified)"
 msgstr ""
 
 #: ../src/constant.py:146
-msgid "Chinese Traditional"
+msgid "Chinese (Traditional)"
 msgstr ""
 
 #: ../src/system_tray.py:99
-msgid "Pause translate"
+msgid "Pause translation popups"
 msgstr ""
 
 #: ../src/system_tray.py:101
-msgid "Voice after translate"
+msgid "Pronounce automatically"
 msgstr ""
 
 #: ../src/system_tray.py:103
-msgid "Press ctrl to translate selection"
+msgid "Only pop up while holding Ctrl key"
 msgstr ""
 
 #: ../src/system_tray.py:105
-msgid "Enable local translate"
+msgid "Offline translation"
 msgstr ""
 
 #: ../src/system_tray.py:110
@@ -359,7 +359,7 @@ msgstr ""
 
 #: ../src/ocr.py:55
 #, python-format
-msgid "Sorry, screen ocr not support %s yet"
+msgid "Sorry, select-and-translate does not support %s yet"
 msgstr ""
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
@@ -368,11 +368,11 @@ msgid "Cancel"
 msgstr ""
 
 #: ../src/ocr.py:55
-msgid "Ok, I know"
+msgid "Ok, I understood"
 msgstr ""
 
 #: ../src/ocr.py:62
-msgid "Need install OCR package to enable translate feature"
+msgid "An OCR package is required to enable word recognition"
 msgstr ""
 
 #: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
@@ -385,9 +385,9 @@ msgid "Translate failed"
 msgstr ""
 
 #: ../src/dict_plugins/sdcv/translate.py:53
-msgid "Need install sdcv package to enable translate feature"
+msgid "Package sdcv is required to enable translation"
 msgstr ""
 
 #: ../src/tts_plugins/svox/tts.py:36
-msgid "Need install svox to enable voice feature"
+msgid "Package svox is required to enable pronunciation"
 msgstr ""

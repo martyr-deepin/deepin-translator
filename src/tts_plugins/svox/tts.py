@@ -33,7 +33,7 @@ def get_voice(text):
 def check_before_voice():
     need_install_packages = get_install_packages(["libttspico-utils"])
     if len(need_install_packages) > 0:
-        show_message(_("Need install svox to enable voice feature"), _("Cancel"), _("Install"), lambda : install_packages(need_install_packages))
+        show_message(_("Package svox is required to enable pronunciation"), _("Cancel"), _("Install"), lambda : install_packages(need_install_packages))
         return False
     else:
         return True

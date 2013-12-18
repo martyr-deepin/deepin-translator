@@ -132,37 +132,37 @@ WindowFrame {
                         id: contentItems
                         
                         Item {
-                            property string name: dsTr("Source Language")
+                            property string name: dsTr("Translate from")
                             property variant model: sourceLangModel
                             property string type: "src_lang"
                         }
 
                         Item {
-                            property string name: dsTr("Target Language")
+                            property string name: dsTr("Translate to")
                             property variant model: destLangModel
                             property string type: "dst_lang"
                         }
 
                         Item {
-                            property string name: dsTr("Word Translate")
+                            property string name: dsTr("Word Translation")
                             property variant model: wordTranslateModel
                             property string type: "word_engine"
                         }
 
                         Item {
-                            property string name: dsTr("Word Voice")
+                            property string name: dsTr("Read out words")
                             property variant model: wordVoiceModel
                             property string type: "word_voice_engine"
                         }
 
                         Item {
-                            property string name: dsTr("Sentences Translate")
+                            property string name: dsTr("Full text translation")
                             property variant model: wordsTranslateModel
                             property string type: "words_engine"
                         }
 
                         Item {
-                            property string name: dsTr("Sentences Voice")
+                            property string name: dsTr("Read out sentences")
                             property variant model: wordVoiceModel
                             property string type: "words_voice_engine"
                         }

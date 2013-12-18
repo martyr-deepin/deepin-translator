@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 23:38+0800\n"
+"POT-Creation-Date: 2013-12-18 16:04+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -17,39 +17,56 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../src/SettingView.qml:56
+#: ../src/SettingView.qml:57
 msgid "Deepin Translator Settings"
 msgstr ""
 
 #: ../src/SettingView.qml:135
-msgid "Source Language"
-msgstr ""
+#, fuzzy
+msgid "Translate from"
+msgstr "Translate failed"
 
 #: ../src/SettingView.qml:141
-msgid "Target Language"
-msgstr ""
+#, fuzzy
+msgid "Translate to"
+msgstr "Translate failed"
 
 #: ../src/SettingView.qml:147
 #, fuzzy
-msgid "Word Translate"
-msgstr "Voice after translate"
-
-#: ../src/SettingView.qml:159
-#, fuzzy
-msgid "Sentences Translate"
+msgid "Word Translation"
 msgstr "Voice after translate"
 
 #: ../src/SettingView.qml:153
-msgid "Word Voice"
+msgid "Read out words"
 msgstr ""
 
-#: ../src/SettingView.qml:165
+#: ../src/SettingView.qml:159
 #, fuzzy
-msgid "Sentences Voice"
-msgstr "Voice after translate"
+msgid "Full text translation"
+msgstr "Pause translate"
 
-#: ../src/SettingView.qml:400
+#: ../src/SettingView.qml:165
+msgid "Read out sentences"
+msgstr ""
+
+#: ../src/SettingView.qml:399
 msgid "OK"
+msgstr ""
+
+#: ../src/Toolbar.qml:110
+msgid "Voice"
+msgstr ""
+
+#: ../src/Toolbar.qml:135
+msgid "Copy to clipboard"
+msgstr ""
+
+#: ../src/Toolbar.qml:162
+msgid "Wikipedia"
+msgstr ""
+
+#: ../src/Toolbar.qml:189
+msgid "Google"
 msgstr ""
 
 #: ../src/constant.py:82
@@ -305,29 +322,29 @@ msgid "Yiddish"
 msgstr "Yiddish"
 
 #: ../src/constant.py:145
-msgid "Chinese Simplified"
+msgid "Chinese (Simplified)"
 msgstr ""
 
 #: ../src/constant.py:146
-msgid "Chinese Traditional"
+msgid "Chinese (Traditional)"
 msgstr ""
 
 #: ../src/system_tray.py:99
-msgid "Pause translate"
+#, fuzzy
+msgid "Pause translation popups"
 msgstr "Pause translate"
 
 #: ../src/system_tray.py:101
-msgid "Voice after translate"
-msgstr "Voice after translate"
+msgid "Pronounce automatically"
+msgstr ""
 
 #: ../src/system_tray.py:103
-#, fuzzy
-msgid "Press ctrl to translate selection"
-msgstr "Press shift to translate selection"
+msgid "Only pop up while holding Ctrl key"
+msgstr ""
 
 #: ../src/system_tray.py:105
 #, fuzzy
-msgid "Enable local translate"
+msgid "Offline translation"
 msgstr "Pause translate"
 
 #: ../src/system_tray.py:110
@@ -347,8 +364,8 @@ msgid "Exit"
 msgstr "Exit"
 
 #: ../src/ocr.py:55
-#, python-format
-msgid "Sorry, screen ocr not support %s yet"
+#, fuzzy, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
 msgstr "Sorry, screen ocr not support %s yet"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
@@ -357,11 +374,13 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: ../src/ocr.py:55
-msgid "Ok, I know"
+#, fuzzy
+msgid "Ok, I understood"
 msgstr "Ok, I know"
 
 #: ../src/ocr.py:62
-msgid "Need install OCR package to enable translate feature"
+#, fuzzy
+msgid "An OCR package is required to enable this feature"
 msgstr "Need install OCR package to enable translate feature"
 
 #: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
@@ -374,17 +393,38 @@ msgid "Translate failed"
 msgstr "Translate failed"
 
 #: ../src/dict_plugins/sdcv/translate.py:53
-msgid "Need install sdcv package to enable translate feature"
-msgstr "Need install sdcv package to enable translate feature"
+msgid "Package sdcv is required to enable this feature"
+msgstr ""
 
 #: ../src/tts_plugins/svox/tts.py:36
-#, fuzzy
-msgid "Need install svox to enable voice feature"
-msgstr "Need install sdcv package to enable translate feature"
+msgid "Package svox is required to enable this feature"
+msgstr ""
 
 #, fuzzy
-#~ msgid "Reverse translation"
+#~ msgid "Enable local translate"
 #~ msgstr "Pause translate"
+
+#, fuzzy
+#~ msgid "Sentences Translate"
+#~ msgstr "Voice after translate"
+
+#, fuzzy
+#~ msgid "Sentences Voice"
+#~ msgstr "Voice after translate"
+
+#~ msgid "Voice after translate"
+#~ msgstr "Voice after translate"
+
+#, fuzzy
+#~ msgid "Press ctrl to translate selection"
+#~ msgstr "Press shift to translate selection"
+
+#~ msgid "Need install sdcv package to enable translate feature"
+#~ msgstr "Need install sdcv package to enable translate feature"
+
+#, fuzzy
+#~ msgid "Need install svox to enable voice feature"
+#~ msgstr "Need install sdcv package to enable translate feature"
 
 #~ msgid "Chinese"
 #~ msgstr "Chinese"

@@ -87,7 +87,7 @@ class SystemTrayIcon(QSystemTrayIcon):
         self.menu.setItemActivity("key_trigger_select", not state)
         
     def get_lang_value(self):
-        return (dict(LANGUAGES))[setting_config.get_translate_config("src_lang")] + " -> " + (dict(LANGUAGES))[setting_config.get_translate_config("dst_lang")]
+        return (dict(LANGUAGES))[setting_config.get_translate_config("src_lang")] + " <=> " + (dict(LANGUAGES))[setting_config.get_translate_config("dst_lang")]
         
     def on_activated(self, reason):
         if reason in [QSystemTrayIcon.Context, QSystemTrayIcon.Trigger]:
@@ -96,13 +96,13 @@ class SystemTrayIcon(QSystemTrayIcon):
             mouse_y = int(geometry.y() / 2)
             
             self.menu = Menu([
-                    CheckboxMenuItem("pause", _("Pause translate"), 
+                    CheckboxMenuItem("pause", _("Pause translation popups"), 
                                      setting_config.get_trayicon_config("pause")),
-                    CheckboxMenuItem("toggle_speech", _("Voice after translate"), 
+                    CheckboxMenuItem("toggle_speech", _("Pronounce automatically"), 
                                      setting_config.get_trayicon_config("toggle_speech")),
-                    CheckboxMenuItem("key_trigger_select", _("Press ctrl to translate selection"), 
+                    CheckboxMenuItem("key_trigger_select", _("Only pop up while holding Ctrl key"), 
                                      setting_config.get_trayicon_config("key_trigger_select")),
-                    CheckboxMenuItem("local_translate", _("Enable local translate"),
+                    CheckboxMenuItem("local_translate", _("Offline translation"),
                                      setting_config.get_trayicon_config("local_translate")),
                     MenuSeparator(),
                     CheckboxMenuItem("lang", self.get_lang_value(), showCheckmark=False),

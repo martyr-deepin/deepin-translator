@@ -50,7 +50,7 @@ class Translate(TranslateWindow):
     def check_before_translate(self):
         self.need_install_packages = get_install_packages(["sdcv", "stardict-xdict-ce-gb", "stardict-xdict-ec-gb"])
         if len(self.need_install_packages) > 0:
-            show_message(_("Need install sdcv package to enable translate feature"), _("Cancel"), _("Install"), self.install_sdcv)
+            show_message(_("Package sdcv is required to enable translation"), _("Cancel"), _("Install"), self.install_sdcv)
             return False
         else:
             return True

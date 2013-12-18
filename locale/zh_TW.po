@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 09:41+0800\n"
+"POT-Creation-Date: 2013-12-18 16:13+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -16,32 +16,32 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/SettingView.qml:56
+#: ../src/SettingView.qml:57
 msgid "Deepin Translator Settings"
 msgstr "深度係統設置"
 
-#: ../src/SettingView.qml:134
-msgid "Source Language"
+#: ../src/SettingView.qml:135
+msgid "Translate from"
 msgstr "源語言"
 
-#: ../src/SettingView.qml:140
-msgid "Target Language"
+#: ../src/SettingView.qml:141
+msgid "Translate to"
 msgstr "目標語言"
 
-#: ../src/SettingView.qml:146
-msgid "Word Translate"
+#: ../src/SettingView.qml:147
+msgid "Word Translation"
 msgstr "單詞翻譯"
 
-#: ../src/SettingView.qml:158
-msgid "Sentences Translate"
-msgstr "長句翻譯"
-
-#: ../src/SettingView.qml:152
-msgid "Word Voice"
+#: ../src/SettingView.qml:153
+msgid "Read out words"
 msgstr "單詞發音"
 
-#: ../src/SettingView.qml:164
-msgid "Sentences Voice"
+#: ../src/SettingView.qml:159
+msgid "Full text translation"
+msgstr "長句翻譯"
+
+#: ../src/SettingView.qml:165
+msgid "Read out sentences"
 msgstr "長句發音"
 
 #: ../src/SettingView.qml:399
@@ -317,28 +317,28 @@ msgid "Yiddish"
 msgstr "意第緒語"
 
 #: ../src/constant.py:145
-msgid "Chinese Simplified"
+msgid "Chinese (Simplified)"
 msgstr "簡體中文"
 
 #: ../src/constant.py:146
-msgid "Chinese Traditional"
+msgid "Chinese (Traditional)"
 msgstr "繁體中文"
 
 #: ../src/system_tray.py:99
-msgid "Pause translate"
+msgid "Pause translation popups"
 msgstr "暫停翻譯"
 
 #: ../src/system_tray.py:101
-msgid "Voice after translate"
-msgstr "取詞後發音"
+msgid "Pronounce automatically"
+msgstr "自動發音"
 
 #: ../src/system_tray.py:103
-msgid "Press ctrl to translate selection"
-msgstr "按Ctrl鍵翻譯選區"
+msgid "Only pop up while holding Ctrl key"
+msgstr "隻在按住Ctrl鍵彈出翻譯"
 
 #: ../src/system_tray.py:105
-msgid "Enable local translate"
-msgstr "启用本地翻译"
+msgid "Offline translation"
+msgstr "離線翻譯"
 
 #: ../src/system_tray.py:110
 msgid "Settings"
@@ -358,7 +358,7 @@ msgstr "退出"
 
 #: ../src/ocr.py:55
 #, python-format
-msgid "Sorry, screen ocr not support %s yet"
+msgid "Sorry, select-and-translate does not support %s yet"
 msgstr "對不起， 屏幕取詞現在還不支持%s"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
@@ -367,12 +367,12 @@ msgid "Cancel"
 msgstr "取消"
 
 #: ../src/ocr.py:55
-msgid "Ok, I know"
+msgid "Ok, I understood"
 msgstr "我知道了"
 
 #: ../src/ocr.py:62
-msgid "Need install OCR package to enable translate feature"
-msgstr "需要安裝取詞庫以開啟翻譯"
+msgid "An OCR package is required to enable word recognition"
+msgstr "需要安裝OCR庫以開啟單詞識彆"
 
 #: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
 #: ../src/tts_plugins/svox/tts.py:36
@@ -384,27 +384,9 @@ msgid "Translate failed"
 msgstr "翻譯失敗"
 
 #: ../src/dict_plugins/sdcv/translate.py:53
-msgid "Need install sdcv package to enable translate feature"
+msgid "Package sdcv is required to enable translation"
 msgstr "需要安裝星際譯王以開啟翻譯"
 
 #: ../src/tts_plugins/svox/tts.py:36
-msgid "Need install svox to enable voice feature"
-msgstr "需要安裝SVOX語音引擎以開啟翻譯"
-
-#~ msgid "Reverse translation"
-#~ msgstr "反向翻譯"
-
-#~ msgid "Read"
-#~ msgstr "朗讀"
-
-#~ msgid "[US]"
-#~ msgstr "[美]"
-
-#~ msgid "[UK]"
-#~ msgstr "[英]"
-
-#~ msgid "Chinese"
-#~ msgstr "漢語"
-
-#~ msgid "Press alt to screen ocr"
-#~ msgstr "按Alt鍵屏幕取詞"
+msgid "Package svox is required to enable pronunciation"
+msgstr "需要安裝SVOX引擎以開啟發音"

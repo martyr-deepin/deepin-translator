@@ -4,38 +4,38 @@
 <context>
     <name>SettingView</name>
     <message>
-        <location filename="../src/SettingView.qml" line="56"/>
+        <location filename="../src/SettingView.qml" line="57"/>
         <source>Deepin Translator Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="134"/>
-        <source>Source Language</source>
+        <location filename="../src/SettingView.qml" line="135"/>
+        <source>Translate from</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="140"/>
-        <source>Target Language</source>
+        <location filename="../src/SettingView.qml" line="141"/>
+        <source>Translate to</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="146"/>
-        <source>Word Translate</source>
+        <location filename="../src/SettingView.qml" line="147"/>
+        <source>Word Translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="158"/>
-        <source>Sentences Translate</source>
+        <location filename="../src/SettingView.qml" line="153"/>
+        <source>Read out words</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="152"/>
-        <source>Word Voice</source>
+        <location filename="../src/SettingView.qml" line="159"/>
+        <source>Full text translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="164"/>
-        <source>Sentences Voice</source>
+        <location filename="../src/SettingView.qml" line="165"/>
+        <source>Read out sentences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
