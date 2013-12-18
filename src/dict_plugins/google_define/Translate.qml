@@ -139,7 +139,7 @@ TranslateWindow {
 		            }		
                 }
                 
-                Scrollbar {
+                DScrollBar {
                     flickable: flick
                 }
             }

@@ -380,7 +380,7 @@ WindowFrame {
 				                        interactive: true
                                     }
                                     
-                                    Scrollbar {
+                                    DScrollBar {
                                         flickable: listview
                                     }
                                 }

@@ -14,14 +14,61 @@ Rectangle {
     property url activatedHoverImage
     property url activatedPressImage
 
-    property bool activate: false
+    signal clicked
+    property bool active: false
 
     property bool hover: false
+    property bool pressed: false
+
+    onActiveChanged: {
+        changeStatus()
+    }
+    onHoverChanged: {
+        changeStatus()
+    }
+    onPressedChanged: {
+        changeStatus()
+    }
+
+    function changeStatus(){
+        if(active){
+            if(pressed){
+                currentImage.source = activatedPressImage
+            }
+            else{
+                if(hover){
+                    currentImage.source = activatedHoverImage
+                }
+                else{
+                    currentImage.source = activatedNomralImage
+                }
+            }
+        }else{
+            if(pressed){
+                currentImage.source = inactivatedPressImage
+            }
+            else{
+                if(hover){
+                    currentImage.source = inactivatedHoverImage
+                }
+                else{
+                    currentImage.source = inactivatedNomralImage
+                }
+            }
+        }
+    }
 
     Image {
         id: currentImage
         anchors.centerIn: parent
-        source: inactivatedNomralImage
+        Component.onCompleted: {
+            if(active){
+                source = activatedNomralImage
+            }
+            else{
+                source = inactivatedNomralImage
+            }
+        }
     }
 
     MouseArea {
@@ -29,42 +76,30 @@ Rectangle {
         hoverEnabled: true
 
         onPressed: {
-            if (imageCheckButton.activate) {
-                currentImage.source = activatedPressImage
-            }
-            else {
-                currentImage.source = inactivatedPressImage
-            }
+            parent.hover = false
+            parent.pressed = true
         }
 
         onReleased: {
-            imageCheckButton.activate = !imageCheckButton.activate
-            if (imageCheckButton.activate) {
-                currentImage.source = activatedHoverImage
+            parent.pressed = false
+            if (containsMouse){
+                parent.hover = true
             }
             else {
-                currentImage.source = inactivatedHoverImage
+                parent.hover = false
             }
+            parent.active = !parent.active
+            imageCheckButton.clicked()
         }
 
         onEntered: {
-            imageCheckButton.hover = true
-            if (imageCheckButton.activate) {
-                currentImage.source = activatedHoverImage
-            }
-            else {
-                currentImage.source = inactivatedHoverImage
-            }
+            parent.hover = true
+            parent.pressed = false
         }
 
         onExited: {
-            imageCheckButton.hover = false
-            if (imageCheckButton.activate) {
-                currentImage.source = activatedNomralImage
-            }
-            else {
-                currentImage.source = inactivatedNomralImage
-            }
+            parent.hover = false
+            parent.pressed = false
         }
     }
 }

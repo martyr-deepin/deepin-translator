@@ -8,7 +8,7 @@ Item {
         top: flickable.top
         right: flickable.right
         bottom: flickable.bottom
-        margins: 1
+        //margins: 1
     }
 
     property Flickable flickable : null
@@ -25,6 +25,21 @@ Item {
         flickable.contentY = Math.max (flickable.contentY - (flickable.height / 4), 0)
     }
 
+    function handleShow(){
+        backHandle.opacity = 0.7
+        backHandle.color = activeColor
+        scrollbar.inInteractive = true
+    }
+
+    function handleHide(){
+        if (hideTimer.running){
+            hideTimer.stop()
+        }
+        hideTimer.restart()
+        backHandle.color = inactiveColor
+        scrollbar.inInteractive = false
+    }
+
     Binding {
         target: handle
         property: "y"
@@ -37,6 +52,14 @@ Item {
         property: "contentY"
         value: (handle.y * (flickable.contentHeight - flickable.height) / clicker.drag.maximumY)
         when: (clicker.drag.active || clicker.pressed)
+    }
+
+    Connections {
+        target: handle
+        onYChanged: {
+            handleShow()
+            handleHide()
+        }
     }
     
     Item {
@@ -52,27 +75,22 @@ Item {
             anchors.fill: parent
             hoverEnabled: true
             
-            drag {
-                target: handle
-                minimumY: 0
-                maximumY: (groove.height - handle.height)
-                axis: Drag.YAxis
-            }
+            drag.target: handle
+            drag.axis: Drag.YAxis
+            drag.minimumY: 0
+            drag.maximumY: (groove.height - handle.height)
+            drag.filterChildren: true
             
             onClicked: { 
                 flickable.contentY = (mouse.y / groove.height * (flickable.contentHeight - flickable.height)) 
             }
-            
+
             onEntered: {
-                backHandle.opacity = 0.7
-                backHandle.color = inactiveColor
-                
-                scrollbar.inInteractive = true
+                handleShow()
             }
             
             onExited: {
-                scrollbar.inInteractive = false
-                hideTimer.restart()
+                handleHide()
             }
         }
         
@@ -99,19 +117,17 @@ Item {
             MouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
+
+                onPressed: {
+                    print(clicker.drag.active)
+                }
         
                 onEntered: {
-                    backHandle.opacity = 0.7
-                    backHandle.color = activeColor
-
-                    scrollbar.inInteractive = true
+                    handleShow()
                 }
                 
                 onExited: {
-                    backHandle.color = inactiveColor
-
-                    scrollbar.inInteractive = false
-                    hideTimer.restart()
+                    handleHide()
                 }
             }
         }
