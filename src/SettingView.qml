@@ -150,7 +150,7 @@ WindowFrame {
                         }
 
                         Item {
-                            property string name: dsTr("Word speech engine")
+                            property string name: dsTr("Word speech")
                             property variant model: wordVoiceModel
                             property string type: "word_voice_engine"
                         }
@@ -162,7 +162,7 @@ WindowFrame {
                         }
 
                         Item {
-                            property string name: dsTr("Sentences speech engine")
+                            property string name: dsTr("Sentences speech")
                             property variant model: wordVoiceModel
                             property string type: "words_voice_engine"
                         }

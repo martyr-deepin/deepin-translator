@@ -29,12 +29,12 @@ msgid "Target language"
 msgstr "目标语言"
 
 #: ../src/SettingView.qml:153
-msgid "Word speech engine"
-msgstr "单词语音引擎"
+msgid "Word speech"
+msgstr "单词语音"
 
 #: ../src/SettingView.qml:165
-msgid "Sentences speech engine"
-msgstr "长句语音引擎"
+msgid "Sentences speech"
+msgstr "长句语音"
 
 #: ../src/SettingView.qml:147
 msgid "Word Translation"
