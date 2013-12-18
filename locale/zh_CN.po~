@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 16:04+0800\n"
+"POT-Creation-Date: 2013-12-18 16:13+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -358,6 +358,7 @@ msgid "Exit"
 msgstr "退出"
 
 #: ../src/ocr.py:55
+#, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
 msgstr "对不起， 屏幕取词现在还不支持%s"
 
@@ -371,8 +372,8 @@ msgid "Ok, I understood"
 msgstr "我知道了"
 
 #: ../src/ocr.py:62
-msgid "An OCR package is required to enable this feature"
-msgstr "需要安装OCR库以开启翻译"
+msgid "An OCR package is required to enable word recognition"
+msgstr "需要安装OCR库以开启单词识别"
 
 #: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
 #: ../src/tts_plugins/svox/tts.py:36
@@ -384,54 +385,9 @@ msgid "Translate failed"
 msgstr "翻译失败"
 
 #: ../src/dict_plugins/sdcv/translate.py:53
-msgid "Package sdcv is required to enable this feature"
+msgid "Package sdcv is required to enable translation"
 msgstr "需要安装星际译王以开启翻译"
 
 #: ../src/tts_plugins/svox/tts.py:36
-msgid "Package svox is required to enable this feature"
-msgstr "需要安装SVOX引擎以开启翻译"
-
-#~ msgid "Enable local translate"
-#~ msgstr "启用本地翻译"
-
-#~ msgid "Source Language"
-#~ msgstr "源语言"
-
-#~ msgid "Target Language"
-#~ msgstr "目标语言"
-
-#~ msgid "Sentences Translate"
-#~ msgstr "长句翻译"
-
-#~ msgid "Word Voice"
-#~ msgstr "单词发音"
-
-#~ msgid "Sentences Voice"
-#~ msgstr "长句发音"
-
-#~ msgid "Voice after translate"
-#~ msgstr "取词后发音"
-
-#~ msgid "Press ctrl to translate selection"
-#~ msgstr "按Ctrl键翻译选区"
-
-#~ msgid "Need install sdcv package to enable translate feature"
-#~ msgstr "需要安装星际译王以开启翻译"
-
-#~ msgid "Need install svox to enable voice feature"
-#~ msgstr "需要安装SVOX语音引擎以开启翻译"
-
-#~ msgid "Read"
-#~ msgstr "朗读"
-
-#~ msgid "[US]"
-#~ msgstr "[美]"
-
-#~ msgid "[UK]"
-#~ msgstr "[英]"
-
-#~ msgid "Chinese"
-#~ msgstr "汉语"
-
-#~ msgid "Press alt to screen ocr"
-#~ msgstr "按Alt键屏幕取词"
+msgid "Package svox is required to enable pronunciation"
+msgstr "需要安装SVOX引擎以开启发音"

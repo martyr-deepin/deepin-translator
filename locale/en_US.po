@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 16:13+0800\n"
+"POT-Creation-Date: 2013-12-18 16:17+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -22,32 +22,31 @@ msgid "Deepin Translator Settings"
 msgstr ""
 
 #: ../src/SettingView.qml:135
-#, fuzzy
-msgid "Translate from"
-msgstr "Translate failed"
+msgid "Source language"
+msgstr ""
 
 #: ../src/SettingView.qml:141
+msgid "Target language"
+msgstr ""
+
+#: ../src/SettingView.qml:153
+msgid "Word speech engine"
+msgstr ""
+
+#: ../src/SettingView.qml:165
 #, fuzzy
-msgid "Translate to"
-msgstr "Translate failed"
+msgid "Sentences speech engine"
+msgstr "Voice after translate"
 
 #: ../src/SettingView.qml:147
 #, fuzzy
 msgid "Word Translation"
 msgstr "Voice after translate"
 
-#: ../src/SettingView.qml:153
-msgid "Read out words"
-msgstr ""
-
 #: ../src/SettingView.qml:159
 #, fuzzy
 msgid "Full text translation"
 msgstr "Pause translate"
-
-#: ../src/SettingView.qml:165
-msgid "Read out sentences"
-msgstr ""
 
 #: ../src/SettingView.qml:399
 msgid "OK"
@@ -403,15 +402,19 @@ msgid "Package svox is required to enable pronunciation"
 msgstr "Need install OCR package to enable translate feature"
 
 #, fuzzy
+#~ msgid "Translate from"
+#~ msgstr "Translate failed"
+
+#, fuzzy
+#~ msgid "Translate to"
+#~ msgstr "Translate failed"
+
+#, fuzzy
 #~ msgid "Enable local translate"
 #~ msgstr "Pause translate"
 
 #, fuzzy
 #~ msgid "Sentences Translate"
-#~ msgstr "Voice after translate"
-
-#, fuzzy
-#~ msgid "Sentences Voice"
 #~ msgstr "Voice after translate"
 
 #~ msgid "Voice after translate"

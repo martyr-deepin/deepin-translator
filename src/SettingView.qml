@@ -132,13 +132,13 @@ WindowFrame {
                         id: contentItems
                         
                         Item {
-                            property string name: dsTr("Translate from")
+                            property string name: dsTr("Source language")
                             property variant model: sourceLangModel
                             property string type: "src_lang"
                         }
 
                         Item {
-                            property string name: dsTr("Translate to")
+                            property string name: dsTr("Target language")
                             property variant model: destLangModel
                             property string type: "dst_lang"
                         }
@@ -150,7 +150,7 @@ WindowFrame {
                         }
 
                         Item {
-                            property string name: dsTr("Read out words")
+                            property string name: dsTr("Word speech engine")
                             property variant model: wordVoiceModel
                             property string type: "word_voice_engine"
                         }
@@ -162,7 +162,7 @@ WindowFrame {
                         }
 
                         Item {
-                            property string name: dsTr("Read out sentences")
+                            property string name: dsTr("Sentences speech engine")
                             property variant model: wordVoiceModel
                             property string type: "words_voice_engine"
                         }

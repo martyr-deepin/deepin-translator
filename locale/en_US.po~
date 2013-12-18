@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 16:04+0800\n"
+"POT-Creation-Date: 2013-12-18 16:13+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -380,7 +380,7 @@ msgstr "Ok, I know"
 
 #: ../src/ocr.py:62
 #, fuzzy
-msgid "An OCR package is required to enable this feature"
+msgid "An OCR package is required to enable word recognition"
 msgstr "Need install OCR package to enable translate feature"
 
 #: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
@@ -393,12 +393,14 @@ msgid "Translate failed"
 msgstr "Translate failed"
 
 #: ../src/dict_plugins/sdcv/translate.py:53
-msgid "Package sdcv is required to enable this feature"
-msgstr ""
+#, fuzzy
+msgid "Package sdcv is required to enable translation"
+msgstr "Need install OCR package to enable translate feature"
 
 #: ../src/tts_plugins/svox/tts.py:36
-msgid "Package svox is required to enable this feature"
-msgstr ""
+#, fuzzy
+msgid "Package svox is required to enable pronunciation"
+msgstr "Need install OCR package to enable translate feature"
 
 #, fuzzy
 #~ msgid "Enable local translate"

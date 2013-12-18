@@ -10,12 +10,22 @@
     </message>
     <message>
         <location filename="../src/SettingView.qml" line="135"/>
-        <source>Translate from</source>
+        <source>Source language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../src/SettingView.qml" line="141"/>
-        <source>Translate to</source>
+        <source>Target language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingView.qml" line="153"/>
+        <source>Word speech engine</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingView.qml" line="165"/>
+        <source>Sentences speech engine</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -24,18 +34,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="153"/>
-        <source>Read out words</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../src/SettingView.qml" line="159"/>
         <source>Full text translation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SettingView.qml" line="165"/>
-        <source>Read out sentences</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
