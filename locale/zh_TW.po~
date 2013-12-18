@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-15 18:45+0800\n"
+"POT-Creation-Date: 2013-12-17 23:38+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -20,44 +20,33 @@ msgstr ""
 msgid "Deepin Translator Settings"
 msgstr "深度係統設置"
 
-#: ../src/SettingView.qml:117
+#: ../src/SettingView.qml:135
 msgid "Source Language"
 msgstr "源語言"
 
-#: ../src/SettingView.qml:123
+#: ../src/SettingView.qml:141
 msgid "Target Language"
 msgstr "目標語言"
 
-#: ../src/SettingView.qml:129
+#: ../src/SettingView.qml:147
 msgid "Word Translate"
 msgstr "單詞翻譯"
 
-#: ../src/SettingView.qml:141
+#: ../src/SettingView.qml:159
 msgid "Sentences Translate"
 msgstr "長句翻譯"
 
-#: ../src/SettingView.qml:135
+#: ../src/SettingView.qml:153
 msgid "Word Voice"
 msgstr "單詞發音"
 
-#: ../src/SettingView.qml:147
+#: ../src/SettingView.qml:165
 msgid "Sentences Voice"
 msgstr "長句發音"
 
-#: ../src/SettingView.qml:376
-msgid "Reverse translation"
-msgstr "反向翻譯"
-
-#: ../src/SettingView.qml:394
+#: ../src/SettingView.qml:400
 msgid "OK"
 msgstr "確定"
-
-#: ../src/dict_plugins/google_long/Translate.qml:103
-#: ../src/dict_plugins/google_simple/Translate.qml:113
-#: ../src/dict_plugins/sdcv/Translate.qml:84
-#: ../src/dict_plugins/youdao/Translate.qml:373
-msgid "Read"
-msgstr "朗讀"
 
 #: ../src/constant.py:82
 msgid "Afrikaans"
@@ -319,31 +308,35 @@ msgstr "簡體中文"
 msgid "Chinese Traditional"
 msgstr "繁體中文"
 
-#: ../src/system_tray.py:69
+#: ../src/system_tray.py:99
 msgid "Pause translate"
 msgstr "暫停翻譯"
 
-#: ../src/system_tray.py:71
+#: ../src/system_tray.py:101
 msgid "Voice after translate"
 msgstr "取詞後發音"
 
-#: ../src/system_tray.py:73
+#: ../src/system_tray.py:103
 msgid "Press ctrl to translate selection"
 msgstr "按Ctrl鍵翻譯選區"
 
-#: ../src/system_tray.py:78
+#: ../src/system_tray.py:105
+msgid "Enable local translate"
+msgstr "启用本地翻译"
+
+#: ../src/system_tray.py:110
 msgid "Settings"
 msgstr "設置"
 
-#: ../src/system_tray.py:79
+#: ../src/system_tray.py:111
 msgid "Wizard"
 msgstr "向導"
 
-#: ../src/system_tray.py:80
+#: ../src/system_tray.py:112
 msgid "About"
 msgstr "關於"
 
-#: ../src/system_tray.py:82
+#: ../src/system_tray.py:114
 msgid "Exit"
 msgstr "退出"
 
@@ -352,8 +345,8 @@ msgstr "退出"
 msgid "Sorry, screen ocr not support %s yet"
 msgstr "對不起， 屏幕取詞現在還不支持%s"
 
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:52
-#: ../src/tts_plugins/svox/tts.py:31
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
+#: ../src/tts_plugins/svox/tts.py:36
 msgid "Cancel"
 msgstr "取消"
 
@@ -365,22 +358,28 @@ msgstr "我知道了"
 msgid "Need install OCR package to enable translate feature"
 msgstr "需要安裝取詞庫以開啟翻譯"
 
-#: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:52
-#: ../src/tts_plugins/svox/tts.py:31
+#: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
+#: ../src/tts_plugins/svox/tts.py:36
 msgid "Install"
 msgstr "安裝"
 
-#: ../src/dict_plugins/google_simple/translate.py:95
+#: ../src/dict_plugins/google_simple/translate.py:96
 msgid "Translate failed"
 msgstr "翻譯失敗"
 
-#: ../src/dict_plugins/sdcv/translate.py:52
+#: ../src/dict_plugins/sdcv/translate.py:53
 msgid "Need install sdcv package to enable translate feature"
 msgstr "需要安裝星際譯王以開啟翻譯"
 
-#: ../src/tts_plugins/svox/tts.py:31
+#: ../src/tts_plugins/svox/tts.py:36
 msgid "Need install svox to enable voice feature"
 msgstr "需要安裝SVOX語音引擎以開啟翻譯"
+
+#~ msgid "Reverse translation"
+#~ msgstr "反向翻譯"
+
+#~ msgid "Read"
+#~ msgstr "朗讀"
 
 #~ msgid "[US]"
 #~ msgstr "[美]"

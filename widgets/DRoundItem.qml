@@ -7,14 +7,17 @@ Item {
     height: 100
 
     property int radius: 50
+    property color bgColor: "#1A1A1B"
     default property alias source: target.sourceComponent
-	
-	Loader {
-		id: target
-	}
+
+    Loader {
+        id: target
+    }
 
     Rectangle {
         id: mask
+
+        color: round_item.bgColor
         radius: round_item.radius
         smooth: true
         antialiasing: true
@@ -24,12 +27,12 @@ Item {
 
     OpacityMask {
         anchors.fill: parent
-		
+
         source: target
         maskSource: mask
-		
-		Component.onCompleted: {
-			target.visible = false
-		}
+
+        Component.onCompleted: {
+            target.visible = false
+        }
     }
 }

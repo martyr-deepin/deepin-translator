@@ -1,4 +1,5 @@
 import QtQuick 2.1
+import Deepin.Locale 1.0
 import "../widgets"
 
 Row {
@@ -15,10 +16,23 @@ Row {
     property alias entry: entry
     property alias items: items
     property alias arrow: arrow
+    property alias tooltip: tooltip
     
     property int imageWidth: 16
     property int itemSpacing: 5
     property int itemWidth: imageWidth + itemSpacing
+    
+    property bool inButtonArea: false
+    
+    property variant dsslocale: DLocale {
+        id: dsslocale
+        dirname: "../locale"
+        domain: "deepin-translator"
+    }
+    
+    function dsTr(s){
+        return dsslocale.dsTr(s)
+    }
     
     function init(resetPosition) {
         entryArea.width = splitView.width - itemWidth
@@ -42,12 +56,30 @@ Row {
         
         Row {
             id: entryArea
+            height: parent.height
             width: parent.width - itemWidth
             
-            Entry {
-                id: entry
+            Rectangle {
+                height: parent.height
                 width: parent.width - splitline.width
-                text: toolbar.text
+                anchors.verticalCenter: parent.verticalCenter
+                color: "transparent"
+                
+                Entry {
+                    id: entry
+                    anchors.fill: parent
+                    text: toolbar.text
+                    visible: !tooltip.visible
+                }
+                
+                Text {
+                    id: tooltip
+                    anchors.fill: parent
+                    anchors.rightMargin: 5
+                    color: "grey"
+                    horizontalAlignment: Text.AlignRight
+                    visible: false
+                }
             }
             
             Rectangle {
@@ -69,39 +101,107 @@ Row {
             spacing: 5
             
             DOpacityImageButton {
+                id: speakerButton
                 source: "image/speaker.png"
                 
-                onClicked: {
-                    player.playAudio()
-                }
-            }
-
-            DOpacityImageButton {
-                source: "image/paste.png"
-                
-                onClicked: {
-                    window.hide()
+                Connections {
+                    target: speakerButton.mouseArea
+                    onEntered: {
+                        tooltip.text = dsTr("Voice")
+                        tooltip.visible = true
+                        
+                        toolbar.inButtonArea = true
+                    }
                     
-                    window.save_to_clipboard(text)
+                    onExited: {
+                        toolbar.inButtonArea = false
+                        
+                        showEntryTimer.restart()
+                    }
+                    
+                    onClicked: {
+                        player.playAudio()
+                    }
                 }
             }
 
             DOpacityImageButton {
+                id: pasteButton
+                source: "image/paste.png"
+
+                Connections {
+                    target: pasteButton.mouseArea
+                    onEntered: {
+                        tooltip.text = dsTr("Copy to clipboard")
+                        tooltip.visible = true
+
+                        toolbar.inButtonArea = true
+                    }
+                    
+                    onExited: {
+                        toolbar.inButtonArea = false
+                        
+                        showEntryTimer.restart()
+                    }
+                    
+                    onClicked: {
+                        window.hide()
+                        
+                        window.save_to_clipboard(text)
+                    }
+                }
+            }
+
+            DOpacityImageButton {
+                id: wikiButton
                 source: "image/wikipedia.png"
 
-                onClicked: {
-                    var lang = settingConfig.get_translate_config("src_lang")
-                    Qt.openUrlExternally("https://" + lang + ".wikipedia.org/wiki/" + toolbar.text)
-                    window.hide()
+                Connections {
+                    target: wikiButton.mouseArea
+                    onEntered: {
+                        tooltip.text = dsTr("Wikipedia")
+                        tooltip.visible = true
+                        
+                        toolbar.inButtonArea = true
+                    }
+                    
+                    onExited: {
+                        toolbar.inButtonArea = false
+                        
+                        showEntryTimer.restart()
+                    }
+                    
+                    onClicked: {
+                        var lang = settingConfig.get_translate_config("src_lang")
+                        Qt.openUrlExternally("https://" + lang + ".wikipedia.org/wiki/" + toolbar.text)
+                        window.hide()
+                    }
                 }
             }
 
             DOpacityImageButton {
+                id: searchButton
                 source: "image/search.png"
 
-                onClicked: {
-                    Qt.openUrlExternally("https://www.google.com/search?q=" + toolbar.text)
-                    window.hide()
+                Connections {
+                    target: searchButton.mouseArea
+                    onEntered: {
+                        tooltip.text = dsTr("Google")
+                        tooltip.visible = true
+                        
+                        toolbar.inButtonArea = true
+                    }
+                    
+                    onExited: {
+                        toolbar.inButtonArea = false
+                        
+                        showEntryTimer.restart()
+                    }
+                    
+                    onClicked: {
+                        Qt.openUrlExternally("https://www.google.com/search?q=" + toolbar.text)
+                        window.hide()
+                    }
                 }
             }
         }
@@ -114,8 +214,18 @@ Row {
         
         property bool expand: false
         
+        Rectangle {
+            id: hoverArea
+            anchors.fill: parent
+            anchors.topMargin: -2
+            anchors.bottomMargin: -2
+            color: Qt.rgba(1, 1, 1, 0.2)
+            visible: false
+        }
+        
         MouseArea {
             anchors.fill: parent
+            hoverEnabled: true
             
             onClicked: {
                 if (arrow.expand) {
@@ -127,6 +237,26 @@ Row {
                 }
                 
                 arrow.expand = !arrow.expand
+            }
+            
+            onEntered: {
+                hoverArea.visible = true
+            }
+            
+            onExited: {
+                hoverArea.visible = false
+            }
+        }
+    }
+    
+    Timer {
+        id: showEntryTimer
+		interval: 200
+		repeat: false
+
+        onTriggered: {
+            if (!toolbar.inButtonArea) {
+                tooltip.visible = false
             }
         }
     }
@@ -143,7 +273,7 @@ Row {
         }
     }
 
-    ParallelAnimation{
+    ParallelAnimation {
         id: shrinkAnimation
         
         SmoothedAnimation {

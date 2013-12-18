@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 23:38+0800\n"
+"POT-Creation-Date: 2013-12-18 09:41+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -21,35 +21,51 @@ msgstr ""
 msgid "Deepin Translator Settings"
 msgstr ""
 
-#: ../src/SettingView.qml:135
+#: ../src/SettingView.qml:134
 msgid "Source Language"
 msgstr ""
 
-#: ../src/SettingView.qml:141
+#: ../src/SettingView.qml:140
 msgid "Target Language"
 msgstr ""
 
-#: ../src/SettingView.qml:147
+#: ../src/SettingView.qml:146
 #, fuzzy
 msgid "Word Translate"
 msgstr "Voice after translate"
 
-#: ../src/SettingView.qml:159
+#: ../src/SettingView.qml:158
 #, fuzzy
 msgid "Sentences Translate"
 msgstr "Voice after translate"
 
-#: ../src/SettingView.qml:153
+#: ../src/SettingView.qml:152
 msgid "Word Voice"
 msgstr ""
 
-#: ../src/SettingView.qml:165
+#: ../src/SettingView.qml:164
 #, fuzzy
 msgid "Sentences Voice"
 msgstr "Voice after translate"
 
-#: ../src/SettingView.qml:400
+#: ../src/SettingView.qml:399
 msgid "OK"
+msgstr ""
+
+#: ../src/Toolbar.qml:110
+msgid "Voice"
+msgstr ""
+
+#: ../src/Toolbar.qml:135
+msgid "Copy to clipboard"
+msgstr ""
+
+#: ../src/Toolbar.qml:162
+msgid "Wikipedia"
+msgstr ""
+
+#: ../src/Toolbar.qml:189
+msgid "Google"
 msgstr ""
 
 #: ../src/constant.py:82
