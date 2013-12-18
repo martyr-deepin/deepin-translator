@@ -116,11 +116,12 @@ class SystemTrayIcon(QSystemTrayIcon):
             
             if mouse_y > screen_height / 2:
                 self.menu.cornerDirection = "up"
+                self.menu.showDockMenu(mouse_x, mouse_y)
             else:
                 self.menu.cornerDirection = "down"
+                self.menu.showDockMenu(0, 0)
                 
             self.menu.itemClicked.connect(self.click_menu)
-            self.menu.showDockMenu(mouse_x, mouse_y)
             self.set_menu_active(setting_config.get_trayicon_config("pause"))
             
     def get_trayarea(self):
