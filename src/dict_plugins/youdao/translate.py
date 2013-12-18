@@ -55,7 +55,7 @@ class Translate(TranslateWindow):
         result_lines = [""]
         for tran_line in tran_lines:
             current_line = result_lines[-1]
-            if len(current_line) + len(tran_line) > 50:
+            if len(current_line) + len(tran_line) > 30:
                 result_lines.append(tran_line)
             else:
                 result_lines[-1] += tran_line + "; "
