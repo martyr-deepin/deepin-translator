@@ -173,7 +173,7 @@ Row {
                     
                     onClicked: {
                         var lang = settingConfig.get_translate_config("src_lang")
-                        Qt.openUrlExternally("https://" + lang + ".wikipedia.org/wiki/" + toolbar.text)
+                        Qt.openUrlExternally("https://" + lang.split("-", 1)[0] + ".wikipedia.org/wiki/" + toolbar.text)
                         window.hide()
                     }
                 }
