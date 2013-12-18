@@ -119,7 +119,7 @@ class SystemTrayIcon(QSystemTrayIcon):
             if mouse_y > screen_height / 2:
                 self.menu.showDockMenu(mouse_x, mouse_y, cornerDirection="down")
             else:
-                self.menu.showDockMenu(mouse_x, mouse_y, cornerDirection="up")
+                self.menu.showDockMenu(mouse_x, mouse_y + geometry.height(), cornerDirection="up")
             
     def get_trayarea(self):
         geometry = self.geometry()
