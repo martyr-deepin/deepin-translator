@@ -35,7 +35,6 @@ class Model(QObjectListModel):
     def __init__(self, data, parent=None):
         QObjectListModel.__init__(self, parent)
         
-        self.data_dict = dict(data)
         self.setAll(data)
         
     def data(self, index, role):
@@ -55,7 +54,7 @@ class Model(QObjectListModel):
 
     @pyqtSlot(str, result=str)        
     def getDisplayName(self, name):
-        return self.data_dict[name]
+        return dict(self._data)[name]
     
     @pyqtSlot(str, result=int)
     def getNameIndex(self, name):
