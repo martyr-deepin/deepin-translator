@@ -25,7 +25,7 @@ from PyQt5.QtCore import pyqtSlot, pyqtSignal
 from PyQt5.QtGui import QIcon
 from deepin_menu.menu import Menu, MenuSeparator, CheckboxMenuItem
 from config import setting_config
-from xutils import delete_selection
+from xutils import delete_selection, screen_height
 from nls import _
 from constant import LANGUAGES
 from setting_view import setting_view
@@ -113,6 +113,12 @@ class SystemTrayIcon(QSystemTrayIcon):
                     MenuSeparator(),
                     ("quit", _("Exit")),
                     ])
+            
+            if mouse_y > screen_height / 2:
+                self.menu.cornerDirection = "up"
+            else:
+                self.menu.cornerDirection = "down"
+                
             self.menu.itemClicked.connect(self.click_menu)
             self.menu.showDockMenu(mouse_x, mouse_y)
             self.set_menu_active(setting_config.get_trayicon_config("pause"))
