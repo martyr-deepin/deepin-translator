@@ -14,6 +14,7 @@ WindowFrame {
     property int listHeight: 240
     property int itemHeight: 30
     property alias expandArea: expandArea
+    property alias windowItem: windowItem
     
     property variant dsslocale: DLocale {
         id: dsslocale
@@ -169,6 +170,7 @@ WindowFrame {
                     
                     Repeater {
                         model: expandArea.expandItems.length
+                        
                         delegate: DBaseExpand {
                             id: expand
                             expanded: expandArea.expandItemIndex == index
@@ -181,23 +183,17 @@ WindowFrame {
                             
                             header.sourceComponent: DDownArrowHeader {
                                 text: expandArea.expandItems[index].name
-                                hintText: expand.currentDisplayName
-                                width: parent.width
-                                anchors.left: parent.left
+                                hintText: " (" + expand.currentDisplayName + ")"
+                                width: defaultWidth
                                 anchors.leftMargin: 2
-                                anchors.right: parent.right
                                 anchors.rightMargin: 10
                                 
                                 Component.onCompleted: {
                                     active = expand.expanded
-                                    
-                                    print(hintText, expand.currentDisplayName)
                                 }
                                 
                                 onClicked: {
                                     expandArea.expandItemIndex = active ? index : -1
-                                    
-                                    print("**********", hintText, expand.currentDisplayName)
                                 }
                             }
                             

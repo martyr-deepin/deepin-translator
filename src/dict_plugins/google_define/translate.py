@@ -24,14 +24,12 @@
 from PyQt5.QtCore import pyqtSlot
 from auto_object import AutoQObject
 from translate_window import TranslateWindow
-from config import setting_config
 import os
 from deepin_utils.file import get_parent_dir
 from tts_interface import get_voice_simple
 import json
 import urllib
 import re
-import sys
             
 class Translate(TranslateWindow):
     
@@ -87,22 +85,24 @@ class Translate(TranslateWindow):
                     means.append([meaning, example])
                     
         return all_meanings
-    
         
     @pyqtSlot(str)
     def get_translate(self, text):
         means = self.get_meaning(text)
+        translate_text = ""
         
         if means is not None:
             #Short Summary
             for sec in (means['primaries'].keys()):
                 meanings = means['primaries'][sec]
                 for m in meanings:
-                    print "\n", m[0]
+                    translate_text += "%s" % m[0]
                     try: 
-                        for e in m[1]: print "\t--", e
-                    except: pass
+                        for e in m[1]:
+                            translate_text += "<ul><li> %s </li></ul>" % e
+                    except: 
+                        pass
                     
         self.translate_info.text = text
         self.translate_info.voices = get_voice_simple(text)
-        self.translate_info.translate = means
+        self.translate_info.translate = translate_text.strip()
