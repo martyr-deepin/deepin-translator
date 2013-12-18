@@ -23,6 +23,7 @@
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
 from Xlib import X
 from threading import Timer
+import time
 from xutils import get_keyname, delete_selection, is_ctrl_key, is_alt_key
 import commands
 from config import setting_config
@@ -61,6 +62,12 @@ class EventHandler(QObject):
         self.press_ctrl_delay = 0.3
         
         self.hover_flag = False
+        
+        self.double_click_flag = False
+        self.double_click_counter = 0
+        self.double_click_timeout = True
+        self.double_reset_timer = None
+        self.double_click_delay = 0.3
         
         # Delete selection first.
         delete_selection()
@@ -119,14 +126,32 @@ class EventHandler(QObject):
                 
                 # Set hover flag when press.
                 self.hover_flag = False    
+                
+                if self.double_click_timeout:
+                    self.double_click_flag = False
+                    self.double_click_timeout = False
+                    self.double_click_counter = 0
+
+                    self.double_reset_timer = Timer(self.double_click_delay, self.reset_double_click)
+                    self.double_reset_timer.start()
+                    
             elif event.detail == 3:
                 self.right_button_press.emit(event.root_x, event.root_y, event.time)
             elif event.detail == 5:
                 self.wheel_press.emit()
         elif event.type == X.ButtonRelease:
+                
+            self.double_click_counter += 1
+            if self.double_click_counter == 2:
+                if self.double_reset_timer != None:
+                    self.try_stop_timer(self.double_reset_timer)
+                    
+                self.double_click_flag = True
+                self.double_click_timeout = True
+
             if not self.is_view_visible() or not self.is_cursor_in_view_area():
-                # Selection is not create by user if hover flag is False.
-                if self.hover_flag:
+                # Trigger selection handle if mouse hover or double click.
+                if self.hover_flag or self.double_click_flag:
                     if not setting_config.get_trayicon_config("pause"):
                         if not setting_config.get_trayicon_config("key_trigger_select") or self.press_ctrl_flag:
                             selection_content = commands.getoutput("xsel -p -o")
@@ -149,6 +174,10 @@ class EventHandler(QObject):
                 self.stop_timer = Timer(self.stop_delay, lambda : self.emit_cursor_stop(event.root_x, event.root_y))
                 self.stop_timer.start()                    
                     
+    def reset_double_click(self):
+        self.double_click_flag = False
+        self.double_click_timeout = True
+                
     def emit_cursor_stop(self, mouse_x, mouse_y):
         if self.press_alt_flag and (not self.is_view_visible() or not self.is_cursor_in_view_area()):
             self.cursor_stop.emit()
