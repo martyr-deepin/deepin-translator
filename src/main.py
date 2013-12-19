@@ -75,15 +75,10 @@ if __name__ == "__main__":
         if translate_simple:
             translate_simple.translate_cursor_word()
             
-    def handle_press_ctrl():    
-        if setting_config.get_trayicon_config("key_trigger_select"):
-            event_handler.translate_selection_area()
-            
     from record_event import RecordEvent
     from event_handler import EventHandler
     
     event_handler = EventHandler()
-    event_handler.press_ctrl.connect(handle_press_ctrl)
     event_handler.press_esc.connect(hide_translate)
     event_handler.press_alt.connect(translate_cursor_word)
     event_handler.wheel_press.connect(hide_translate)
