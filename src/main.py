@@ -46,6 +46,8 @@ if __name__ == "__main__":
     from dict_interface import get_translate_simple, get_translate_long
     
     def show_translate(x, y, text):
+        hide_translate()
+        
         if len(filter(lambda word: word != "", (text.split(" ")))) > 1:
             translate_long = get_translate_long()
             if translate_long:
@@ -67,6 +69,8 @@ if __name__ == "__main__":
                 translate_long.hide_translate()
             
     def translate_cursor_word():
+        hide_translate()
+        
         translate_simple = get_translate_simple()
         if translate_simple:
             translate_simple.translate_cursor_word()

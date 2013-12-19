@@ -176,16 +176,15 @@ class EventHandler(QObject):
             self.cursor_stop.emit()
             
     def emit_press_ctrl(self):
-        print "Press ctrl"
         self.press_ctrl.emit()
 
     def emit_press_alt(self):
-        print "Press alt"
         self.press_alt.emit()
 
     def try_stop_timer(self, timer):
         if timer and timer.is_alive():
             timer.cancel()
+            
     def translate_selection_area(self):
         selection_content = commands.getoutput("xsel -p -o")
         delete_selection()
