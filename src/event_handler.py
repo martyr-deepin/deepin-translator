@@ -23,8 +23,7 @@
 from PyQt5.QtCore import QObject, pyqtSignal, pyqtSlot
 from Xlib import X
 from threading import Timer
-import time
-from xutils import get_keyname, delete_selection, is_ctrl_key, is_alt_key
+from xutils import get_keyname, delete_selection, is_ctrl_key, is_alt_key, get_pointer_coordiante
 import commands
 from config import setting_config
 from dict_interface import get_translate_simple
@@ -154,11 +153,7 @@ class EventHandler(QObject):
                 if self.hover_flag or self.double_click_flag:
                     if not setting_config.get_trayicon_config("pause"):
                         if not setting_config.get_trayicon_config("key_trigger_select") or self.press_ctrl_flag:
-                            selection_content = commands.getoutput("xsel -p -o")
-                            delete_selection()
-                            
-                            if len(selection_content) > 1 and not selection_content.isspace():
-                                self.translate_selection.emit(event.root_x, event.root_y, selection_content)
+                            self.translate_selection_area()
             # Delete clipboard selection if user selection in visible area to avoid next time to translate those selection content.
             elif self.is_view_visible() and self.is_cursor_in_view_area():
                 delete_selection()
@@ -185,3 +180,13 @@ class EventHandler(QObject):
     def try_stop_timer(self, timer):
         if timer and timer.is_alive():
             timer.cancel()
+
+    def translate_selection_area(self):
+        selection_content = commands.getoutput("xsel -p -o")
+        delete_selection()
+                            
+        if len(selection_content) > 1 and not selection_content.isspace():
+            (mouse_x, mouse_y) = get_pointer_coordiante()
+            self.translate_selection.emit(mouse_x, mouse_y, selection_content)
+        
+            

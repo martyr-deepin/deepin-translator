@@ -31,6 +31,7 @@ from unique_service import UniqueService
 import signal
 import sys  
 import constant
+from config import setting_config
     
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -65,22 +66,22 @@ if __name__ == "__main__":
             if translate_long.isVisible() and not translate_long.in_translate_area():
                 translate_long.hide_translate()
             
-    def handle_press_alt():
-        translate_simple = get_translate_simple()
-        if translate_simple:
-            translate_simple.translate_cursor_word()
-            
     def translate_cursor_word():
         translate_simple = get_translate_simple()
         if translate_simple:
             translate_simple.translate_cursor_word()
             
+    def handle_press_ctrl():    
+        if setting_config.get_trayicon_config("key_trigger_select"):
+            event_handler.translate_selection_area()
+            
     from record_event import RecordEvent
     from event_handler import EventHandler
     
     event_handler = EventHandler()
+    event_handler.press_ctrl.connect(handle_press_ctrl)
     event_handler.press_esc.connect(hide_translate)
-    event_handler.press_alt.connect(handle_press_alt)
+    event_handler.press_alt.connect(translate_cursor_word)
     event_handler.wheel_press.connect(hide_translate)
     event_handler.left_button_press.connect(hide_translate)
     event_handler.right_button_press.connect(hide_translate)
