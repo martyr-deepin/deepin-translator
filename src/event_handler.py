@@ -58,7 +58,7 @@ class EventHandler(QObject):
         self.press_alt_delay = 0.3
 
         self.press_ctrl_timer = None
-        self.press_ctrl_delay = 0.3
+        self.press_ctrl_delay = 0.5
         
         self.hover_flag = False
         
@@ -90,24 +90,22 @@ class EventHandler(QObject):
         if event.type == X.KeyPress:
             keyname = get_keyname(event)
             
-            if not is_alt_key(keyname):
-                self.try_stop_timer(self.press_alt_timer)
-            elif not is_ctrl_key(keyname):
-                self.try_stop_timer(self.press_ctrl_timer)
+            self.try_stop_timer(self.press_alt_timer)
+            self.try_stop_timer(self.press_ctrl_timer)
         
             if is_alt_key(keyname):
                 self.press_alt_flag = True
                 
                 if not setting_config.get_trayicon_config("pause"):
                     if not self.is_view_visible() or not self.is_cursor_in_view_area():
-                        self.press_alt_timer = Timer(self.press_alt_delay, lambda : self.press_alt.emit())
+                        self.press_alt_timer = Timer(self.press_alt_delay, self.emit_press_alt)
                         self.press_alt_timer.start()
             elif is_ctrl_key(keyname):
                 self.press_ctrl_flag = True
                 
                 if not setting_config.get_trayicon_config("pause"):
                     if not self.is_view_visible() or not self.is_cursor_in_view_area():
-                        self.press_ctrl_timer = Timer(self.press_ctrl_delay, lambda : self.press_ctrl.emit())
+                        self.press_ctrl_timer = Timer(self.press_ctrl_delay, self.emit_press_ctrl)
                         self.press_ctrl_timer.start()
             elif keyname in ["Escape"]:
                 self.press_esc.emit()
@@ -176,11 +174,18 @@ class EventHandler(QObject):
     def emit_cursor_stop(self, mouse_x, mouse_y):
         if self.press_alt_flag and (not self.is_view_visible() or not self.is_cursor_in_view_area()):
             self.cursor_stop.emit()
+            
+    def emit_press_ctrl(self):
+        print "Press ctrl"
+        self.press_ctrl.emit()
+
+    def emit_press_alt(self):
+        print "Press alt"
+        self.press_alt.emit()
 
     def try_stop_timer(self, timer):
         if timer and timer.is_alive():
             timer.cancel()
-
     def translate_selection_area(self):
         selection_content = commands.getoutput("xsel -p -o")
         delete_selection()
