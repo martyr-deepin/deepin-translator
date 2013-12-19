@@ -79,7 +79,9 @@ def check_valid_event(reply):
         return
 
 def delete_selection():
+    print "Before delete_selection"
     subprocess.Popen("xsel -c", shell=True).wait()
+    print "After delete_selection"
         
 def is_ctrl_key(keyname):
     return keyname in ["Control_L", "Control_R"]
