@@ -80,7 +80,7 @@ def check_valid_event(reply):
 
 def delete_selection():
     print "Before delete_selection"
-    subprocess.Popen("xsel -c", shell=True).wait()
+    subprocess.Popen("xsel -c", shell=True)
     print "After delete_selection"
         
 def is_ctrl_key(keyname):
