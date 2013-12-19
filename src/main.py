@@ -26,12 +26,11 @@ from PyQt5.QtCore import QCoreApplication
 if os.name == 'posix':
     QCoreApplication.setAttribute(QtCore.Qt.AA_X11InitThreads, True)
     
-from PyQt5.QtWidgets import QApplication
+from PyQt5.QtWidgets import QApplication, qApp
 from unique_service import UniqueService
 import signal
 import sys  
 import constant
-from config import setting_config
     
 APP_DBUS_NAME = "com.deepin.ocr"    
 APP_OBJECT_NAME = "/com/deepin/ocr"
@@ -39,7 +38,13 @@ APP_OBJECT_NAME = "/com/deepin/ocr"
 if __name__ == "__main__":
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
 
+    def on_focus_change(window):
+        if window == None:
+            hide_translate()
+            
     app = QApplication(sys.argv)  
+    
+    qApp.focusWindowChanged.connect(on_focus_change)
     
     signal.signal(signal.SIGINT, signal.SIG_DFL)
     

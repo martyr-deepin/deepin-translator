@@ -30,7 +30,7 @@ RectWithCorner {
             pos = windowView.width / 2
         }
         cornerPos = pos
-        windowView.x = x
+        windowView.x = x + windowView.width / 2
 		
 		var y = mouseY + windowOffsetY
 		var direction = "up"
@@ -40,7 +40,7 @@ RectWithCorner {
 			y = mouseY - windowView.height - windowOffsetY
 			direction = "down"
 		}
-		windowView.y = y
+		windowView.y = y + windowView.height / 2
 		cornerDirection = direction
 	}
 }
