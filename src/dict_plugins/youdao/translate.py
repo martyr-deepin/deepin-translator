@@ -29,7 +29,7 @@ from models import suggestModel, historyModel
 from pyquery import PyQuery
 import os
 from deepin_utils.file import get_parent_dir
-from tts_interface import get_voice_simple
+from tts_interface import get_voice_simple, get_phonetic_symbol
 
 class Translate(TranslateWindow):
     
@@ -39,6 +39,7 @@ class Translate(TranslateWindow):
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
             ("keyword", str),
+            ("phonetic", str),
             ("voices", 'QVariant'),
             ("webtrans", str),                         
             ("trans", str),
@@ -88,5 +89,6 @@ class Translate(TranslateWindow):
         
         self.translate_info.trans = '\n'.join([PyQuery(e).text() for e in pq('trs i')])
         self.translate_info.voices = get_voice_simple(text)
+        self.translate_info.phonetic = get_phonetic_symbol(text)
         self.translate_info.webtrans = self.wrap_web_trans(pq)
         

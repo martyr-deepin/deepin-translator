@@ -51,6 +51,18 @@ def get_voice_simple(text):
 def get_voice_long(text):
     global voice_long
     return get_voice(text, voice_long)
+
+def get_phonetic_symbol(text):
+    # Return nothing if text is not ONE word.
+    if len(text.split(" ")) <= 0:
+        return ""
+    
+    if not is_network_connected() or setting_config.get_trayicon_config("local_translate"):
+        # Not found local phonetic yet.
+        return ""
+    else:
+        global voice_simple
+        return voice_simple.get_phonetic_symbol(text)
     
 class TtsInterface(QObject):
     

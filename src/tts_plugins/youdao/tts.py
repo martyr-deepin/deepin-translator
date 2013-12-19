@@ -24,6 +24,7 @@
 from utils import encode_params
 import requests
 from pyquery import PyQuery
+from nls import _
 
 VOICE_UK = 1
 VOICE_US = 2
@@ -37,14 +38,15 @@ def get_voice_type(text):
         ret = ret.encode('utf-8')
     pq = PyQuery(ret, parser="xml")
     
-    try:    
-        if pq.find('usphone').text() == None:
-            return VOICE_UK
-    except: 
-        pass
+    voice_type = VOICE_US
     
-    return VOICE_US
-        
+    try: 
+        if pq.find('usphone').text() == None: 
+            voice_type = VOICE_UK
+    except: pass
+    
+    return voice_type
+
 def get_voice(text):
     url = "http://dict.youdao.com/dictvoice"
     data = { "keyfrom" : "deskdict.mini.word", "audio" : text, "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
@@ -52,5 +54,35 @@ def get_voice(text):
     
     return ["%s?%s" % (url, encode_params(data))]
 
+def get_phonetic_symbol(text):
+    data = { "keyfrom" : "deskdict.mini", "q" : text, "doctype" : "xml", "xmlVersion" : 8.2,
+             "client" : "deskdict", "id" : "cee84504d9984f1b2", "vendor": "unknown", 
+             "in" : "YoudaoDict", "appVer" : "5.4.46.5554", "appZengqiang" : 0, "le" : "eng", "LTH" : 40}
+    ret = requests.get("http://dict.youdao.com/search", params=data).text
+    if isinstance(ret, unicode):
+        ret = ret.encode('utf-8')
+    pq = PyQuery(ret, parser="xml")
+    
+    phonetic_symbol = pq.find('usphone').text()
+    phonetic_type = _("US")
+    
+    try:    
+        if phonetic_symbol == None:
+            phonetic_symbol = pq.find('ukphone').text()
+            phonetic_type = _("UK")
+    except: 
+        pass
+    
+    if phonetic_symbol == None:
+        return ""
+    else:
+        if isinstance(phonetic_type, unicode):
+            phonetic_type = phonetic_type.encode('utf-8')
+
+        if isinstance(phonetic_symbol, unicode):
+            phonetic_symbol = phonetic_symbol.encode('utf-8')
+        
+        return "[%s] %s" % (phonetic_type, phonetic_symbol)
+        
 def check_before_voice():
     return True

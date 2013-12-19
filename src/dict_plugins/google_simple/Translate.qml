@@ -87,6 +87,7 @@ TranslateWindow {
                 id: toolbar
                 width: parent.width
                 text: translateInfo.text
+                phonetic: translateInfo.phonetic
                 player: speechPlayer
                 window: windowView
             }

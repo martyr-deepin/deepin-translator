@@ -8,6 +8,7 @@ Row {
     spacing: 5
     
     property string text
+    property string phonetic
     property variant player
     property variant window
     
@@ -113,6 +114,19 @@ Row {
                     verticalAlignment: Text.AlignVCenter
                     visible: false
 		            font { pixelSize: 14 }
+                    
+                    property string type
+                }
+
+                Text {
+                    anchors.fill: parent
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: "#5da6ce"
+                    horizontalAlignment: Text.AlignLeft
+                    verticalAlignment: Text.AlignVCenter
+		            font { pixelSize: 14 }
+                    text: phonetic
+                    visible: tooltip.visible && tooltip.type == "voice" && phonetic != ""
                 }
             }
             
@@ -148,6 +162,7 @@ Row {
                         target: iconButton.mouseArea
                         onEntered: {
                             tooltip.text = iconChildren[index].tooltip
+                            tooltip.type = iconChildren[index].type
                             tooltip.visible = true
                             
                             toolbar.inButtonArea = true

@@ -29,7 +29,7 @@ from config import setting_config
 import os
 from deepin_utils.file import get_parent_dir
 from utils import safe_eval
-from tts_interface import get_voice_long
+from tts_interface import get_voice_long, get_phonetic_symbol
 
 class Translate(TranslateWindow):
     
@@ -40,6 +40,7 @@ class Translate(TranslateWindow):
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
             ("text", str),
+            ("phonetic", str),
             ("translate", str),
             ("voices", 'QVariant'),
             ("fixed", str),
@@ -101,6 +102,7 @@ class Translate(TranslateWindow):
     def get_translate(self, text):
         self.translate_info.text = text
         self.translate_info.voices = get_voice_long(text)
+        self.translate_info.phonetic = get_phonetic_symbol(text)
         self.translate_info.translate = self.google_translate(
             text,
             tl=setting_config.get_translate_config("dst_lang"),

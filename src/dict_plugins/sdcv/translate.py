@@ -30,7 +30,7 @@ from message_view import show_message
 from pkg_manager import get_install_packages, install_packages
 from deepin_utils.file import get_parent_dir
 from nls import _
-from tts_interface import get_voice_simple
+from tts_interface import get_voice_simple, get_phonetic_symbol
 
 class Translate(TranslateWindow):
     
@@ -42,6 +42,7 @@ class Translate(TranslateWindow):
         TranslateInfo = AutoQObject(
             ("text", str),
             ("translate", str),
+            ("phonetic", str),
             ("voices", 'QVariant'),
             ("fixed", str),
           name="TranslateInfo")
@@ -69,6 +70,7 @@ class Translate(TranslateWindow):
         
         self.translate_info.text = text
         self.translate_info.voices = get_voice_simple(text)
+        self.translate_info.phonetic = get_phonetic_symbol(text)
         self.translate_info.translate = translate_text
         
     @pyqtSlot()    

@@ -30,6 +30,9 @@ def get_voice(text):
     subprocess.Popen(["pico2wave", "-w", wav_file, text]).wait()
     return [wav_file]
 
+def get_phonetic_symbol(text):
+    return ""
+    
 def check_before_voice():
     need_install_packages = get_install_packages(["libttspico-utils"])
     if len(need_install_packages) > 0:
