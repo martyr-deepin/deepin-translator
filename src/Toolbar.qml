@@ -17,6 +17,7 @@ Row {
     property alias items: items
     property alias arrow: arrow
     property alias tooltip: tooltip
+    property alias iconChildren: iconItems.children
     
     property int imageWidth: 16
     property int itemSpacing: 5
@@ -49,15 +50,45 @@ Row {
         entry.textInput.cursorPosition = 0
     }
     
+    Item {
+        id: iconItems
+        
+        Item {
+            property string imagePath: "image/speaker.png"
+            property string tooltip: dsTr("Voice")
+            property string type: "voice"
+        }
+
+        Item {
+            property string imagePath: "image/paste.png"
+            property string tooltip: dsTr("Copy to clipboard")
+            property string type: "paste"
+        }
+
+        Item {
+            property string imagePath: "image/wikipedia.png"
+            property string tooltip: dsTr("Wikipedia")
+            property string type: "wikipedia"
+        }
+
+        Item {
+            property string imagePath: "image/search.png"
+            property string tooltip: dsTr("Google")
+            property string type: "google"
+        }
+    }
+    
     SplitView {
         id: splitView
         anchors.verticalCenter: parent.verticalCenter
         width: parent.width - arrow.width
+        height: parent.height
         
         Row {
             id: entryArea
             height: parent.height
             width: parent.width - itemWidth
+            anchors.verticalCenter: parent.verticalCenter
             
             Rectangle {
                 height: parent.height
@@ -76,9 +107,12 @@ Row {
                     id: tooltip
                     anchors.fill: parent
                     anchors.rightMargin: 5
+                    anchors.verticalCenter: parent.verticalCenter
                     color: "grey"
                     horizontalAlignment: Text.AlignRight
+                    verticalAlignment: Text.AlignVCenter
                     visible: false
+		            font { pixelSize: 14 }
                 }
             }
             
@@ -99,108 +133,47 @@ Row {
         Row {
             id: items
             spacing: 5
+            anchors.verticalCenter: parent.verticalCenter
+            height: parent.height
             
-            DOpacityImageButton {
-                id: speakerButton
-                source: "image/speaker.png"
+            Repeater {
+                model: iconChildren.length
                 
-                Connections {
-                    target: speakerButton.mouseArea
-                    onEntered: {
-                        tooltip.text = dsTr("Voice")
-                        tooltip.visible = true
-                        
-                        toolbar.inButtonArea = true
-                    }
+                delegate: DOpacityImageButton {
+                    id: iconButton
+                    source: iconChildren[index].imagePath
+                    anchors.verticalCenter: parent.verticalCenter
                     
-                    onExited: {
-                        toolbar.inButtonArea = false
+                    Connections {
+                        target: iconButton.mouseArea
+                        onEntered: {
+                            tooltip.text = iconChildren[index].tooltip
+                            tooltip.visible = true
+                            
+                            toolbar.inButtonArea = true
+                        }
                         
-                        showEntryTimer.restart()
-                    }
-                    
-                    onClicked: {
-                        player.playAudio()
-                    }
-                }
-            }
-
-            DOpacityImageButton {
-                id: pasteButton
-                source: "image/paste.png"
-
-                Connections {
-                    target: pasteButton.mouseArea
-                    onEntered: {
-                        tooltip.text = dsTr("Copy to clipboard")
-                        tooltip.visible = true
-
-                        toolbar.inButtonArea = true
-                    }
-                    
-                    onExited: {
-                        toolbar.inButtonArea = false
+                        onExited: {
+                            toolbar.inButtonArea = false
+                            
+                            showEntryTimer.restart()
+                        }
                         
-                        showEntryTimer.restart()
-                    }
-                    
-                    onClicked: {
-                        window.hide()
-                        
-                        window.save_to_clipboard(text)
-                    }
-                }
-            }
-
-            DOpacityImageButton {
-                id: wikiButton
-                source: "image/wikipedia.png"
-
-                Connections {
-                    target: wikiButton.mouseArea
-                    onEntered: {
-                        tooltip.text = dsTr("Wikipedia")
-                        tooltip.visible = true
-                        
-                        toolbar.inButtonArea = true
-                    }
-                    
-                    onExited: {
-                        toolbar.inButtonArea = false
-                        
-                        showEntryTimer.restart()
-                    }
-                    
-                    onClicked: {
-                        var lang = settingConfig.get_translate_config("dst_lang").toLowerCase()
-                        Qt.openUrlExternally("https://" + lang.split("-", 1)[0] + ".wikipedia.org/" + lang + "/" + toolbar.text)
-                        window.hide()
-                    }
-                }
-            }
-
-            DOpacityImageButton {
-                id: searchButton
-                source: "image/search.png"
-
-                Connections {
-                    target: searchButton.mouseArea
-                    onEntered: {
-                        tooltip.text = dsTr("Google")
-                        tooltip.visible = true
-                        
-                        toolbar.inButtonArea = true
-                    }
-                    
-                    onExited: {
-                        toolbar.inButtonArea = false
-                        
-                        showEntryTimer.restart()
-                    }
-                    
-                    onClicked: {
-                        Qt.openUrlExternally("https://www.google.com/search?q=" + toolbar.text)
-                        window.hide()
+                        onClicked: {
+                            if (iconChildren[index].type == "voice") {
+                                player.playAudio()
+                            } else if (iconChildren[index].type == "paste") {
+                                window.hide()
+                                window.save_to_clipboard(text)
+                            } else if (iconChildren[index].type == "wikipedia") {
+                                window.hide()
+                                var lang = settingConfig.get_translate_config("dst_lang").toLowerCase()
+                                Qt.openUrlExternally("https://" + lang.split("-", 1)[0] + ".wikipedia.org/" + lang + "/" + toolbar.text)
+                            } else if (iconChildren[index].type == "google") {
+                                window.hide()
+                                Qt.openUrlExternally("https://www.google.com/search?q=" + toolbar.text)
+                            }
+                        }
                     }
                 }
             }
@@ -269,7 +242,7 @@ Row {
             property: "width"
             duration: 200
             from: splitView.width - itemWidth
-            to: splitView.width - itemWidth * items.children.length
+            to: splitView.width - itemWidth * iconChildren.length
         }
     }
 
@@ -280,7 +253,7 @@ Row {
             target: entryArea
             property: "width"
             duration: 200
-            from: splitView.width - itemWidth * items.children.length
+            from: splitView.width - itemWidth * iconChildren.length
             to: splitView.width - itemWidth
         }
     }
