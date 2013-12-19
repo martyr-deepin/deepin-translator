@@ -30,7 +30,7 @@ from ocr import ocr_word
 import os
 from config import setting_config
 from deepin_utils.file import get_parent_dir
-from tts_interface import voice_simple, voice_long
+from tts_interface import get_voice_modules
 
 class TranslateWindow(QQuickView):
 
@@ -79,7 +79,12 @@ class TranslateWindow(QQuickView):
         return self.x() < mouse_x < self.x() + self.width() and self.y() < mouse_y < self.y() + self.height()
 
     def show_translate(self, x, y, text):
-        if self.check_before_translate() and voice_simple.check_before_voice() and voice_long.check_before_voice():
+        if self.check_before_translate():
+            voice_modules = get_voice_modules()
+            for voice_module in voice_modules:
+                if not voice_module.check_before_voice():
+                    return
+                
             self.rootObject().showTranslate(x, y, text)
 
     def translate_cursor_word(self):

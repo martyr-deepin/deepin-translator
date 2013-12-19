@@ -32,6 +32,18 @@ voice_long = imp.load_source("voice_long", tts_plugin.get_plugin_file(setting_co
 word_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
 words_voice_model = tts_plugin.get_voice_model(setting_config.get_translate_config("src_lang"))
 
+def get_voice_modules():
+    if not is_network_connected() or setting_config.get_trayicon_config("local_translate"):
+        voice_engines = tts_plugin.get_voice_engines(setting_config.get_translate_config("src_lang"), False)
+        voice_engine_names = map(lambda (name, display_name): name, voice_engines)
+        if len(voice_engine_names) > 0:
+            local_simple = imp.load_source("local_simple", tts_plugin.get_plugin_file(voice_engine_names[0]))
+            return [local_simple]
+        else:
+            return []
+    else:
+        return [voice_simple, voice_long]
+
 def get_voice(text, voice):
     if not is_network_connected() or setting_config.get_trayicon_config("local_translate"):
         voice_engines = tts_plugin.get_voice_engines(setting_config.get_translate_config("src_lang"), False)
