@@ -85,6 +85,7 @@ class SystemTrayIcon(QSystemTrayIcon):
     def set_menu_active(self, state):
         self.menu.setItemActivity("toggle_speech", not state)
         self.menu.setItemActivity("key_trigger_select", not state)
+        self.menu.setItemActivity("local_translate", not state)
         
     def get_lang_value(self):
         return (dict(LANGUAGES))[setting_config.get_translate_config("src_lang")] + " <=> " + (dict(LANGUAGES))[setting_config.get_translate_config("dst_lang")]
