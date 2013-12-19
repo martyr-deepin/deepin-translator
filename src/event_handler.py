@@ -26,7 +26,7 @@ from threading import Timer
 from xutils import get_keyname, delete_selection, is_ctrl_key, is_alt_key, get_pointer_coordiante
 import commands
 from config import setting_config
-from dict_interface import get_translate_simple
+from translate_window import get_active_view
 
 class EventHandler(QObject):
     
@@ -72,14 +72,15 @@ class EventHandler(QObject):
         delete_selection()
         
     def is_view_visible(self):
-        view = get_translate_simple()
+        view = get_active_view()
+
         if view == None:
             return False
         else:
             return view.isVisible()
         
     def is_cursor_in_view_area(self):
-        view = get_translate_simple()
+        view = get_active_view()
         if view == None:
             return False
         else:
@@ -146,7 +147,9 @@ class EventHandler(QObject):
                 self.double_click_flag = True
                 self.double_click_timeout = True
 
+            # import time    
             if not self.is_view_visible() or not self.is_cursor_in_view_area():
+                # print "1", time.time()
                 # Trigger selection handle if mouse hover or double click.
                 if self.hover_flag or self.double_click_flag:
                     if not setting_config.get_trayicon_config("pause"):
@@ -154,6 +157,7 @@ class EventHandler(QObject):
                             self.translate_selection_area()
             # Delete clipboard selection if user selection in visible area to avoid next time to translate those selection content.
             elif self.is_view_visible() and self.is_cursor_in_view_area():
+                # print "2", time.time()
                 delete_selection()
                 
             self.hover_flag = False    

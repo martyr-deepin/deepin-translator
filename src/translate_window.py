@@ -71,15 +71,21 @@ class TranslateWindow(QQuickView):
         return True
         
     def hide_translate(self):
+        global active_view
         if self.isVisible() and not self.in_translate_area():
             self.hided.emit()
             self.hide()
+            
+            if active_view == self:
+                active_view = None
     
     def in_translate_area(self):
         (mouse_x, mouse_y) = get_pointer_coordiante()
         return self.x() < mouse_x < self.x() + self.width() and self.y() < mouse_y < self.y() + self.height()
 
     def show_translate(self, x, y, text):
+        global active_view
+        
         if self.check_before_translate():
             voice_modules = get_voice_modules()
             for voice_module in voice_modules:
@@ -87,6 +93,8 @@ class TranslateWindow(QQuickView):
                     return
                 
             self.rootObject().showTranslate(x, y, text)
+            
+            active_view = self
 
     def translate_cursor_word(self):
         (mouse_x, mouse_y) = get_pointer_coordiante()
@@ -98,4 +106,9 @@ class TranslateWindow(QQuickView):
     def save_to_clipboard(self, text):
         QtWidgets.QApplication.clipboard().setText(text)
 
+active_view = None
+
+def get_active_view():
+    global active_view
     
+    return active_view
