@@ -33,7 +33,7 @@ if init_lang in ["zh-CN"]:
     init_word_voice = "youdao"
     init_words_voice = "google"
 elif init_lang == "en":
-    init_word_dict = "google_define"
+    init_word_dict = "google_dictionary"
     init_word_voice = "google"
     init_words_voice = "google"
 else:
