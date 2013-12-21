@@ -101,11 +101,7 @@ TranslateWindow {
 				selectionColor: "#11ffffff"
 				selectedTextColor: "#5da6ce"
 		        width: parent.width
-                
-                onTextChanged: {
-                    cursorPosition: 0
-                    cursorVislble: false
-                }
+                readOnly: true
 		    }
 	    }        
 	}

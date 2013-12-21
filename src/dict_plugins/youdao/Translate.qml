@@ -378,11 +378,7 @@ TranslateWindow {
 			        color: "#FFFFFF"
 					selectionColor: "#11ffffff"
 					selectedTextColor: "#5da6ce"
-                    
-                    onTextChanged: {
-                        cursorPosition: 0
-                        cursorVislble: false
-                    }
+                    readOnly: true
 		        }		
 		        
 		        TextEdit {
@@ -394,11 +390,7 @@ TranslateWindow {
 			        color: "#FFFFFF"
 					selectionColor: "#11ffffff"
 					selectedTextColor: "#5da6ce"
-
-                    onTextChanged: {
-                        cursorPosition: 0
-                        cursorVislble: false
-                    }
+                    readOnly: true
 		        }
             }
 	    }        
