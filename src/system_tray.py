@@ -32,6 +32,7 @@ from setting_view import setting_view
 import os
 from deepin_utils.file import get_parent_dir
 from deepin_utils.core import is_true
+from constant import QT_VERSION
 
 class SystemTrayIcon(QSystemTrayIcon):
     
@@ -96,8 +97,12 @@ class SystemTrayIcon(QSystemTrayIcon):
         if not self.menu_flag:
             if reason in [QSystemTrayIcon.Context, QSystemTrayIcon.Trigger]:
                 geometry = self.geometry()
-                mouse_x = int(geometry.x() / 2 + geometry.width() / 2)
-                mouse_y = int(geometry.y() / 2)
+                if QT_VERSION == "5.1":
+                    mouse_x = int(geometry.x() / 2 + geometry.width() / 2)
+                    mouse_y = int(geometry.y() / 2)
+                else:
+                    mouse_x = int(geometry.x() + geometry.width() / 2)
+                    mouse_y = int(geometry.y())
                 
                 self.menu = Menu([
                         CheckboxMenuItem("pause", _("Pause translation popups"), 

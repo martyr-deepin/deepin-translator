@@ -22,6 +22,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from nls import _
+from PyQt5 import QtCore
+
+QT_VERSION = QtCore.qVersion()[0:-2]
 
 LANGUAGE_OCR_DICT = {
     "af" : "tesseract-ocr-afr",

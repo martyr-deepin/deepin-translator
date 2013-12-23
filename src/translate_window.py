@@ -31,6 +31,7 @@ import os
 from config import setting_config
 from deepin_utils.file import get_parent_dir
 from tts_interface import get_voice_modules
+from constant import QT_VERSION
 
 class TranslateWindow(QQuickView):
 
@@ -56,6 +57,7 @@ class TranslateWindow(QQuickView):
         self.qml_context.setContextProperty("translateInfo", self.translate_info)
         self.qml_context.setContextProperty("windowView", self)
         self.qml_context.setContextProperty("settingConfig", setting_config)
+        self.qml_context.setContextProperty("qVersion", QT_VERSION)
         self.qml_context.setContextProperty("qApp", qApp)
         
         self.setSource(QtCore.QUrl.fromLocalFile(os.path.join(get_parent_dir(__file__), qml_file)))
