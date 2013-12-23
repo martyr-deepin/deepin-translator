@@ -41,6 +41,8 @@ class SystemTrayIcon(QSystemTrayIcon):
         QSystemTrayIcon.__init__(self, self.get_trayicon(), parent)
         self.activated.connect(self.on_activated) 
         
+        self.menu_flag = False
+        
     def set_trayicon(self):
         self.setIcon(self.get_trayicon())
         
@@ -91,37 +93,40 @@ class SystemTrayIcon(QSystemTrayIcon):
         return (dict(LANGUAGES))[setting_config.get_translate_config("src_lang")] + " <=> " + (dict(LANGUAGES))[setting_config.get_translate_config("dst_lang")]
         
     def on_activated(self, reason):
-        if reason in [QSystemTrayIcon.Context, QSystemTrayIcon.Trigger]:
-            geometry = self.geometry()
-            mouse_x = int(geometry.x() / 2 + geometry.width() / 2)
-            mouse_y = int(geometry.y() / 2)
+        if not self.menu_flag:
+            if reason in [QSystemTrayIcon.Context, QSystemTrayIcon.Trigger]:
+                geometry = self.geometry()
+                mouse_x = int(geometry.x() / 2 + geometry.width() / 2)
+                mouse_y = int(geometry.y() / 2)
+                
+                self.menu = Menu([
+                        CheckboxMenuItem("pause", _("Pause translation popups"), 
+                                         setting_config.get_trayicon_config("pause")),
+                        CheckboxMenuItem("toggle_speech", _("Pronounce automatically"), 
+                                         setting_config.get_trayicon_config("toggle_speech")),
+                        CheckboxMenuItem("key_trigger_select", _("Only pop up while holding Ctrl key"), 
+                                         setting_config.get_trayicon_config("key_trigger_select")),
+                        CheckboxMenuItem("local_translate", _("Offline translation"),
+                                         setting_config.get_trayicon_config("local_translate")),
+                        MenuSeparator(),
+                        CheckboxMenuItem("lang", self.get_lang_value(), showCheckmark=False),
+                        MenuSeparator(),
+                        ("settings", _("Settings")),
+                        ("wizard", _("Wizard")),
+                        ("about", _("About")),
+                        MenuSeparator(),
+                        ("quit", _("Exit")),
+                        ])
+                
+                self.menu.itemClicked.connect(self.click_menu)
+                self.set_menu_active(setting_config.get_trayicon_config("pause"))
+                if mouse_y > screen_height / 2:
+                    self.menu.showDockMenu(mouse_x, mouse_y, cornerDirection="down")
+                else:
+                    self.menu.showDockMenu(mouse_x, mouse_y + geometry.height(), cornerDirection="up")
             
-            self.menu = Menu([
-                    CheckboxMenuItem("pause", _("Pause translation popups"), 
-                                     setting_config.get_trayicon_config("pause")),
-                    CheckboxMenuItem("toggle_speech", _("Pronounce automatically"), 
-                                     setting_config.get_trayicon_config("toggle_speech")),
-                    CheckboxMenuItem("key_trigger_select", _("Only pop up while holding Ctrl key"), 
-                                     setting_config.get_trayicon_config("key_trigger_select")),
-                    CheckboxMenuItem("local_translate", _("Offline translation"),
-                                     setting_config.get_trayicon_config("local_translate")),
-                    MenuSeparator(),
-                    CheckboxMenuItem("lang", self.get_lang_value(), showCheckmark=False),
-                    MenuSeparator(),
-                    ("settings", _("Settings")),
-                    ("wizard", _("Wizard")),
-                    ("about", _("About")),
-                    MenuSeparator(),
-                    ("quit", _("Exit")),
-                    ])
-            
-            self.menu.itemClicked.connect(self.click_menu)
-            self.set_menu_active(setting_config.get_trayicon_config("pause"))
-            if mouse_y > screen_height / 2:
-                self.menu.showDockMenu(mouse_x, mouse_y, cornerDirection="down")
-            else:
-                self.menu.showDockMenu(mouse_x, mouse_y + geometry.height(), cornerDirection="up")
-            
+        self.menu_flag = not self.menu_flag            
+                    
     def get_trayarea(self):
         geometry = self.geometry()
         return (geometry.y() / 2, geometry.y() / 2 + geometry.height())
