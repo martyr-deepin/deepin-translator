@@ -4,42 +4,42 @@
 <context>
     <name>SettingView</name>
     <message>
-        <location filename="../src/SettingView.qml" line="57"/>
+        <location filename="../src/SettingView.qml" line="62"/>
         <source>Deepin Translator Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="135"/>
+        <location filename="../src/SettingView.qml" line="140"/>
         <source>Source language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="141"/>
+        <location filename="../src/SettingView.qml" line="146"/>
         <source>Target language</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="153"/>
-        <source>Word speech engine</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SettingView.qml" line="165"/>
-        <source>Sentences speech engine</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../src/SettingView.qml" line="147"/>
+        <location filename="../src/SettingView.qml" line="152"/>
         <source>Word Translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="159"/>
+        <location filename="../src/SettingView.qml" line="158"/>
+        <source>Word speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingView.qml" line="164"/>
         <source>Full text translation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/SettingView.qml" line="399"/>
+        <location filename="../src/SettingView.qml" line="170"/>
+        <source>Sentences speech</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../src/SettingView.qml" line="404"/>
         <source>OK</source>
         <translation type="unfinished"></translation>
     </message>
@@ -47,22 +47,22 @@
 <context>
     <name>Toolbar</name>
     <message>
-        <location filename="../src/Toolbar.qml" line="110"/>
+        <location filename="../src/Toolbar.qml" line="59"/>
         <source>Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Toolbar.qml" line="135"/>
+        <location filename="../src/Toolbar.qml" line="65"/>
         <source>Copy to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Toolbar.qml" line="162"/>
+        <location filename="../src/Toolbar.qml" line="71"/>
         <source>Wikipedia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Toolbar.qml" line="189"/>
+        <location filename="../src/Toolbar.qml" line="77"/>
         <source>Google</source>
         <translation type="unfinished"></translation>
     </message>

@@ -195,7 +195,9 @@ class HistoryModel(QtCore.QAbstractListModel):
         explain = explain.split("<br>")[0]
         if not explain:
             explain = web
-            
+        
+        explain = explain.split("\n")[0]
+    
         kd = KeyDict(title=title, explain=explain)
         change = False
         if kd in self._data:

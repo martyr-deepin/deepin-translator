@@ -16,7 +16,7 @@ TranslateWindow {
     property alias trans: trans
     property alias webtrans: webtrans
     property int webPadding: 10
-	property int itemHighlightHeight: 45
+	property int itemHighlightHeight: 47
 	property int itemHighlightIndex: 0
 	property bool inItem: false
     property int listviewPadding: 5
@@ -180,6 +180,7 @@ TranslateWindow {
 		SelectEffect {
 			id: itemHighlight
 			y: listviewArea.y + itemHighlightIndex * itemHighlightHeight + listviewPadding
+            z: 100
 		}
                 
 	    Column {
@@ -322,6 +323,7 @@ TranslateWindow {
                                 id: titleText
                                 text: title
                                 color: "#FFFFFF"
+								font { pixelSize: 14 }
 								anchors.topMargin: 1
                             }
                             
@@ -329,7 +331,7 @@ TranslateWindow {
                                 id: explainText
                                 text: explain
                                 color: "#aaaaaa"
-								font { pixelSize: 12 }
+								font { pixelSize: 14 }
 								anchors.topMargin: 1
                             }
 							

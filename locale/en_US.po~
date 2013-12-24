@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 16:17+0800\n"
+"POT-Creation-Date: 2013-12-19 12:46+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -368,7 +368,8 @@ msgid "Sorry, select-and-translate does not support %s yet"
 msgstr "Sorry, screen ocr not support %s yet"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
-#: ../src/tts_plugins/svox/tts.py:36
+#: ../src/tts_plugins/svox/tts.py:36 ../src/dict_plugins/sdcv/translate.py:54
+#: ../src/tts_plugins/svox/tts.py:39
 msgid "Cancel"
 msgstr "Cancel"
 
@@ -383,23 +384,34 @@ msgid "An OCR package is required to enable word recognition"
 msgstr "Need install OCR package to enable translate feature"
 
 #: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
-#: ../src/tts_plugins/svox/tts.py:36
+#: ../src/tts_plugins/svox/tts.py:36 ../src/dict_plugins/sdcv/translate.py:54
+#: ../src/tts_plugins/svox/tts.py:39
 msgid "Install"
 msgstr "Install"
 
 #: ../src/dict_plugins/google_simple/translate.py:96
+#: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translate failed"
 msgstr "Translate failed"
 
 #: ../src/dict_plugins/sdcv/translate.py:53
+#: ../src/dict_plugins/sdcv/translate.py:54
 #, fuzzy
 msgid "Package sdcv is required to enable translation"
 msgstr "Need install OCR package to enable translate feature"
 
-#: ../src/tts_plugins/svox/tts.py:36
+#: ../src/tts_plugins/svox/tts.py:36 ../src/tts_plugins/svox/tts.py:39
 #, fuzzy
 msgid "Package svox is required to enable pronunciation"
 msgstr "Need install OCR package to enable translate feature"
+
+#: ../src/tts_plugins/youdao/tts.py:67
+msgid "US"
+msgstr ""
+
+#: ../src/tts_plugins/youdao/tts.py:72
+msgid "UK"
+msgstr ""
 
 #, fuzzy
 #~ msgid "Translate from"

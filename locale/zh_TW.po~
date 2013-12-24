@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 16:17+0800\n"
+"POT-Creation-Date: 2013-12-19 12:46+0800\n"
 "PO-Revision-Date: 2013-12-14 14:06+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -29,11 +29,13 @@ msgid "Target language"
 msgstr "目标语言"
 
 #: ../src/SettingView.qml:153
-msgid "Word speech"
+#, fuzzy
+msgid "Word speech engine"
 msgstr "单词语音"
 
 #: ../src/SettingView.qml:165
-msgid "Sentences speech"
+#, fuzzy
+msgid "Sentences speech engine"
 msgstr "长句语音"
 
 #: ../src/SettingView.qml:147
@@ -362,7 +364,8 @@ msgid "Sorry, select-and-translate does not support %s yet"
 msgstr "对不起， 屏幕取词现在还不支持%s"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
-#: ../src/tts_plugins/svox/tts.py:36
+#: ../src/tts_plugins/svox/tts.py:36 ../src/dict_plugins/sdcv/translate.py:54
+#: ../src/tts_plugins/svox/tts.py:39
 msgid "Cancel"
 msgstr "取消"
 
@@ -375,18 +378,29 @@ msgid "An OCR package is required to enable word recognition"
 msgstr "需要安装OCR库以开启单词识别"
 
 #: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:53
-#: ../src/tts_plugins/svox/tts.py:36
+#: ../src/tts_plugins/svox/tts.py:36 ../src/dict_plugins/sdcv/translate.py:54
+#: ../src/tts_plugins/svox/tts.py:39
 msgid "Install"
 msgstr "安装"
 
 #: ../src/dict_plugins/google_simple/translate.py:96
+#: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translate failed"
 msgstr "翻译失败"
 
 #: ../src/dict_plugins/sdcv/translate.py:53
+#: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package sdcv is required to enable translation"
 msgstr "需要安装星际译王以开启翻译"
 
-#: ../src/tts_plugins/svox/tts.py:36
+#: ../src/tts_plugins/svox/tts.py:36 ../src/tts_plugins/svox/tts.py:39
 msgid "Package svox is required to enable pronunciation"
 msgstr "需要安装SVOX引擎以开启发音"
+
+#: ../src/tts_plugins/youdao/tts.py:67
+msgid "US"
+msgstr "美"
+
+#: ../src/tts_plugins/youdao/tts.py:72
+msgid "UK"
+msgstr "英"
