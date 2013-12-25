@@ -118,7 +118,6 @@ class SystemTrayIcon(QSystemTrayIcon):
                         MenuSeparator(),
                         ("settings", _("Settings")),
                         ("wizard", _("Wizard")),
-                        ("about", _("About")),
                         MenuSeparator(),
                         ("quit", _("Exit")),
                         ])
