@@ -38,9 +38,42 @@ Item {
                 selectedTextColor: "#5da6ce"
 			    selectByMouse: true
 		        font { pixelSize: 18 }
+                
+                property int blinkCounter: 0
+                property int blinkTimes: 10
+                
                 cursorDelegate: Rectangle {
+                    id: textCursor
                     width: cursorWidth
                     color: "#AAFFFFFF"
+                    
+                    SequentialAnimation on opacity  {
+                        id: cursorBlinkAnimation
+                        
+                        PropertyAnimation {
+                            from: 1
+                            to: 1
+                            duration: 200
+                        }
+                        
+                        PauseAnimation { 
+                            duration: 600
+                        }
+
+                        PropertyAnimation {
+                            id: endAnimation
+                            from: textInput.blinkCounter <= textInput.blinkTimes ? 0 : 1
+                            to: textInput.blinkCounter <= textInput.blinkTimes ? 0 : 1
+                            duration: 200
+                        }
+                        
+                        onRunningChanged: {
+                            if (!cursorBlinkAnimation.running) {
+                                textInput.blinkCounter += 1
+                                restart()
+                            }
+                        }
+                    }                    
 			    }
                 
                 onAccepted: {
@@ -59,8 +92,25 @@ Item {
 					} else if (event.key == Qt.Key_Down) {
 						entry.pressDown()
 					}
+                    
+                    textInput.blinkCounter = textInput.blinkTimes + 1
+                    resetCursorBlinkTimer.stop()
 				}
-				
+                
+                Keys.onReleased: {
+                    resetCursorBlinkTimer.restart()
+                }
+
+	            Timer {
+		            id: resetCursorBlinkTimer
+		            interval: 300
+		            repeat: false
+		            
+		            onTriggered: {
+                        textInput.blinkCounter = 0
+		            }
+	            }
+                
                 MouseArea {
                     anchors.fill: parent
                     propagateComposedEvents: true
