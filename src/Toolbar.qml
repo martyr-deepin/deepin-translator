@@ -38,7 +38,6 @@ Row {
     
     function init(resetPosition) {
         entryArea.width = splitView.width - itemWidth
-        entry.cursorWidth = 0
         arrow.expand = false
         arrow.source = "image/left_arrow.png"
         
@@ -51,6 +50,13 @@ Row {
         entry.textInput.cursorPosition = 0
     }
     
+	Connections {
+		target: window
+		onHided: {
+			entry.cursorWidth = 0
+		}
+	}
+	
     Item {
         id: iconItems
         

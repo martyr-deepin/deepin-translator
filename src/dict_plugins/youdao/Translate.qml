@@ -49,13 +49,6 @@ TranslateWindow {
 	
 	Connections {
 		target: windowView
-		onHided: {
-			toolbar.entry.cursorWidth = 0
-		}
-	}
-	
-	Connections {
-		target: windowView
 		onVisibleChanged: {
 			if (!arg) {
                 speechPlayer.stopAudio()
