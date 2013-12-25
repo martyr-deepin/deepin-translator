@@ -67,13 +67,13 @@ def get_phonetic_symbol(text):
     phonetic_type = _("US")
     
     try:    
-        if phonetic_symbol == None:
+        if phonetic_symbol == '':
             phonetic_symbol = pq.find('ukphone').text()
             phonetic_type = _("UK")
     except: 
         pass
     
-    if phonetic_symbol == None or phonetic_symbol.isspace():
+    if phonetic_symbol == '' or phonetic_symbol.isspace():
         return ""
     else:
         if isinstance(phonetic_type, unicode):
