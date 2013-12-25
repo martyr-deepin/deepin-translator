@@ -42,7 +42,7 @@ class SystemTrayIcon(QSystemTrayIcon):
         QSystemTrayIcon.__init__(self, self.get_trayicon(), parent)
         self.activated.connect(self.on_activated) 
         
-        self.menu_flag = False
+        self.menu_is_visible = False
         
     def set_trayicon(self):
         self.setIcon(self.get_trayicon())
@@ -94,7 +94,7 @@ class SystemTrayIcon(QSystemTrayIcon):
         return (dict(LANGUAGES))[setting_config.get_translate_config("src_lang")] + " <=> " + (dict(LANGUAGES))[setting_config.get_translate_config("dst_lang")]
         
     def on_activated(self, reason):
-        if not self.menu_flag:
+        if not self.menu_is_visible:
             if reason in [QSystemTrayIcon.Context, QSystemTrayIcon.Trigger]:
                 geometry = self.geometry()
                 if QT_VERSION == "5.1":
@@ -124,13 +124,18 @@ class SystemTrayIcon(QSystemTrayIcon):
                         ])
                 
                 self.menu.itemClicked.connect(self.click_menu)
+                self.menu.menuDismissed.connect(self.exit_menu)
                 self.set_menu_active(setting_config.get_trayicon_config("pause"))
                 if mouse_y > screen_height / 2:
                     self.menu.showDockMenu(mouse_x, mouse_y, cornerDirection="down")
                 else:
                     self.menu.showDockMenu(mouse_x, mouse_y + geometry.height(), cornerDirection="up")
             
-        self.menu_flag = not self.menu_flag            
+        self.menu_is_visible = not self.menu_is_visible
+        
+    @pyqtSlot()    
+    def exit_menu(self):
+        self.menu_is_visible = False
                     
     def get_trayarea(self):
         geometry = self.geometry()
