@@ -5,7 +5,7 @@ import QtQuick.Layouts 1.0
 import Deepin.Locale 1.0
 import Deepin.Widgets 1.0
 
-WindowFrame {
+DWindowFrame {
     id: window
     
     property int defaultWidth: 350

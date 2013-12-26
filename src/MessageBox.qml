@@ -1,7 +1,7 @@
 import QtQuick 2.1
 import Deepin.Widgets 1.0
 
-WindowFrame {
+DWindowFrame {
     id: window
     
     property int defaultWidth: 300
