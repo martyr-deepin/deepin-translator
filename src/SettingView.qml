@@ -3,7 +3,7 @@ import QtGraphicalEffects 1.0
 import QtQuick.Window 2.1
 import QtQuick.Layouts 1.0
 import Deepin.Locale 1.0
-import "../widgets"
+import Deepin.Widgets 1.0
 
 WindowFrame {
     id: window

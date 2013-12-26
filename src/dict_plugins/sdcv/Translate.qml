@@ -1,9 +1,9 @@
 import QtQuick 2.1
 import QtQuick.Window 2.1
 import Deepin.Locale 1.0
+import Deepin.Widgets 1.0
 import QtMultimedia 5.0
 import "../../../src"
-import "../../../widgets"
 
 TranslateWindow {
 	id: container

@@ -1,6 +1,6 @@
 import QtQuick 2.1
 import Deepin.Locale 1.0
-import "../widgets"
+import Deepin.Widgets 1.0
 
 Row {
     id: toolbar
