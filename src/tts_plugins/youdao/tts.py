@@ -73,7 +73,7 @@ def get_phonetic_symbol(text):
     except: 
         pass
     
-    if phonetic_symbol == '' or phonetic_symbol.isspace():
+    if phonetic_symbol == '' or phonetic_symbol == None or phonetic_symbol.isspace():
         return ""
     else:
         if isinstance(phonetic_type, unicode):
