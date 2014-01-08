@@ -8,5 +8,5 @@ Terminal=false
 X-MultipleArgs=false
 Type=Application
 Encoding=UTF-8
-Categories=Application
+Categories=Application;Utility;Dictionary;
 StartupNotify=false
