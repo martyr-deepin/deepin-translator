@@ -88,7 +88,7 @@ class Translate(TranslateWindow):
             ret.append(noun)
         if verb is not None:    
             ret.append(verb)
-        return "<br/>".join(ret)    
+        return "\n".join(ret)    
      
     def get_sample_result(self, glist):
         try:
