@@ -61,7 +61,7 @@ class Translate(TranslateWindow):
         def parse_list(word_list):
             try:
                 title = word_list[0]
-                content = ";".join(word_list[1])
+                content = "; ".join(word_list[1])
                 return "%s:  %s" % (title, content)
             except:
                 return None
