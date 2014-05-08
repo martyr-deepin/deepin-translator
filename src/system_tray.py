@@ -23,7 +23,7 @@
 from PyQt5.QtWidgets import qApp, QSystemTrayIcon
 from PyQt5.QtCore import pyqtSlot, pyqtSignal
 from PyQt5.QtGui import QIcon
-from deepin_menu.menu import Menu, MenuSeparator, CheckboxMenuItem
+from deepin_menu.menu import Menu, MenuSeparator, CheckableMenuItem
 from config import setting_config
 from xutils import delete_selection, screen_height
 from nls import _
@@ -105,16 +105,16 @@ class SystemTrayIcon(QSystemTrayIcon):
                     mouse_y = int(geometry.y())
                 
                 self.menu = Menu([
-                        CheckboxMenuItem("pause", _("Pause translation popups"), 
+                        CheckableMenuItem("pause", _("Pause translation popups"), 
                                          setting_config.get_trayicon_config("pause")),
-                        CheckboxMenuItem("toggle_speech", _("Pronounce automatically"), 
+                        CheckableMenuItem("toggle_speech", _("Pronounce automatically"), 
                                          setting_config.get_trayicon_config("toggle_speech")),
-                        CheckboxMenuItem("key_trigger_select", _("Only pop up while holding Ctrl key"), 
+                        CheckableMenuItem("key_trigger_select", _("Only pop up while holding Ctrl key"), 
                                          setting_config.get_trayicon_config("key_trigger_select")),
-                        CheckboxMenuItem("local_translate", _("Offline translation"),
+                        CheckableMenuItem("local_translate", _("Offline translation"),
                                          setting_config.get_trayicon_config("local_translate")),
                         MenuSeparator(),
-                        CheckboxMenuItem("lang", self.get_lang_value(), showCheckmark=False),
+                        CheckableMenuItem("lang", self.get_lang_value(), showCheckmark=False),
                         MenuSeparator(),
                         ("settings", _("Settings")),
                         ("wizard", _("Wizard")),
