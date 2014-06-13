@@ -109,7 +109,7 @@ class SystemTrayIcon(QSystemTrayIcon):
                                          setting_config.get_trayicon_config("pause")),
                         CheckableMenuItem("toggle_speech", _("Pronounce automatically"), 
                                          setting_config.get_trayicon_config("toggle_speech")),
-                        CheckableMenuItem("key_trigger_select", _("Only pop up while holding Ctrl key"), 
+                        CheckableMenuItem("key_trigger_select", _("Translate only when holding Ctrl key"), 
                                          setting_config.get_trayicon_config("key_trigger_select")),
                         CheckableMenuItem("local_translate", _("Offline translation"),
                                          setting_config.get_trayicon_config("local_translate")),

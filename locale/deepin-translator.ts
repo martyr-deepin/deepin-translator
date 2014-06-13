@@ -47,22 +47,22 @@
 <context>
     <name>Toolbar</name>
     <message>
-        <location filename="../src/Toolbar.qml" line="59"/>
+        <location filename="../src/Toolbar.qml" line="65"/>
         <source>Voice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Toolbar.qml" line="65"/>
+        <location filename="../src/Toolbar.qml" line="71"/>
         <source>Copy to clipboard</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Toolbar.qml" line="71"/>
+        <location filename="../src/Toolbar.qml" line="77"/>
         <source>Wikipedia</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../src/Toolbar.qml" line="77"/>
+        <location filename="../src/Toolbar.qml" line="83"/>
         <source>Google</source>
         <translation type="unfinished"></translation>
     </message>

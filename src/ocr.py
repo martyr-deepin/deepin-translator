@@ -52,7 +52,7 @@ def ocr_word(mouse_x, mouse_y):
     # Return None if occur unsupported language.
     src_lang = setting_config.get_translate_config("src_lang")
     if not LANGUAGE_OCR_DICT.has_key(src_lang):
-        show_message(_("Sorry, select-and-translate does not support %s yet") % _(src_lang), _("Cancel"), _("Ok, I understood"), lambda : ocr_log(src_lang))
+        show_message(_("Sorry, select-and-translate does not support %s yet") % _(src_lang), _("Cancel"), _("Ok, I understand"), lambda : ocr_log(src_lang))
         return None
 
     # Return None if found any ocr package need install before continue. 

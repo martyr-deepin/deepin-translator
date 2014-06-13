@@ -5,12 +5,11 @@
 #
 # Translators:
 # Peter Dave Hello <hsu@peterdavehello.org>, 2014
-
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-24 09:54+0800\n"
+"POT-Creation-Date: 2014-06-13 09:46+0800\n"
 "PO-Revision-Date: 2014-05-07 04:53+0800\n"
 "Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Peter Dave Hello <hsu@peterdavehello.org>\n"
@@ -51,19 +50,19 @@ msgstr "長句語音"
 msgid "OK"
 msgstr "確定"
 
-#: ../src/Toolbar.qml:59
+#: ../src/Toolbar.qml:65
 msgid "Voice"
 msgstr "發音"
 
-#: ../src/Toolbar.qml:65
+#: ../src/Toolbar.qml:71
 msgid "Copy to clipboard"
 msgstr "複製到剪貼簿"
 
-#: ../src/Toolbar.qml:71
+#: ../src/Toolbar.qml:77
 msgid "Wikipedia"
 msgstr "維基百科"
 
-#: ../src/Toolbar.qml:77
+#: ../src/Toolbar.qml:83
 msgid "Google"
 msgstr "Google搜尋"
 
@@ -336,7 +335,7 @@ msgid "Pronounce automatically"
 msgstr "自動發音"
 
 #: ../src/system_tray.py:112
-msgid "Only pop up while holding Ctrl key"
+msgid "Translate only when holding Ctrl key"
 msgstr "只在按住Ctrl鍵彈出翻譯"
 
 #: ../src/system_tray.py:114
@@ -351,11 +350,7 @@ msgstr "設定"
 msgid "Wizard"
 msgstr "精靈"
 
-#: ../src/system_tray.py:121
-msgid "About"
-msgstr "關於"
-
-#: ../src/system_tray.py:123
+#: ../src/system_tray.py:122
 msgid "Exit"
 msgstr "離開"
 
@@ -370,7 +365,7 @@ msgid "Cancel"
 msgstr "取消"
 
 #: ../src/ocr.py:55
-msgid "Ok, I understood"
+msgid "Ok, I understand"
 msgstr "我知道了"
 
 #: ../src/ocr.py:62
@@ -387,7 +382,7 @@ msgid "Translate failed"
 msgstr "翻譯失敗"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Package sdcv is required to enable translation"
+msgid "Package SDCV is required to enable translation"
 msgstr "需要安裝星際譯王以開啟翻譯"
 
 #: ../src/tts_plugins/youdao/tts.py:67
@@ -399,5 +394,5 @@ msgid "UK"
 msgstr "英國"
 
 #: ../src/tts_plugins/svox/tts.py:39
-msgid "Package svox is required to enable pronunciation"
+msgid "Package SVOX is required to enable pronunciation"
 msgstr "需要安裝SVOX引擎以開啟發音"

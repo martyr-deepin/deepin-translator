@@ -36,7 +36,7 @@ def get_phonetic_symbol(text):
 def check_before_voice():
     need_install_packages = get_install_packages(["libttspico-utils"])
     if len(need_install_packages) > 0:
-        show_message(_("Package svox is required to enable pronunciation"), _("Cancel"), _("Install"), lambda : install_packages(need_install_packages))
+        show_message(_("Package SVOX is required to enable pronunciation"), _("Cancel"), _("Install"), lambda : install_packages(need_install_packages))
         return False
     else:
         return True

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-24 09:54+0800\n"
+"POT-Creation-Date: 2014-06-13 09:49+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,19 +49,19 @@ msgstr ""
 msgid "OK"
 msgstr ""
 
-#: ../src/Toolbar.qml:59
+#: ../src/Toolbar.qml:65
 msgid "Voice"
 msgstr ""
 
-#: ../src/Toolbar.qml:65
+#: ../src/Toolbar.qml:71
 msgid "Copy to clipboard"
 msgstr ""
 
-#: ../src/Toolbar.qml:71
+#: ../src/Toolbar.qml:77
 msgid "Wikipedia"
 msgstr ""
 
-#: ../src/Toolbar.qml:77
+#: ../src/Toolbar.qml:83
 msgid "Google"
 msgstr ""
 
@@ -334,7 +334,7 @@ msgid "Pronounce automatically"
 msgstr ""
 
 #: ../src/system_tray.py:112
-msgid "Only pop up while holding Ctrl key"
+msgid "Translate only when holding Ctrl key"
 msgstr ""
 
 #: ../src/system_tray.py:114
@@ -349,11 +349,7 @@ msgstr ""
 msgid "Wizard"
 msgstr ""
 
-#: ../src/system_tray.py:121
-msgid "About"
-msgstr ""
-
-#: ../src/system_tray.py:123
+#: ../src/system_tray.py:122
 msgid "Exit"
 msgstr ""
 
@@ -368,7 +364,7 @@ msgid "Cancel"
 msgstr ""
 
 #: ../src/ocr.py:55
-msgid "Ok, I understood"
+msgid "Ok, I understand"
 msgstr ""
 
 #: ../src/ocr.py:62
@@ -385,7 +381,7 @@ msgid "Translate failed"
 msgstr ""
 
 #: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Package sdcv is required to enable translation"
+msgid "Package SDCV is required to enable translation"
 msgstr ""
 
 #: ../src/tts_plugins/youdao/tts.py:67
@@ -397,5 +393,5 @@ msgid "UK"
 msgstr ""
 
 #: ../src/tts_plugins/svox/tts.py:39
-msgid "Package svox is required to enable pronunciation"
+msgid "Package SVOX is required to enable pronunciation"
 msgstr ""
