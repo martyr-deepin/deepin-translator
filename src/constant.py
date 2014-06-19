@@ -145,8 +145,8 @@ LANGUAGES = [
     ('ur', _('Urdu')),
     ('vi', _('Vietnamese')),
     ('yi', _('Yiddish')),
-    ('zh-CN', _('Chinese (Simplified)')),
-    ('zh-TW', _('Chinese (Traditional)')),
+    ('zh-CN', _('Chinese Simplified')),
+    ('zh-TW', _('Chinese Traditional')),
     ]
 
 TRAYAREA_TOP = 0

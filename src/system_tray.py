@@ -105,7 +105,7 @@ class SystemTrayIcon(QSystemTrayIcon):
                     mouse_y = int(geometry.y())
                 
                 self.menu = Menu([
-                        CheckableMenuItem("pause", _("Pause translation popups"), 
+                        CheckableMenuItem("pause", _("Pause translation"), 
                                          setting_config.get_trayicon_config("pause")),
                         CheckableMenuItem("toggle_speech", _("Pronounce automatically"), 
                                          setting_config.get_trayicon_config("toggle_speech")),

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 09:49+0800\n"
+"POT-Creation-Date: 2014-06-19 16:23+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,6 +63,29 @@ msgstr ""
 
 #: ../src/Toolbar.qml:83
 msgid "Google"
+msgstr ""
+
+#: ../src/ocr.py:55
+#, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
+msgstr ""
+
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Cancel"
+msgstr ""
+
+#: ../src/ocr.py:55
+msgid "Ok, I understand"
+msgstr ""
+
+#: ../src/ocr.py:62
+msgid "An OCR package is required to enable word recognition"
+msgstr ""
+
+#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Install"
 msgstr ""
 
 #: ../src/constant.py:85
@@ -318,15 +341,15 @@ msgid "Yiddish"
 msgstr ""
 
 #: ../src/constant.py:148
-msgid "Chinese (Simplified)"
+msgid "Chinese Simplified"
 msgstr ""
 
 #: ../src/constant.py:149
-msgid "Chinese (Traditional)"
+msgid "Chinese Traditional"
 msgstr ""
 
 #: ../src/system_tray.py:108
-msgid "Pause translation popups"
+msgid "Pause translation"
 msgstr ""
 
 #: ../src/system_tray.py:110
@@ -353,35 +376,8 @@ msgstr ""
 msgid "Exit"
 msgstr ""
 
-#: ../src/ocr.py:55
-#, python-format
-msgid "Sorry, select-and-translate does not support %s yet"
-msgstr ""
-
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:54
 #: ../src/tts_plugins/svox/tts.py:39
-msgid "Cancel"
-msgstr ""
-
-#: ../src/ocr.py:55
-msgid "Ok, I understand"
-msgstr ""
-
-#: ../src/ocr.py:62
-msgid "An OCR package is required to enable word recognition"
-msgstr ""
-
-#: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:54
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Install"
-msgstr ""
-
-#: ../src/dict_plugins/google_simple/translate.py:97
-msgid "Translate failed"
-msgstr ""
-
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Package SDCV is required to enable translation"
+msgid "Package SVOX is required to enable pronunciation"
 msgstr ""
 
 #: ../src/tts_plugins/youdao/tts.py:67
@@ -392,6 +388,10 @@ msgstr ""
 msgid "UK"
 msgstr ""
 
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Package SVOX is required to enable pronunciation"
+#: ../src/dict_plugins/google_simple/translate.py:97
+msgid "Translate failed"
+msgstr ""
+
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Package SDCV is required to enable translation"
 msgstr ""
