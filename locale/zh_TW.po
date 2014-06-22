@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-06-13 09:46+0800\n"
+"POT-Creation-Date: 2014-06-19 16:23+0800\n"
 "PO-Revision-Date: 2014-05-07 04:53+0800\n"
 "Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Peter Dave Hello <hsu@peterdavehello.org>\n"
@@ -65,6 +65,29 @@ msgstr "維基百科"
 #: ../src/Toolbar.qml:83
 msgid "Google"
 msgstr "Google搜尋"
+
+#: ../src/ocr.py:55
+#, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
+msgstr "對不起， 螢幕取詞現在還不支援%s"
+
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Cancel"
+msgstr "取消"
+
+#: ../src/ocr.py:55
+msgid "Ok, I understand"
+msgstr "我知道了"
+
+#: ../src/ocr.py:62
+msgid "An OCR package is required to enable word recognition"
+msgstr "需要安裝OCR套件以開啟單詞辨識"
+
+#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Install"
+msgstr "安裝"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
@@ -319,15 +342,18 @@ msgid "Yiddish"
 msgstr "意第緒語"
 
 #: ../src/constant.py:148
-msgid "Chinese (Simplified)"
+#, fuzzy
+msgid "Chinese Simplified"
 msgstr "簡體中文"
 
 #: ../src/constant.py:149
-msgid "Chinese (Traditional)"
+#, fuzzy
+msgid "Chinese Traditional"
 msgstr "繁體中文"
 
 #: ../src/system_tray.py:108
-msgid "Pause translation popups"
+#, fuzzy
+msgid "Pause translation"
 msgstr "暫停翻譯"
 
 #: ../src/system_tray.py:110
@@ -354,36 +380,9 @@ msgstr "精靈"
 msgid "Exit"
 msgstr "離開"
 
-#: ../src/ocr.py:55
-#, python-format
-msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "對不起， 螢幕取詞現在還不支援%s"
-
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:54
 #: ../src/tts_plugins/svox/tts.py:39
-msgid "Cancel"
-msgstr "取消"
-
-#: ../src/ocr.py:55
-msgid "Ok, I understand"
-msgstr "我知道了"
-
-#: ../src/ocr.py:62
-msgid "An OCR package is required to enable word recognition"
-msgstr "需要安裝OCR套件以開啟單詞辨識"
-
-#: ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:54
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Install"
-msgstr "安裝"
-
-#: ../src/dict_plugins/google_simple/translate.py:97
-msgid "Translate failed"
-msgstr "翻譯失敗"
-
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Package SDCV is required to enable translation"
-msgstr "需要安裝星際譯王以開啟翻譯"
+msgid "Package SVOX is required to enable pronunciation"
+msgstr "需要安裝SVOX引擎以開啟發音"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
@@ -393,6 +392,10 @@ msgstr "美國"
 msgid "UK"
 msgstr "英國"
 
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Package SVOX is required to enable pronunciation"
-msgstr "需要安裝SVOX引擎以開啟發音"
+#: ../src/dict_plugins/google_simple/translate.py:97
+msgid "Translate failed"
+msgstr "翻譯失敗"
+
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Package SDCV is required to enable translation"
+msgstr "需要安裝星際譯王以開啟翻譯"
