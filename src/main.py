@@ -37,7 +37,7 @@ APP_OBJECT_NAME = "/com/deepin/translator"
 
 if __name__ == "__main__":
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
-
+    
     def on_focus_change(window):
         if window == None:
             hide_translate()
@@ -102,5 +102,14 @@ if __name__ == "__main__":
     record_event = RecordEvent()
     record_event.capture_event.connect(event_handler.handle_event)
     record_event.start()
+    
+    def show_search():
+        print "Popup search interface."
+        
+    search_option = len(sys.argv) >= 2 and sys.argv[1] == "--search"
+    uniqueService.searchTrigger.connect(show_search)
 
+    if search_option:
+        show_search()
+    
     sys.exit(app.exec_())

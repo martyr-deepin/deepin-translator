@@ -26,13 +26,20 @@ import sys
 
 class UniqueService(QObject):
     uniqueTrigger = pyqtSignal()    
+    searchTrigger = pyqtSignal()
     
     def __init__(self, dbus_name, object_name):
         QObject.__init__(self)
-        
+
+        search_option = len(sys.argv) >= 2 and sys.argv[1] == "--search"
         iface = QDBusInterface(dbus_name, object_name, '', QDBusConnection.sessionBus())
+        
         if iface.isValid():
             iface.call("unique")
+
+            if search_option:
+                iface.call("search")
+            
             sys.exit(1)
         
         QDBusConnection.sessionBus().registerService(dbus_name)
@@ -42,3 +49,6 @@ class UniqueService(QObject):
     def unique(self):
         self.uniqueTrigger.emit()
         
+    @pyqtSlot()    
+    def search(self):
+        self.searchTrigger.emit()
