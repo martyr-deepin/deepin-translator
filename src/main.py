@@ -32,8 +32,8 @@ import signal
 import sys  
 import constant
     
-APP_DBUS_NAME = "com.deepin.ocr"    
-APP_OBJECT_NAME = "/com/deepin/ocr"
+APP_DBUS_NAME = "com.deepin.translator"    
+APP_OBJECT_NAME = "/com/deepin/translator"
 
 if __name__ == "__main__":
     uniqueService = UniqueService(APP_DBUS_NAME, APP_OBJECT_NAME)
