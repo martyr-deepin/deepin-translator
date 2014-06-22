@@ -2,9 +2,10 @@ import QtQuick 2.1
 import QtQuick.Window 2.1
 
 RectWithCorner {
+    id: rect
     radius: 6
     cornerDirection: "up"
-    
+
     property int borderMargin: 10
     property int textMargin: 10
     
@@ -15,7 +16,18 @@ RectWithCorner {
 	
 	property int mouseX: 0
 	property int mouseY: 0
-	
+    property bool hideCorner: false
+    
+    function resetCorner() {
+        hideCorner = false
+    }
+    
+    function searchMode() {
+        hideCorner = true
+        windowView.clear_translate()
+        toolbar.entry.activeFocus()
+    }
+    
 	function adjustPosition() {
         var x = 0
         var pos = 0
@@ -49,6 +61,11 @@ RectWithCorner {
         } else {
 		    windowView.y = y
         }
-		cornerDirection = direction
+        
+        if (hideCorner) {
+            cornerDirection = "none"
+        } else {
+		    cornerDirection = direction
+        }
 	}
 }

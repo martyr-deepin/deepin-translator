@@ -107,3 +107,8 @@ class Translate(TranslateWindow):
             text,
             tl=setting_config.get_translate_config("dst_lang"),
             )
+
+    @pyqtSlot()    
+    def clear_translate(self):
+        self.translate_info.text = ""
+        self.translate_info.translate = ""

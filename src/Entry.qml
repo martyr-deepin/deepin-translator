@@ -14,6 +14,11 @@ Item {
 	signal pressUp
 	signal pressDown
     
+    function activeFocus() {
+        cursorWidth = 2
+        textInput.forceActiveFocus()
+    }
+    
     Rectangle {
         id: entryBorder
         anchors.fill: parent

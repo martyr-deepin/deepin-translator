@@ -11,6 +11,7 @@ TranslateWindow {
     property int scrollHeight: 200
     property int scrollWidth: 400
     property alias toolbar: toolbar
+    property alias trans: trans
     
 	property bool isManualStop: false
     
@@ -65,6 +66,7 @@ TranslateWindow {
         
         onHided: {
             toolbar.resetCursor()
+            container.resetCorner()
         }
 	}
     
@@ -124,7 +126,7 @@ TranslateWindow {
                         contentY = r.y+r.height-height;
                     }
 
-		            TextEdit { 
+		            TextEdit {
                         id: trans
 			            text: translateInfo.translate
 			            wrapMode: TextEdit.WordWrap

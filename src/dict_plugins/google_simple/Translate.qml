@@ -8,6 +8,7 @@ TranslateWindow {
 	id: container
     
     property alias toolbar: toolbar
+    property alias trans: trans
     
     property variant dsslocale: DLocale {
         id: dsslocale
@@ -60,8 +61,9 @@ TranslateWindow {
 
         onHided: {
             toolbar.resetCursor()
+            container.resetCorner()
         }
-	}
+    }
     
     Player {
         id: speechPlayer
@@ -92,7 +94,7 @@ TranslateWindow {
                 window: windowView
             }
             
-		    TextEdit { 
+		    TextEdit {
                 id: trans
 			    text: translateInfo.translate
 			    wrapMode: TextEdit.WordWrap

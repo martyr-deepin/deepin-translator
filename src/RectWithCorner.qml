@@ -169,6 +169,28 @@ Rectangle {
                 ctx.lineTo(x,y+rectRadius);                 // left side
                 // draw top left corner
                 ctx.arcTo(x,y,x+rectRadius,y,rectRadius);
+            } else if (cornerDirection == "none") {
+                var x = blurWidth
+                var y = blurWidth
+                var w = rectWidth - 2 * blurWidth
+                var h = rectHeight - 2 * blurWidth - cornerHeight
+
+                ctx.moveTo(x + rectRadius, y);                 // top side
+
+                ctx.lineTo(x + w - rectRadius, y);
+
+                // draw top right corner
+                ctx.arcTo(x + w, y, x + w, y + rectRadius, rectRadius);
+                ctx.lineTo(x+w,y+h-rectRadius);    // right side
+                // draw bottom right corner
+                ctx.arcTo(x+w,y+h,x+w-rectRadius,y+h,rectRadius);
+
+                ctx.lineTo(x+rectRadius,y+h);              // bottom side
+                // draw bottom left corner
+                ctx.arcTo(x,y+h,x,y+h-rectRadius,rectRadius);
+                ctx.lineTo(x,y+rectRadius);                 // left side
+                // draw top left corner
+                ctx.arcTo(x,y,x+rectRadius,y,rectRadius);
             }
 
             ctx.closePath();

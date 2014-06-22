@@ -57,6 +57,7 @@ TranslateWindow {
         
         onHided: {
             toolbar.resetCursor()
+            container.resetCorner()
         }
 	}
     
@@ -92,7 +93,7 @@ TranslateWindow {
         adjustTranslateSize()
         speechPlayer.autoplayAudio()
 		
-		historyModel.addSearchData(translateInfo.keyword, translateInfo.trans, translateInfo.webtrans)
+		historyModel.addSearchData(translateInfo.text, translateInfo.trans, translateInfo.webtrans)
 	}
 	
     function adjustTranslateSize() {
@@ -185,7 +186,7 @@ TranslateWindow {
             Toolbar {
                 id: toolbar
                 width: parent.width
-                text: translateInfo.keyword
+                text: translateInfo.text
                 phonetic: translateInfo.phonetic
                 player: speechPlayer
                 window: windowView

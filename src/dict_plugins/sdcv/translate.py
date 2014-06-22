@@ -74,5 +74,11 @@ class Translate(TranslateWindow):
         self.translate_info.translate = translate_text
         
     @pyqtSlot()    
+    def clear_translate(self):
+        self.translate_info.text = ""
+        self.translate_info.translate = ""
+
+    @pyqtSlot()    
     def install_sdcv(self):
         install_packages(self.need_install_packages)
+

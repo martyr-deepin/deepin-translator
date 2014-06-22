@@ -28,6 +28,7 @@ if os.name == 'posix':
     
 from PyQt5.QtWidgets import QApplication, qApp
 from unique_service import UniqueService
+from xutils import screen_width, screen_height
 import signal
 import sys  
 import constant
@@ -50,17 +51,17 @@ if __name__ == "__main__":
     
     from dict_interface import get_translate_simple, get_translate_long
     
-    def show_translate(x, y, text):
+    def show_translate(x, y, text, show_corner=True):
         hide_translate()
         
         if len(filter(lambda word: word != "", (text.split(" ")))) > 1:
             translate_long = get_translate_long()
             if translate_long:
-                translate_long.show_translate(x, y, text)
+                translate_long.show_translate(x, y, text, show_corner)
         else:
             translate_simple = get_translate_simple()
             if translate_simple:
-                translate_simple.show_translate(x, y, text)
+                translate_simple.show_translate(x, y, text, show_corner)
             
     def hide_translate():
         translate_simple = get_translate_simple()
@@ -104,7 +105,7 @@ if __name__ == "__main__":
     record_event.start()
     
     def show_search():
-        print "Popup search interface."
+        show_translate(screen_width / 2, screen_height / 2 - 100, "", False)
         
     search_option = len(sys.argv) >= 2 and sys.argv[1] == "--search"
     uniqueService.searchTrigger.connect(show_search)

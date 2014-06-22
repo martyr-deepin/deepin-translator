@@ -38,7 +38,7 @@ class Translate(TranslateWindow):
         
     def init_translate_info(self):
         TranslateInfo = AutoQObject(
-            ("keyword", str),
+            ("text", str),
             ("phonetic", str),
             ("voices", 'QVariant'),
             ("webtrans", str),                         
@@ -83,7 +83,7 @@ class Translate(TranslateWindow):
             ret = ret.encode('utf-8')
             
         pq = PyQuery(ret, parser="xml")
-        self.translate_info.keyword = text    
+        self.translate_info.text = text    
         self.translate_info.trans = None
         self.translate_info.voices = None
         
@@ -91,4 +91,11 @@ class Translate(TranslateWindow):
         self.translate_info.voices = get_voice_simple(text)
         self.translate_info.phonetic = get_phonetic_symbol(text)
         self.translate_info.webtrans = self.wrap_web_trans(pq)
+        
+    @pyqtSlot()    
+    def clear_translate(self):
+        self.translate_info.text = ""
+        self.translate_info.trans = None
+        self.translate_info.webtrans = None
+        
         

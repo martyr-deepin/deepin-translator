@@ -108,3 +108,8 @@ class Translate(TranslateWindow):
         self.translate_info.voices = get_voice_simple(text)
         self.translate_info.phonetic = get_phonetic_symbol(text)
         self.translate_info.translate = translate_text.strip()
+        
+    @pyqtSlot()    
+    def clear_translate(self):
+        self.translate_info.text = ""
+        self.translate_info.translate = ""
