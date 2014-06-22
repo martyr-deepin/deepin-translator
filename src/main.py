@@ -51,17 +51,17 @@ if __name__ == "__main__":
     
     from dict_interface import get_translate_simple, get_translate_long
     
-    def show_translate(x, y, text, show_corner=True):
+    def show_translate(x, y, text, search_mode=True):
         hide_translate()
         
         if len(filter(lambda word: word != "", (text.split(" ")))) > 1:
             translate_long = get_translate_long()
             if translate_long:
-                translate_long.show_translate(x, y, text, show_corner)
+                translate_long.show_translate(x, y, text, search_mode)
         else:
             translate_simple = get_translate_simple()
             if translate_simple:
-                translate_simple.show_translate(x, y, text, show_corner)
+                translate_simple.show_translate(x, y, text, search_mode)
             
     def hide_translate():
         translate_simple = get_translate_simple()

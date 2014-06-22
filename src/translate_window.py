@@ -85,7 +85,7 @@ class TranslateWindow(QQuickView):
         (mouse_x, mouse_y) = get_pointer_coordiante()
         return self.x() < mouse_x < self.x() + self.width() and self.y() < mouse_y < self.y() + self.height()
 
-    def show_translate(self, x, y, text, show_corner=True):
+    def show_translate(self, x, y, text, search_mode=True):
         global active_view
         
         if self.check_before_translate():
@@ -94,7 +94,7 @@ class TranslateWindow(QQuickView):
                 if not voice_module.check_before_voice():
                     return
     
-            if not show_corner:    
+            if not search_mode:    
                 self.rootObject().searchMode()    
                 
             self.rootObject().showTranslate(x, y, text)
