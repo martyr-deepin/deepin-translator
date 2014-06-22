@@ -117,7 +117,7 @@ class SystemTrayIcon(QSystemTrayIcon):
                         CheckableMenuItem("lang", self.get_lang_value(), showCheckmark=False),
                         MenuSeparator(),
                         ("settings", _("Settings")),
-                        ("wizard", _("Wizard")),
+                        # ("wizard", _("Wizard")),
                         MenuSeparator(),
                         ("quit", _("Exit")),
                         ])
