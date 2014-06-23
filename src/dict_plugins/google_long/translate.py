@@ -112,3 +112,5 @@ class Translate(TranslateWindow):
     def clear_translate(self):
         self.translate_info.text = ""
         self.translate_info.translate = ""
+        self.translate_info.voice = None
+        self.translate_info.phonetic = ""

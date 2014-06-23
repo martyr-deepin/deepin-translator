@@ -97,5 +97,7 @@ class Translate(TranslateWindow):
         self.translate_info.text = ""
         self.translate_info.trans = None
         self.translate_info.webtrans = None
+        self.translate_info.voice = None
+        self.translate_info.phonetic = ""
         
         
