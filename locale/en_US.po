@@ -26,7 +26,6 @@ msgid "Albanian"
 msgstr "Albanian"
 
 #: src/ocr.py:62
-#, fuzzy
 msgid "An OCR package is required to enable word recognition"
 msgstr "Need install OCR package to enable translate feature"
 
@@ -128,7 +127,6 @@ msgid "French"
 msgstr "French"
 
 #: ../src/SettingView.qml:164
-#, fuzzy
 msgid "Full text translation"
 msgstr "Pause translate"
 
@@ -238,27 +236,22 @@ msgid "OK"
 msgstr ""
 
 #: src/system_tray.py:114
-#, fuzzy
 msgid "Offline translation"
 msgstr "Pause translate"
 
 #: src/ocr.py:55
-#, fuzzy
 msgid "Ok, I understand"
 msgstr "Ok, I know"
 
 #: src/dict_plugins/sdcv/translate.py:54
-#, fuzzy
 msgid "Package SDCV is required to enable translation"
 msgstr "Need install OCR package to enable translate feature"
 
 #: src/tts_plugins/svox/tts.py:39
-#, fuzzy
 msgid "Package SVOX is required to enable pronunciation"
 msgstr "Need install OCR package to enable translate feature"
 
 #: src/system_tray.py:108
-#, fuzzy
 msgid "Pause translation"
 msgstr "Pause translate"
 
@@ -287,7 +280,6 @@ msgid "Russian"
 msgstr "Russian"
 
 #: ../src/SettingView.qml:170
-#, fuzzy
 msgid "Sentences speech"
 msgstr "Voice after translate"
 
@@ -308,7 +300,6 @@ msgid "Slovenian"
 msgstr "Slovenian"
 
 #: src/ocr.py:55
-#, fuzzy, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
 msgstr "Sorry, screen ocr not support %s yet"
 
@@ -389,7 +380,6 @@ msgid "Wikipedia"
 msgstr ""
 
 #: ../src/SettingView.qml:152
-#, fuzzy
 msgid "Word Translation"
 msgstr "Voice after translate"
 
@@ -407,34 +397,27 @@ msgstr "Yiddish"
 #~ msgid "Chinese"
 #~ msgstr "Chinese"
 
-#, fuzzy
 #~ msgid "Enable local translate"
 #~ msgstr "Pause translate"
 
 #~ msgid "Need install sdcv package to enable translate feature"
 #~ msgstr "Need install sdcv package to enable translate feature"
 
-#, fuzzy
 #~ msgid "Need install svox to enable voice feature"
 #~ msgstr "Need install sdcv package to enable translate feature"
 
-#, fuzzy
 #~ msgid "Press alt to screen ocr"
 #~ msgstr "Press ctrl to screen ocr"
 
-#, fuzzy
 #~ msgid "Press ctrl to translate selection"
 #~ msgstr "Press shift to translate selection"
 
-#, fuzzy
 #~ msgid "Sentences Translate"
 #~ msgstr "Voice after translate"
 
-#, fuzzy
 #~ msgid "Translate from"
 #~ msgstr "Translate failed"
 
-#, fuzzy
 #~ msgid "Translate to"
 #~ msgstr "Translate failed"
 

@@ -68,12 +68,10 @@ msgid "Catalan"
 msgstr "加泰羅尼亞語"
 
 #: src/constant.py:148
-#, fuzzy
 msgid "Chinese Simplified"
 msgstr "簡體中文"
 
 #: src/constant.py:149
-#, fuzzy
 msgid "Chinese Traditional"
 msgstr "繁體中文"
 
@@ -255,7 +253,6 @@ msgid "Package SVOX is required to enable pronunciation"
 msgstr "需要安裝SVOX引擎以開啟發音"
 
 #: src/system_tray.py:108
-#, fuzzy
 msgid "Pause translation"
 msgstr "暫停翻譯"
 
