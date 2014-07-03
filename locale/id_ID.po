@@ -1,21 +1,23 @@
-# English translations for PACKAGE package.
-# Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Automatically generated, 2013.
 #
+# Translators:
+# Hari Muryanto, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-03 11:13+0800\n"
-"PO-Revision-Date: 2013-12-14 14:06+0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: en_US\n"
+"PO-Revision-Date: 2014-07-02 03:04+0000\n"
+"Last-Translator: Aril Apria Susanto <awriel@gmail.com>\n"
+"Language-Team: Indonesian (Indonesia) (http://www.transifex.com/projects/p/"
+"deepin-translator/language/id_ID/)\n"
+"Language: id_ID\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/constant.py:85
 msgid "Afrikaans"
@@ -23,24 +25,23 @@ msgstr "Afrikaans"
 
 #: src/constant.py:135
 msgid "Albanian"
-msgstr "Albanian"
+msgstr "Albania"
 
 #: src/ocr.py:62
-#, fuzzy
 msgid "An OCR package is required to enable word recognition"
-msgstr "Need install OCR package to enable translate feature"
+msgstr "Perlu OCR untuk mengaktifkan pengenalan kata "
 
 #: src/constant.py:86
 msgid "Arabic"
-msgstr "Arabic"
+msgstr "Arab"
 
 #: src/constant.py:112
 msgid "Armenian"
-msgstr "Armenian"
+msgstr "Armenia"
 
 #: src/constant.py:87
 msgid "Azerbaijani"
-msgstr "Azerbaijani"
+msgstr "Azerbaijan"
 
 #: src/constant.py:100
 msgid "Basque"
@@ -48,7 +49,7 @@ msgstr "Basque"
 
 #: src/constant.py:88
 msgid "Belarusian"
-msgstr "Belarusian"
+msgstr "Belarus"
 
 #: src/constant.py:90
 msgid "Bengali"
@@ -56,12 +57,12 @@ msgstr "Bengali"
 
 #: src/constant.py:89
 msgid "Bulgarian"
-msgstr "Bulgarian"
+msgstr "Bulgaria"
 
 #: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
 #: src/ocr.py:55 src/ocr.py:62
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "Batal"
 
 #: src/constant.py:91
 msgid "Catalan"
@@ -69,39 +70,39 @@ msgstr "Catalan"
 
 #: src/constant.py:148
 msgid "Chinese Simplified"
-msgstr ""
+msgstr "Cina sederhana"
 
 #: src/constant.py:149
 msgid "Chinese Traditional"
-msgstr ""
+msgstr "Cina Tradisional"
 
 #: ../src/Toolbar.qml:71
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Salin ke papan klip"
 
 #: src/constant.py:109
 msgid "Croatian"
-msgstr "Croatian"
+msgstr "Kroasia"
 
 #: src/constant.py:92
 msgid "Czech"
-msgstr "Czech"
+msgstr "Ceko"
 
 #: src/constant.py:94
 msgid "Danish"
-msgstr "Danish"
+msgstr "Denmark"
 
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
-msgstr ""
+msgstr "Setelan Penerjemah Deepin"
 
 #: src/constant.py:127
 msgid "Dutch"
-msgstr "Dutch"
+msgstr "Belanda"
 
 #: src/constant.py:96
 msgid "English"
-msgstr "English"
+msgstr "Inggris"
 
 #: src/constant.py:97
 msgid "Esperanto"
@@ -109,101 +110,100 @@ msgstr "Esperanto"
 
 #: src/constant.py:99
 msgid "Estonian"
-msgstr "Estonian"
+msgstr "Estonia"
 
 #: src/system_tray.py:122
 msgid "Exit"
-msgstr "Exit"
+msgstr "Keluar"
 
 #: src/constant.py:142
 msgid "Filipino"
-msgstr "Filipino"
+msgstr "Filipina"
 
 #: src/constant.py:102
 msgid "Finnish"
-msgstr "Finnish"
+msgstr "Finland"
 
 #: src/constant.py:103
 msgid "French"
-msgstr "French"
+msgstr "Perancis"
 
 #: ../src/SettingView.qml:164
-#, fuzzy
 msgid "Full text translation"
-msgstr "Pause translate"
+msgstr "Terjemahan seluruh teks"
 
 #: src/constant.py:105
 msgid "Galician"
-msgstr "Galician"
+msgstr "Galicia"
 
 #: src/constant.py:118
 msgid "Georgian"
-msgstr "Georgian"
+msgstr "Georgia"
 
 #: src/constant.py:95
 msgid "German"
-msgstr "German"
+msgstr "Jerman"
 
 #: ../src/Toolbar.qml:83
 msgid "Google"
-msgstr ""
+msgstr "Google"
 
 #: src/constant.py:106
 msgid "Greek"
-msgstr "Greek"
+msgstr "Yunani"
 
 #: src/constant.py:107
 msgid "Gujarati"
-msgstr "Gujarati"
+msgstr "Gujarat"
 
 #: src/constant.py:110
 msgid "Haitian"
-msgstr "Haitian"
+msgstr "Haiti"
 
 #: src/constant.py:116
 msgid "Hebrew"
-msgstr "Hebrew"
+msgstr "Ibrani"
 
 #: src/constant.py:108
 msgid "Hindi"
-msgstr "Hindi"
+msgstr "India"
 
 #: src/constant.py:111
 msgid "Hungaric"
-msgstr "Hungaric"
+msgstr "Hungaria"
 
 #: src/constant.py:114
 msgid "Icelandic"
-msgstr "Icelandic"
+msgstr "Eslandia"
 
 #: src/constant.py:113
 msgid "Indonesian"
-msgstr "Indonesian"
+msgstr "Bahasa Indonesia"
 
 #: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
 #: src/ocr.py:62
 msgid "Install"
-msgstr "Install"
+msgstr "Pasang"
 
 #: src/constant.py:104
 msgid "Irish"
-msgstr "Irish"
+msgstr "Irlandia"
 
 #: src/constant.py:115
 msgid "Italian"
-msgstr "Italian"
+msgstr "Italia"
 
 #: src/constant.py:117
 msgid "Japanese"
-msgstr "Japanese"
+msgstr "Jepang"
 
 #: src/constant.py:119
 msgid "Kannada"
-msgstr "Kannada"
+msgstr "Kanada"
 
 #: src/constant.py:120
 msgid "Korean"
-msgstr "Korean"
+msgstr "Korea"
 
 #: src/constant.py:121
 msgid "Latin"
@@ -211,114 +211,108 @@ msgstr "Latin"
 
 #: src/constant.py:123
 msgid "Latvian"
-msgstr "Latvian"
+msgstr "Latvia"
 
 #: src/constant.py:122
 msgid "Lithuanian"
-msgstr "Lithuanian"
+msgstr "Lithuania"
 
 #: src/constant.py:124
 msgid "Macedonian"
-msgstr "Macedonian"
+msgstr "Makedonia"
 
 #: src/constant.py:125
 msgid "Malay"
-msgstr "Malay"
+msgstr "Melayu"
 
 #: src/constant.py:126
 msgid "Maltese"
-msgstr "Maltese"
+msgstr "Malta"
 
 #: src/constant.py:128
 msgid "Norwegian"
-msgstr "Norwegian"
+msgstr "Norwegia"
 
 #: ../src/SettingView.qml:404
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: src/system_tray.py:114
-#, fuzzy
 msgid "Offline translation"
-msgstr "Pause translate"
+msgstr "Terjemahan luring"
 
 #: src/ocr.py:55
-#, fuzzy
 msgid "Ok, I understand"
-msgstr "Ok, I know"
+msgstr "Oke, saya mengerti"
 
 #: src/dict_plugins/sdcv/translate.py:54
-#, fuzzy
 msgid "Package SDCV is required to enable translation"
-msgstr "Need install OCR package to enable translate feature"
+msgstr "Perlu SDCV untuk mengaktifkan fitur terjemahan "
 
 #: src/tts_plugins/svox/tts.py:39
-#, fuzzy
 msgid "Package SVOX is required to enable pronunciation"
-msgstr "Need install OCR package to enable translate feature"
+msgstr "Perlu SVOX untuk mengaktifkan fitur pengucapan"
 
 #: src/system_tray.py:108
-#, fuzzy
 msgid "Pause translation"
-msgstr "Pause translate"
+msgstr "Jeda terjemahan"
 
 #: src/constant.py:101
 msgid "Persian"
-msgstr "Persian"
+msgstr "Persia"
 
 #: src/constant.py:129
 msgid "Polish"
-msgstr "Polish"
+msgstr "Polandia"
 
 #: src/constant.py:130
 msgid "Portuguese"
-msgstr "Portuguese"
+msgstr "Portugis"
 
 #: src/system_tray.py:110
 msgid "Pronounce automatically"
-msgstr ""
+msgstr "Ucapkan secara otomatis"
 
 #: src/constant.py:131
 msgid "Romanian"
-msgstr "Romanian"
+msgstr "Romania"
 
 #: src/constant.py:132
 msgid "Russian"
-msgstr "Russian"
+msgstr "Rusia"
 
 #: ../src/SettingView.qml:170
-#, fuzzy
 msgid "Sentences speech"
-msgstr "Voice after translate"
+msgstr "Tuturan kalimat"
 
 #: src/constant.py:136
 msgid "Serbian"
-msgstr "Serbian"
+msgstr "Serbia"
 
 #: src/system_tray.py:119
 msgid "Settings"
-msgstr "Settings"
+msgstr "Pengaturan"
 
 #: src/constant.py:133
 msgid "Slovak"
-msgstr "Slovak"
+msgstr "Slowakia"
 
 #: src/constant.py:134
 msgid "Slovenian"
-msgstr "Slovenian"
+msgstr "Slovenia"
 
 #: src/ocr.py:55
-#, fuzzy, python-format
+#, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Sorry, screen ocr not support %s yet"
+msgstr "Maaf, pilih-dan-terjemahkan belum mendukung %s"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
-msgstr ""
+msgstr "Bahasa sumber"
 
 #: src/constant.py:98
 msgid "Spanish"
-msgstr "Spanish"
+msgstr "Spanyol"
 
 #: src/constant.py:138
 msgid "Swahili"
@@ -326,7 +320,7 @@ msgstr "Swahili"
 
 #: src/constant.py:137
 msgid "Swedish"
-msgstr "Swedish"
+msgstr "Swedia"
 
 #: src/constant.py:139
 msgid "Tamil"
@@ -334,7 +328,7 @@ msgstr "Tamil"
 
 #: ../src/SettingView.qml:146
 msgid "Target language"
-msgstr ""
+msgstr "Bahasa tujuan"
 
 #: src/constant.py:140
 msgid "Telugu"
@@ -346,27 +340,27 @@ msgstr "Thai"
 
 #: src/dict_plugins/google_simple/translate.py:97
 msgid "Translate failed"
-msgstr "Translate failed"
+msgstr "Terjemahan tidak berhasil"
 
 #: src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr ""
+msgstr "Terjemahkan hanya jika tombol Ctrl ditekan"
 
 #: src/constant.py:143
 msgid "Turkish"
-msgstr "Turkish"
+msgstr "Turki"
 
 #: src/tts_plugins/youdao/tts.py:72
 msgid "UK"
-msgstr ""
+msgstr "Britania"
 
 #: src/tts_plugins/youdao/tts.py:67
 msgid "US"
-msgstr ""
+msgstr "Amerika"
 
 #: src/constant.py:144
 msgid "Ukrainian"
-msgstr "Ukrainian"
+msgstr "Ukraina"
 
 #: src/constant.py:145
 msgid "Urdu"
@@ -374,72 +368,31 @@ msgstr "Urdu"
 
 #: src/constant.py:146
 msgid "Vietnamese"
-msgstr "Vietnamese"
+msgstr "Vietnam"
 
 #: ../src/Toolbar.qml:65
 msgid "Voice"
-msgstr ""
+msgstr "Suara"
 
 #: src/constant.py:93
 msgid "Welsh"
-msgstr "Welsh"
+msgstr "Wales"
 
 #: ../src/Toolbar.qml:77
 msgid "Wikipedia"
-msgstr ""
+msgstr "Wikipedia"
 
 #: ../src/SettingView.qml:152
-#, fuzzy
 msgid "Word Translation"
-msgstr "Voice after translate"
+msgstr "Terjemahan per kata"
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
-msgstr ""
+msgstr "Tuturan kata"
 
 #: src/constant.py:147
 msgid "Yiddish"
 msgstr "Yiddish"
 
-#~ msgid "About"
-#~ msgstr "About"
-
-#~ msgid "Chinese"
-#~ msgstr "Chinese"
-
-#, fuzzy
-#~ msgid "Enable local translate"
-#~ msgstr "Pause translate"
-
-#~ msgid "Need install sdcv package to enable translate feature"
-#~ msgstr "Need install sdcv package to enable translate feature"
-
-#, fuzzy
-#~ msgid "Need install svox to enable voice feature"
-#~ msgstr "Need install sdcv package to enable translate feature"
-
-#, fuzzy
-#~ msgid "Press alt to screen ocr"
-#~ msgstr "Press ctrl to screen ocr"
-
-#, fuzzy
-#~ msgid "Press ctrl to translate selection"
-#~ msgstr "Press shift to translate selection"
-
-#, fuzzy
-#~ msgid "Sentences Translate"
-#~ msgstr "Voice after translate"
-
-#, fuzzy
-#~ msgid "Translate from"
-#~ msgstr "Translate failed"
-
-#, fuzzy
-#~ msgid "Translate to"
-#~ msgstr "Translate failed"
-
-#~ msgid "Voice after translate"
-#~ msgstr "Voice after translate"
-
 #~ msgid "Wizard"
-#~ msgstr "Wizard"
+#~ msgstr "Wisaya"
