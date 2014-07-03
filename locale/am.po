@@ -1,21 +1,23 @@
-# English translations for PACKAGE package.
-# Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Automatically generated, 2013.
 #
+# Translators:
+# samson <sambelet@yahoo.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-03 11:13+0800\n"
-"PO-Revision-Date: 2013-12-14 14:06+0800\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
-"Language: en_US\n"
+"PO-Revision-Date: 2014-06-30 15:11+0000\n"
+"Last-Translator: samson <sambelet@yahoo.com>\n"
+"Language-Team: Amharic (http://www.transifex.com/projects/p/deepin-"
+"translator/language/am/)\n"
+"Language: am\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/constant.py:85
 msgid "Afrikaans"
@@ -26,9 +28,8 @@ msgid "Albanian"
 msgstr "Albanian"
 
 #: src/ocr.py:62
-#, fuzzy
 msgid "An OCR package is required to enable word recognition"
-msgstr "Need install OCR package to enable translate feature"
+msgstr ""
 
 #: src/constant.py:86
 msgid "Arabic"
@@ -61,7 +62,7 @@ msgstr "Bulgarian"
 #: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
 #: src/ocr.py:55 src/ocr.py:62
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "መሰረዣ"
 
 #: src/constant.py:91
 msgid "Catalan"
@@ -69,15 +70,15 @@ msgstr "Catalan"
 
 #: src/constant.py:148
 msgid "Chinese Simplified"
-msgstr ""
+msgstr "Chinese Simplified"
 
 #: src/constant.py:149
 msgid "Chinese Traditional"
-msgstr ""
+msgstr "Chinese Traditional"
 
 #: ../src/Toolbar.qml:71
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "ወደ ቁራጭ ሰሌዳ መለጠፊያ"
 
 #: src/constant.py:109
 msgid "Croatian"
@@ -93,7 +94,7 @@ msgstr "Danish"
 
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
-msgstr ""
+msgstr "ለተርጓሚዎች ማሰናጃ"
 
 #: src/constant.py:127
 msgid "Dutch"
@@ -113,7 +114,7 @@ msgstr "Estonian"
 
 #: src/system_tray.py:122
 msgid "Exit"
-msgstr "Exit"
+msgstr "መውጫ"
 
 #: src/constant.py:142
 msgid "Filipino"
@@ -128,9 +129,8 @@ msgid "French"
 msgstr "French"
 
 #: ../src/SettingView.qml:164
-#, fuzzy
 msgid "Full text translation"
-msgstr "Pause translate"
+msgstr "ሙሉ ጽሁፍ መተርጎሚያ "
 
 #: src/constant.py:105
 msgid "Galician"
@@ -146,7 +146,7 @@ msgstr "German"
 
 #: ../src/Toolbar.qml:83
 msgid "Google"
-msgstr ""
+msgstr "ጉግል"
 
 #: src/constant.py:106
 msgid "Greek"
@@ -183,7 +183,7 @@ msgstr "Indonesian"
 #: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
 #: src/ocr.py:62
 msgid "Install"
-msgstr "Install"
+msgstr "መግጠሚያ"
 
 #: src/constant.py:104
 msgid "Irish"
@@ -235,32 +235,27 @@ msgstr "Norwegian"
 
 #: ../src/SettingView.qml:404
 msgid "OK"
-msgstr ""
+msgstr "እሺ"
 
 #: src/system_tray.py:114
-#, fuzzy
 msgid "Offline translation"
-msgstr "Pause translate"
+msgstr "ከ መስመር ውጪ መተርጎሚያ "
 
 #: src/ocr.py:55
-#, fuzzy
 msgid "Ok, I understand"
-msgstr "Ok, I know"
+msgstr "እሺ ተረድቻለሁ"
 
 #: src/dict_plugins/sdcv/translate.py:54
-#, fuzzy
 msgid "Package SDCV is required to enable translation"
-msgstr "Need install OCR package to enable translate feature"
+msgstr ""
 
 #: src/tts_plugins/svox/tts.py:39
-#, fuzzy
 msgid "Package SVOX is required to enable pronunciation"
-msgstr "Need install OCR package to enable translate feature"
+msgstr ""
 
 #: src/system_tray.py:108
-#, fuzzy
 msgid "Pause translation"
-msgstr "Pause translate"
+msgstr "መተርጎም ማስቆሚያ"
 
 #: src/constant.py:101
 msgid "Persian"
@@ -276,7 +271,7 @@ msgstr "Portuguese"
 
 #: src/system_tray.py:110
 msgid "Pronounce automatically"
-msgstr ""
+msgstr "ራሱ በራሱ አንባቢ"
 
 #: src/constant.py:131
 msgid "Romanian"
@@ -287,9 +282,8 @@ msgid "Russian"
 msgstr "Russian"
 
 #: ../src/SettingView.qml:170
-#, fuzzy
 msgid "Sentences speech"
-msgstr "Voice after translate"
+msgstr ""
 
 #: src/constant.py:136
 msgid "Serbian"
@@ -297,7 +291,7 @@ msgstr "Serbian"
 
 #: src/system_tray.py:119
 msgid "Settings"
-msgstr "Settings"
+msgstr "ማሰናጃ"
 
 #: src/constant.py:133
 msgid "Slovak"
@@ -308,13 +302,13 @@ msgid "Slovenian"
 msgstr "Slovenian"
 
 #: src/ocr.py:55
-#, fuzzy, python-format
+#, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Sorry, screen ocr not support %s yet"
+msgstr "እናዝናለን፡ መምረጥ-እና-መተርጎም አሁን የተደገፈ %s አይደለም"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
-msgstr ""
+msgstr "የቋንቋው ምንጭ"
 
 #: src/constant.py:98
 msgid "Spanish"
@@ -334,7 +328,7 @@ msgstr "Tamil"
 
 #: ../src/SettingView.qml:146
 msgid "Target language"
-msgstr ""
+msgstr "ኢላማው ቋንቋ"
 
 #: src/constant.py:140
 msgid "Telugu"
@@ -346,11 +340,11 @@ msgstr "Thai"
 
 #: src/dict_plugins/google_simple/translate.py:97
 msgid "Translate failed"
-msgstr "Translate failed"
+msgstr "መተርጎም አልተሳካም"
 
 #: src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr ""
+msgstr "የ Ctrl ቁልፍ ስጫን ብቻ መተርጎሚያ"
 
 #: src/constant.py:143
 msgid "Turkish"
@@ -358,11 +352,11 @@ msgstr "Turkish"
 
 #: src/tts_plugins/youdao/tts.py:72
 msgid "UK"
-msgstr ""
+msgstr "UK"
 
 #: src/tts_plugins/youdao/tts.py:67
 msgid "US"
-msgstr ""
+msgstr "US"
 
 #: src/constant.py:144
 msgid "Ukrainian"
@@ -378,7 +372,7 @@ msgstr "Vietnamese"
 
 #: ../src/Toolbar.qml:65
 msgid "Voice"
-msgstr ""
+msgstr "ድምፅ"
 
 #: src/constant.py:93
 msgid "Welsh"
@@ -386,12 +380,11 @@ msgstr "Welsh"
 
 #: ../src/Toolbar.qml:77
 msgid "Wikipedia"
-msgstr ""
+msgstr "ዊኪፒዲያ"
 
 #: ../src/SettingView.qml:152
-#, fuzzy
 msgid "Word Translation"
-msgstr "Voice after translate"
+msgstr "ቃላት መተርጎሚያ "
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
@@ -401,45 +394,5 @@ msgstr ""
 msgid "Yiddish"
 msgstr "Yiddish"
 
-#~ msgid "About"
-#~ msgstr "About"
-
-#~ msgid "Chinese"
-#~ msgstr "Chinese"
-
-#, fuzzy
-#~ msgid "Enable local translate"
-#~ msgstr "Pause translate"
-
-#~ msgid "Need install sdcv package to enable translate feature"
-#~ msgstr "Need install sdcv package to enable translate feature"
-
-#, fuzzy
-#~ msgid "Need install svox to enable voice feature"
-#~ msgstr "Need install sdcv package to enable translate feature"
-
-#, fuzzy
-#~ msgid "Press alt to screen ocr"
-#~ msgstr "Press ctrl to screen ocr"
-
-#, fuzzy
-#~ msgid "Press ctrl to translate selection"
-#~ msgstr "Press shift to translate selection"
-
-#, fuzzy
-#~ msgid "Sentences Translate"
-#~ msgstr "Voice after translate"
-
-#, fuzzy
-#~ msgid "Translate from"
-#~ msgstr "Translate failed"
-
-#, fuzzy
-#~ msgid "Translate to"
-#~ msgstr "Translate failed"
-
-#~ msgid "Voice after translate"
-#~ msgstr "Voice after translate"
-
 #~ msgid "Wizard"
-#~ msgstr "Wizard"
+#~ msgstr "አዋቂ"
