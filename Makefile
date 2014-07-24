@@ -13,4 +13,4 @@ install:
 	cp -r locale ${DESTDIR}${PREFIX}/share/deepin-translator
 	cp src/deepin-translator.svg ${DESTDIR}${PREFIX}/share/icons/hicolor/scalable/apps
 	cp src/deepin-translator.desktop ${DESTDIR}${PREFIX}/share/applications
-	ln -sf ${DESTDIR}${PREFIX}/share/deepin-translator/src/main.py ${DESTDIR}${PREFIX}/bin/deepin-translator
+	ln -sf ${PREFIX}/share/deepin-translator/src/main.py ${DESTDIR}${PREFIX}/bin/deepin-translator
