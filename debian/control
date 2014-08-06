@@ -1,0 +1,40 @@
+Source: deepin-translator
+Section: education
+Priority: optional
+Maintainer:  Li Longyu (Ai Kotoba) <leaeasy@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), python (>= 2.6.3~)
+Standards-Version: 3.9.2
+Homepage: https://github.com/manateelazycat/deepin-translator
+
+Package: deepin-translator
+Architecture: all
+Depends: ${shlibs:Depends},
+ ${misc:Depends},
+ deepin-menu (>= 1.1+20140730105532),
+ python-tesseract,
+ python-pyocr,
+ tesseract-ocr-eng,
+ tesseract-ocr-chi-sim,
+ tesseract-ocr-chi-tra,
+ python-requests,
+ python-sip,
+ python-xpyb,
+ python-xmltodict,
+ qt5-extra,
+ xsel,
+ python-deepin-utils,
+ python-xlib,
+ dde-qml-gettext-plugin,
+ deepin-qml-widgets (>= 0.0.2+20140723165854),
+Recommends: deepin-software-center
+Description: feature-rich dictionary lookup program from linux deepin
+ Features:
+ * Support of multiple dictionary file formats and online dictionary services, namely:
+   - StarDict .ifo/.dict./.idx/.syn dictionaries
+   - Google online dictionary services
+   - Youdao online dictionary services
+   - etc.
+ * Scan popup functionality. A small window pops up with the
+   translation of a word chosen from another application.
+ * Use of QML for interface, more modern, more gorgeours
+ * Include OCR function 

@@ -1,0 +1,383 @@
+deepin-translator (1.0.1+20140723183354~89f65ac724) trusty; urgency=low
+
+  * Build from git 89f65ac724fd6a2f24a6b3b13aa8956a7761d3de
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 23 Jul 2014 18:33:55 +0800
+
+deepin-translator (1.0.1+20140703162825~93bd381f85) trusty; urgency=low
+
+  * Build from git 93bd381f85f8bf4a8805687b7022bf0ff6b1dd0d
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 03 Jul 2014 16:28:26 +0800
+
+deepin-translator (1.0.1+20140703160000~93bd381f85) trusty; urgency=low
+
+  * Build from git 93bd381f85f8bf4a8805687b7022bf0ff6b1dd0d
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 03 Jul 2014 16:00:01 +0800
+
+deepin-translator (1.0.1+20140702151647~0ccebaf853) trusty; urgency=low
+
+  * Build from git 0ccebaf8537bc0690192c67892ea4345b1272e1e
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Wed, 02 Jul 2014 15:16:48 +0800
+
+deepin-translator (1.0.1-20140623090208~6286a2df16) trusty; urgency=low
+
+  * Build from git 6286a2df16b689efb5f2768799bb50fffb65a06f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 23 Jun 2014 09:02:08 +0800
+
+deepin-translator (1.0.1-20140623084156~6286a2df16) trusty; urgency=low
+
+  * Build from git 6286a2df16b689efb5f2768799bb50fffb65a06f
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Mon, 23 Jun 2014 08:41:57 +0800
+
+deepin-translator (1.0.1-20140619163034~a5d23dc131) trusty; urgency=low
+
+  * Build from git a5d23dc13173ac04b63bfe00e3792c2c4da2336e
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 19 Jun 2014 16:30:35 +0800
+
+deepin-translator (1.0.1-20140613095329~4a6509e944) trusty; urgency=low
+
+  * Build from git 4a6509e944ca77bab64dfc52dcb2338a2edb51dc
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Fri, 13 Jun 2014 09:53:30 +0800
+
+deepin-translator (1.0.1-20140508170242~313626744d) trusty; urgency=low
+
+  * Build from git 313626744d3a87d6d4802f570aa0381a15c9552c
+
+ -- Yueqian Zhang <zhangyueqian@linuxdeepin.com>  Thu, 08 May 2014 17:02:42 +0800
+
+deepin-translator (1.0.0+git20140321140215~fdbe0fe18f) trusty; urgency=low
+
+  * Build from git revision fdbe0fe18fac3be62c0085b17c766423e4f66844
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 21 Mar 2014 14:02:15 +0800
+
+deepin-translator (1.0.0+git20140321134825~f9981c1b97) trusty; urgency=low
+
+  * Build from git revision f9981c1b979f139599de997184e586515386c9cc
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 21 Mar 2014 13:48:25 +0800
+
+deepin-translator (1.0.0+git20140108123032~1b6aff3970) saucy; urgency=low
+
+  * Build from git revision 1b6aff39707d0756c0964d21fc66167d3f6eeab5
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 08 Jan 2014 12:30:32 +0800
+
+deepin-translator (1.0.0+git20140102000833~6a116a584a) saucy; urgency=low
+
+  * Build from git revision 6a116a584a6f10599e090442abd74b009836eab5
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 02 Jan 2014 00:08:33 +0800
+
+deepin-translator (1.0.0+git20131231170318~6a116a584a) saucy; urgency=low
+
+  * Build from git revision 6a116a584a6f10599e090442abd74b009836eab5
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 31 Dec 2013 17:03:18 +0800
+
+deepin-translator (1.0.0+git20131231170300~6a116a584a) saucy; urgency=low
+
+  * Build from git revision 6a116a584a6f10599e090442abd74b009836eab5
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 31 Dec 2013 17:03:01 +0800
+
+deepin-translator (1.0.0+git20131226175213~d5b4474a9b) saucy; urgency=low
+
+  * Build from git revision d5b4474a9bad3347e2997ba82273806a1f2cac5b
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 26 Dec 2013 17:52:13 +0800
+
+deepin-translator (1.0.0+git20131226171721~2e8b4bc86b) saucy; urgency=low
+
+  * Build from git revision 2e8b4bc86b3299963a0d96aedacddd229806d814
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 26 Dec 2013 17:17:21 +0800
+
+deepin-translator (1.0.0+git20131226171536~2e8b4bc86b) saucy; urgency=low
+
+  * Build from git revision 2e8b4bc86b3299963a0d96aedacddd229806d814
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 26 Dec 2013 17:15:36 +0800
+
+deepin-translator (1.0.0+git20131226121636~dcac7b1f98) saucy; urgency=low
+
+  * Build from git revision dcac7b1f983dda4b68421315340345f57b80b5d9
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 26 Dec 2013 12:16:36 +0800
+
+deepin-translator (1.0.0+git20131226121439~dcac7b1f98) saucy; urgency=low
+
+  * Build from git revision dcac7b1f983dda4b68421315340345f57b80b5d9
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 26 Dec 2013 12:14:39 +0800
+
+deepin-translator (1.0.0+git20131226120731~dcac7b1f98) saucy; urgency=low
+
+  * Build from git revision dcac7b1f983dda4b68421315340345f57b80b5d9
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 26 Dec 2013 12:07:32 +0800
+
+deepin-translator (1.0.0+git20131225145404~5f990c8413) saucy; urgency=low
+
+  * Build from git revision 5f990c8413a7580c41144b8bee8de3ab6e6c55f5
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 25 Dec 2013 14:54:05 +0800
+
+deepin-translator (1.0.0+git20131225133204~c6441f73dc) saucy; urgency=low
+
+  * Build from git revision c6441f73dcb2e32b58ff0265d746f0fa50d0a153
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 25 Dec 2013 13:32:04 +0800
+
+deepin-translator (1.0.0+git20131224150418~074cbe4cc7) saucy; urgency=low
+
+  * Build from git revision 074cbe4cc765a0d011b615cfe52ac0fed49c0d17
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 24 Dec 2013 15:04:19 +0800
+
+deepin-translator (1.0.0+git20131224111229~074cbe4cc7) raring; urgency=low
+
+  * Build from git revision 074cbe4cc765a0d011b615cfe52ac0fed49c0d17
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 24 Dec 2013 11:12:30 +0800
+
+deepin-translator (1.0.0+git20131223172111~8d90450682) raring; urgency=low
+
+  * Build from git revision 8d904506826882daab4f2ce844f0058ddc2d91f5
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 23 Dec 2013 17:21:11 +0800
+
+deepin-translator (1.0.0+git20131223101740~c4ebf9dec0) raring; urgency=low
+
+  * Build from git revision c4ebf9dec07cf70dcb8f6c62b2f73f0d65b83c66
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 23 Dec 2013 10:17:41 +0800
+
+deepin-translator (1.0.0+git20131223085238~c595554704) raring; urgency=low
+
+  * Build from git revision c5955547045002cbca72f6eea0fd2c2f1caa07ba
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 23 Dec 2013 08:52:38 +0800
+
+deepin-translator (1.0.0+git20131219175424~38de0c750b) raring; urgency=low
+
+  * Build from git revision 38de0c750bd0ed07bca4125d543ff93853f01806
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 17:54:24 +0800
+
+deepin-translator (1.0.0+git20131219171841~607c07e131) raring; urgency=low
+
+  * Build from git revision 607c07e13117406427f1a0e29fae6f2038297070
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 17:18:41 +0800
+
+deepin-translator (1.0.0+git20131219165438~5c743c7430) raring; urgency=low
+
+  * Build from git revision 5c743c7430d1bd0ff6b3645a67bd59486c5e924f
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 16:54:38 +0800
+
+deepin-translator (1.0.0+git20131219154818~5040b441af) raring; urgency=low
+
+  * Build from git revision 5040b441aff56c97107cd526bb02a4a19293ccf8
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 15:48:18 +0800
+
+deepin-translator (1.0.0+git20131219154245~07bcc0f058) raring; urgency=low
+
+  * Build from git revision 07bcc0f0586bf80abb19b129a4d278160aebd5a0
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 15:42:45 +0800
+
+deepin-translator (1.0.0+git20131219151808~78823a8964) raring; urgency=low
+
+  * Build from git revision 78823a896459b44ddc871ff50c12628037612483
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 15:18:08 +0800
+
+deepin-translator (1.0.0+git20131219151049~93b376ca17) raring; urgency=low
+
+  * Build from git revision 93b376ca171f811c66cf2c9faeb98e06b515b3b0
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 15:10:50 +0800
+
+deepin-translator (1.0.0+git20131219142318~57ecc9321c) raring; urgency=low
+
+  * Build from git revision 57ecc9321c3aa3b7df49ed3e3f24823d8779fad7
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 14:23:18 +0800
+
+deepin-translator (1.0.0+git20131219140504~88c3852d69) raring; urgency=low
+
+  * Build from git revision 88c3852d69a994c5d00eea53de4d86dd5308089d
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 14:05:04 +0800
+
+deepin-translator (1.0.0+git20131219131523~b3d8143860) raring; urgency=low
+
+  * Build from git revision b3d8143860a8b06e8371864e46be5c8d510f223d
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 13:15:23 +0800
+
+deepin-translator (1.0.0+git20131219125524~a2989d71bf) raring; urgency=low
+
+  * Build from git revision a2989d71bf495d707b7e28397a76ef259d3c3d6b
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 12:55:24 +0800
+
+deepin-translator (1.0.0+git20131219113828~cd451122b4) raring; urgency=low
+
+  * Build from git revision cd451122b410d5336903c11a0f4e49d2944eab43
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 11:38:29 +0800
+
+deepin-translator (1.0.0+git20131219111021~0de77eb630) raring; urgency=low
+
+  * Build from git revision 0de77eb630989ed19385f876bec85a4f8fb35406
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 11:10:21 +0800
+
+deepin-translator (1.0.0+git20131219103428~ee22b7485c) raring; urgency=low
+
+  * Build from git revision ee22b7485cbe2b895c01d9468b3adfe7c2d8411e
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Thu, 19 Dec 2013 10:34:28 +0800
+
+deepin-translator (1.0.0+git20131218194826~5326114deb) raring; urgency=low
+
+  * Build from git revision 5326114debc838834e6eb3cb595f7ec99fe45cb6
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 18 Dec 2013 19:48:26 +0800
+
+deepin-translator (1.0.0+git20131218173131~05cda862cf) raring; urgency=low
+
+  * Build from git revision 05cda862cfe50535a976e3d21d028e56c5728cf1
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 18 Dec 2013 17:31:31 +0800
+
+deepin-translator (1.0.0+git20131218170550~7434cbbed9) raring; urgency=low
+
+  * Build from git revision 7434cbbed93ff274ac54dbcd74815bd36de19442
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 18 Dec 2013 17:05:51 +0800
+
+deepin-translator (1.0.0+git20131218095418~6f976310c2) raring; urgency=low
+
+  * Build from git revision 6f976310c2edc9611b497a1c677601b4452eb6b0
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 18 Dec 2013 09:54:18 +0800
+
+deepin-translator (1.0.0+git20131218084358~c5a08c2bd6) raring; urgency=low
+
+  * Build from git revision c5a08c2bd64b83df7d00581ec7fdf8f58aa97e5b
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 18 Dec 2013 08:43:58 +0800
+
+deepin-translator (1.0.0+git20131218083413~e874e55683) raring; urgency=low
+
+  * Build from git revision e874e55683a99e490253f09446dc9a4a9cfd1880
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Wed, 18 Dec 2013 08:34:13 +0800
+
+deepin-translator (1.0.0+git20131217234258~4f8344174d) raring; urgency=low
+
+  * Build from git revision 4f8344174d5662034eb0033f2e23ca30933a9721
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 17 Dec 2013 23:42:58 +0800
+
+deepin-translator (1.0.0+git20131217232411~603644b366) raring; urgency=low
+
+  * Build from git revision 603644b366f4e2b751a502c2e78f5505a91e1af2
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 17 Dec 2013 23:24:11 +0800
+
+deepin-translator (1.0.0+git20131217220451~4aa8bb342b) raring; urgency=low
+
+  * Build from git revision 4aa8bb342b0b7f06f933c5961d6863954885b5c5
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Tue, 17 Dec 2013 22:04:51 +0800
+
+deepin-translator (1.0.0+git20131216152515~749653bdf3) raring; urgency=low
+
+  * Build from git revision 749653bdf3b0c3ac207ffa8c28a9d1e7abd7e9a4
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 16 Dec 2013 15:25:15 +0800
+
+deepin-translator (1.0.0+git20131216144108~749653bdf3) raring; urgency=low
+
+  * Build from git revision 749653bdf3b0c3ac207ffa8c28a9d1e7abd7e9a4
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 16 Dec 2013 14:41:09 +0800
+
+deepin-translator (1.0.0+git20131216091103~fb67c9823a) raring; urgency=low
+
+  * Build from git revision fb67c9823a19ffdc582fed366d4c0e0c83ac5993
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 16 Dec 2013 09:11:03 +0800
+
+deepin-translator (1.0.0+git20131216084707~fb67c9823a) raring; urgency=low
+
+  * Build from git revision fb67c9823a19ffdc582fed366d4c0e0c83ac5993
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 16 Dec 2013 08:47:08 +0800
+
+deepin-translator (1.0.0+git20131216084400~fb67c9823a) raring; urgency=low
+
+  * Build from git revision fb67c9823a19ffdc582fed366d4c0e0c83ac5993
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Mon, 16 Dec 2013 08:44:00 +0800
+
+deepin-translator (1.0.0+git20131214003503~68430a98a7) raring; urgency=low
+
+  * add python-xlib depends 
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Sat, 14 Dec 2013 00:35:03 +0800
+
+deepin-translator (1.0.0+git20131213205203~68430a98a7) raring; urgency=low
+
+  * fix tray icon not display bug 
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 13 Dec 2013 20:55:16 +0800
+
+deepin-translator (1.0.0+git20131213172203~ba77ccd1b) raring; urgency=low
+
+  * fix dir name 
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 13 Dec 2013 17:21:05 +0800
+
+deepin-translator (1.0.0+git20131213170203~ba77ccd1b) raring; urgency=low
+
+  * add more depends 
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 13 Dec 2013 17:02:03 +0800
+
+deepin-translator (1.0.0+git20131213170003~ba77ccd1b) raring; urgency=low
+
+  * upstreamer update 
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 13 Dec 2013 16:56:50 +0800
+
+deepin-translator (1.0.0+git20131213161703~ba77ccd1b) raring; urgency=low
+
+  * fix depends again
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 13 Dec 2013 16:17:35 +0800
+
+deepin-translator (1.0.0+git20131213161603~ba77ccd1b) raring; urgency=low
+
+  * fix depends 
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 13 Dec 2013 16:10:56 +0800
+
+deepin-translator (1.0.0+git20131213151603~ba77ccd1b) raring; urgency=low
+
+  * Initial release
+
+ -- Deepin Packages Builder <packages@linuxdeepin.com>  Fri, 13 Dec 2013 15:16:03 +0800
