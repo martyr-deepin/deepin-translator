@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 11:13+0800\n"
+"POT-Creation-Date: 2014-08-21 18:31+0800\n"
 "PO-Revision-Date: 2014-06-30 04:37+0000\n"
 "Last-Translator: Maxximo88 <real.massimo@hotmail.it>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/deepin-"
@@ -19,60 +19,61 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/constant.py:85
+#: src/constant.py:85 ../src/constant.py:85
 msgid "Afrikaans"
 msgstr "Africano"
 
-#: src/constant.py:135
+#: src/constant.py:135 ../src/constant.py:135
 msgid "Albanian"
 msgstr "Albanese"
 
-#: src/ocr.py:62
+#: src/ocr.py:62 ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
 msgstr "E' necessario un pacchetto OCR per abilitare il riconoscimento"
 
-#: src/constant.py:86
+#: src/constant.py:86 ../src/constant.py:86
 msgid "Arabic"
 msgstr "Arabo"
 
-#: src/constant.py:112
+#: src/constant.py:112 ../src/constant.py:112
 msgid "Armenian"
 msgstr "Armeno"
 
-#: src/constant.py:87
+#: src/constant.py:87 ../src/constant.py:87
 msgid "Azerbaijani"
 msgstr "Azero"
 
-#: src/constant.py:100
+#: src/constant.py:100 ../src/constant.py:100
 msgid "Basque"
 msgstr "Basco"
 
-#: src/constant.py:88
+#: src/constant.py:88 ../src/constant.py:88
 msgid "Belarusian"
 msgstr "Bielorusso"
 
-#: src/constant.py:90
+#: src/constant.py:90 ../src/constant.py:90
 msgid "Bengali"
 msgstr "Bengal"
 
-#: src/constant.py:89
+#: src/constant.py:89 ../src/constant.py:89
 msgid "Bulgarian"
 msgstr "Bulgaro"
 
 #: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
-#: src/ocr.py:55 src/ocr.py:62
+#: src/ocr.py:55 src/ocr.py:62 ../src/ocr.py:55 ../src/ocr.py:62
+#: ../src/dict_plugins/sdcv/translate.py:54 ../src/tts_plugins/svox/tts.py:39
 msgid "Cancel"
 msgstr "Cancella"
 
-#: src/constant.py:91
+#: src/constant.py:91 ../src/constant.py:91
 msgid "Catalan"
 msgstr "Catalano"
 
-#: src/constant.py:148
+#: src/constant.py:148 ../src/constant.py:148
 msgid "Chinese Simplified"
 msgstr "Cinese Semplificato"
 
-#: src/constant.py:149
+#: src/constant.py:149 ../src/constant.py:149
 msgid "Chinese Traditional"
 msgstr "Cinese Tradizionale"
 
@@ -80,15 +81,15 @@ msgstr "Cinese Tradizionale"
 msgid "Copy to clipboard"
 msgstr "Copia negli appunti"
 
-#: src/constant.py:109
+#: src/constant.py:109 ../src/constant.py:109
 msgid "Croatian"
 msgstr "Croato"
 
-#: src/constant.py:92
+#: src/constant.py:92 ../src/constant.py:92
 msgid "Czech"
 msgstr "Ceco"
 
-#: src/constant.py:94
+#: src/constant.py:94 ../src/constant.py:94
 msgid "Danish"
 msgstr "Danese"
 
@@ -96,35 +97,35 @@ msgstr "Danese"
 msgid "Deepin Translator Settings"
 msgstr "Impostazioni di Deepin Translator"
 
-#: src/constant.py:127
+#: src/constant.py:127 ../src/constant.py:127
 msgid "Dutch"
 msgstr "Tedesco"
 
-#: src/constant.py:96
+#: src/constant.py:96 ../src/constant.py:96
 msgid "English"
 msgstr "Inglese"
 
-#: src/constant.py:97
+#: src/constant.py:97 ../src/constant.py:97
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: src/constant.py:99
+#: src/constant.py:99 ../src/constant.py:99
 msgid "Estonian"
 msgstr "Estone"
 
-#: src/system_tray.py:122
+#: src/system_tray.py:122 ../src/system_tray.py:122
 msgid "Exit"
 msgstr "Esci"
 
-#: src/constant.py:142
+#: src/constant.py:142 ../src/constant.py:142
 msgid "Filipino"
 msgstr "Filippino"
 
-#: src/constant.py:102
+#: src/constant.py:102 ../src/constant.py:102
 msgid "Finnish"
 msgstr "Fillandese"
 
-#: src/constant.py:103
+#: src/constant.py:103 ../src/constant.py:103
 msgid "French"
 msgstr "Francese"
 
@@ -132,15 +133,15 @@ msgstr "Francese"
 msgid "Full text translation"
 msgstr "Traduzione testo"
 
-#: src/constant.py:105
+#: src/constant.py:105 ../src/constant.py:105
 msgid "Galician"
 msgstr "Galician"
 
-#: src/constant.py:118
+#: src/constant.py:118 ../src/constant.py:118
 msgid "Georgian"
 msgstr "Georgiano"
 
-#: src/constant.py:95
+#: src/constant.py:95 ../src/constant.py:95
 msgid "German"
 msgstr "Tedesco"
 
@@ -148,88 +149,89 @@ msgstr "Tedesco"
 msgid "Google"
 msgstr "Google"
 
-#: src/constant.py:106
+#: src/constant.py:106 ../src/constant.py:106
 msgid "Greek"
 msgstr "Greco"
 
-#: src/constant.py:107
+#: src/constant.py:107 ../src/constant.py:107
 msgid "Gujarati"
 msgstr "Gujarati"
 
-#: src/constant.py:110
+#: src/constant.py:110 ../src/constant.py:110
 msgid "Haitian"
 msgstr "Haitian"
 
-#: src/constant.py:116
+#: src/constant.py:116 ../src/constant.py:116
 msgid "Hebrew"
 msgstr "Hebrew"
 
-#: src/constant.py:108
+#: src/constant.py:108 ../src/constant.py:108
 msgid "Hindi"
 msgstr "Hindi"
 
-#: src/constant.py:111
+#: src/constant.py:111 ../src/constant.py:111
 msgid "Hungaric"
 msgstr "Hungaric"
 
-#: src/constant.py:114
+#: src/constant.py:114 ../src/constant.py:114
 msgid "Icelandic"
 msgstr "Islandese"
 
-#: src/constant.py:113
+#: src/constant.py:113 ../src/constant.py:113
 msgid "Indonesian"
 msgstr "Indonesiano"
 
 #: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
-#: src/ocr.py:62
+#: src/ocr.py:62 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:54
+#: ../src/tts_plugins/svox/tts.py:39
 msgid "Install"
 msgstr "Installa"
 
-#: src/constant.py:104
+#: src/constant.py:104 ../src/constant.py:104
 msgid "Irish"
 msgstr "Irlandese"
 
-#: src/constant.py:115
+#: src/constant.py:115 ../src/constant.py:115
 msgid "Italian"
 msgstr "Italiano"
 
-#: src/constant.py:117
+#: src/constant.py:117 ../src/constant.py:117
 msgid "Japanese"
 msgstr "Giapponese"
 
-#: src/constant.py:119
+#: src/constant.py:119 ../src/constant.py:119
 msgid "Kannada"
 msgstr "Kannada"
 
-#: src/constant.py:120
+#: src/constant.py:120 ../src/constant.py:120
 msgid "Korean"
 msgstr "Coreano"
 
-#: src/constant.py:121
+#: src/constant.py:121 ../src/constant.py:121
 msgid "Latin"
 msgstr "Latino"
 
-#: src/constant.py:123
+#: src/constant.py:123 ../src/constant.py:123
 msgid "Latvian"
 msgstr "Lettone"
 
-#: src/constant.py:122
+#: src/constant.py:122 ../src/constant.py:122
 msgid "Lithuanian"
 msgstr "Lituan"
 
-#: src/constant.py:124
+#: src/constant.py:124 ../src/constant.py:124
 msgid "Macedonian"
 msgstr "Macedone"
 
-#: src/constant.py:125
+#: src/constant.py:125 ../src/constant.py:125
 msgid "Malay"
 msgstr "Malese"
 
-#: src/constant.py:126
+#: src/constant.py:126 ../src/constant.py:126
 msgid "Maltese"
 msgstr "Maltese"
 
-#: src/constant.py:128
+#: src/constant.py:128 ../src/constant.py:128
 msgid "Norwegian"
 msgstr "Norvegese"
 
@@ -237,47 +239,48 @@ msgstr "Norvegese"
 msgid "OK"
 msgstr "Ok"
 
-#: src/system_tray.py:114
+#: src/system_tray.py:114 ../src/system_tray.py:114
 msgid "Offline translation"
 msgstr "Traduzione offline"
 
-#: src/ocr.py:55
+#: src/ocr.py:55 ../src/ocr.py:55
 msgid "Ok, I understand"
 msgstr "Ok, capito"
 
 #: src/dict_plugins/sdcv/translate.py:54
+#: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
 msgstr "E' necessario il pacchetto SDCV per abilitare la traduzione"
 
-#: src/tts_plugins/svox/tts.py:39
+#: src/tts_plugins/svox/tts.py:39 ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
 msgstr "E' necessario il pacchetto SVOX per abilitare la pronuncia"
 
-#: src/system_tray.py:108
+#: src/system_tray.py:108 ../src/system_tray.py:108
 msgid "Pause translation"
 msgstr "Interrompi traduzione"
 
-#: src/constant.py:101
+#: src/constant.py:101 ../src/constant.py:101
 msgid "Persian"
 msgstr "Persiano"
 
-#: src/constant.py:129
+#: src/constant.py:129 ../src/constant.py:129
 msgid "Polish"
 msgstr "Polacco"
 
-#: src/constant.py:130
+#: src/constant.py:130 ../src/constant.py:130
 msgid "Portuguese"
 msgstr "Portoghese"
 
-#: src/system_tray.py:110
+#: src/system_tray.py:110 ../src/system_tray.py:110
 msgid "Pronounce automatically"
 msgstr "Pronuncia automaticamente"
 
-#: src/constant.py:131
+#: src/constant.py:131 ../src/constant.py:131
 msgid "Romanian"
 msgstr "Rumeno"
 
-#: src/constant.py:132
+#: src/constant.py:132 ../src/constant.py:132
 msgid "Russian"
 msgstr "Russo"
 
@@ -285,23 +288,23 @@ msgstr "Russo"
 msgid "Sentences speech"
 msgstr "Pronuncia frasi"
 
-#: src/constant.py:136
+#: src/constant.py:136 ../src/constant.py:136
 msgid "Serbian"
 msgstr "Serbo"
 
-#: src/system_tray.py:119
+#: src/system_tray.py:119 ../src/system_tray.py:119
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: src/constant.py:133
+#: src/constant.py:133 ../src/constant.py:133
 msgid "Slovak"
 msgstr "Slovacco"
 
-#: src/constant.py:134
+#: src/constant.py:134 ../src/constant.py:134
 msgid "Slovenian"
 msgstr "Sloveno"
 
-#: src/ocr.py:55
+#: src/ocr.py:55 ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
 msgstr "Scusa, \"seleziona e traduci\" non supporta %s ancora"
@@ -310,19 +313,19 @@ msgstr "Scusa, \"seleziona e traduci\" non supporta %s ancora"
 msgid "Source language"
 msgstr "Lingua d'origine"
 
-#: src/constant.py:98
+#: src/constant.py:98 ../src/constant.py:98
 msgid "Spanish"
 msgstr "Spagnolo"
 
-#: src/constant.py:138
+#: src/constant.py:138 ../src/constant.py:138
 msgid "Swahili"
 msgstr "Swahili"
 
-#: src/constant.py:137
+#: src/constant.py:137 ../src/constant.py:137
 msgid "Swedish"
 msgstr "Svedese"
 
-#: src/constant.py:139
+#: src/constant.py:139 ../src/constant.py:139
 msgid "Tamil"
 msgstr "Tamil"
 
@@ -330,11 +333,11 @@ msgstr "Tamil"
 msgid "Target language"
 msgstr "Lingua finale"
 
-#: src/constant.py:140
+#: src/constant.py:140 ../src/constant.py:140
 msgid "Telugu"
 msgstr "Telugu"
 
-#: src/constant.py:141
+#: src/constant.py:141 ../src/constant.py:141
 msgid "Thai"
 msgstr "Tailandese"
 
@@ -342,31 +345,31 @@ msgstr "Tailandese"
 msgid "Translate failed"
 msgstr "Traduzione fallita"
 
-#: src/system_tray.py:112
+#: src/system_tray.py:112 ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
 msgstr "Traduci solo quando premo Ctrl"
 
-#: src/constant.py:143
+#: src/constant.py:143 ../src/constant.py:143
 msgid "Turkish"
 msgstr "Turco"
 
-#: src/tts_plugins/youdao/tts.py:72
+#: src/tts_plugins/youdao/tts.py:72 ../src/tts_plugins/youdao/tts.py:72
 msgid "UK"
 msgstr "UK"
 
-#: src/tts_plugins/youdao/tts.py:67
+#: src/tts_plugins/youdao/tts.py:67 ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
 msgstr "US"
 
-#: src/constant.py:144
+#: src/constant.py:144 ../src/constant.py:144
 msgid "Ukrainian"
 msgstr "Ucraino"
 
-#: src/constant.py:145
+#: src/constant.py:145 ../src/constant.py:145
 msgid "Urdu"
 msgstr "Urdu"
 
-#: src/constant.py:146
+#: src/constant.py:146 ../src/constant.py:146
 msgid "Vietnamese"
 msgstr "Vietnamita"
 
@@ -374,7 +377,7 @@ msgstr "Vietnamita"
 msgid "Voice"
 msgstr "Voce"
 
-#: src/constant.py:93
+#: src/constant.py:93 ../src/constant.py:93
 msgid "Welsh"
 msgstr "Gallese"
 
@@ -390,9 +393,13 @@ msgstr "Traduzione Parole"
 msgid "Word speech"
 msgstr "Pronuncia parola"
 
-#: src/constant.py:147
+#: src/constant.py:147 ../src/constant.py:147
 msgid "Yiddish"
 msgstr "Yiddish"
+
+#: ../src/dict_plugins/google_simple/translate.py:97
+msgid "Translation failed"
+msgstr "Traduzione fallita"
 
 #~ msgid "Wizard"
 #~ msgstr "Wizard"

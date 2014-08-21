@@ -1,4 +1,3 @@
-# Chinese translations for PACKAGE package.
 # Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # Automatically generated, 2013.
@@ -9,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-03 11:13+0800\n"
+"POT-Creation-Date: 2014-08-21 18:31+0800\n"
 "PO-Revision-Date: 2014-05-07 04:53+0800\n"
 "Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Peter Dave Hello <hsu@peterdavehello.org>\n"
@@ -18,60 +17,61 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/constant.py:85
+#: src/constant.py:85 ../src/constant.py:85
 msgid "Afrikaans"
 msgstr "南非荷蘭語"
 
-#: src/constant.py:135
+#: src/constant.py:135 ../src/constant.py:135
 msgid "Albanian"
 msgstr "阿爾巴尼亞語"
 
-#: src/ocr.py:62
+#: src/ocr.py:62 ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
 msgstr "需要安裝OCR套件以開啟單詞辨識"
 
-#: src/constant.py:86
+#: src/constant.py:86 ../src/constant.py:86
 msgid "Arabic"
 msgstr "阿拉伯語"
 
-#: src/constant.py:112
+#: src/constant.py:112 ../src/constant.py:112
 msgid "Armenian"
 msgstr "亞美尼亞語"
 
-#: src/constant.py:87
+#: src/constant.py:87 ../src/constant.py:87
 msgid "Azerbaijani"
 msgstr "亞塞拜然語"
 
-#: src/constant.py:100
+#: src/constant.py:100 ../src/constant.py:100
 msgid "Basque"
 msgstr "巴斯克語"
 
-#: src/constant.py:88
+#: src/constant.py:88 ../src/constant.py:88
 msgid "Belarusian"
 msgstr "白俄羅斯語"
 
-#: src/constant.py:90
+#: src/constant.py:90 ../src/constant.py:90
 msgid "Bengali"
 msgstr "孟加拉語"
 
-#: src/constant.py:89
+#: src/constant.py:89 ../src/constant.py:89
 msgid "Bulgarian"
 msgstr "保加利亞語"
 
 #: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
-#: src/ocr.py:55 src/ocr.py:62
+#: src/ocr.py:55 src/ocr.py:62 ../src/ocr.py:55 ../src/ocr.py:62
+#: ../src/dict_plugins/sdcv/translate.py:54 ../src/tts_plugins/svox/tts.py:39
 msgid "Cancel"
 msgstr "取消"
 
-#: src/constant.py:91
+#: src/constant.py:91 ../src/constant.py:91
 msgid "Catalan"
 msgstr "加泰羅尼亞語"
 
-#: src/constant.py:148
+#: src/constant.py:148 ../src/constant.py:148
 msgid "Chinese Simplified"
 msgstr "簡體中文"
 
-#: src/constant.py:149
+#: src/constant.py:149 ../src/constant.py:149
 msgid "Chinese Traditional"
 msgstr "繁體中文"
 
@@ -79,15 +79,15 @@ msgstr "繁體中文"
 msgid "Copy to clipboard"
 msgstr "複製到剪貼簿"
 
-#: src/constant.py:109
+#: src/constant.py:109 ../src/constant.py:109
 msgid "Croatian"
 msgstr "克羅埃西亞語"
 
-#: src/constant.py:92
+#: src/constant.py:92 ../src/constant.py:92
 msgid "Czech"
 msgstr "捷克語"
 
-#: src/constant.py:94
+#: src/constant.py:94 ../src/constant.py:94
 msgid "Danish"
 msgstr "丹麥語"
 
@@ -95,35 +95,35 @@ msgstr "丹麥語"
 msgid "Deepin Translator Settings"
 msgstr "深度系統設定"
 
-#: src/constant.py:127
+#: src/constant.py:127 ../src/constant.py:127
 msgid "Dutch"
 msgstr "荷蘭語"
 
-#: src/constant.py:96
+#: src/constant.py:96 ../src/constant.py:96
 msgid "English"
 msgstr "英語"
 
-#: src/constant.py:97
+#: src/constant.py:97 ../src/constant.py:97
 msgid "Esperanto"
 msgstr "世界語"
 
-#: src/constant.py:99
+#: src/constant.py:99 ../src/constant.py:99
 msgid "Estonian"
 msgstr "愛沙尼亞語"
 
-#: src/system_tray.py:122
+#: src/system_tray.py:122 ../src/system_tray.py:122
 msgid "Exit"
 msgstr "離開"
 
-#: src/constant.py:142
+#: src/constant.py:142 ../src/constant.py:142
 msgid "Filipino"
 msgstr "菲律賓語"
 
-#: src/constant.py:102
+#: src/constant.py:102 ../src/constant.py:102
 msgid "Finnish"
 msgstr "芬蘭語"
 
-#: src/constant.py:103
+#: src/constant.py:103 ../src/constant.py:103
 msgid "French"
 msgstr "法語"
 
@@ -131,15 +131,15 @@ msgstr "法語"
 msgid "Full text translation"
 msgstr "全文翻譯"
 
-#: src/constant.py:105
+#: src/constant.py:105 ../src/constant.py:105
 msgid "Galician"
 msgstr "加利西亞語"
 
-#: src/constant.py:118
+#: src/constant.py:118 ../src/constant.py:118
 msgid "Georgian"
 msgstr "格魯吉亞"
 
-#: src/constant.py:95
+#: src/constant.py:95 ../src/constant.py:95
 msgid "German"
 msgstr "德語"
 
@@ -147,88 +147,89 @@ msgstr "德語"
 msgid "Google"
 msgstr "Google搜尋"
 
-#: src/constant.py:106
+#: src/constant.py:106 ../src/constant.py:106
 msgid "Greek"
 msgstr "希臘語"
 
-#: src/constant.py:107
+#: src/constant.py:107 ../src/constant.py:107
 msgid "Gujarati"
 msgstr "古吉拉特語"
 
-#: src/constant.py:110
+#: src/constant.py:110 ../src/constant.py:110
 msgid "Haitian"
 msgstr "海地語"
 
-#: src/constant.py:116
+#: src/constant.py:116 ../src/constant.py:116
 msgid "Hebrew"
 msgstr "希伯來語"
 
-#: src/constant.py:108
+#: src/constant.py:108 ../src/constant.py:108
 msgid "Hindi"
 msgstr "北印度語"
 
-#: src/constant.py:111
+#: src/constant.py:111 ../src/constant.py:111
 msgid "Hungaric"
 msgstr "匈牙利語"
 
-#: src/constant.py:114
+#: src/constant.py:114 ../src/constant.py:114
 msgid "Icelandic"
 msgstr "冰島語"
 
-#: src/constant.py:113
+#: src/constant.py:113 ../src/constant.py:113
 msgid "Indonesian"
 msgstr "印尼語"
 
 #: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
-#: src/ocr.py:62
+#: src/ocr.py:62 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:54
+#: ../src/tts_plugins/svox/tts.py:39
 msgid "Install"
 msgstr "安裝"
 
-#: src/constant.py:104
+#: src/constant.py:104 ../src/constant.py:104
 msgid "Irish"
 msgstr "愛爾蘭語"
 
-#: src/constant.py:115
+#: src/constant.py:115 ../src/constant.py:115
 msgid "Italian"
 msgstr "義大利語"
 
-#: src/constant.py:117
+#: src/constant.py:117 ../src/constant.py:117
 msgid "Japanese"
 msgstr "日語"
 
-#: src/constant.py:119
+#: src/constant.py:119 ../src/constant.py:119
 msgid "Kannada"
 msgstr "卡納達語"
 
-#: src/constant.py:120
+#: src/constant.py:120 ../src/constant.py:120
 msgid "Korean"
 msgstr "韓語"
 
-#: src/constant.py:121
+#: src/constant.py:121 ../src/constant.py:121
 msgid "Latin"
 msgstr "拉丁語"
 
-#: src/constant.py:123
+#: src/constant.py:123 ../src/constant.py:123
 msgid "Latvian"
 msgstr "拉脫維亞語"
 
-#: src/constant.py:122
+#: src/constant.py:122 ../src/constant.py:122
 msgid "Lithuanian"
 msgstr "立陶宛語"
 
-#: src/constant.py:124
+#: src/constant.py:124 ../src/constant.py:124
 msgid "Macedonian"
 msgstr "馬其頓語"
 
-#: src/constant.py:125
+#: src/constant.py:125 ../src/constant.py:125
 msgid "Malay"
 msgstr "馬來西亞語"
 
-#: src/constant.py:126
+#: src/constant.py:126 ../src/constant.py:126
 msgid "Maltese"
 msgstr "馬爾他語"
 
-#: src/constant.py:128
+#: src/constant.py:128 ../src/constant.py:128
 msgid "Norwegian"
 msgstr "挪威語"
 
@@ -236,47 +237,48 @@ msgstr "挪威語"
 msgid "OK"
 msgstr "確定"
 
-#: src/system_tray.py:114
+#: src/system_tray.py:114 ../src/system_tray.py:114
 msgid "Offline translation"
 msgstr "離線翻譯"
 
-#: src/ocr.py:55
+#: src/ocr.py:55 ../src/ocr.py:55
 msgid "Ok, I understand"
 msgstr "我知道了"
 
 #: src/dict_plugins/sdcv/translate.py:54
+#: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
 msgstr "需要安裝星際譯王以開啟翻譯"
 
-#: src/tts_plugins/svox/tts.py:39
+#: src/tts_plugins/svox/tts.py:39 ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
 msgstr "需要安裝SVOX引擎以開啟發音"
 
-#: src/system_tray.py:108
+#: src/system_tray.py:108 ../src/system_tray.py:108
 msgid "Pause translation"
 msgstr "暫停翻譯"
 
-#: src/constant.py:101
+#: src/constant.py:101 ../src/constant.py:101
 msgid "Persian"
 msgstr "波斯語"
 
-#: src/constant.py:129
+#: src/constant.py:129 ../src/constant.py:129
 msgid "Polish"
 msgstr "波蘭語"
 
-#: src/constant.py:130
+#: src/constant.py:130 ../src/constant.py:130
 msgid "Portuguese"
 msgstr "葡萄牙語"
 
-#: src/system_tray.py:110
+#: src/system_tray.py:110 ../src/system_tray.py:110
 msgid "Pronounce automatically"
 msgstr "自動發音"
 
-#: src/constant.py:131
+#: src/constant.py:131 ../src/constant.py:131
 msgid "Romanian"
 msgstr "羅馬尼亞語"
 
-#: src/constant.py:132
+#: src/constant.py:132 ../src/constant.py:132
 msgid "Russian"
 msgstr "俄語"
 
@@ -284,23 +286,23 @@ msgstr "俄語"
 msgid "Sentences speech"
 msgstr "長句語音"
 
-#: src/constant.py:136
+#: src/constant.py:136 ../src/constant.py:136
 msgid "Serbian"
 msgstr "塞爾維亞語"
 
-#: src/system_tray.py:119
+#: src/system_tray.py:119 ../src/system_tray.py:119
 msgid "Settings"
 msgstr "設定"
 
-#: src/constant.py:133
+#: src/constant.py:133 ../src/constant.py:133
 msgid "Slovak"
 msgstr "斯洛伐克語"
 
-#: src/constant.py:134
+#: src/constant.py:134 ../src/constant.py:134
 msgid "Slovenian"
 msgstr "斯洛維尼亞語"
 
-#: src/ocr.py:55
+#: src/ocr.py:55 ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
 msgstr "對不起， 螢幕取詞現在還不支援%s"
@@ -309,19 +311,19 @@ msgstr "對不起， 螢幕取詞現在還不支援%s"
 msgid "Source language"
 msgstr "來源語言"
 
-#: src/constant.py:98
+#: src/constant.py:98 ../src/constant.py:98
 msgid "Spanish"
 msgstr "西班牙語"
 
-#: src/constant.py:138
+#: src/constant.py:138 ../src/constant.py:138
 msgid "Swahili"
 msgstr "斯瓦西裡語"
 
-#: src/constant.py:137
+#: src/constant.py:137 ../src/constant.py:137
 msgid "Swedish"
 msgstr "瑞典語"
 
-#: src/constant.py:139
+#: src/constant.py:139 ../src/constant.py:139
 msgid "Tamil"
 msgstr "泰米爾語"
 
@@ -329,11 +331,11 @@ msgstr "泰米爾語"
 msgid "Target language"
 msgstr "目的語言"
 
-#: src/constant.py:140
+#: src/constant.py:140 ../src/constant.py:140
 msgid "Telugu"
 msgstr "泰盧固語"
 
-#: src/constant.py:141
+#: src/constant.py:141 ../src/constant.py:141
 msgid "Thai"
 msgstr "泰語"
 
@@ -341,31 +343,31 @@ msgstr "泰語"
 msgid "Translate failed"
 msgstr "翻譯失敗"
 
-#: src/system_tray.py:112
+#: src/system_tray.py:112 ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
 msgstr "只在按住Ctrl鍵彈出翻譯"
 
-#: src/constant.py:143
+#: src/constant.py:143 ../src/constant.py:143
 msgid "Turkish"
 msgstr "土耳其語"
 
-#: src/tts_plugins/youdao/tts.py:72
+#: src/tts_plugins/youdao/tts.py:72 ../src/tts_plugins/youdao/tts.py:72
 msgid "UK"
 msgstr "英國"
 
-#: src/tts_plugins/youdao/tts.py:67
+#: src/tts_plugins/youdao/tts.py:67 ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
 msgstr "美國"
 
-#: src/constant.py:144
+#: src/constant.py:144 ../src/constant.py:144
 msgid "Ukrainian"
 msgstr "烏克蘭語"
 
-#: src/constant.py:145
+#: src/constant.py:145 ../src/constant.py:145
 msgid "Urdu"
 msgstr "烏爾都語"
 
-#: src/constant.py:146
+#: src/constant.py:146 ../src/constant.py:146
 msgid "Vietnamese"
 msgstr "越南語"
 
@@ -373,7 +375,7 @@ msgstr "越南語"
 msgid "Voice"
 msgstr "發音"
 
-#: src/constant.py:93
+#: src/constant.py:93 ../src/constant.py:93
 msgid "Welsh"
 msgstr "威爾士語"
 
@@ -389,9 +391,13 @@ msgstr "單詞翻譯"
 msgid "Word speech"
 msgstr "單詞語音"
 
-#: src/constant.py:147
+#: src/constant.py:147 ../src/constant.py:147
 msgid "Yiddish"
 msgstr "意第緒語"
+
+#: ../src/dict_plugins/google_simple/translate.py:97
+msgid "Translation failed"
+msgstr "翻譯失敗"
 
 #~ msgid "Wizard"
 #~ msgstr "精靈"

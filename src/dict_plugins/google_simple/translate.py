@@ -94,7 +94,7 @@ class Translate(TranslateWindow):
         try:
             return  ''.join([dl[0] for dl in glist[0]])
         except:
-            return _("Translate failed")
+            return _("Translation failed")
     
     def google_translate(self, text, sl="auto", tl="en", encoding="UTF-8"):
         target_language = tl
