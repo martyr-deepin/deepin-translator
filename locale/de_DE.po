@@ -1,23 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Eduard Gotwig <eduardgotwig@gmail.com>, 2014
 # Eduard Gotwig <eduardgotwig@gmail.com>, 2014
+# Ettore Atalan <atalanttore@googlemail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-21 18:31+0800\n"
-"PO-Revision-Date: 2014-06-30 04:37+0000\n"
-"Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
-"Language-Team: German (Germany) (http://www.transifex.com/projects/p/deepin-"
-"translator/language/de_DE/)\n"
-"Language: de_DE\n"
+"PO-Revision-Date: 2014-08-25 10:23+0000\n"
+"Last-Translator: webcrush <chris.plescher@yahoo.de>\n"
+"Language-Team: German (Germany) (http://www.transifex.com/projects/p/deepin-translator/language/de_DE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: de_DE\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/constant.py:85 ../src/constant.py:85
@@ -255,8 +255,7 @@ msgstr "Das Paket SDCV ist für die Aktivierung von Übersetzungen erforderlich"
 
 #: src/tts_plugins/svox/tts.py:39 ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
-msgstr ""
-"Das Paket SVOX ist für die Aktivierung von Aussprache Funktionen erfoderlich"
+msgstr "Das Paket SVOX ist für die Aktivierung von Aussprache Funktionen erfoderlich"
 
 #: src/system_tray.py:108 ../src/system_tray.py:108
 msgid "Pause translation"
@@ -402,6 +401,3 @@ msgstr "Jüdisch"
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
 msgstr "Übersetzung fehlgeschlagen"
-
-#~ msgid "Wizard"
-#~ msgstr "Programm-Assistent"

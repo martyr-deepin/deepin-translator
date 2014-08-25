@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Automatically generated, 2013
 msgid ""
@@ -9,14 +9,13 @@ msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-21 18:31+0800\n"
-"PO-Revision-Date: 2014-07-03 02:50+0000\n"
-"Last-Translator: cxbii <chenxiangbang@linuxdeepin.com>\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/deepin-"
-"translator/language/zh_CN/)\n"
-"Language: zh_CN\n"
+"PO-Revision-Date: 2014-08-22 07:20+0000\n"
+"Last-Translator: Catherinelin <linhongxia@linuxdeepin.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/deepin-translator/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/constant.py:85 ../src/constant.py:85
@@ -400,6 +399,3 @@ msgstr "意第绪语"
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
 msgstr "翻译失败"
-
-#~ msgid "Wizard"
-#~ msgstr "向导"

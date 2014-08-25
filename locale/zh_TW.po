@@ -1,25 +1,26 @@
-# Copyright (C) 2013 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Automatically generated, 2013.
-#
+# 
 # Translators:
-# Peter Dave Hello <hsu@peterdavehello.org>, 2014
+# freddy4212 <freddy4212@gmail.com>, 2014
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-21 18:31+0800\n"
-"PO-Revision-Date: 2014-05-07 04:53+0800\n"
-"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
-"Language-Team: Peter Dave Hello <hsu@peterdavehello.org>\n"
-"Language: zh_TW\n"
+"PO-Revision-Date: 2014-08-25 14:03+0000\n"
+"Last-Translator: freddy4212 <freddy4212@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/deepin-translator/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: src/constant.py:85 ../src/constant.py:85
 msgid "Afrikaans"
-msgstr "南非荷蘭語"
+msgstr "南非語"
 
 #: src/constant.py:135 ../src/constant.py:135
 msgid "Albanian"
@@ -27,7 +28,7 @@ msgstr "阿爾巴尼亞語"
 
 #: src/ocr.py:62 ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
-msgstr "需要安裝OCR套件以開啟單詞辨識"
+msgstr "需要安裝 OCR 套件以開啟單字識別功能"
 
 #: src/constant.py:86 ../src/constant.py:86
 msgid "Arabic"
@@ -65,7 +66,7 @@ msgstr "取消"
 
 #: src/constant.py:91 ../src/constant.py:91
 msgid "Catalan"
-msgstr "加泰羅尼亞語"
+msgstr "加泰隆語"
 
 #: src/constant.py:148 ../src/constant.py:148
 msgid "Chinese Simplified"
@@ -73,11 +74,11 @@ msgstr "簡體中文"
 
 #: src/constant.py:149 ../src/constant.py:149
 msgid "Chinese Traditional"
-msgstr "繁體中文"
+msgstr "正體中文"
 
 #: ../src/Toolbar.qml:71
 msgid "Copy to clipboard"
-msgstr "複製到剪貼簿"
+msgstr "複製至剪貼簿"
 
 #: src/constant.py:109 ../src/constant.py:109
 msgid "Croatian"
@@ -93,7 +94,7 @@ msgstr "丹麥語"
 
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
-msgstr "深度系統設定"
+msgstr "深度翻譯設定"
 
 #: src/constant.py:127 ../src/constant.py:127
 msgid "Dutch"
@@ -113,7 +114,7 @@ msgstr "愛沙尼亞語"
 
 #: src/system_tray.py:122 ../src/system_tray.py:122
 msgid "Exit"
-msgstr "離開"
+msgstr "結束"
 
 #: src/constant.py:142 ../src/constant.py:142
 msgid "Filipino"
@@ -129,7 +130,7 @@ msgstr "法語"
 
 #: ../src/SettingView.qml:164
 msgid "Full text translation"
-msgstr "全文翻譯"
+msgstr "整句翻譯"
 
 #: src/constant.py:105 ../src/constant.py:105
 msgid "Galician"
@@ -137,7 +138,7 @@ msgstr "加利西亞語"
 
 #: src/constant.py:118 ../src/constant.py:118
 msgid "Georgian"
-msgstr "格魯吉亞"
+msgstr "喬治亞語"
 
 #: src/constant.py:95 ../src/constant.py:95
 msgid "German"
@@ -145,7 +146,7 @@ msgstr "德語"
 
 #: ../src/Toolbar.qml:83
 msgid "Google"
-msgstr "Google搜尋"
+msgstr "Google"
 
 #: src/constant.py:106 ../src/constant.py:106
 msgid "Greek"
@@ -177,7 +178,7 @@ msgstr "冰島語"
 
 #: src/constant.py:113 ../src/constant.py:113
 msgid "Indonesian"
-msgstr "印尼語"
+msgstr "印度尼西亞語"
 
 #: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
 #: src/ocr.py:62 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:54
@@ -199,11 +200,11 @@ msgstr "日語"
 
 #: src/constant.py:119 ../src/constant.py:119
 msgid "Kannada"
-msgstr "卡納達語"
+msgstr "康納達語"
 
 #: src/constant.py:120 ../src/constant.py:120
 msgid "Korean"
-msgstr "韓語"
+msgstr "韓國語"
 
 #: src/constant.py:121 ../src/constant.py:121
 msgid "Latin"
@@ -223,7 +224,7 @@ msgstr "馬其頓語"
 
 #: src/constant.py:125 ../src/constant.py:125
 msgid "Malay"
-msgstr "馬來西亞語"
+msgstr "馬來語"
 
 #: src/constant.py:126 ../src/constant.py:126
 msgid "Maltese"
@@ -243,16 +244,16 @@ msgstr "離線翻譯"
 
 #: src/ocr.py:55 ../src/ocr.py:55
 msgid "Ok, I understand"
-msgstr "我知道了"
+msgstr "好的，我了解了"
 
 #: src/dict_plugins/sdcv/translate.py:54
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
-msgstr "需要安裝星際譯王以開啟翻譯"
+msgstr "需要安裝星際譯王以開啟翻譯功能"
 
 #: src/tts_plugins/svox/tts.py:39 ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
-msgstr "需要安裝SVOX引擎以開啟發音"
+msgstr "需要安裝 SVOX 以開啟發音功能"
 
 #: src/system_tray.py:108 ../src/system_tray.py:108
 msgid "Pause translation"
@@ -284,7 +285,7 @@ msgstr "俄語"
 
 #: ../src/SettingView.qml:170
 msgid "Sentences speech"
-msgstr "長句語音"
+msgstr "整句唸出"
 
 #: src/constant.py:136 ../src/constant.py:136
 msgid "Serbian"
@@ -305,7 +306,7 @@ msgstr "斯洛維尼亞語"
 #: src/ocr.py:55 ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "對不起， 螢幕取詞現在還不支援%s"
+msgstr "對不起，螢幕選詞功能暫時不支援 %s"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
@@ -317,7 +318,7 @@ msgstr "西班牙語"
 
 #: src/constant.py:138 ../src/constant.py:138
 msgid "Swahili"
-msgstr "斯瓦西裡語"
+msgstr "斯瓦希里語"
 
 #: src/constant.py:137 ../src/constant.py:137
 msgid "Swedish"
@@ -325,11 +326,11 @@ msgstr "瑞典語"
 
 #: src/constant.py:139 ../src/constant.py:139
 msgid "Tamil"
-msgstr "泰米爾語"
+msgstr "坦米爾語"
 
 #: ../src/SettingView.qml:146
 msgid "Target language"
-msgstr "目的語言"
+msgstr "目標語言"
 
 #: src/constant.py:140 ../src/constant.py:140
 msgid "Telugu"
@@ -345,7 +346,7 @@ msgstr "翻譯失敗"
 
 #: src/system_tray.py:112 ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr "只在按住Ctrl鍵彈出翻譯"
+msgstr "僅在按住 Ctrl 按鍵時顯示翻譯"
 
 #: src/constant.py:143 ../src/constant.py:143
 msgid "Turkish"
@@ -353,11 +354,11 @@ msgstr "土耳其語"
 
 #: src/tts_plugins/youdao/tts.py:72 ../src/tts_plugins/youdao/tts.py:72
 msgid "UK"
-msgstr "英國"
+msgstr "英"
 
 #: src/tts_plugins/youdao/tts.py:67 ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
-msgstr "美國"
+msgstr "美"
 
 #: src/constant.py:144 ../src/constant.py:144
 msgid "Ukrainian"
@@ -377,7 +378,7 @@ msgstr "發音"
 
 #: src/constant.py:93 ../src/constant.py:93
 msgid "Welsh"
-msgstr "威爾士語"
+msgstr "威爾斯語"
 
 #: ../src/Toolbar.qml:77
 msgid "Wikipedia"
@@ -385,11 +386,11 @@ msgstr "維基百科"
 
 #: ../src/SettingView.qml:152
 msgid "Word Translation"
-msgstr "單詞翻譯"
+msgstr "單字翻譯"
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
-msgstr "單詞語音"
+msgstr "單字發音"
 
 #: src/constant.py:147 ../src/constant.py:147
 msgid "Yiddish"
@@ -398,6 +399,3 @@ msgstr "意第緒語"
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
 msgstr "翻譯失敗"
-
-#~ msgid "Wizard"
-#~ msgstr "精靈"

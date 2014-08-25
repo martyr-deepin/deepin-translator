@@ -1,22 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# kdavid97 <kdavid97@gmail.hu>, 2014
 # vmarci21 <vmarci21@msn.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-21 18:31+0800\n"
-"PO-Revision-Date: 2014-06-30 04:42+0000\n"
-"Last-Translator: vmarci21 <vmarci21@msn.com>\n"
-"Language-Team: Hungarian (http://www.transifex.com/projects/p/deepin-"
-"translator/language/hu/)\n"
-"Language: hu\n"
+"PO-Revision-Date: 2014-08-22 07:10+0000\n"
+"Last-Translator: Catherinelin <linhongxia@linuxdeepin.com>\n"
+"Language-Team: Hungarian (http://www.transifex.com/projects/p/deepin-translator/language/hu/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/constant.py:85 ../src/constant.py:85
@@ -250,15 +250,15 @@ msgstr "Ok, értem"
 #: src/dict_plugins/sdcv/translate.py:54
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
-msgstr ""
+msgstr "SDCV csomag szükséges a fordítások engedélyezéséhez "
 
 #: src/tts_plugins/svox/tts.py:39 ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
-msgstr ""
+msgstr "A SVOX csomag szükséges ahhoz,hogy a több nyelves kiejtéshez"
 
 #: src/system_tray.py:108 ../src/system_tray.py:108
 msgid "Pause translation"
-msgstr ""
+msgstr "Fordítás szünetelése"
 
 #: src/constant.py:101 ../src/constant.py:101
 msgid "Persian"
@@ -274,7 +274,7 @@ msgstr "Portugál"
 
 #: src/system_tray.py:110 ../src/system_tray.py:110
 msgid "Pronounce automatically"
-msgstr ""
+msgstr "Kiejtés automatikusan"
 
 #: src/constant.py:131 ../src/constant.py:131
 msgid "Romanian"
@@ -286,7 +286,7 @@ msgstr "Orosz"
 
 #: ../src/SettingView.qml:170
 msgid "Sentences speech"
-msgstr ""
+msgstr "Mondat kimondó"
 
 #: src/constant.py:136 ../src/constant.py:136
 msgid "Serbian"
@@ -347,7 +347,7 @@ msgstr "Sikertelen fordítás"
 
 #: src/system_tray.py:112 ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr ""
+msgstr "Csak a Ctrl gomb lenyomásakor fordítson  "
 
 #: src/constant.py:143 ../src/constant.py:143
 msgid "Turkish"
@@ -391,7 +391,7 @@ msgstr "Szó fordítása"
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
-msgstr ""
+msgstr "Szó kimondó"
 
 #: src/constant.py:147 ../src/constant.py:147
 msgid "Yiddish"
@@ -399,7 +399,4 @@ msgstr "Jiddis"
 
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
-msgstr "Sikertelen fordítás"
-
-#~ msgid "Wizard"
-#~ msgstr "Varázsló"
+msgstr ""

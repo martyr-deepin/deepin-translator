@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # samson <sambelet@yahoo.com>, 2014
 msgid ""
@@ -9,14 +9,13 @@ msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-21 18:31+0800\n"
-"PO-Revision-Date: 2014-06-30 15:11+0000\n"
-"Last-Translator: samson <sambelet@yahoo.com>\n"
-"Language-Team: Amharic (http://www.transifex.com/projects/p/deepin-"
-"translator/language/am/)\n"
-"Language: am\n"
+"PO-Revision-Date: 2014-08-22 07:10+0000\n"
+"Last-Translator: Catherinelin <linhongxia@linuxdeepin.com>\n"
+"Language-Team: Amharic (http://www.transifex.com/projects/p/deepin-translator/language/am/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: am\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: src/constant.py:85 ../src/constant.py:85
@@ -29,7 +28,7 @@ msgstr "Albanian"
 
 #: src/ocr.py:62 ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
-msgstr ""
+msgstr "የ OCR ጥቅል ያስፈልጋል ቃላትን ለመለየት"
 
 #: src/constant.py:86 ../src/constant.py:86
 msgid "Arabic"
@@ -250,11 +249,11 @@ msgstr "እሺ ተረድቻለሁ"
 #: src/dict_plugins/sdcv/translate.py:54
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
-msgstr ""
+msgstr "የ SDCV ጥቅል ያስፈልጋል ለመተርጎም"
 
 #: src/tts_plugins/svox/tts.py:39 ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
-msgstr ""
+msgstr "የ SVOX ጥቅል ያስፈልጋል ቃላትን ለማንበብ"
 
 #: src/system_tray.py:108 ../src/system_tray.py:108
 msgid "Pause translation"
@@ -286,7 +285,7 @@ msgstr "Russian"
 
 #: ../src/SettingView.qml:170
 msgid "Sentences speech"
-msgstr ""
+msgstr "አረፍተ ነገር ማንበቢያ"
 
 #: src/constant.py:136 ../src/constant.py:136
 msgid "Serbian"
@@ -391,7 +390,7 @@ msgstr "ቃላት መተርጎሚያ "
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
-msgstr ""
+msgstr "ቃላት ማንበቢያ"
 
 #: src/constant.py:147 ../src/constant.py:147
 msgid "Yiddish"
@@ -399,7 +398,4 @@ msgstr "Yiddish"
 
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
-msgstr "መተርጎም አልተሳካም"
-
-#~ msgid "Wizard"
-#~ msgstr "አዋቂ"
+msgstr ""

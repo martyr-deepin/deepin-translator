@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # andrej55 <andrej.marsetic@gmail.com>, 2014
 msgid ""
@@ -9,16 +9,14 @@ msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-21 18:31+0800\n"
-"PO-Revision-Date: 2014-06-30 04:37+0000\n"
-"Last-Translator: andrej55 <andrej.marsetic@gmail.com>\n"
-"Language-Team: Slovenian (http://www.transifex.com/projects/p/deepin-"
-"translator/language/sl/)\n"
-"Language: sl\n"
+"PO-Revision-Date: 2014-08-22 07:10+0000\n"
+"Last-Translator: Catherinelin <linhongxia@linuxdeepin.com>\n"
+"Language-Team: Slovenian (http://www.transifex.com/projects/p/deepin-translator/language/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Language: sl\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 
 #: src/constant.py:85 ../src/constant.py:85
 msgid "Afrikaans"
@@ -30,7 +28,7 @@ msgstr "albanščina"
 
 #: src/ocr.py:62 ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
-msgstr ""
+msgstr "Je potreben OCR paket za omogočanje zaznavanje besed"
 
 #: src/constant.py:86 ../src/constant.py:86
 msgid "Arabic"
@@ -54,7 +52,7 @@ msgstr "beloruščina "
 
 #: src/constant.py:90 ../src/constant.py:90
 msgid "Bengali"
-msgstr ""
+msgstr "bengalščina"
 
 #: src/constant.py:89 ../src/constant.py:89
 msgid "Bulgarian"
@@ -120,7 +118,7 @@ msgstr "Izhod"
 
 #: src/constant.py:142 ../src/constant.py:142
 msgid "Filipino"
-msgstr ""
+msgstr "filipinščina"
 
 #: src/constant.py:102 ../src/constant.py:102
 msgid "Finnish"
@@ -132,11 +130,11 @@ msgstr "francoščina"
 
 #: ../src/SettingView.qml:164
 msgid "Full text translation"
-msgstr ""
+msgstr "Celotno besedilo prevedeno"
 
 #: src/constant.py:105 ../src/constant.py:105
 msgid "Galician"
-msgstr ""
+msgstr "galicijščina"
 
 #: src/constant.py:118 ../src/constant.py:118
 msgid "Georgian"
@@ -160,7 +158,7 @@ msgstr "Gudžaratajsko"
 
 #: src/constant.py:110 ../src/constant.py:110
 msgid "Haitian"
-msgstr ""
+msgstr "haitijščina "
 
 #: src/constant.py:116 ../src/constant.py:116
 msgid "Hebrew"
@@ -172,7 +170,7 @@ msgstr "Hindujsko"
 
 #: src/constant.py:111 ../src/constant.py:111
 msgid "Hungaric"
-msgstr ""
+msgstr "madžarščina "
 
 #: src/constant.py:114 ../src/constant.py:114
 msgid "Icelandic"
@@ -180,7 +178,7 @@ msgstr "Islandsko"
 
 #: src/constant.py:113 ../src/constant.py:113
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonezijščina"
 
 #: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
 #: src/ocr.py:62 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:54
@@ -214,11 +212,11 @@ msgstr "latinščina"
 
 #: src/constant.py:123 ../src/constant.py:123
 msgid "Latvian"
-msgstr ""
+msgstr "latvijščina"
 
 #: src/constant.py:122 ../src/constant.py:122
 msgid "Lithuanian"
-msgstr ""
+msgstr "litovščina"
 
 #: src/constant.py:124 ../src/constant.py:124
 msgid "Macedonian"
@@ -226,7 +224,7 @@ msgstr "makedonščina"
 
 #: src/constant.py:125 ../src/constant.py:125
 msgid "Malay"
-msgstr ""
+msgstr "malajščina"
 
 #: src/constant.py:126 ../src/constant.py:126
 msgid "Maltese"
@@ -396,11 +394,8 @@ msgstr "Besedni govor"
 
 #: src/constant.py:147 ../src/constant.py:147
 msgid "Yiddish"
-msgstr ""
+msgstr "Jidiš"
 
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
-msgstr "Prevod spodletel"
-
-#~ msgid "Wizard"
-#~ msgstr "Čarovnik"
+msgstr ""
