@@ -338,10 +338,6 @@ msgstr ""
 msgid "Thai"
 msgstr ""
 
-#: src/dict_plugins/google_simple/translate.py:97
-msgid "Translate failed"
-msgstr ""
-
 #: src/system_tray.py:112 ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
 msgstr ""
