@@ -3,62 +3,60 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# 4goodapp <4goodapp@gmail.com>, 2014
-# lexross <its4moi@gmail.com>, 2014
-# Tristan Denni <tristan.denni@viacesi.fr>, 2014
+# Carl Andersen <carl@manjaro.dk>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 17:09+0800\n"
-"PO-Revision-Date: 2014-09-03 14:02+0000\n"
-"Last-Translator: 4goodapp <4goodapp@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/deepin-translator/language/fr/)\n"
+"PO-Revision-Date: 2014-09-03 01:41+0000\n"
+"Last-Translator: snyh <snyh@snyh.org>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/deepin-translator/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
-msgstr "Paramètres de Deepin Translator"
+msgstr "Deepin Oversættelsesindstillinger"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
-msgstr "Langage source"
+msgstr "Kilde sproget"
 
 #: ../src/SettingView.qml:146
 msgid "Target language"
-msgstr "Langage cible"
+msgstr "Målsprog"
 
 #: ../src/SettingView.qml:152
 msgid "Word Translation"
-msgstr "Traduction du mot"
+msgstr "Ord oversættelse"
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
-msgstr "Diction du mot"
+msgstr "Ord udtale"
 
 #: ../src/SettingView.qml:164
 msgid "Full text translation"
-msgstr "Traduction du texte complet"
+msgstr "Fuld tekst oversættelse"
 
 #: ../src/SettingView.qml:170
 msgid "Sentences speech"
-msgstr "Diction de phrases"
+msgstr "Sætningsudtale"
 
 #: ../src/SettingView.qml:404
 msgid "OK"
-msgstr "Valider"
+msgstr "OK"
 
 #: ../src/Toolbar.qml:65
 msgid "Voice"
-msgstr "Voix"
+msgstr "Stemme"
 
 #: ../src/Toolbar.qml:71
 msgid "Copy to clipboard"
-msgstr "Copier dans le presse-papiers"
+msgstr "Kopier til udklipsholder"
 
 #: ../src/Toolbar.qml:77
 msgid "Wikipedia"
@@ -70,91 +68,91 @@ msgstr "Google"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
-msgstr "Africain"
+msgstr "Afrikaans"
 
 #: ../src/constant.py:86
 msgid "Arabic"
-msgstr "Arabique"
+msgstr "Arabisk"
 
 #: ../src/constant.py:87
 msgid "Azerbaijani"
-msgstr "Azerbaijani"
+msgstr "Aserbajdsjansk"
 
 #: ../src/constant.py:88
 msgid "Belarusian"
-msgstr "Biélorusse"
+msgstr "Hviderussisk"
 
 #: ../src/constant.py:89
 msgid "Bulgarian"
-msgstr "Bulgare"
+msgstr "Bulgarsk"
 
 #: ../src/constant.py:90
 msgid "Bengali"
-msgstr "Bengali"
+msgstr "Indisk sprog i Bangladesh og Vestbengalen."
 
 #: ../src/constant.py:91
 msgid "Catalan"
-msgstr "Catalan"
+msgstr "Catalansk"
 
 #: ../src/constant.py:92
 msgid "Czech"
-msgstr "Tchèque"
+msgstr "Tjekkisk"
 
 #: ../src/constant.py:93
 msgid "Welsh"
-msgstr "Gallois"
+msgstr "Walisisk"
 
 #: ../src/constant.py:94
 msgid "Danish"
-msgstr "Danois"
+msgstr "Dansk"
 
 #: ../src/constant.py:95
 msgid "German"
-msgstr "Allemand"
+msgstr "Tysk"
 
 #: ../src/constant.py:96
 msgid "English"
-msgstr "Anglais"
+msgstr "Engelsk"
 
 #: ../src/constant.py:97
 msgid "Esperanto"
-msgstr "Espérento"
+msgstr "Esperanto"
 
 #: ../src/constant.py:98
 msgid "Spanish"
-msgstr "Espagnol"
+msgstr "Spansk"
 
 #: ../src/constant.py:99
 msgid "Estonian"
-msgstr "Estonien"
+msgstr "Estlandsk"
 
 #: ../src/constant.py:100
 msgid "Basque"
-msgstr "Basque"
+msgstr "Baskerlandet"
 
 #: ../src/constant.py:101
 msgid "Persian"
-msgstr "Perse"
+msgstr "Persisk"
 
 #: ../src/constant.py:102
 msgid "Finnish"
-msgstr "Finlandais"
+msgstr "Finsk"
 
 #: ../src/constant.py:103
 msgid "French"
-msgstr "Français"
+msgstr "Fransk"
 
 #: ../src/constant.py:104
 msgid "Irish"
-msgstr "Irlandais"
+msgstr "Irisk"
 
 #: ../src/constant.py:105
 msgid "Galician"
-msgstr "Galicien"
+msgstr "Galicisk"
 
 #: ../src/constant.py:106
 msgid "Greek"
-msgstr "Grecque"
+msgstr "Græsk"
 
 #: ../src/constant.py:107
 msgid "Gujarati"
@@ -166,51 +164,51 @@ msgstr "Hindi"
 
 #: ../src/constant.py:109
 msgid "Croatian"
-msgstr "Croate"
+msgstr "Kroatisk"
 
 #: ../src/constant.py:110
 msgid "Haitian"
-msgstr "Haïtien"
+msgstr "Haitis"
 
 #: ../src/constant.py:111
 msgid "Hungaric"
-msgstr "Hongrois"
+msgstr "Ungarnsk"
 
 #: ../src/constant.py:112
 msgid "Armenian"
-msgstr "Arménien"
+msgstr "Armensk"
 
 #: ../src/constant.py:113
 msgid "Indonesian"
-msgstr "indonésien"
+msgstr "Indonesisk"
 
 #: ../src/constant.py:114
 msgid "Icelandic"
-msgstr "Islandais"
+msgstr "Islandsk"
 
 #: ../src/constant.py:115
 msgid "Italian"
-msgstr "Italien"
+msgstr "Italiensk"
 
 #: ../src/constant.py:116
 msgid "Hebrew"
-msgstr "Hébreux"
+msgstr "Hebræisk"
 
 #: ../src/constant.py:117
 msgid "Japanese"
-msgstr "Japonais"
+msgstr "Japansk"
 
 #: ../src/constant.py:118
 msgid "Georgian"
-msgstr "Géorgien"
+msgstr "Georgisk"
 
 #: ../src/constant.py:119
 msgid "Kannada"
-msgstr "Canadien"
+msgstr "Dravidiske sprog"
 
 #: ../src/constant.py:120
 msgid "Korean"
-msgstr "Coréen"
+msgstr "Koreansk"
 
 #: ../src/constant.py:121
 msgid "Latin"
@@ -218,67 +216,67 @@ msgstr "Latin"
 
 #: ../src/constant.py:122
 msgid "Lithuanian"
-msgstr "Lithuanien"
+msgstr "litauisk"
 
 #: ../src/constant.py:123
 msgid "Latvian"
-msgstr "Letton"
+msgstr "Lettisk"
 
 #: ../src/constant.py:124
 msgid "Macedonian"
-msgstr "Macédonien"
+msgstr "Makedonsk"
 
 #: ../src/constant.py:125
 msgid "Malay"
-msgstr "Malais"
+msgstr "Malaysisk"
 
 #: ../src/constant.py:126
 msgid "Maltese"
-msgstr "Maltais"
+msgstr "Maltesisk"
 
 #: ../src/constant.py:127
 msgid "Dutch"
-msgstr "Hollandais"
+msgstr "Hollandsk"
 
 #: ../src/constant.py:128
 msgid "Norwegian"
-msgstr "Novégien"
+msgstr "Norsk"
 
 #: ../src/constant.py:129
 msgid "Polish"
-msgstr "Polonais"
+msgstr "Polsk"
 
 #: ../src/constant.py:130
 msgid "Portuguese"
-msgstr "Portugais"
+msgstr "Portugisisk"
 
 #: ../src/constant.py:131
 msgid "Romanian"
-msgstr "Roumain"
+msgstr "Rumænsk"
 
 #: ../src/constant.py:132
 msgid "Russian"
-msgstr "Russe"
+msgstr "Russisk"
 
 #: ../src/constant.py:133
 msgid "Slovak"
-msgstr "Slovaque"
+msgstr "Slovakisk"
 
 #: ../src/constant.py:134
 msgid "Slovenian"
-msgstr "Slovène"
+msgstr "Slovensk"
 
 #: ../src/constant.py:135
 msgid "Albanian"
-msgstr "Albanais"
+msgstr "Albansk"
 
 #: ../src/constant.py:136
 msgid "Serbian"
-msgstr "Serbe"
+msgstr "Serbisk"
 
 #: ../src/constant.py:137
 msgid "Swedish"
-msgstr "Suédois"
+msgstr "Svensk"
 
 #: ../src/constant.py:138
 msgid "Swahili"
@@ -286,89 +284,89 @@ msgstr "Swahili"
 
 #: ../src/constant.py:139
 msgid "Tamil"
-msgstr "Tamoul"
+msgstr "Tamil"
 
 #: ../src/constant.py:140
 msgid "Telugu"
-msgstr "Telugu"
+msgstr "Telugu sproget"
 
 #: ../src/constant.py:141
 msgid "Thai"
-msgstr "Thaïlandais"
+msgstr "Thai"
 
 #: ../src/constant.py:142
 msgid "Filipino"
-msgstr "Philipain"
+msgstr "Filippinsk"
 
 #: ../src/constant.py:143
 msgid "Turkish"
-msgstr "Turque"
+msgstr "Tyrkisk"
 
 #: ../src/constant.py:144
 msgid "Ukrainian"
-msgstr "Ukrainien"
+msgstr "Ukrainsk"
 
 #: ../src/constant.py:145
 msgid "Urdu"
-msgstr "Ourdou"
+msgstr "Urdu"
 
 #: ../src/constant.py:146
 msgid "Vietnamese"
-msgstr "Vietnamien"
+msgstr "Vietnamesisk"
 
 #: ../src/constant.py:147
 msgid "Yiddish"
-msgstr "Yiddish"
+msgstr "Ortodoks jødisk"
 
 #: ../src/constant.py:148
 msgid "Chinese Simplified"
-msgstr "Chinois simplifié"
+msgstr "Forenklet kinesisk"
 
 #: ../src/constant.py:149
 msgid "Chinese Traditional"
-msgstr "Chinois traditionnel"
+msgstr "Traditionelt kinesisk"
 
 #: ../src/system_tray.py:108
 msgid "Pause translation"
-msgstr "Suspendre la traduction"
+msgstr "Pause oversættelse"
 
 #: ../src/system_tray.py:110
 msgid "Pronounce automatically"
-msgstr "Prononcer automatiquement"
+msgstr "Udtale automatisk"
 
 #: ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr "Traduire seulement en maintenant la touche Ctrl"
+msgstr "Oversæt kun når du holder Ctrl-tasten nede"
 
 #: ../src/system_tray.py:114
 msgid "Offline translation"
-msgstr "Traduction hors ligne"
+msgstr "Offline oversættelse"
 
 #: ../src/system_tray.py:119
 msgid "Settings"
-msgstr "Paramètres"
+msgstr "Instillinger"
 
 #: ../src/system_tray.py:122
 msgid "Exit"
-msgstr "Sortie"
+msgstr "Afslut"
 
 #: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Désolé, sélectionner-et-traduire ne supporte pas %s pour le moment"
+msgstr "Beklager, vælg-og-oversæt er ikke understøttet %s endnu"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Cancel"
-msgstr "Annuler "
+msgstr "Anullere"
 
 #: ../src/ocr.py:55
 msgid "Ok, I understand"
-msgstr "Ok, je comprends"
+msgstr "Ok, jeg forstår"
 
 #: ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
-msgstr "Un paquet OCR est requis pour activer la reconnaissance des mots"
+msgstr "Der kræves en OCR-pakke for at muliggøre ordgenkendelse"
 
 #: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
@@ -385,12 +383,12 @@ msgstr "UK"
 
 #: ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
-msgstr "Le paquet SVOX est requis pour activer la prononciation"
+msgstr "Pakken SVOX er påkrævet for at aktivere udtale"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
-msgstr "Le paquet SDCV est requis pour activer la traduction"
+msgstr "Pakken SDCV krævws for at aktivere oversættelse"
 
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
-msgstr "Échec de la traduction"
+msgstr ""

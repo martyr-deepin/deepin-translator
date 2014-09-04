@@ -3,66 +3,64 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# 4goodapp <4goodapp@gmail.com>, 2014
-# lexross <its4moi@gmail.com>, 2014
-# Tristan Denni <tristan.denni@viacesi.fr>, 2014
+# JimSp472000 <jimspentzos2000@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 17:09+0800\n"
-"PO-Revision-Date: 2014-09-03 14:02+0000\n"
-"Last-Translator: 4goodapp <4goodapp@gmail.com>\n"
-"Language-Team: French (http://www.transifex.com/projects/p/deepin-translator/language/fr/)\n"
+"PO-Revision-Date: 2014-09-03 01:41+0000\n"
+"Last-Translator: snyh <snyh@snyh.org>\n"
+"Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/deepin-translator/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
-msgstr "Paramètres de Deepin Translator"
+msgstr "Ρυθμίσεις Μεταφραστής Deepin"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
-msgstr "Langage source"
+msgstr "Αρχική γλώσσα"
 
 #: ../src/SettingView.qml:146
 msgid "Target language"
-msgstr "Langage cible"
+msgstr "Γλώσσα στόχου"
 
 #: ../src/SettingView.qml:152
 msgid "Word Translation"
-msgstr "Traduction du mot"
+msgstr "Μετάφραση Λέξεων"
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
-msgstr "Diction du mot"
+msgstr "Ομιλία λέξεων"
 
 #: ../src/SettingView.qml:164
 msgid "Full text translation"
-msgstr "Traduction du texte complet"
+msgstr "Μετάφραση πλήρους κειμένου"
 
 #: ../src/SettingView.qml:170
 msgid "Sentences speech"
-msgstr "Diction de phrases"
+msgstr "Ομιλία προτάσεων"
 
 #: ../src/SettingView.qml:404
 msgid "OK"
-msgstr "Valider"
+msgstr "OK"
 
 #: ../src/Toolbar.qml:65
 msgid "Voice"
-msgstr "Voix"
+msgstr "Φωνή"
 
 #: ../src/Toolbar.qml:71
 msgid "Copy to clipboard"
-msgstr "Copier dans le presse-papiers"
+msgstr "Αντιγραφή στο πρόχειρο"
 
 #: ../src/Toolbar.qml:77
 msgid "Wikipedia"
-msgstr "Wikipedia"
+msgstr "Βικιπαιδεία"
 
 #: ../src/Toolbar.qml:83
 msgid "Google"
@@ -70,327 +68,327 @@ msgstr "Google"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
-msgstr "Africain"
+msgstr "Αφρικάανς "
 
 #: ../src/constant.py:86
 msgid "Arabic"
-msgstr "Arabique"
+msgstr "Αραβικά"
 
 #: ../src/constant.py:87
 msgid "Azerbaijani"
-msgstr "Azerbaijani"
+msgstr "Αζερμπαϊτζανικά"
 
 #: ../src/constant.py:88
 msgid "Belarusian"
-msgstr "Biélorusse"
+msgstr "Λευκορωσικά"
 
 #: ../src/constant.py:89
 msgid "Bulgarian"
-msgstr "Bulgare"
+msgstr "Βουλγάρικα"
 
 #: ../src/constant.py:90
 msgid "Bengali"
-msgstr "Bengali"
+msgstr "Βεγγαλικά"
 
 #: ../src/constant.py:91
 msgid "Catalan"
-msgstr "Catalan"
+msgstr "Καταλανικά"
 
 #: ../src/constant.py:92
 msgid "Czech"
-msgstr "Tchèque"
+msgstr "Τσέχικα"
 
 #: ../src/constant.py:93
 msgid "Welsh"
-msgstr "Gallois"
+msgstr "Ουαλλικά"
 
 #: ../src/constant.py:94
 msgid "Danish"
-msgstr "Danois"
+msgstr "Δανικά"
 
 #: ../src/constant.py:95
 msgid "German"
-msgstr "Allemand"
+msgstr "Γερμανικά"
 
 #: ../src/constant.py:96
 msgid "English"
-msgstr "Anglais"
+msgstr "Αγγλικά"
 
 #: ../src/constant.py:97
 msgid "Esperanto"
-msgstr "Espérento"
+msgstr "Εσπεράντο"
 
 #: ../src/constant.py:98
 msgid "Spanish"
-msgstr "Espagnol"
+msgstr "Ισπανικά"
 
 #: ../src/constant.py:99
 msgid "Estonian"
-msgstr "Estonien"
+msgstr "Εσθονικά"
 
 #: ../src/constant.py:100
 msgid "Basque"
-msgstr "Basque"
+msgstr "Βασκικά"
 
 #: ../src/constant.py:101
 msgid "Persian"
-msgstr "Perse"
+msgstr "Περσικά"
 
 #: ../src/constant.py:102
 msgid "Finnish"
-msgstr "Finlandais"
+msgstr "Φιλανδικά"
 
 #: ../src/constant.py:103
 msgid "French"
-msgstr "Français"
+msgstr "Γαλλικά"
 
 #: ../src/constant.py:104
 msgid "Irish"
-msgstr "Irlandais"
+msgstr "Ιρλανδικά"
 
 #: ../src/constant.py:105
 msgid "Galician"
-msgstr "Galicien"
+msgstr "Γαλικιακά"
 
 #: ../src/constant.py:106
 msgid "Greek"
-msgstr "Grecque"
+msgstr "Ελληνικά"
 
 #: ../src/constant.py:107
 msgid "Gujarati"
-msgstr "Gujarati"
+msgstr "Γκουτζαρατικά"
 
 #: ../src/constant.py:108
 msgid "Hindi"
-msgstr "Hindi"
+msgstr "Ινδικά"
 
 #: ../src/constant.py:109
 msgid "Croatian"
-msgstr "Croate"
+msgstr "Κροατικά"
 
 #: ../src/constant.py:110
 msgid "Haitian"
-msgstr "Haïtien"
+msgstr "Αϊτινά"
 
 #: ../src/constant.py:111
 msgid "Hungaric"
-msgstr "Hongrois"
+msgstr "Ουγγρικά"
 
 #: ../src/constant.py:112
 msgid "Armenian"
-msgstr "Arménien"
+msgstr "Αρμενικά"
 
 #: ../src/constant.py:113
 msgid "Indonesian"
-msgstr "indonésien"
+msgstr "Ινδονησιακά"
 
 #: ../src/constant.py:114
 msgid "Icelandic"
-msgstr "Islandais"
+msgstr "Ισλανδικά"
 
 #: ../src/constant.py:115
 msgid "Italian"
-msgstr "Italien"
+msgstr "Ιταλικά"
 
 #: ../src/constant.py:116
 msgid "Hebrew"
-msgstr "Hébreux"
+msgstr "Εβραϊκά"
 
 #: ../src/constant.py:117
 msgid "Japanese"
-msgstr "Japonais"
+msgstr "Ιαπωνικά"
 
 #: ../src/constant.py:118
 msgid "Georgian"
-msgstr "Géorgien"
+msgstr "Γεωργιανά"
 
 #: ../src/constant.py:119
 msgid "Kannada"
-msgstr "Canadien"
+msgstr "Κανάντα"
 
 #: ../src/constant.py:120
 msgid "Korean"
-msgstr "Coréen"
+msgstr "Κορεατικά"
 
 #: ../src/constant.py:121
 msgid "Latin"
-msgstr "Latin"
+msgstr "Λατινικά"
 
 #: ../src/constant.py:122
 msgid "Lithuanian"
-msgstr "Lithuanien"
+msgstr "Λιθουανικά "
 
 #: ../src/constant.py:123
 msgid "Latvian"
-msgstr "Letton"
+msgstr "Λετονικά"
 
 #: ../src/constant.py:124
 msgid "Macedonian"
-msgstr "Macédonien"
+msgstr "Μακεδονικά"
 
 #: ../src/constant.py:125
 msgid "Malay"
-msgstr "Malais"
+msgstr "Μαλαισιανά"
 
 #: ../src/constant.py:126
 msgid "Maltese"
-msgstr "Maltais"
+msgstr "Μαλτέζικα"
 
 #: ../src/constant.py:127
 msgid "Dutch"
-msgstr "Hollandais"
+msgstr "Ολλανδικά"
 
 #: ../src/constant.py:128
 msgid "Norwegian"
-msgstr "Novégien"
+msgstr "Νορβηγικά"
 
 #: ../src/constant.py:129
 msgid "Polish"
-msgstr "Polonais"
+msgstr "Πολωνικά"
 
 #: ../src/constant.py:130
 msgid "Portuguese"
-msgstr "Portugais"
+msgstr "Πορτογαλικά"
 
 #: ../src/constant.py:131
 msgid "Romanian"
-msgstr "Roumain"
+msgstr "Ρουμανικά"
 
 #: ../src/constant.py:132
 msgid "Russian"
-msgstr "Russe"
+msgstr "Ρωσικά"
 
 #: ../src/constant.py:133
 msgid "Slovak"
-msgstr "Slovaque"
+msgstr "Σλοβακικά"
 
 #: ../src/constant.py:134
 msgid "Slovenian"
-msgstr "Slovène"
+msgstr "Σλοβενικά"
 
 #: ../src/constant.py:135
 msgid "Albanian"
-msgstr "Albanais"
+msgstr "Αλβανικά"
 
 #: ../src/constant.py:136
 msgid "Serbian"
-msgstr "Serbe"
+msgstr "Σέρβικα"
 
 #: ../src/constant.py:137
 msgid "Swedish"
-msgstr "Suédois"
+msgstr "Σουηδικά"
 
 #: ../src/constant.py:138
 msgid "Swahili"
-msgstr "Swahili"
+msgstr "Σουαχίλι"
 
 #: ../src/constant.py:139
 msgid "Tamil"
-msgstr "Tamoul"
+msgstr "Ταμίλ"
 
 #: ../src/constant.py:140
 msgid "Telugu"
-msgstr "Telugu"
+msgstr "Τελούγκου"
 
 #: ../src/constant.py:141
 msgid "Thai"
-msgstr "Thaïlandais"
+msgstr "Ταϊλανδικά"
 
 #: ../src/constant.py:142
 msgid "Filipino"
-msgstr "Philipain"
+msgstr "Φιλιππινέζικα"
 
 #: ../src/constant.py:143
 msgid "Turkish"
-msgstr "Turque"
+msgstr "Τουρκικά"
 
 #: ../src/constant.py:144
 msgid "Ukrainian"
-msgstr "Ukrainien"
+msgstr "Ουκρανικά"
 
 #: ../src/constant.py:145
 msgid "Urdu"
-msgstr "Ourdou"
+msgstr "Ουρντού"
 
 #: ../src/constant.py:146
 msgid "Vietnamese"
-msgstr "Vietnamien"
+msgstr "Βιετναμέζικα"
 
 #: ../src/constant.py:147
 msgid "Yiddish"
-msgstr "Yiddish"
+msgstr "Γίντις"
 
 #: ../src/constant.py:148
 msgid "Chinese Simplified"
-msgstr "Chinois simplifié"
+msgstr "Απλοποιημένα Κινέζικα"
 
 #: ../src/constant.py:149
 msgid "Chinese Traditional"
-msgstr "Chinois traditionnel"
+msgstr "Παραδοσιακά Κινέζικα"
 
 #: ../src/system_tray.py:108
 msgid "Pause translation"
-msgstr "Suspendre la traduction"
+msgstr "Παύση μετάφρασης"
 
 #: ../src/system_tray.py:110
 msgid "Pronounce automatically"
-msgstr "Prononcer automatiquement"
+msgstr "Αυτόματη προφορά"
 
 #: ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr "Traduire seulement en maintenant la touche Ctrl"
+msgstr "Μετάφραση μόνο όταν κρατιέται πατημένο το πλήκτρο Ctrl"
 
 #: ../src/system_tray.py:114
 msgid "Offline translation"
-msgstr "Traduction hors ligne"
+msgstr "Μετάφραση χωρίς σύνδεση"
 
 #: ../src/system_tray.py:119
 msgid "Settings"
-msgstr "Paramètres"
+msgstr "Ρυθμίσεις"
 
 #: ../src/system_tray.py:122
 msgid "Exit"
-msgstr "Sortie"
+msgstr "Έξοδος"
 
 #: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Désolé, sélectionner-et-traduire ne supporte pas %s pour le moment"
+msgstr "Συγγνώμη, η επιλογή-και-μετάφραση δεν υποστηρίζει %s ακόμα"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Cancel"
-msgstr "Annuler "
+msgstr "Ακύρωση"
 
 #: ../src/ocr.py:55
 msgid "Ok, I understand"
-msgstr "Ok, je comprends"
+msgstr "Εντάξει, καταλαβαίνω"
 
 #: ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
-msgstr "Un paquet OCR est requis pour activer la reconnaissance des mots"
+msgstr "Απαιτείται ένα πακέτο OCR για να ενεργοποιηθεί η αναγνώριση λέξεων"
 
 #: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Install"
-msgstr "Installer"
+msgstr "Εγκατάσταση"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
-msgstr "US"
+msgstr "Ηνωμένες Πολιτείες"
 
 #: ../src/tts_plugins/youdao/tts.py:72
 msgid "UK"
-msgstr "UK"
+msgstr "Ηνωμένο Βασίλειο"
 
 #: ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
-msgstr "Le paquet SVOX est requis pour activer la prononciation"
+msgstr "Απαιτείται πακέτο SVOX για να ενεργοποιηθεί η προφορά λέξεων"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
-msgstr "Le paquet SDCV est requis pour activer la traduction"
+msgstr "Απαιτείται πακέτο SDCV για να ενεργοποιηθεί η μετάφραση"
 
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
-msgstr "Échec de la traduction"
+msgstr "Αποτυχία μετάφρασης"
