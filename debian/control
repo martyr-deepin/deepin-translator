@@ -2,8 +2,8 @@ Source: deepin-translator
 Section: education
 Priority: optional
 Maintainer:  Li Longyu (Ai Kotoba) <leaeasy@gmail.com>
-Build-Depends: debhelper (>= 8.0.0), python (>= 2.6.3~)
-Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 9), python (>= 2.6.3~)
+Standards-Version: 3.9.5
 Homepage: https://github.com/manateelazycat/deepin-translator
 
 Package: deepin-translator
@@ -24,8 +24,7 @@ Depends: ${shlibs:Depends},
  xsel,
  python-deepin-utils,
  python-xlib,
- dde-qml-gettext-plugin,
- deepin-qml-widgets (>= 0.0.2+20140723165854),
+ deepin-qml-widgets
 Recommends: deepin-software-center
 Description: feature-rich dictionary lookup program from linux deepin
  Features:
