@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 18:31+0800\n"
-"PO-Revision-Date: 2014-08-22 11:21+0000\n"
-"Last-Translator: fri\n"
+"POT-Creation-Date: 2014-09-04 17:09+0800\n"
+"PO-Revision-Date: 2014-09-03 01:41+0000\n"
+"Last-Translator: snyh <snyh@snyh.org>\n"
 "Language-Team: Czech (http://www.transifex.com/projects/p/deepin-translator/language/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,371 +19,17 @@ msgstr ""
 "Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: src/constant.py:85 ../src/constant.py:85
-msgid "Afrikaans"
-msgstr "Afrikánský"
-
-#: src/constant.py:135 ../src/constant.py:135
-msgid "Albanian"
-msgstr "Albánský"
-
-#: src/ocr.py:62 ../src/ocr.py:62
-msgid "An OCR package is required to enable word recognition"
-msgstr "Je požadován balíček OCR pro umožnění rozpoznávání slov"
-
-#: src/constant.py:86 ../src/constant.py:86
-msgid "Arabic"
-msgstr "Arabský"
-
-#: src/constant.py:112 ../src/constant.py:112
-msgid "Armenian"
-msgstr "Arménský"
-
-#: src/constant.py:87 ../src/constant.py:87
-msgid "Azerbaijani"
-msgstr "Ázerbajdžánský"
-
-#: src/constant.py:100 ../src/constant.py:100
-msgid "Basque"
-msgstr "Baskický"
-
-#: src/constant.py:88 ../src/constant.py:88
-msgid "Belarusian"
-msgstr "Běloruský"
-
-#: src/constant.py:90 ../src/constant.py:90
-msgid "Bengali"
-msgstr "Bengálský"
-
-#: src/constant.py:89 ../src/constant.py:89
-msgid "Bulgarian"
-msgstr "Bulharský"
-
-#: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
-#: src/ocr.py:55 src/ocr.py:62 ../src/ocr.py:55 ../src/ocr.py:62
-#: ../src/dict_plugins/sdcv/translate.py:54 ../src/tts_plugins/svox/tts.py:39
-msgid "Cancel"
-msgstr "Zrušit"
-
-#: src/constant.py:91 ../src/constant.py:91
-msgid "Catalan"
-msgstr "Katalánský"
-
-#: src/constant.py:148 ../src/constant.py:148
-msgid "Chinese Simplified"
-msgstr "Čínský zjednodušený"
-
-#: src/constant.py:149 ../src/constant.py:149
-msgid "Chinese Traditional"
-msgstr "Čínský tradiční"
-
-#: ../src/Toolbar.qml:71
-msgid "Copy to clipboard"
-msgstr "Kopírovat do schránky"
-
-#: src/constant.py:109 ../src/constant.py:109
-msgid "Croatian"
-msgstr "Chorvatský"
-
-#: src/constant.py:92 ../src/constant.py:92
-msgid "Czech"
-msgstr "Český"
-
-#: src/constant.py:94 ../src/constant.py:94
-msgid "Danish"
-msgstr "Dánský"
-
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
 msgstr "Nastavení překladatele"
-
-#: src/constant.py:127 ../src/constant.py:127
-msgid "Dutch"
-msgstr "Nizozemský"
-
-#: src/constant.py:96 ../src/constant.py:96
-msgid "English"
-msgstr "Anglický"
-
-#: src/constant.py:97 ../src/constant.py:97
-msgid "Esperanto"
-msgstr "Esperanto"
-
-#: src/constant.py:99 ../src/constant.py:99
-msgid "Estonian"
-msgstr "Estonský"
-
-#: src/system_tray.py:122 ../src/system_tray.py:122
-msgid "Exit"
-msgstr "Ukončit"
-
-#: src/constant.py:142 ../src/constant.py:142
-msgid "Filipino"
-msgstr "Filipínský"
-
-#: src/constant.py:102 ../src/constant.py:102
-msgid "Finnish"
-msgstr "Finský"
-
-#: src/constant.py:103 ../src/constant.py:103
-msgid "French"
-msgstr "Francouzský"
-
-#: ../src/SettingView.qml:164
-msgid "Full text translation"
-msgstr "Překlad celého textu"
-
-#: src/constant.py:105 ../src/constant.py:105
-msgid "Galician"
-msgstr "Galicijský"
-
-#: src/constant.py:118 ../src/constant.py:118
-msgid "Georgian"
-msgstr "Gruzínský"
-
-#: src/constant.py:95 ../src/constant.py:95
-msgid "German"
-msgstr "Německý"
-
-#: ../src/Toolbar.qml:83
-msgid "Google"
-msgstr "Google"
-
-#: src/constant.py:106 ../src/constant.py:106
-msgid "Greek"
-msgstr "Řecký"
-
-#: src/constant.py:107 ../src/constant.py:107
-msgid "Gujarati"
-msgstr "Gujaratský"
-
-#: src/constant.py:110 ../src/constant.py:110
-msgid "Haitian"
-msgstr "Hajtský"
-
-#: src/constant.py:116 ../src/constant.py:116
-msgid "Hebrew"
-msgstr "Hebrejský"
-
-#: src/constant.py:108 ../src/constant.py:108
-msgid "Hindi"
-msgstr "Hindský"
-
-#: src/constant.py:111 ../src/constant.py:111
-msgid "Hungaric"
-msgstr "Maďarský"
-
-#: src/constant.py:114 ../src/constant.py:114
-msgid "Icelandic"
-msgstr "Islandský"
-
-#: src/constant.py:113 ../src/constant.py:113
-msgid "Indonesian"
-msgstr "Indonéský"
-
-#: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
-#: src/ocr.py:62 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:54
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Install"
-msgstr "Instalovat"
-
-#: src/constant.py:104 ../src/constant.py:104
-msgid "Irish"
-msgstr "Irský"
-
-#: src/constant.py:115 ../src/constant.py:115
-msgid "Italian"
-msgstr "Italský"
-
-#: src/constant.py:117 ../src/constant.py:117
-msgid "Japanese"
-msgstr "Japonský"
-
-#: src/constant.py:119 ../src/constant.py:119
-msgid "Kannada"
-msgstr "Kannadský"
-
-#: src/constant.py:120 ../src/constant.py:120
-msgid "Korean"
-msgstr "Korejský"
-
-#: src/constant.py:121 ../src/constant.py:121
-msgid "Latin"
-msgstr "Latinský"
-
-#: src/constant.py:123 ../src/constant.py:123
-msgid "Latvian"
-msgstr "Lotyšský"
-
-#: src/constant.py:122 ../src/constant.py:122
-msgid "Lithuanian"
-msgstr "Litevský"
-
-#: src/constant.py:124 ../src/constant.py:124
-msgid "Macedonian"
-msgstr "Makedonský"
-
-#: src/constant.py:125 ../src/constant.py:125
-msgid "Malay"
-msgstr "Malajský"
-
-#: src/constant.py:126 ../src/constant.py:126
-msgid "Maltese"
-msgstr "Maltský"
-
-#: src/constant.py:128 ../src/constant.py:128
-msgid "Norwegian"
-msgstr "Norský"
-
-#: ../src/SettingView.qml:404
-msgid "OK"
-msgstr "OK"
-
-#: src/system_tray.py:114 ../src/system_tray.py:114
-msgid "Offline translation"
-msgstr "Překlad bez připojení k internetu"
-
-#: src/ocr.py:55 ../src/ocr.py:55
-msgid "Ok, I understand"
-msgstr "OK"
-
-#: src/dict_plugins/sdcv/translate.py:54
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Package SDCV is required to enable translation"
-msgstr "Je požadován balíček SDCV pro umožnění vyslovování"
-
-#: src/tts_plugins/svox/tts.py:39 ../src/tts_plugins/svox/tts.py:39
-msgid "Package SVOX is required to enable pronunciation"
-msgstr "Je požadován balíček SVOX pro umožnění vyslovování"
-
-#: src/system_tray.py:108 ../src/system_tray.py:108
-msgid "Pause translation"
-msgstr "Pozastavit překlad"
-
-#: src/constant.py:101 ../src/constant.py:101
-msgid "Persian"
-msgstr "Perský"
-
-#: src/constant.py:129 ../src/constant.py:129
-msgid "Polish"
-msgstr "Polský"
-
-#: src/constant.py:130 ../src/constant.py:130
-msgid "Portuguese"
-msgstr "Portugalský"
-
-#: src/system_tray.py:110 ../src/system_tray.py:110
-msgid "Pronounce automatically"
-msgstr "Vyslovovat automaticky"
-
-#: src/constant.py:131 ../src/constant.py:131
-msgid "Romanian"
-msgstr "Rumunské"
-
-#: src/constant.py:132 ../src/constant.py:132
-msgid "Russian"
-msgstr "Ruský"
-
-#: ../src/SettingView.qml:170
-msgid "Sentences speech"
-msgstr "Mluvení vět"
-
-#: src/constant.py:136 ../src/constant.py:136
-msgid "Serbian"
-msgstr "Srbský"
-
-#: src/system_tray.py:119 ../src/system_tray.py:119
-msgid "Settings"
-msgstr "Nastavení"
-
-#: src/constant.py:133 ../src/constant.py:133
-msgid "Slovak"
-msgstr "Slovenský"
-
-#: src/constant.py:134 ../src/constant.py:134
-msgid "Slovenian"
-msgstr "Slovinský"
-
-#: src/ocr.py:55 ../src/ocr.py:55
-#, python-format
-msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Promiňte, ale funkce vybrat a přeložit ještě není %s podporována"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
 msgstr "Zdrojový jazyk"
 
-#: src/constant.py:98 ../src/constant.py:98
-msgid "Spanish"
-msgstr "Španělský"
-
-#: src/constant.py:138 ../src/constant.py:138
-msgid "Swahili"
-msgstr "Svahilský"
-
-#: src/constant.py:137 ../src/constant.py:137
-msgid "Swedish"
-msgstr "Švédský"
-
-#: src/constant.py:139 ../src/constant.py:139
-msgid "Tamil"
-msgstr "Tamilský"
-
 #: ../src/SettingView.qml:146
 msgid "Target language"
 msgstr "Cílový jazyk"
-
-#: src/constant.py:140 ../src/constant.py:140
-msgid "Telugu"
-msgstr "Telužský"
-
-#: src/constant.py:141 ../src/constant.py:141
-msgid "Thai"
-msgstr "Thajský"
-
-#: src/dict_plugins/google_simple/translate.py:97
-msgid "Translate failed"
-msgstr "Překlad se nezdařil"
-
-#: src/system_tray.py:112 ../src/system_tray.py:112
-msgid "Translate only when holding Ctrl key"
-msgstr "Překládat je při držení klávesy Ctrl"
-
-#: src/constant.py:143 ../src/constant.py:143
-msgid "Turkish"
-msgstr "Turecký"
-
-#: src/tts_plugins/youdao/tts.py:72 ../src/tts_plugins/youdao/tts.py:72
-msgid "UK"
-msgstr "UK"
-
-#: src/tts_plugins/youdao/tts.py:67 ../src/tts_plugins/youdao/tts.py:67
-msgid "US"
-msgstr "US"
-
-#: src/constant.py:144 ../src/constant.py:144
-msgid "Ukrainian"
-msgstr "Ukrajinský"
-
-#: src/constant.py:145 ../src/constant.py:145
-msgid "Urdu"
-msgstr "Urdský"
-
-#: src/constant.py:146 ../src/constant.py:146
-msgid "Vietnamese"
-msgstr "Vietnamský"
-
-#: ../src/Toolbar.qml:65
-msgid "Voice"
-msgstr "Hlas"
-
-#: src/constant.py:93 ../src/constant.py:93
-msgid "Welsh"
-msgstr "Velšský"
-
-#: ../src/Toolbar.qml:77
-msgid "Wikipedia"
-msgstr "Wikipedie"
 
 #: ../src/SettingView.qml:152
 msgid "Word Translation"
@@ -393,9 +39,356 @@ msgstr "Překlad slov"
 msgid "Word speech"
 msgstr "Mluvení slov"
 
-#: src/constant.py:147 ../src/constant.py:147
+#: ../src/SettingView.qml:164
+msgid "Full text translation"
+msgstr "Překlad celého textu"
+
+#: ../src/SettingView.qml:170
+msgid "Sentences speech"
+msgstr "Mluvení vět"
+
+#: ../src/SettingView.qml:404
+msgid "OK"
+msgstr "OK"
+
+#: ../src/Toolbar.qml:65
+msgid "Voice"
+msgstr "Hlas"
+
+#: ../src/Toolbar.qml:71
+msgid "Copy to clipboard"
+msgstr "Kopírovat do schránky"
+
+#: ../src/Toolbar.qml:77
+msgid "Wikipedia"
+msgstr "Wikipedie"
+
+#: ../src/Toolbar.qml:83
+msgid "Google"
+msgstr "Google"
+
+#: ../src/constant.py:85
+msgid "Afrikaans"
+msgstr "Afrikánský"
+
+#: ../src/constant.py:86
+msgid "Arabic"
+msgstr "Arabský"
+
+#: ../src/constant.py:87
+msgid "Azerbaijani"
+msgstr "Ázerbajdžánský"
+
+#: ../src/constant.py:88
+msgid "Belarusian"
+msgstr "Běloruský"
+
+#: ../src/constant.py:89
+msgid "Bulgarian"
+msgstr "Bulharský"
+
+#: ../src/constant.py:90
+msgid "Bengali"
+msgstr "Bengálský"
+
+#: ../src/constant.py:91
+msgid "Catalan"
+msgstr "Katalánský"
+
+#: ../src/constant.py:92
+msgid "Czech"
+msgstr "Český"
+
+#: ../src/constant.py:93
+msgid "Welsh"
+msgstr "Velšský"
+
+#: ../src/constant.py:94
+msgid "Danish"
+msgstr "Dánský"
+
+#: ../src/constant.py:95
+msgid "German"
+msgstr "Německý"
+
+#: ../src/constant.py:96
+msgid "English"
+msgstr "Anglický"
+
+#: ../src/constant.py:97
+msgid "Esperanto"
+msgstr "Esperanto"
+
+#: ../src/constant.py:98
+msgid "Spanish"
+msgstr "Španělský"
+
+#: ../src/constant.py:99
+msgid "Estonian"
+msgstr "Estonský"
+
+#: ../src/constant.py:100
+msgid "Basque"
+msgstr "Baskický"
+
+#: ../src/constant.py:101
+msgid "Persian"
+msgstr "Perský"
+
+#: ../src/constant.py:102
+msgid "Finnish"
+msgstr "Finský"
+
+#: ../src/constant.py:103
+msgid "French"
+msgstr "Francouzský"
+
+#: ../src/constant.py:104
+msgid "Irish"
+msgstr "Irský"
+
+#: ../src/constant.py:105
+msgid "Galician"
+msgstr "Galicijský"
+
+#: ../src/constant.py:106
+msgid "Greek"
+msgstr "Řecký"
+
+#: ../src/constant.py:107
+msgid "Gujarati"
+msgstr "Gujaratský"
+
+#: ../src/constant.py:108
+msgid "Hindi"
+msgstr "Hindský"
+
+#: ../src/constant.py:109
+msgid "Croatian"
+msgstr "Chorvatský"
+
+#: ../src/constant.py:110
+msgid "Haitian"
+msgstr "Hajtský"
+
+#: ../src/constant.py:111
+msgid "Hungaric"
+msgstr "Maďarský"
+
+#: ../src/constant.py:112
+msgid "Armenian"
+msgstr "Arménský"
+
+#: ../src/constant.py:113
+msgid "Indonesian"
+msgstr "Indonéský"
+
+#: ../src/constant.py:114
+msgid "Icelandic"
+msgstr "Islandský"
+
+#: ../src/constant.py:115
+msgid "Italian"
+msgstr "Italský"
+
+#: ../src/constant.py:116
+msgid "Hebrew"
+msgstr "Hebrejský"
+
+#: ../src/constant.py:117
+msgid "Japanese"
+msgstr "Japonský"
+
+#: ../src/constant.py:118
+msgid "Georgian"
+msgstr "Gruzínský"
+
+#: ../src/constant.py:119
+msgid "Kannada"
+msgstr "Kannadský"
+
+#: ../src/constant.py:120
+msgid "Korean"
+msgstr "Korejský"
+
+#: ../src/constant.py:121
+msgid "Latin"
+msgstr "Latinský"
+
+#: ../src/constant.py:122
+msgid "Lithuanian"
+msgstr "Litevský"
+
+#: ../src/constant.py:123
+msgid "Latvian"
+msgstr "Lotyšský"
+
+#: ../src/constant.py:124
+msgid "Macedonian"
+msgstr "Makedonský"
+
+#: ../src/constant.py:125
+msgid "Malay"
+msgstr "Malajský"
+
+#: ../src/constant.py:126
+msgid "Maltese"
+msgstr "Maltský"
+
+#: ../src/constant.py:127
+msgid "Dutch"
+msgstr "Nizozemský"
+
+#: ../src/constant.py:128
+msgid "Norwegian"
+msgstr "Norský"
+
+#: ../src/constant.py:129
+msgid "Polish"
+msgstr "Polský"
+
+#: ../src/constant.py:130
+msgid "Portuguese"
+msgstr "Portugalský"
+
+#: ../src/constant.py:131
+msgid "Romanian"
+msgstr "Rumunské"
+
+#: ../src/constant.py:132
+msgid "Russian"
+msgstr "Ruský"
+
+#: ../src/constant.py:133
+msgid "Slovak"
+msgstr "Slovenský"
+
+#: ../src/constant.py:134
+msgid "Slovenian"
+msgstr "Slovinský"
+
+#: ../src/constant.py:135
+msgid "Albanian"
+msgstr "Albánský"
+
+#: ../src/constant.py:136
+msgid "Serbian"
+msgstr "Srbský"
+
+#: ../src/constant.py:137
+msgid "Swedish"
+msgstr "Švédský"
+
+#: ../src/constant.py:138
+msgid "Swahili"
+msgstr "Svahilský"
+
+#: ../src/constant.py:139
+msgid "Tamil"
+msgstr "Tamilský"
+
+#: ../src/constant.py:140
+msgid "Telugu"
+msgstr "Telužský"
+
+#: ../src/constant.py:141
+msgid "Thai"
+msgstr "Thajský"
+
+#: ../src/constant.py:142
+msgid "Filipino"
+msgstr "Filipínský"
+
+#: ../src/constant.py:143
+msgid "Turkish"
+msgstr "Turecký"
+
+#: ../src/constant.py:144
+msgid "Ukrainian"
+msgstr "Ukrajinský"
+
+#: ../src/constant.py:145
+msgid "Urdu"
+msgstr "Urdský"
+
+#: ../src/constant.py:146
+msgid "Vietnamese"
+msgstr "Vietnamský"
+
+#: ../src/constant.py:147
 msgid "Yiddish"
 msgstr "Jidiš"
+
+#: ../src/constant.py:148
+msgid "Chinese Simplified"
+msgstr "Čínský zjednodušený"
+
+#: ../src/constant.py:149
+msgid "Chinese Traditional"
+msgstr "Čínský tradiční"
+
+#: ../src/system_tray.py:108
+msgid "Pause translation"
+msgstr "Pozastavit překlad"
+
+#: ../src/system_tray.py:110
+msgid "Pronounce automatically"
+msgstr "Vyslovovat automaticky"
+
+#: ../src/system_tray.py:112
+msgid "Translate only when holding Ctrl key"
+msgstr "Překládat je při držení klávesy Ctrl"
+
+#: ../src/system_tray.py:114
+msgid "Offline translation"
+msgstr "Překlad bez připojení k internetu"
+
+#: ../src/system_tray.py:119
+msgid "Settings"
+msgstr "Nastavení"
+
+#: ../src/system_tray.py:122
+msgid "Exit"
+msgstr "Ukončit"
+
+#: ../src/ocr.py:55
+#, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
+msgstr "Promiňte, ale funkce vybrat a přeložit ještě není %s podporována"
+
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: ../src/ocr.py:55
+msgid "Ok, I understand"
+msgstr "OK"
+
+#: ../src/ocr.py:62
+msgid "An OCR package is required to enable word recognition"
+msgstr "Je požadován balíček OCR pro umožnění rozpoznávání slov"
+
+#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Install"
+msgstr "Instalovat"
+
+#: ../src/tts_plugins/youdao/tts.py:67
+msgid "US"
+msgstr "US"
+
+#: ../src/tts_plugins/youdao/tts.py:72
+msgid "UK"
+msgstr "UK"
+
+#: ../src/tts_plugins/svox/tts.py:39
+msgid "Package SVOX is required to enable pronunciation"
+msgstr "Je požadován balíček SVOX pro umožnění vyslovování"
+
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Package SDCV is required to enable translation"
+msgstr "Je požadován balíček SDCV pro umožnění vyslovování"
 
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"

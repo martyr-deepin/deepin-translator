@@ -3,62 +3,60 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# JeffWagen <jeff.wagen@yahoo.com>, 2014
-# RAFAEL GAUNA <rafaelgt.mbin@gmail.com>, 2014
-# Rubens de Almeida Medeiros <rubens.cejovem@gmail.com>, 2014
+# Heimen Stoffels <motionshot@vivaldi.net>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 17:09+0800\n"
-"PO-Revision-Date: 2014-09-03 01:41+0000\n"
-"Last-Translator: snyh <snyh@snyh.org>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/deepin-translator/language/pt_BR/)\n"
+"PO-Revision-Date: 2014-09-22 12:11+0000\n"
+"Last-Translator: Heimen Stoffels <motionshot@vivaldi.net>\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/deepin-translator/language/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
-msgstr "Configurações do Deepin Translator"
+msgstr "Deepin Vertaler-instellingen"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
-msgstr "Idioma de origem"
+msgstr "Brontaal"
 
 #: ../src/SettingView.qml:146
 msgid "Target language"
-msgstr "Idioma desejado"
+msgstr "Doeltaal"
 
 #: ../src/SettingView.qml:152
 msgid "Word Translation"
-msgstr "Tradução de Palavras"
+msgstr "Woordvertaling"
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
-msgstr "Pronúncia da palavra"
+msgstr "Woorduitspraak"
 
 #: ../src/SettingView.qml:164
 msgid "Full text translation"
-msgstr "Tradução de texto completo"
+msgstr "Volledige tekst-vertaling"
 
 #: ../src/SettingView.qml:170
 msgid "Sentences speech"
-msgstr "Pronúncia da sentença"
+msgstr "Zinsvertaling"
 
 #: ../src/SettingView.qml:404
 msgid "OK"
-msgstr "OK"
+msgstr "Oké"
 
 #: ../src/Toolbar.qml:65
 msgid "Voice"
-msgstr "Voz"
+msgstr "Stem"
 
 #: ../src/Toolbar.qml:71
 msgid "Copy to clipboard"
-msgstr "Copiar para a área de transferência"
+msgstr "Kopiëren naar klembord"
 
 #: ../src/Toolbar.qml:77
 msgid "Wikipedia"
@@ -70,51 +68,51 @@ msgstr "Google"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
-msgstr "Africâner"
+msgstr "Afrikaans"
 
 #: ../src/constant.py:86
 msgid "Arabic"
-msgstr "Arábico"
+msgstr "Arabisch"
 
 #: ../src/constant.py:87
 msgid "Azerbaijani"
-msgstr "Azerbaijano"
+msgstr "Azerbaijaans"
 
 #: ../src/constant.py:88
 msgid "Belarusian"
-msgstr "Bielorruso"
+msgstr "Belarusiaans"
 
 #: ../src/constant.py:89
 msgid "Bulgarian"
-msgstr "Búlgaro"
+msgstr "Bulgaars"
 
 #: ../src/constant.py:90
 msgid "Bengali"
-msgstr "Bengali"
+msgstr "Bengalees"
 
 #: ../src/constant.py:91
 msgid "Catalan"
-msgstr "Catalão"
+msgstr "Cataleens"
 
 #: ../src/constant.py:92
 msgid "Czech"
-msgstr "Tcheco"
+msgstr "Tjechisch"
 
 #: ../src/constant.py:93
 msgid "Welsh"
-msgstr "Galês"
+msgstr "Waals"
 
 #: ../src/constant.py:94
 msgid "Danish"
-msgstr "Dinamarquês"
+msgstr "Deens"
 
 #: ../src/constant.py:95
 msgid "German"
-msgstr "Alemão"
+msgstr "Duits"
 
 #: ../src/constant.py:96
 msgid "English"
-msgstr "Inglês"
+msgstr "Engels"
 
 #: ../src/constant.py:97
 msgid "Esperanto"
@@ -122,171 +120,171 @@ msgstr "Esperanto"
 
 #: ../src/constant.py:98
 msgid "Spanish"
-msgstr "Espanhol"
+msgstr "Spaans"
 
 #: ../src/constant.py:99
 msgid "Estonian"
-msgstr "Estoniano"
+msgstr "Ests"
 
 #: ../src/constant.py:100
 msgid "Basque"
-msgstr "Basco"
+msgstr "Basks"
 
 #: ../src/constant.py:101
 msgid "Persian"
-msgstr "Persa"
+msgstr "Perziaans"
 
 #: ../src/constant.py:102
 msgid "Finnish"
-msgstr "Finlandês"
+msgstr "Fins"
 
 #: ../src/constant.py:103
 msgid "French"
-msgstr "Francês"
+msgstr "Frans"
 
 #: ../src/constant.py:104
 msgid "Irish"
-msgstr "Irlandês"
+msgstr "Iers"
 
 #: ../src/constant.py:105
 msgid "Galician"
-msgstr "Galego"
+msgstr "Gallisch"
 
 #: ../src/constant.py:106
 msgid "Greek"
-msgstr "Grego"
+msgstr "Grieks"
 
 #: ../src/constant.py:107
 msgid "Gujarati"
-msgstr "Gujarati"
+msgstr "Gujaratisch"
 
 #: ../src/constant.py:108
 msgid "Hindi"
-msgstr "Hindi"
+msgstr "Hindoestaans"
 
 #: ../src/constant.py:109
 msgid "Croatian"
-msgstr "Croata"
+msgstr "Kroaats"
 
 #: ../src/constant.py:110
 msgid "Haitian"
-msgstr "Haitiano"
+msgstr "Haitisch"
 
 #: ../src/constant.py:111
 msgid "Hungaric"
-msgstr "Húngaro"
+msgstr "Hongaars"
 
 #: ../src/constant.py:112
 msgid "Armenian"
-msgstr "Armênio"
+msgstr "Armeens"
 
 #: ../src/constant.py:113
 msgid "Indonesian"
-msgstr "Indonésio"
+msgstr "Indonesisch"
 
 #: ../src/constant.py:114
 msgid "Icelandic"
-msgstr "Islandês"
+msgstr "IJslands"
 
 #: ../src/constant.py:115
 msgid "Italian"
-msgstr "Italiano"
+msgstr "Italiaans"
 
 #: ../src/constant.py:116
 msgid "Hebrew"
-msgstr "Hebráico"
+msgstr "Hebreeuws"
 
 #: ../src/constant.py:117
 msgid "Japanese"
-msgstr "Japonês"
+msgstr "Japans"
 
 #: ../src/constant.py:118
 msgid "Georgian"
-msgstr "Georgiano"
+msgstr "Georgisch"
 
 #: ../src/constant.py:119
 msgid "Kannada"
-msgstr "Kannada"
+msgstr "Kannadees"
 
 #: ../src/constant.py:120
 msgid "Korean"
-msgstr "Coreano"
+msgstr "Koreaans"
 
 #: ../src/constant.py:121
 msgid "Latin"
-msgstr "Latim"
+msgstr "Latijn"
 
 #: ../src/constant.py:122
 msgid "Lithuanian"
-msgstr "Lituano"
+msgstr "Litouws"
 
 #: ../src/constant.py:123
 msgid "Latvian"
-msgstr "Letão"
+msgstr "Lets"
 
 #: ../src/constant.py:124
 msgid "Macedonian"
-msgstr "Macedônio"
+msgstr "Macedonisch"
 
 #: ../src/constant.py:125
 msgid "Malay"
-msgstr "Malaio"
+msgstr "Maleisisch"
 
 #: ../src/constant.py:126
 msgid "Maltese"
-msgstr "Maltês"
+msgstr "Maltees"
 
 #: ../src/constant.py:127
 msgid "Dutch"
-msgstr "Holandês"
+msgstr "Nederlands"
 
 #: ../src/constant.py:128
 msgid "Norwegian"
-msgstr "Norueguês"
+msgstr "Noors"
 
 #: ../src/constant.py:129
 msgid "Polish"
-msgstr "Polonês"
+msgstr "Pools"
 
 #: ../src/constant.py:130
 msgid "Portuguese"
-msgstr "Português"
+msgstr "Portugees"
 
 #: ../src/constant.py:131
 msgid "Romanian"
-msgstr "Romeno"
+msgstr "Romaans"
 
 #: ../src/constant.py:132
 msgid "Russian"
-msgstr "Russo"
+msgstr "Russisch"
 
 #: ../src/constant.py:133
 msgid "Slovak"
-msgstr "Eslovaco"
+msgstr "Slovaaks"
 
 #: ../src/constant.py:134
 msgid "Slovenian"
-msgstr "Esloveno"
+msgstr "Sloveens"
 
 #: ../src/constant.py:135
 msgid "Albanian"
-msgstr "Albanês"
+msgstr "Albanisch"
 
 #: ../src/constant.py:136
 msgid "Serbian"
-msgstr "Sérvio"
+msgstr "Servisch"
 
 #: ../src/constant.py:137
 msgid "Swedish"
-msgstr "Sueco"
+msgstr "Zweeds"
 
 #: ../src/constant.py:138
 msgid "Swahili"
-msgstr "Swahili"
+msgstr "Swahilisch"
 
 #: ../src/constant.py:139
 msgid "Tamil"
-msgstr "Tâmil"
+msgstr "Tamils"
 
 #: ../src/constant.py:140
 msgid "Telugu"
@@ -294,19 +292,19 @@ msgstr "Telugu"
 
 #: ../src/constant.py:141
 msgid "Thai"
-msgstr "Tailandês"
+msgstr "Thaïs"
 
 #: ../src/constant.py:142
 msgid "Filipino"
-msgstr "Filipino"
+msgstr "Filipijns"
 
 #: ../src/constant.py:143
 msgid "Turkish"
-msgstr "Turco"
+msgstr "Turks"
 
 #: ../src/constant.py:144
 msgid "Ukrainian"
-msgstr "Ucraniano"
+msgstr "Oekraiens"
 
 #: ../src/constant.py:145
 msgid "Urdu"
@@ -314,83 +312,83 @@ msgstr "Urdu"
 
 #: ../src/constant.py:146
 msgid "Vietnamese"
-msgstr "Vietnamita"
+msgstr "Vietnamees"
 
 #: ../src/constant.py:147
 msgid "Yiddish"
-msgstr "Ídiche"
+msgstr "Joods"
 
 #: ../src/constant.py:148
 msgid "Chinese Simplified"
-msgstr "Chinês Simplificado"
+msgstr "Vereenvoudigd Chinees"
 
 #: ../src/constant.py:149
 msgid "Chinese Traditional"
-msgstr "Chinês Tradicional"
+msgstr "Traditioneel Chinees"
 
 #: ../src/system_tray.py:108
 msgid "Pause translation"
-msgstr "Pausar tradução"
+msgstr "Vertaling pauzeren"
 
 #: ../src/system_tray.py:110
 msgid "Pronounce automatically"
-msgstr "Pronunciar automaticamente"
+msgstr "Automatisch uitspreken"
 
 #: ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr "Traduzir apenas ao manter a tecla Ctrl pressionada"
+msgstr "Alleen vertalen bij ingedrukt houden van CTRL-toets"
 
 #: ../src/system_tray.py:114
 msgid "Offline translation"
-msgstr "Tradução offline"
+msgstr "Offline-vertaling"
 
 #: ../src/system_tray.py:119
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Instellingen"
 
 #: ../src/system_tray.py:122
 msgid "Exit"
-msgstr "Sair"
+msgstr "Afsluiten"
 
 #: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Desculpe, selecione-e-traduza ainda não suporta %s"
+msgstr "Sorry, selecteren-en-vertalen ondersteunt %s nog niet"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Annuleren"
 
 #: ../src/ocr.py:55
 msgid "Ok, I understand"
-msgstr "Ok, eu entendi"
+msgstr "OK, ik snap het"
 
 #: ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
-msgstr "Um pacote OCR é necessário para habilitar o reconhecimento de palavras"
+msgstr "Een OCR-pakket is benodigd om woordherkenning in te schakelen"
 
 #: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Install"
-msgstr "Instalar"
+msgstr "Installeer"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
-msgstr "EUA"
+msgstr "US"
 
 #: ../src/tts_plugins/youdao/tts.py:72
 msgid "UK"
-msgstr "Reino Unido"
+msgstr "UK"
 
 #: ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
-msgstr "O pacote SVOX é necessário para habilitar a pronunciação"
+msgstr "Pakket SVOX is benodigd om uitspraak in te schakelen"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
-msgstr "O pacote SDCV é necessário para habilitar a tradução"
+msgstr "Pakket SDVC is benodigd om vertaling in te schakelen"
 
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
-msgstr "Falha na tradução"
+msgstr "Vertaling mislukt"

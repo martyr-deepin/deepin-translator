@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-21 18:31+0800\n"
-"PO-Revision-Date: 2014-08-22 07:10+0000\n"
-"Last-Translator: Catherinelin <linhongxia@linuxdeepin.com>\n"
+"POT-Creation-Date: 2014-09-04 17:09+0800\n"
+"PO-Revision-Date: 2014-09-05 00:20+0000\n"
+"Last-Translator: samson <sambelet@yahoo.com>\n"
 "Language-Team: Amharic (http://www.transifex.com/projects/p/deepin-translator/language/am/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,371 +18,17 @@ msgstr ""
 "Language: am\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: src/constant.py:85 ../src/constant.py:85
-msgid "Afrikaans"
-msgstr "Afrikaans"
-
-#: src/constant.py:135 ../src/constant.py:135
-msgid "Albanian"
-msgstr "Albanian"
-
-#: src/ocr.py:62 ../src/ocr.py:62
-msgid "An OCR package is required to enable word recognition"
-msgstr "የ OCR ጥቅል ያስፈልጋል ቃላትን ለመለየት"
-
-#: src/constant.py:86 ../src/constant.py:86
-msgid "Arabic"
-msgstr "Arabic"
-
-#: src/constant.py:112 ../src/constant.py:112
-msgid "Armenian"
-msgstr "Armenian"
-
-#: src/constant.py:87 ../src/constant.py:87
-msgid "Azerbaijani"
-msgstr "Azerbaijani"
-
-#: src/constant.py:100 ../src/constant.py:100
-msgid "Basque"
-msgstr "Basque"
-
-#: src/constant.py:88 ../src/constant.py:88
-msgid "Belarusian"
-msgstr "Belarusian"
-
-#: src/constant.py:90 ../src/constant.py:90
-msgid "Bengali"
-msgstr "Bengali"
-
-#: src/constant.py:89 ../src/constant.py:89
-msgid "Bulgarian"
-msgstr "Bulgarian"
-
-#: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
-#: src/ocr.py:55 src/ocr.py:62 ../src/ocr.py:55 ../src/ocr.py:62
-#: ../src/dict_plugins/sdcv/translate.py:54 ../src/tts_plugins/svox/tts.py:39
-msgid "Cancel"
-msgstr "መሰረዣ"
-
-#: src/constant.py:91 ../src/constant.py:91
-msgid "Catalan"
-msgstr "Catalan"
-
-#: src/constant.py:148 ../src/constant.py:148
-msgid "Chinese Simplified"
-msgstr "Chinese Simplified"
-
-#: src/constant.py:149 ../src/constant.py:149
-msgid "Chinese Traditional"
-msgstr "Chinese Traditional"
-
-#: ../src/Toolbar.qml:71
-msgid "Copy to clipboard"
-msgstr "ወደ ቁራጭ ሰሌዳ መለጠፊያ"
-
-#: src/constant.py:109 ../src/constant.py:109
-msgid "Croatian"
-msgstr "Croatian"
-
-#: src/constant.py:92 ../src/constant.py:92
-msgid "Czech"
-msgstr "Czech"
-
-#: src/constant.py:94 ../src/constant.py:94
-msgid "Danish"
-msgstr "Danish"
-
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
 msgstr "ለተርጓሚዎች ማሰናጃ"
-
-#: src/constant.py:127 ../src/constant.py:127
-msgid "Dutch"
-msgstr "Dutch"
-
-#: src/constant.py:96 ../src/constant.py:96
-msgid "English"
-msgstr "English"
-
-#: src/constant.py:97 ../src/constant.py:97
-msgid "Esperanto"
-msgstr "Esperanto"
-
-#: src/constant.py:99 ../src/constant.py:99
-msgid "Estonian"
-msgstr "Estonian"
-
-#: src/system_tray.py:122 ../src/system_tray.py:122
-msgid "Exit"
-msgstr "መውጫ"
-
-#: src/constant.py:142 ../src/constant.py:142
-msgid "Filipino"
-msgstr "Filipino"
-
-#: src/constant.py:102 ../src/constant.py:102
-msgid "Finnish"
-msgstr "Finnish"
-
-#: src/constant.py:103 ../src/constant.py:103
-msgid "French"
-msgstr "French"
-
-#: ../src/SettingView.qml:164
-msgid "Full text translation"
-msgstr "ሙሉ ጽሁፍ መተርጎሚያ "
-
-#: src/constant.py:105 ../src/constant.py:105
-msgid "Galician"
-msgstr "Galician"
-
-#: src/constant.py:118 ../src/constant.py:118
-msgid "Georgian"
-msgstr "Georgian"
-
-#: src/constant.py:95 ../src/constant.py:95
-msgid "German"
-msgstr "German"
-
-#: ../src/Toolbar.qml:83
-msgid "Google"
-msgstr "ጉግል"
-
-#: src/constant.py:106 ../src/constant.py:106
-msgid "Greek"
-msgstr "Greek"
-
-#: src/constant.py:107 ../src/constant.py:107
-msgid "Gujarati"
-msgstr "Gujarati"
-
-#: src/constant.py:110 ../src/constant.py:110
-msgid "Haitian"
-msgstr "Haitian"
-
-#: src/constant.py:116 ../src/constant.py:116
-msgid "Hebrew"
-msgstr "Hebrew"
-
-#: src/constant.py:108 ../src/constant.py:108
-msgid "Hindi"
-msgstr "Hindi"
-
-#: src/constant.py:111 ../src/constant.py:111
-msgid "Hungaric"
-msgstr "Hungaric"
-
-#: src/constant.py:114 ../src/constant.py:114
-msgid "Icelandic"
-msgstr "Icelandic"
-
-#: src/constant.py:113 ../src/constant.py:113
-msgid "Indonesian"
-msgstr "Indonesian"
-
-#: src/tts_plugins/svox/tts.py:39 src/dict_plugins/sdcv/translate.py:54
-#: src/ocr.py:62 ../src/ocr.py:62 ../src/dict_plugins/sdcv/translate.py:54
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Install"
-msgstr "መግጠሚያ"
-
-#: src/constant.py:104 ../src/constant.py:104
-msgid "Irish"
-msgstr "Irish"
-
-#: src/constant.py:115 ../src/constant.py:115
-msgid "Italian"
-msgstr "Italian"
-
-#: src/constant.py:117 ../src/constant.py:117
-msgid "Japanese"
-msgstr "Japanese"
-
-#: src/constant.py:119 ../src/constant.py:119
-msgid "Kannada"
-msgstr "Kannada"
-
-#: src/constant.py:120 ../src/constant.py:120
-msgid "Korean"
-msgstr "Korean"
-
-#: src/constant.py:121 ../src/constant.py:121
-msgid "Latin"
-msgstr "Latin"
-
-#: src/constant.py:123 ../src/constant.py:123
-msgid "Latvian"
-msgstr "Latvian"
-
-#: src/constant.py:122 ../src/constant.py:122
-msgid "Lithuanian"
-msgstr "Lithuanian"
-
-#: src/constant.py:124 ../src/constant.py:124
-msgid "Macedonian"
-msgstr "Macedonian"
-
-#: src/constant.py:125 ../src/constant.py:125
-msgid "Malay"
-msgstr "Malay"
-
-#: src/constant.py:126 ../src/constant.py:126
-msgid "Maltese"
-msgstr "Maltese"
-
-#: src/constant.py:128 ../src/constant.py:128
-msgid "Norwegian"
-msgstr "Norwegian"
-
-#: ../src/SettingView.qml:404
-msgid "OK"
-msgstr "እሺ"
-
-#: src/system_tray.py:114 ../src/system_tray.py:114
-msgid "Offline translation"
-msgstr "ከ መስመር ውጪ መተርጎሚያ "
-
-#: src/ocr.py:55 ../src/ocr.py:55
-msgid "Ok, I understand"
-msgstr "እሺ ተረድቻለሁ"
-
-#: src/dict_plugins/sdcv/translate.py:54
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Package SDCV is required to enable translation"
-msgstr "የ SDCV ጥቅል ያስፈልጋል ለመተርጎም"
-
-#: src/tts_plugins/svox/tts.py:39 ../src/tts_plugins/svox/tts.py:39
-msgid "Package SVOX is required to enable pronunciation"
-msgstr "የ SVOX ጥቅል ያስፈልጋል ቃላትን ለማንበብ"
-
-#: src/system_tray.py:108 ../src/system_tray.py:108
-msgid "Pause translation"
-msgstr "መተርጎም ማስቆሚያ"
-
-#: src/constant.py:101 ../src/constant.py:101
-msgid "Persian"
-msgstr "Persian"
-
-#: src/constant.py:129 ../src/constant.py:129
-msgid "Polish"
-msgstr "Polish"
-
-#: src/constant.py:130 ../src/constant.py:130
-msgid "Portuguese"
-msgstr "Portuguese"
-
-#: src/system_tray.py:110 ../src/system_tray.py:110
-msgid "Pronounce automatically"
-msgstr "ራሱ በራሱ አንባቢ"
-
-#: src/constant.py:131 ../src/constant.py:131
-msgid "Romanian"
-msgstr "Romanian"
-
-#: src/constant.py:132 ../src/constant.py:132
-msgid "Russian"
-msgstr "Russian"
-
-#: ../src/SettingView.qml:170
-msgid "Sentences speech"
-msgstr "አረፍተ ነገር ማንበቢያ"
-
-#: src/constant.py:136 ../src/constant.py:136
-msgid "Serbian"
-msgstr "Serbian"
-
-#: src/system_tray.py:119 ../src/system_tray.py:119
-msgid "Settings"
-msgstr "ማሰናጃ"
-
-#: src/constant.py:133 ../src/constant.py:133
-msgid "Slovak"
-msgstr "Slovak"
-
-#: src/constant.py:134 ../src/constant.py:134
-msgid "Slovenian"
-msgstr "Slovenian"
-
-#: src/ocr.py:55 ../src/ocr.py:55
-#, python-format
-msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "እናዝናለን፡ መምረጥ-እና-መተርጎም አሁን የተደገፈ %s አይደለም"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
 msgstr "የቋንቋው ምንጭ"
 
-#: src/constant.py:98 ../src/constant.py:98
-msgid "Spanish"
-msgstr "Spanish"
-
-#: src/constant.py:138 ../src/constant.py:138
-msgid "Swahili"
-msgstr "Swahili"
-
-#: src/constant.py:137 ../src/constant.py:137
-msgid "Swedish"
-msgstr "Swedish"
-
-#: src/constant.py:139 ../src/constant.py:139
-msgid "Tamil"
-msgstr "Tamil"
-
 #: ../src/SettingView.qml:146
 msgid "Target language"
 msgstr "ኢላማው ቋንቋ"
-
-#: src/constant.py:140 ../src/constant.py:140
-msgid "Telugu"
-msgstr "Telugu"
-
-#: src/constant.py:141 ../src/constant.py:141
-msgid "Thai"
-msgstr "Thai"
-
-#: src/dict_plugins/google_simple/translate.py:97
-msgid "Translate failed"
-msgstr "መተርጎም አልተሳካም"
-
-#: src/system_tray.py:112 ../src/system_tray.py:112
-msgid "Translate only when holding Ctrl key"
-msgstr "የ Ctrl ቁልፍ ስጫን ብቻ መተርጎሚያ"
-
-#: src/constant.py:143 ../src/constant.py:143
-msgid "Turkish"
-msgstr "Turkish"
-
-#: src/tts_plugins/youdao/tts.py:72 ../src/tts_plugins/youdao/tts.py:72
-msgid "UK"
-msgstr "UK"
-
-#: src/tts_plugins/youdao/tts.py:67 ../src/tts_plugins/youdao/tts.py:67
-msgid "US"
-msgstr "US"
-
-#: src/constant.py:144 ../src/constant.py:144
-msgid "Ukrainian"
-msgstr "Ukrainian"
-
-#: src/constant.py:145 ../src/constant.py:145
-msgid "Urdu"
-msgstr "Urdu"
-
-#: src/constant.py:146 ../src/constant.py:146
-msgid "Vietnamese"
-msgstr "Vietnamese"
-
-#: ../src/Toolbar.qml:65
-msgid "Voice"
-msgstr "ድምፅ"
-
-#: src/constant.py:93 ../src/constant.py:93
-msgid "Welsh"
-msgstr "Welsh"
-
-#: ../src/Toolbar.qml:77
-msgid "Wikipedia"
-msgstr "ዊኪፒዲያ"
 
 #: ../src/SettingView.qml:152
 msgid "Word Translation"
@@ -392,10 +38,357 @@ msgstr "ቃላት መተርጎሚያ "
 msgid "Word speech"
 msgstr "ቃላት ማንበቢያ"
 
-#: src/constant.py:147 ../src/constant.py:147
+#: ../src/SettingView.qml:164
+msgid "Full text translation"
+msgstr "ሙሉ ጽሁፍ መተርጎሚያ "
+
+#: ../src/SettingView.qml:170
+msgid "Sentences speech"
+msgstr "አረፍተ ነገር ማንበቢያ"
+
+#: ../src/SettingView.qml:404
+msgid "OK"
+msgstr "እሺ"
+
+#: ../src/Toolbar.qml:65
+msgid "Voice"
+msgstr "ድምፅ"
+
+#: ../src/Toolbar.qml:71
+msgid "Copy to clipboard"
+msgstr "ወደ ቁራጭ ሰሌዳ መለጠፊያ"
+
+#: ../src/Toolbar.qml:77
+msgid "Wikipedia"
+msgstr "ዊኪፒዲያ"
+
+#: ../src/Toolbar.qml:83
+msgid "Google"
+msgstr "ጉግል"
+
+#: ../src/constant.py:85
+msgid "Afrikaans"
+msgstr "Afrikaans"
+
+#: ../src/constant.py:86
+msgid "Arabic"
+msgstr "Arabic"
+
+#: ../src/constant.py:87
+msgid "Azerbaijani"
+msgstr "Azerbaijani"
+
+#: ../src/constant.py:88
+msgid "Belarusian"
+msgstr "Belarusian"
+
+#: ../src/constant.py:89
+msgid "Bulgarian"
+msgstr "Bulgarian"
+
+#: ../src/constant.py:90
+msgid "Bengali"
+msgstr "Bengali"
+
+#: ../src/constant.py:91
+msgid "Catalan"
+msgstr "Catalan"
+
+#: ../src/constant.py:92
+msgid "Czech"
+msgstr "Czech"
+
+#: ../src/constant.py:93
+msgid "Welsh"
+msgstr "Welsh"
+
+#: ../src/constant.py:94
+msgid "Danish"
+msgstr "Danish"
+
+#: ../src/constant.py:95
+msgid "German"
+msgstr "German"
+
+#: ../src/constant.py:96
+msgid "English"
+msgstr "English"
+
+#: ../src/constant.py:97
+msgid "Esperanto"
+msgstr "Esperanto"
+
+#: ../src/constant.py:98
+msgid "Spanish"
+msgstr "Spanish"
+
+#: ../src/constant.py:99
+msgid "Estonian"
+msgstr "Estonian"
+
+#: ../src/constant.py:100
+msgid "Basque"
+msgstr "Basque"
+
+#: ../src/constant.py:101
+msgid "Persian"
+msgstr "Persian"
+
+#: ../src/constant.py:102
+msgid "Finnish"
+msgstr "Finnish"
+
+#: ../src/constant.py:103
+msgid "French"
+msgstr "French"
+
+#: ../src/constant.py:104
+msgid "Irish"
+msgstr "Irish"
+
+#: ../src/constant.py:105
+msgid "Galician"
+msgstr "Galician"
+
+#: ../src/constant.py:106
+msgid "Greek"
+msgstr "Greek"
+
+#: ../src/constant.py:107
+msgid "Gujarati"
+msgstr "Gujarati"
+
+#: ../src/constant.py:108
+msgid "Hindi"
+msgstr "Hindi"
+
+#: ../src/constant.py:109
+msgid "Croatian"
+msgstr "Croatian"
+
+#: ../src/constant.py:110
+msgid "Haitian"
+msgstr "Haitian"
+
+#: ../src/constant.py:111
+msgid "Hungaric"
+msgstr "Hungaric"
+
+#: ../src/constant.py:112
+msgid "Armenian"
+msgstr "Armenian"
+
+#: ../src/constant.py:113
+msgid "Indonesian"
+msgstr "Indonesian"
+
+#: ../src/constant.py:114
+msgid "Icelandic"
+msgstr "Icelandic"
+
+#: ../src/constant.py:115
+msgid "Italian"
+msgstr "Italian"
+
+#: ../src/constant.py:116
+msgid "Hebrew"
+msgstr "Hebrew"
+
+#: ../src/constant.py:117
+msgid "Japanese"
+msgstr "Japanese"
+
+#: ../src/constant.py:118
+msgid "Georgian"
+msgstr "Georgian"
+
+#: ../src/constant.py:119
+msgid "Kannada"
+msgstr "Kannada"
+
+#: ../src/constant.py:120
+msgid "Korean"
+msgstr "Korean"
+
+#: ../src/constant.py:121
+msgid "Latin"
+msgstr "Latin"
+
+#: ../src/constant.py:122
+msgid "Lithuanian"
+msgstr "Lithuanian"
+
+#: ../src/constant.py:123
+msgid "Latvian"
+msgstr "Latvian"
+
+#: ../src/constant.py:124
+msgid "Macedonian"
+msgstr "Macedonian"
+
+#: ../src/constant.py:125
+msgid "Malay"
+msgstr "Malay"
+
+#: ../src/constant.py:126
+msgid "Maltese"
+msgstr "Maltese"
+
+#: ../src/constant.py:127
+msgid "Dutch"
+msgstr "Dutch"
+
+#: ../src/constant.py:128
+msgid "Norwegian"
+msgstr "Norwegian"
+
+#: ../src/constant.py:129
+msgid "Polish"
+msgstr "Polish"
+
+#: ../src/constant.py:130
+msgid "Portuguese"
+msgstr "Portuguese"
+
+#: ../src/constant.py:131
+msgid "Romanian"
+msgstr "Romanian"
+
+#: ../src/constant.py:132
+msgid "Russian"
+msgstr "Russian"
+
+#: ../src/constant.py:133
+msgid "Slovak"
+msgstr "Slovak"
+
+#: ../src/constant.py:134
+msgid "Slovenian"
+msgstr "Slovenian"
+
+#: ../src/constant.py:135
+msgid "Albanian"
+msgstr "Albanian"
+
+#: ../src/constant.py:136
+msgid "Serbian"
+msgstr "Serbian"
+
+#: ../src/constant.py:137
+msgid "Swedish"
+msgstr "Swedish"
+
+#: ../src/constant.py:138
+msgid "Swahili"
+msgstr "Swahili"
+
+#: ../src/constant.py:139
+msgid "Tamil"
+msgstr "Tamil"
+
+#: ../src/constant.py:140
+msgid "Telugu"
+msgstr "Telugu"
+
+#: ../src/constant.py:141
+msgid "Thai"
+msgstr "Thai"
+
+#: ../src/constant.py:142
+msgid "Filipino"
+msgstr "Filipino"
+
+#: ../src/constant.py:143
+msgid "Turkish"
+msgstr "Turkish"
+
+#: ../src/constant.py:144
+msgid "Ukrainian"
+msgstr "Ukrainian"
+
+#: ../src/constant.py:145
+msgid "Urdu"
+msgstr "Urdu"
+
+#: ../src/constant.py:146
+msgid "Vietnamese"
+msgstr "Vietnamese"
+
+#: ../src/constant.py:147
 msgid "Yiddish"
 msgstr "Yiddish"
 
+#: ../src/constant.py:148
+msgid "Chinese Simplified"
+msgstr "Chinese Simplified"
+
+#: ../src/constant.py:149
+msgid "Chinese Traditional"
+msgstr "Chinese Traditional"
+
+#: ../src/system_tray.py:108
+msgid "Pause translation"
+msgstr "መተርጎም ማስቆሚያ"
+
+#: ../src/system_tray.py:110
+msgid "Pronounce automatically"
+msgstr "ራሱ በራሱ አንባቢ"
+
+#: ../src/system_tray.py:112
+msgid "Translate only when holding Ctrl key"
+msgstr "የ Ctrl ቁልፍ ስጫን ብቻ መተርጎሚያ"
+
+#: ../src/system_tray.py:114
+msgid "Offline translation"
+msgstr "ከ መስመር ውጪ መተርጎሚያ "
+
+#: ../src/system_tray.py:119
+msgid "Settings"
+msgstr "ማሰናጃ"
+
+#: ../src/system_tray.py:122
+msgid "Exit"
+msgstr "መውጫ"
+
+#: ../src/ocr.py:55
+#, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
+msgstr "እናዝናለን፡ መምረጥ-እና-መተርጎም አሁን የተደገፈ %s አይደለም"
+
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Cancel"
+msgstr "መሰረዣ"
+
+#: ../src/ocr.py:55
+msgid "Ok, I understand"
+msgstr "እሺ ተረድቻለሁ"
+
+#: ../src/ocr.py:62
+msgid "An OCR package is required to enable word recognition"
+msgstr "የ OCR ጥቅል ያስፈልጋል ቃላትን ለመለየት"
+
+#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Install"
+msgstr "መግጠሚያ"
+
+#: ../src/tts_plugins/youdao/tts.py:67
+msgid "US"
+msgstr "US"
+
+#: ../src/tts_plugins/youdao/tts.py:72
+msgid "UK"
+msgstr "UK"
+
+#: ../src/tts_plugins/svox/tts.py:39
+msgid "Package SVOX is required to enable pronunciation"
+msgstr "የ SVOX ጥቅል ያስፈልጋል ቃላትን ለማንበብ"
+
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Package SDCV is required to enable translation"
+msgstr "የ SDCV ጥቅል ያስፈልጋል ለመተርጎም"
+
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
-msgstr ""
+msgstr "መተርጎም አልተቻለም"
