@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-04 17:09+0800\n"
-"PO-Revision-Date: 2014-09-22 12:11+0000\n"
+"POT-Creation-Date: 2014-08-26 16:51+0800\n"
+"PO-Revision-Date: 2014-09-23 10:14+0000\n"
 "Last-Translator: Heimen Stoffels <motionshot@vivaldi.net>\n"
 "Language-Team: Dutch (http://www.transifex.com/projects/p/deepin-translator/language/nl/)\n"
 "MIME-Version: 1.0\n"
@@ -65,6 +65,29 @@ msgstr "Wikipedia"
 #: ../src/Toolbar.qml:83
 msgid "Google"
 msgstr "Google"
+
+#: ../src/ocr.py:55
+#, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
+msgstr "Sorry, selecteren-en-vertalen ondersteunt %s nog niet"
+
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: ../src/ocr.py:55
+msgid "Ok, I understand"
+msgstr "OK, ik snap het"
+
+#: ../src/ocr.py:62
+msgid "An OCR package is required to enable word recognition"
+msgstr "Een OCR-pakket is benodigd om woordherkenning in te schakelen"
+
+#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Install"
+msgstr "Installeer"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
@@ -350,28 +373,9 @@ msgstr "Instellingen"
 msgid "Exit"
 msgstr "Afsluiten"
 
-#: ../src/ocr.py:55
-#, python-format
-msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Sorry, selecteren-en-vertalen ondersteunt %s nog niet"
-
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Cancel"
-msgstr "Annuleren"
-
-#: ../src/ocr.py:55
-msgid "Ok, I understand"
-msgstr "OK, ik snap het"
-
-#: ../src/ocr.py:62
-msgid "An OCR package is required to enable word recognition"
-msgstr "Een OCR-pakket is benodigd om woordherkenning in te schakelen"
-
-#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Install"
-msgstr "Installeer"
+#: ../src/tts_plugins/svox/tts.py:39
+msgid "Package SVOX is required to enable pronunciation"
+msgstr "Pakket SVOX is benodigd om uitspraak in te schakelen"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
@@ -381,14 +385,10 @@ msgstr "US"
 msgid "UK"
 msgstr "UK"
 
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Package SVOX is required to enable pronunciation"
-msgstr "Pakket SVOX is benodigd om uitspraak in te schakelen"
+#: ../src/dict_plugins/google_simple/translate.py:97
+msgid "Translation failed"
+msgstr "Vertaling mislukt"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
 msgstr "Pakket SDVC is benodigd om vertaling in te schakelen"
-
-#: ../src/dict_plugins/google_simple/translate.py:97
-msgid "Translation failed"
-msgstr "Vertaling mislukt"

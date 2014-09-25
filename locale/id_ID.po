@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-04 17:09+0800\n"
-"PO-Revision-Date: 2014-09-14 14:00+0000\n"
+"POT-Creation-Date: 2014-08-26 16:51+0800\n"
+"PO-Revision-Date: 2014-09-23 10:14+0000\n"
 "Last-Translator: Mohammad Rizki <mohammadrizki.md@gmail.com>\n"
 "Language-Team: Indonesian (Indonesia) (http://www.transifex.com/projects/p/deepin-translator/language/id_ID/)\n"
 "MIME-Version: 1.0\n"
@@ -67,6 +67,29 @@ msgstr "Wikipedia"
 #: ../src/Toolbar.qml:83
 msgid "Google"
 msgstr "Google"
+
+#: ../src/ocr.py:55
+#, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
+msgstr "Maaf, pilih-dan-terjemahkan belum mendukung %s"
+
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Cancel"
+msgstr "Batal"
+
+#: ../src/ocr.py:55
+msgid "Ok, I understand"
+msgstr "Oke, saya mengerti"
+
+#: ../src/ocr.py:62
+msgid "An OCR package is required to enable word recognition"
+msgstr "Perlu OCR untuk mengaktifkan pengenalan kata "
+
+#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Install"
+msgstr "Pasang"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
@@ -352,28 +375,9 @@ msgstr "Pengaturan"
 msgid "Exit"
 msgstr "Keluar"
 
-#: ../src/ocr.py:55
-#, python-format
-msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Maaf, pilih-dan-terjemahkan belum mendukung %s"
-
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Cancel"
-msgstr "Batal"
-
-#: ../src/ocr.py:55
-msgid "Ok, I understand"
-msgstr "Oke, saya mengerti"
-
-#: ../src/ocr.py:62
-msgid "An OCR package is required to enable word recognition"
-msgstr "Perlu OCR untuk mengaktifkan pengenalan kata "
-
-#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Install"
-msgstr "Pasang"
+#: ../src/tts_plugins/svox/tts.py:39
+msgid "Package SVOX is required to enable pronunciation"
+msgstr "Perlu SVOX untuk mengaktifkan fitur pengucapan"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
@@ -383,14 +387,10 @@ msgstr "Amerika"
 msgid "UK"
 msgstr "Britania"
 
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Package SVOX is required to enable pronunciation"
-msgstr "Perlu SVOX untuk mengaktifkan fitur pengucapan"
+#: ../src/dict_plugins/google_simple/translate.py:97
+msgid "Translation failed"
+msgstr "Penerjemahan gagal"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
 msgstr "Perlu SDCV untuk mengaktifkan fitur terjemahan "
-
-#: ../src/dict_plugins/google_simple/translate.py:97
-msgid "Translation failed"
-msgstr "Penerjemahan gagal"

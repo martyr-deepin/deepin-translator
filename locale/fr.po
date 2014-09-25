@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-04 17:09+0800\n"
-"PO-Revision-Date: 2014-09-03 14:02+0000\n"
+"POT-Creation-Date: 2014-08-26 16:51+0800\n"
+"PO-Revision-Date: 2014-09-23 10:14+0000\n"
 "Last-Translator: 4goodapp <4goodapp@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/deepin-translator/language/fr/)\n"
 "MIME-Version: 1.0\n"
@@ -67,6 +67,29 @@ msgstr "Wikipedia"
 #: ../src/Toolbar.qml:83
 msgid "Google"
 msgstr "Google"
+
+#: ../src/ocr.py:55
+#, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
+msgstr "Désolé, sélectionner-et-traduire ne supporte pas %s pour le moment"
+
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Cancel"
+msgstr "Annuler "
+
+#: ../src/ocr.py:55
+msgid "Ok, I understand"
+msgstr "Ok, je comprends"
+
+#: ../src/ocr.py:62
+msgid "An OCR package is required to enable word recognition"
+msgstr "Un paquet OCR est requis pour activer la reconnaissance des mots"
+
+#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Install"
+msgstr "Installer"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
@@ -352,28 +375,9 @@ msgstr "Paramètres"
 msgid "Exit"
 msgstr "Sortie"
 
-#: ../src/ocr.py:55
-#, python-format
-msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Désolé, sélectionner-et-traduire ne supporte pas %s pour le moment"
-
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Cancel"
-msgstr "Annuler "
-
-#: ../src/ocr.py:55
-msgid "Ok, I understand"
-msgstr "Ok, je comprends"
-
-#: ../src/ocr.py:62
-msgid "An OCR package is required to enable word recognition"
-msgstr "Un paquet OCR est requis pour activer la reconnaissance des mots"
-
-#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Install"
-msgstr "Installer"
+#: ../src/tts_plugins/svox/tts.py:39
+msgid "Package SVOX is required to enable pronunciation"
+msgstr "Le paquet SVOX est requis pour activer la prononciation"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
@@ -383,14 +387,10 @@ msgstr "US"
 msgid "UK"
 msgstr "UK"
 
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Package SVOX is required to enable pronunciation"
-msgstr "Le paquet SVOX est requis pour activer la prononciation"
+#: ../src/dict_plugins/google_simple/translate.py:97
+msgid "Translation failed"
+msgstr "Échec de la traduction"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
 msgstr "Le paquet SDCV est requis pour activer la traduction"
-
-#: ../src/dict_plugins/google_simple/translate.py:97
-msgid "Translation failed"
-msgstr "Échec de la traduction"

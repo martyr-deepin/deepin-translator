@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-04 17:09+0800\n"
-"PO-Revision-Date: 2014-09-03 08:44+0000\n"
+"POT-Creation-Date: 2014-08-26 16:51+0800\n"
+"PO-Revision-Date: 2014-09-23 10:14+0000\n"
 "Last-Translator: snyh <snyh@snyh.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/deepin-translator/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -66,6 +66,29 @@ msgstr "維基百科"
 #: ../src/Toolbar.qml:83
 msgid "Google"
 msgstr "Google"
+
+#: ../src/ocr.py:55
+#, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
+msgstr "對不起，螢幕選詞功能暫時不支援 %s"
+
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Cancel"
+msgstr "取消"
+
+#: ../src/ocr.py:55
+msgid "Ok, I understand"
+msgstr "好的，我了解了"
+
+#: ../src/ocr.py:62
+msgid "An OCR package is required to enable word recognition"
+msgstr "需要安裝 OCR 套件以開啟單字識別功能"
+
+#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Install"
+msgstr "安裝"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
@@ -351,28 +374,9 @@ msgstr "設定"
 msgid "Exit"
 msgstr "結束"
 
-#: ../src/ocr.py:55
-#, python-format
-msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "對不起，螢幕選詞功能暫時不支援 %s"
-
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Cancel"
-msgstr "取消"
-
-#: ../src/ocr.py:55
-msgid "Ok, I understand"
-msgstr "好的，我了解了"
-
-#: ../src/ocr.py:62
-msgid "An OCR package is required to enable word recognition"
-msgstr "需要安裝 OCR 套件以開啟單字識別功能"
-
-#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Install"
-msgstr "安裝"
+#: ../src/tts_plugins/svox/tts.py:39
+msgid "Package SVOX is required to enable pronunciation"
+msgstr "需要安裝 SVOX 以開啟發音功能"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
@@ -382,14 +386,10 @@ msgstr "美"
 msgid "UK"
 msgstr "英"
 
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Package SVOX is required to enable pronunciation"
-msgstr "需要安裝 SVOX 以開啟發音功能"
+#: ../src/dict_plugins/google_simple/translate.py:97
+msgid "Translation failed"
+msgstr "翻譯失敗"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
 msgstr "需要安裝sdcv以開啟翻譯功能"
-
-#: ../src/dict_plugins/google_simple/translate.py:97
-msgid "Translation failed"
-msgstr "翻譯失敗"

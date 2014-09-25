@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-04 17:09+0800\n"
-"PO-Revision-Date: 2014-09-03 01:41+0000\n"
+"POT-Creation-Date: 2014-08-26 16:51+0800\n"
+"PO-Revision-Date: 2014-09-23 10:14+0000\n"
 "Last-Translator: snyh <snyh@snyh.org>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/deepin-translator/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -65,6 +65,29 @@ msgstr "Βικιπαιδεία"
 #: ../src/Toolbar.qml:83
 msgid "Google"
 msgstr "Google"
+
+#: ../src/ocr.py:55
+#, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
+msgstr "Συγγνώμη, η επιλογή-και-μετάφραση δεν υποστηρίζει %s ακόμα"
+
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: ../src/ocr.py:55
+msgid "Ok, I understand"
+msgstr "Εντάξει, καταλαβαίνω"
+
+#: ../src/ocr.py:62
+msgid "An OCR package is required to enable word recognition"
+msgstr "Απαιτείται ένα πακέτο OCR για να ενεργοποιηθεί η αναγνώριση λέξεων"
+
+#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Install"
+msgstr "Εγκατάσταση"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
@@ -350,28 +373,9 @@ msgstr "Ρυθμίσεις"
 msgid "Exit"
 msgstr "Έξοδος"
 
-#: ../src/ocr.py:55
-#, python-format
-msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Συγγνώμη, η επιλογή-και-μετάφραση δεν υποστηρίζει %s ακόμα"
-
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Cancel"
-msgstr "Ακύρωση"
-
-#: ../src/ocr.py:55
-msgid "Ok, I understand"
-msgstr "Εντάξει, καταλαβαίνω"
-
-#: ../src/ocr.py:62
-msgid "An OCR package is required to enable word recognition"
-msgstr "Απαιτείται ένα πακέτο OCR για να ενεργοποιηθεί η αναγνώριση λέξεων"
-
-#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Install"
-msgstr "Εγκατάσταση"
+#: ../src/tts_plugins/svox/tts.py:39
+msgid "Package SVOX is required to enable pronunciation"
+msgstr "Απαιτείται πακέτο SVOX για να ενεργοποιηθεί η προφορά λέξεων"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
@@ -381,14 +385,10 @@ msgstr "Ηνωμένες Πολιτείες"
 msgid "UK"
 msgstr "Ηνωμένο Βασίλειο"
 
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Package SVOX is required to enable pronunciation"
-msgstr "Απαιτείται πακέτο SVOX για να ενεργοποιηθεί η προφορά λέξεων"
+#: ../src/dict_plugins/google_simple/translate.py:97
+msgid "Translation failed"
+msgstr "Αποτυχία μετάφρασης"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
 msgstr "Απαιτείται πακέτο SDCV για να ενεργοποιηθεί η μετάφραση"
-
-#: ../src/dict_plugins/google_simple/translate.py:97
-msgid "Translation failed"
-msgstr "Αποτυχία μετάφρασης"

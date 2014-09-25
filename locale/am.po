@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-04 17:09+0800\n"
-"PO-Revision-Date: 2014-09-05 00:20+0000\n"
+"POT-Creation-Date: 2014-08-26 16:51+0800\n"
+"PO-Revision-Date: 2014-09-23 10:13+0000\n"
 "Last-Translator: samson <sambelet@yahoo.com>\n"
 "Language-Team: Amharic (http://www.transifex.com/projects/p/deepin-translator/language/am/)\n"
 "MIME-Version: 1.0\n"
@@ -65,6 +65,29 @@ msgstr "ዊኪፒዲያ"
 #: ../src/Toolbar.qml:83
 msgid "Google"
 msgstr "ጉግል"
+
+#: ../src/ocr.py:55
+#, python-format
+msgid "Sorry, select-and-translate does not support %s yet"
+msgstr "እናዝናለን፡ መምረጥ-እና-መተርጎም አሁን የተደገፈ %s አይደለም"
+
+#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Cancel"
+msgstr "መሰረዣ"
+
+#: ../src/ocr.py:55
+msgid "Ok, I understand"
+msgstr "እሺ ተረድቻለሁ"
+
+#: ../src/ocr.py:62
+msgid "An OCR package is required to enable word recognition"
+msgstr "የ OCR ጥቅል ያስፈልጋል ቃላትን ለመለየት"
+
+#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
+#: ../src/dict_plugins/sdcv/translate.py:54
+msgid "Install"
+msgstr "መግጠሚያ"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
@@ -350,28 +373,9 @@ msgstr "ማሰናጃ"
 msgid "Exit"
 msgstr "መውጫ"
 
-#: ../src/ocr.py:55
-#, python-format
-msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "እናዝናለን፡ መምረጥ-እና-መተርጎም አሁን የተደገፈ %s አይደለም"
-
-#: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Cancel"
-msgstr "መሰረዣ"
-
-#: ../src/ocr.py:55
-msgid "Ok, I understand"
-msgstr "እሺ ተረድቻለሁ"
-
-#: ../src/ocr.py:62
-msgid "An OCR package is required to enable word recognition"
-msgstr "የ OCR ጥቅል ያስፈልጋል ቃላትን ለመለየት"
-
-#: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
-#: ../src/dict_plugins/sdcv/translate.py:54
-msgid "Install"
-msgstr "መግጠሚያ"
+#: ../src/tts_plugins/svox/tts.py:39
+msgid "Package SVOX is required to enable pronunciation"
+msgstr "የ SVOX ጥቅል ያስፈልጋል ቃላትን ለማንበብ"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
@@ -381,14 +385,10 @@ msgstr "US"
 msgid "UK"
 msgstr "UK"
 
-#: ../src/tts_plugins/svox/tts.py:39
-msgid "Package SVOX is required to enable pronunciation"
-msgstr "የ SVOX ጥቅል ያስፈልጋል ቃላትን ለማንበብ"
+#: ../src/dict_plugins/google_simple/translate.py:97
+msgid "Translation failed"
+msgstr "መተርጎም አልተቻለም"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
 msgstr "የ SDCV ጥቅል ያስፈልጋል ለመተርጎም"
-
-#: ../src/dict_plugins/google_simple/translate.py:97
-msgid "Translation failed"
-msgstr "መተርጎም አልተቻለም"
