@@ -18,7 +18,6 @@ DWindowFrame {
     
     property variant dsslocale: DLocale {
         id: dsslocale
-        dirname: "../locale"
         domain: "deepin-translator"
     }
     
