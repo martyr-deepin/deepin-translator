@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-26 16:51+0800\n"
-"PO-Revision-Date: 2014-10-15 16:41+0000\n"
+"PO-Revision-Date: 2014-10-20 12:51+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/deepin-translator/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgstr "Google"
 #: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr ""
+msgstr "Oprostite, odaberi-i-prevedi još ne podržava %s"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
@@ -303,7 +303,7 @@ msgstr "Švedski"
 
 #: ../src/constant.py:138
 msgid "Swahili"
-msgstr ""
+msgstr "Svahili"
 
 #: ../src/constant.py:139
 msgid "Tamil"
@@ -351,7 +351,7 @@ msgstr "Tradicionalni kineski"
 
 #: ../src/system_tray.py:108
 msgid "Pause translation"
-msgstr ""
+msgstr "Pauziraj prijevod"
 
 #: ../src/system_tray.py:110
 msgid "Pronounce automatically"
@@ -359,7 +359,7 @@ msgstr ""
 
 #: ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr ""
+msgstr "Prevodi samo kada je pritisnuta Ctrl tipka"
 
 #: ../src/system_tray.py:114
 msgid "Offline translation"

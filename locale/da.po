@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Carl Andersen <carl@manjaro.dk>, 2014
+# Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-26 16:51+0800\n"
-"PO-Revision-Date: 2014-09-28 17:11+0000\n"
-"Last-Translator: Carl Andersen <carl@manjaro.dk>\n"
+"PO-Revision-Date: 2014-10-17 17:34+0000\n"
+"Last-Translator: Morten Juhl-Johansen Zölde-Fejér <morten@writtenandread.net>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/deepin-translator/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,31 +21,31 @@ msgstr ""
 
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
-msgstr "Deepin Oversættelsesindstillinger"
+msgstr "Indstillinger for Deepin Oversætter"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
-msgstr "Kilde sproget"
+msgstr "Kildesprog"
 
 #: ../src/SettingView.qml:146
 msgid "Target language"
-msgstr "Målsprog"
+msgstr "Sprog at oversætte til"
 
 #: ../src/SettingView.qml:152
 msgid "Word Translation"
-msgstr "Ord oversættelse"
+msgstr "Oversættelse af ord"
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
-msgstr "Ord udtale"
+msgstr "Udtale af ord"
 
 #: ../src/SettingView.qml:164
 msgid "Full text translation"
-msgstr "Fuld tekst oversættelse"
+msgstr "Fuld tekstoversættelse"
 
 #: ../src/SettingView.qml:170
 msgid "Sentences speech"
-msgstr "Sætningsudtale"
+msgstr "Udtale af sætning"
 
 #: ../src/SettingView.qml:404
 msgid "OK"
@@ -69,16 +70,16 @@ msgstr "Google"
 #: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Beklager, vælg-og-oversæt er ikke understøttet %s endnu"
+msgstr "Beklager, vælg-og-oversæt understøtter ikke %s endnu"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Cancel"
-msgstr "Anullere"
+msgstr "Annuller"
 
 #: ../src/ocr.py:55
 msgid "Ok, I understand"
-msgstr "Ok, jeg forstår"
+msgstr "OK, jeg forstår"
 
 #: ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
@@ -147,11 +148,11 @@ msgstr "Spansk"
 
 #: ../src/constant.py:99
 msgid "Estonian"
-msgstr "Estlandsk"
+msgstr "Estisk"
 
 #: ../src/constant.py:100
 msgid "Basque"
-msgstr "Baskerlandet"
+msgstr "Baskisk"
 
 #: ../src/constant.py:101
 msgid "Persian"
@@ -167,7 +168,7 @@ msgstr "Fransk"
 
 #: ../src/constant.py:104
 msgid "Irish"
-msgstr "Irisk"
+msgstr "Irsk"
 
 #: ../src/constant.py:105
 msgid "Galician"
@@ -191,11 +192,11 @@ msgstr "Kroatisk"
 
 #: ../src/constant.py:110
 msgid "Haitian"
-msgstr "Haitis"
+msgstr "Haitisk"
 
 #: ../src/constant.py:111
 msgid "Hungaric"
-msgstr "Ungarnsk"
+msgstr "Ungarsk"
 
 #: ../src/constant.py:112
 msgid "Armenian"
@@ -307,11 +308,11 @@ msgstr "Swahili"
 
 #: ../src/constant.py:139
 msgid "Tamil"
-msgstr "Tamil"
+msgstr "Tamilsk"
 
 #: ../src/constant.py:140
 msgid "Telugu"
-msgstr "Telugu sproget"
+msgstr "Telugu-sproget"
 
 #: ../src/constant.py:141
 msgid "Thai"
@@ -351,23 +352,23 @@ msgstr "Traditionelt kinesisk"
 
 #: ../src/system_tray.py:108
 msgid "Pause translation"
-msgstr "Pause oversættelse"
+msgstr "Pause i oversættelse"
 
 #: ../src/system_tray.py:110
 msgid "Pronounce automatically"
-msgstr "Udtale automatisk"
+msgstr "Udtal automatisk"
 
 #: ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr "Oversæt kun når du holder Ctrl-tasten nede"
+msgstr "Oversæt kun, når Ctrl-tasten holdes nede"
 
 #: ../src/system_tray.py:114
 msgid "Offline translation"
-msgstr "Offline oversættelse"
+msgstr "Offline-oversættelse"
 
 #: ../src/system_tray.py:119
 msgid "Settings"
-msgstr "Instillinger"
+msgstr "Indstillinger"
 
 #: ../src/system_tray.py:122
 msgid "Exit"
@@ -387,8 +388,8 @@ msgstr "UK"
 
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
-msgstr "Oversættelsen mislykkedes"
+msgstr "Oversættelse mislykkedes"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
-msgstr "Pakken SDCV krævws for at aktivere oversættelse"
+msgstr "Pakken SDCV kræves for at aktivere oversættelse"
