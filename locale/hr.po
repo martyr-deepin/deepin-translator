@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-26 16:51+0800\n"
-"PO-Revision-Date: 2014-10-20 12:51+0000\n"
+"PO-Revision-Date: 2014-10-23 15:20+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/projects/p/deepin-translator/language/hr/)\n"
 "MIME-Version: 1.0\n"
@@ -82,7 +82,7 @@ msgstr "U redu, razumijem"
 
 #: ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
-msgstr ""
+msgstr "Potreban je OCR paket za omogućavanje prepoznavanja riječi"
 
 #: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
@@ -355,7 +355,7 @@ msgstr "Pauziraj prijevod"
 
 #: ../src/system_tray.py:110
 msgid "Pronounce automatically"
-msgstr ""
+msgstr "Izgovori automatski"
 
 #: ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
@@ -375,7 +375,7 @@ msgstr "Izađi"
 
 #: ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
-msgstr ""
+msgstr "Potreban je paket SVOX za omogućavanje izgovora"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
@@ -391,4 +391,4 @@ msgstr "Prijevod nije uspio"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
-msgstr ""
+msgstr "Potreban je paket SDCV za omogućavanje prijevoda"

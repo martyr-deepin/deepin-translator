@@ -3,65 +3,65 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# freddy4212 <freddy4212@gmail.com>, 2014
-# snyh <snyh@snyh.org>, 2014
+# Calin Neamtu <nilac8991@gmail.com>, 2014
+# Vasilii Rusu <basil_russu@hotmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-26 16:51+0800\n"
-"PO-Revision-Date: 2014-11-03 12:23+0000\n"
-"Last-Translator: freddy4212 <freddy4212@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/deepin-translator/language/zh_TW/)\n"
+"PO-Revision-Date: 2014-10-23 17:00+0000\n"
+"Last-Translator: Vasilii Rusu <basil_russu@hotmail.com>\n"
+"Language-Team: Romanian (http://www.transifex.com/projects/p/deepin-translator/language/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
-msgstr "深度翻譯設定"
+msgstr "Setările Traducătorului Deepin"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
-msgstr "來源語言"
+msgstr "Limba sursă"
 
 #: ../src/SettingView.qml:146
 msgid "Target language"
-msgstr "目標語言"
+msgstr "Limba ţintă"
 
 #: ../src/SettingView.qml:152
 msgid "Word Translation"
-msgstr "單字翻譯"
+msgstr "Traducerea cuvântului"
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
-msgstr "單字發音"
+msgstr "Pronunţarea cuvântului"
 
 #: ../src/SettingView.qml:164
 msgid "Full text translation"
-msgstr "整句翻譯"
+msgstr "Traducerea întregului text"
 
 #: ../src/SettingView.qml:170
 msgid "Sentences speech"
-msgstr "整句唸出"
+msgstr "Pronunţarea propoziţiilor"
 
 #: ../src/SettingView.qml:404
 msgid "OK"
-msgstr "確定"
+msgstr "OK"
 
 #: ../src/Toolbar.qml:65
 msgid "Voice"
-msgstr "發音"
+msgstr "Voce"
 
 #: ../src/Toolbar.qml:71
 msgid "Copy to clipboard"
-msgstr "複製至剪貼簿"
+msgstr "Copiere în clipboard"
 
 #: ../src/Toolbar.qml:77
 msgid "Wikipedia"
-msgstr "維基百科"
+msgstr "Wikipedia "
 
 #: ../src/Toolbar.qml:83
 msgid "Google"
@@ -70,326 +70,326 @@ msgstr "Google"
 #: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "對不起，螢幕選詞功能暫時不支援 %s"
+msgstr "Ne cerem scuze, funcţia selectare-şi-traducere %s încă nu este activată"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Cancel"
-msgstr "取消"
+msgstr "Anulare"
 
 #: ../src/ocr.py:55
 msgid "Ok, I understand"
-msgstr "好的，我了解了"
+msgstr "Ok, am inteles"
 
 #: ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
-msgstr "需要安裝 OCR 套件以開啟單字識別功能"
+msgstr "Pachetul OCR este necesar pentru a activa funcţia recunoaşterii cuvintelor"
 
 #: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Install"
-msgstr "安裝"
+msgstr "Instalare "
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
-msgstr "南非語"
+msgstr "Afrikaans"
 
 #: ../src/constant.py:86
 msgid "Arabic"
-msgstr "阿拉伯語"
+msgstr "Araba"
 
 #: ../src/constant.py:87
 msgid "Azerbaijani"
-msgstr "亞塞拜然語"
+msgstr "Azeră"
 
 #: ../src/constant.py:88
 msgid "Belarusian"
-msgstr "白俄羅斯語"
+msgstr "Belorusă"
 
 #: ../src/constant.py:89
 msgid "Bulgarian"
-msgstr "保加利亞語"
+msgstr "Bulgara"
 
 #: ../src/constant.py:90
 msgid "Bengali"
-msgstr "孟加拉語"
+msgstr "Bengali"
 
 #: ../src/constant.py:91
 msgid "Catalan"
-msgstr "加泰隆語"
+msgstr "Catalana "
 
 #: ../src/constant.py:92
 msgid "Czech"
-msgstr "捷克語"
+msgstr "Ceha "
 
 #: ../src/constant.py:93
 msgid "Welsh"
-msgstr "威爾斯語"
+msgstr "Galeză"
 
 #: ../src/constant.py:94
 msgid "Danish"
-msgstr "丹麥語"
+msgstr "Daneză"
 
 #: ../src/constant.py:95
 msgid "German"
-msgstr "德語"
+msgstr "Germana "
 
 #: ../src/constant.py:96
 msgid "English"
-msgstr "英語"
+msgstr "Engleză"
 
 #: ../src/constant.py:97
 msgid "Esperanto"
-msgstr "世界語"
+msgstr "Esperanto"
 
 #: ../src/constant.py:98
 msgid "Spanish"
-msgstr "西班牙語"
+msgstr "Spaniolă"
 
 #: ../src/constant.py:99
 msgid "Estonian"
-msgstr "愛沙尼亞語"
+msgstr "Estoniană"
 
 #: ../src/constant.py:100
 msgid "Basque"
-msgstr "巴斯克語"
+msgstr "Bască"
 
 #: ../src/constant.py:101
 msgid "Persian"
-msgstr "波斯語"
+msgstr "Persiană"
 
 #: ../src/constant.py:102
 msgid "Finnish"
-msgstr "芬蘭語"
+msgstr "Finlandeză"
 
 #: ../src/constant.py:103
 msgid "French"
-msgstr "法語"
+msgstr "Franceză"
 
 #: ../src/constant.py:104
 msgid "Irish"
-msgstr "愛爾蘭語"
+msgstr "Irlandeză"
 
 #: ../src/constant.py:105
 msgid "Galician"
-msgstr "加利西亞語"
+msgstr "Galiciană"
 
 #: ../src/constant.py:106
 msgid "Greek"
-msgstr "希臘語"
+msgstr "Greacă"
 
 #: ../src/constant.py:107
 msgid "Gujarati"
-msgstr "古吉拉特語"
+msgstr "Guajarati"
 
 #: ../src/constant.py:108
 msgid "Hindi"
-msgstr "北印度語"
+msgstr "Hindi"
 
 #: ../src/constant.py:109
 msgid "Croatian"
-msgstr "克羅埃西亞語"
+msgstr "Croată"
 
 #: ../src/constant.py:110
 msgid "Haitian"
-msgstr "海地語"
+msgstr "Creolă Haitiană"
 
 #: ../src/constant.py:111
 msgid "Hungaric"
-msgstr "匈牙利語"
+msgstr "Maghiară"
 
 #: ../src/constant.py:112
 msgid "Armenian"
-msgstr "亞美尼亞語"
+msgstr "Armeană"
 
 #: ../src/constant.py:113
 msgid "Indonesian"
-msgstr "印度尼西亞語"
+msgstr "Indoneziană"
 
 #: ../src/constant.py:114
 msgid "Icelandic"
-msgstr "冰島語"
+msgstr "Islandeză"
 
 #: ../src/constant.py:115
 msgid "Italian"
-msgstr "義大利語"
+msgstr "Italiană"
 
 #: ../src/constant.py:116
 msgid "Hebrew"
-msgstr "希伯來語"
+msgstr "Ebraică"
 
 #: ../src/constant.py:117
 msgid "Japanese"
-msgstr "日語"
+msgstr "Japoneză"
 
 #: ../src/constant.py:118
 msgid "Georgian"
-msgstr "喬治亞語"
+msgstr "Georgiană"
 
 #: ../src/constant.py:119
 msgid "Kannada"
-msgstr "康納達語"
+msgstr "Kannada"
 
 #: ../src/constant.py:120
 msgid "Korean"
-msgstr "韓國語"
+msgstr "Coreană"
 
 #: ../src/constant.py:121
 msgid "Latin"
-msgstr "拉丁語"
+msgstr "Latină"
 
 #: ../src/constant.py:122
 msgid "Lithuanian"
-msgstr "立陶宛語"
+msgstr "Lituaniană"
 
 #: ../src/constant.py:123
 msgid "Latvian"
-msgstr "拉脫維亞語"
+msgstr "Letonă"
 
 #: ../src/constant.py:124
 msgid "Macedonian"
-msgstr "馬其頓語"
+msgstr "Macedoniană"
 
 #: ../src/constant.py:125
 msgid "Malay"
-msgstr "馬來語"
+msgstr "Malaieză"
 
 #: ../src/constant.py:126
 msgid "Maltese"
-msgstr "馬爾他語"
+msgstr "Malteză"
 
 #: ../src/constant.py:127
 msgid "Dutch"
-msgstr "荷蘭語"
+msgstr "Olandeză"
 
 #: ../src/constant.py:128
 msgid "Norwegian"
-msgstr "挪威語"
+msgstr "Norvegiană"
 
 #: ../src/constant.py:129
 msgid "Polish"
-msgstr "波蘭語"
+msgstr "Poloneză"
 
 #: ../src/constant.py:130
 msgid "Portuguese"
-msgstr "葡萄牙語"
+msgstr "Portugheză"
 
 #: ../src/constant.py:131
 msgid "Romanian"
-msgstr "羅馬尼亞語"
+msgstr "Română"
 
 #: ../src/constant.py:132
 msgid "Russian"
-msgstr "俄語"
+msgstr "Rusă"
 
 #: ../src/constant.py:133
 msgid "Slovak"
-msgstr "斯洛伐克語"
+msgstr "Slovacă"
 
 #: ../src/constant.py:134
 msgid "Slovenian"
-msgstr "斯洛維尼亞語"
+msgstr "Slovenă"
 
 #: ../src/constant.py:135
 msgid "Albanian"
-msgstr "阿爾巴尼亞語"
+msgstr "Albaneză"
 
 #: ../src/constant.py:136
 msgid "Serbian"
-msgstr "塞爾維亞語"
+msgstr "Sârbă"
 
 #: ../src/constant.py:137
 msgid "Swedish"
-msgstr "瑞典語"
+msgstr "Suedeză"
 
 #: ../src/constant.py:138
 msgid "Swahili"
-msgstr "斯瓦希里語"
+msgstr "Swahili"
 
 #: ../src/constant.py:139
 msgid "Tamil"
-msgstr "坦米爾語"
+msgstr "Tamilă"
 
 #: ../src/constant.py:140
 msgid "Telugu"
-msgstr "泰盧固語"
+msgstr "Telugu"
 
 #: ../src/constant.py:141
 msgid "Thai"
-msgstr "泰語"
+msgstr "Thailandeză"
 
 #: ../src/constant.py:142
 msgid "Filipino"
-msgstr "菲律賓語"
+msgstr "Filipineză"
 
 #: ../src/constant.py:143
 msgid "Turkish"
-msgstr "土耳其語"
+msgstr "Turcă"
 
 #: ../src/constant.py:144
 msgid "Ukrainian"
-msgstr "烏克蘭語"
+msgstr "Ucraineană"
 
 #: ../src/constant.py:145
 msgid "Urdu"
-msgstr "烏爾都語"
+msgstr "Urdu"
 
 #: ../src/constant.py:146
 msgid "Vietnamese"
-msgstr "越南語"
+msgstr "Vietnameză"
 
 #: ../src/constant.py:147
 msgid "Yiddish"
-msgstr "意第緒語"
+msgstr "Idiş"
 
 #: ../src/constant.py:148
 msgid "Chinese Simplified"
-msgstr "簡體中文"
+msgstr "Chineză Simplificată"
 
 #: ../src/constant.py:149
 msgid "Chinese Traditional"
-msgstr "正體中文"
+msgstr "Chineză Tradiţională"
 
 #: ../src/system_tray.py:108
 msgid "Pause translation"
-msgstr "暫停翻譯"
+msgstr "Pauză traducere"
 
 #: ../src/system_tray.py:110
 msgid "Pronounce automatically"
-msgstr "自動發音"
+msgstr "Pronunţare automată"
 
 #: ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr "僅在按住 Ctrl 按鍵時顯示翻譯"
+msgstr "Traducere cînd este apăsată tasta Ctrl"
 
 #: ../src/system_tray.py:114
 msgid "Offline translation"
-msgstr "離線翻譯"
+msgstr "Traducere offline"
 
 #: ../src/system_tray.py:119
 msgid "Settings"
-msgstr "設定"
+msgstr "Setari"
 
 #: ../src/system_tray.py:122
 msgid "Exit"
-msgstr "結束"
+msgstr "Iesire "
 
 #: ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
-msgstr "需要安裝 SVOX 以開啟發音功能"
+msgstr "Pachet-ul SVOX este necesar pentru a activa funcția de pronunțare"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
-msgstr "美"
+msgstr "US"
 
 #: ../src/tts_plugins/youdao/tts.py:72
 msgid "UK"
-msgstr "英"
+msgstr "UK"
 
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
-msgstr "翻譯失敗"
+msgstr "Traducere eşuată"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
-msgstr "需要安裝 SDCV 以開啟翻譯功能"
+msgstr "Pachet-ul SDCV este necesar pentru a activa funcția de traducere"
