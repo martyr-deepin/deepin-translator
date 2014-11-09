@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-26 16:51+0800\n"
-"PO-Revision-Date: 2014-10-17 06:02+0000\n"
-"Last-Translator: 4goodapp <4goodapp@gmail.com>\n"
+"PO-Revision-Date: 2014-11-17 12:51+0000\n"
+"Last-Translator: lexross <its4moi@gmail.com>\n"
 "Language-Team: French (http://www.transifex.com/projects/p/deepin-translator/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,15 +22,15 @@ msgstr ""
 
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
-msgstr "Paramètres de Deepin Translator"
+msgstr "Paramètres du traducteur Deepin"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
-msgstr "Langage source"
+msgstr "Language source"
 
 #: ../src/SettingView.qml:146
 msgid "Target language"
-msgstr "Langage cible"
+msgstr "Language cible"
 
 #: ../src/SettingView.qml:152
 msgid "Word Translation"
@@ -71,7 +71,7 @@ msgstr "Google"
 #: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Désolé, sélectionner-et-traduire ne supporte pas %s pour le moment"
+msgstr "Désolé, sélectionner-et-traduire n'est pas encore supporté par %s "
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54

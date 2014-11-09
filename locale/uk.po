@@ -3,66 +3,64 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# JeffWagen <jeff.wagen@yahoo.com>, 2014
-# RAFAEL GAUNA <rafaelgt.mbin@gmail.com>, 2014
-# Rubens de Almeida Medeiros <rubens.cejovem@gmail.com>, 2014
+# Yuri Chornoivan <yurchor@ukr.net>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Deepin Translator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-26 16:51+0800\n"
-"PO-Revision-Date: 2014-12-02 11:39+0000\n"
-"Last-Translator: RAFAEL GAUNA <rafaelgt.mbin@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/deepin-translator/language/pt_BR/)\n"
+"PO-Revision-Date: 2014-12-01 12:21+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/deepin-translator/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: pt_BR\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../src/SettingView.qml:62
 msgid "Deepin Translator Settings"
-msgstr "Configurações do Deepin Translator"
+msgstr "Параметри Перекладача Deepin"
 
 #: ../src/SettingView.qml:140
 msgid "Source language"
-msgstr "Idioma de origem"
+msgstr "Початкова мова"
 
 #: ../src/SettingView.qml:146
 msgid "Target language"
-msgstr "Idioma desejado"
+msgstr "Мова перекладу"
 
 #: ../src/SettingView.qml:152
 msgid "Word Translation"
-msgstr "Tradução de Palavras"
+msgstr "Переклад слова"
 
 #: ../src/SettingView.qml:158
 msgid "Word speech"
-msgstr "Pronúncia da palavra"
+msgstr "Вимова слова"
 
 #: ../src/SettingView.qml:164
 msgid "Full text translation"
-msgstr "Tradução de texto completo"
+msgstr "Повнотекстовий переклад"
 
 #: ../src/SettingView.qml:170
 msgid "Sentences speech"
-msgstr "Pronúncia da sentença"
+msgstr "Вимова речень"
 
 #: ../src/SettingView.qml:404
 msgid "OK"
-msgstr "OK"
+msgstr "Гаразд"
 
 #: ../src/Toolbar.qml:65
 msgid "Voice"
-msgstr "Voz"
+msgstr "Озвучити"
 
 #: ../src/Toolbar.qml:71
 msgid "Copy to clipboard"
-msgstr "Copiar para a área de transferência"
+msgstr "Скопіювати до буфера"
 
 #: ../src/Toolbar.qml:77
 msgid "Wikipedia"
-msgstr "Wikipedia"
+msgstr "Вікіпедія"
 
 #: ../src/Toolbar.qml:83
 msgid "Google"
@@ -71,326 +69,326 @@ msgstr "Google"
 #: ../src/ocr.py:55
 #, python-format
 msgid "Sorry, select-and-translate does not support %s yet"
-msgstr "Desculpe, selecione-e-traduza ainda não suporta %s"
+msgstr "Вибачте у засобі позначення-і-переклад ще не передбачено підтримки %s"
 
 #: ../src/ocr.py:55 ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Cancel"
-msgstr "Cancelar"
+msgstr "Скасувати"
 
 #: ../src/ocr.py:55
 msgid "Ok, I understand"
-msgstr "Ok, eu entendi"
+msgstr "Гаразд, зрозуміло"
 
 #: ../src/ocr.py:62
 msgid "An OCR package is required to enable word recognition"
-msgstr "Um pacote OCR é necessário para habilitar o reconhecimento de palavras"
+msgstr "Для уможливлення розпізнавання слів на зображенні слід встановити пакунок OCR"
 
 #: ../src/ocr.py:62 ../src/tts_plugins/svox/tts.py:39
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Install"
-msgstr "Instalar"
+msgstr "Встановити"
 
 #: ../src/constant.py:85
 msgid "Afrikaans"
-msgstr "Africâner"
+msgstr "африкаанс"
 
 #: ../src/constant.py:86
 msgid "Arabic"
-msgstr "Arábico"
+msgstr "арабська"
 
 #: ../src/constant.py:87
 msgid "Azerbaijani"
-msgstr "Azerbaijano"
+msgstr "азербайджанська"
 
 #: ../src/constant.py:88
 msgid "Belarusian"
-msgstr "Bielorruso"
+msgstr "білоруська"
 
 #: ../src/constant.py:89
 msgid "Bulgarian"
-msgstr "Búlgaro"
+msgstr "болгарська"
 
 #: ../src/constant.py:90
 msgid "Bengali"
-msgstr "Bengali"
+msgstr "бенгальська"
 
 #: ../src/constant.py:91
 msgid "Catalan"
-msgstr "Catalão"
+msgstr "каталонська"
 
 #: ../src/constant.py:92
 msgid "Czech"
-msgstr "Tcheco"
+msgstr "чеська"
 
 #: ../src/constant.py:93
 msgid "Welsh"
-msgstr "Galês"
+msgstr "валійська"
 
 #: ../src/constant.py:94
 msgid "Danish"
-msgstr "Dinamarquês"
+msgstr "данська"
 
 #: ../src/constant.py:95
 msgid "German"
-msgstr "Alemão"
+msgstr "німецька"
 
 #: ../src/constant.py:96
 msgid "English"
-msgstr "Inglês"
+msgstr "англійська"
 
 #: ../src/constant.py:97
 msgid "Esperanto"
-msgstr "Esperanto"
+msgstr "есперанто"
 
 #: ../src/constant.py:98
 msgid "Spanish"
-msgstr "Espanhol"
+msgstr "іспанська"
 
 #: ../src/constant.py:99
 msgid "Estonian"
-msgstr "Estoniano"
+msgstr "естонська"
 
 #: ../src/constant.py:100
 msgid "Basque"
-msgstr "Basco"
+msgstr "баскська"
 
 #: ../src/constant.py:101
 msgid "Persian"
-msgstr "Persa"
+msgstr "перська"
 
 #: ../src/constant.py:102
 msgid "Finnish"
-msgstr "Finlandês"
+msgstr "фінська"
 
 #: ../src/constant.py:103
 msgid "French"
-msgstr "Francês"
+msgstr "французька"
 
 #: ../src/constant.py:104
 msgid "Irish"
-msgstr "Irlandês"
+msgstr "ірландська"
 
 #: ../src/constant.py:105
 msgid "Galician"
-msgstr "Galego"
+msgstr "галісійська"
 
 #: ../src/constant.py:106
 msgid "Greek"
-msgstr "Grego"
+msgstr "грецька"
 
 #: ../src/constant.py:107
 msgid "Gujarati"
-msgstr "Gujarati"
+msgstr "гуджараті"
 
 #: ../src/constant.py:108
 msgid "Hindi"
-msgstr "Hindi"
+msgstr "хінді"
 
 #: ../src/constant.py:109
 msgid "Croatian"
-msgstr "Croata"
+msgstr "хорватська"
 
 #: ../src/constant.py:110
 msgid "Haitian"
-msgstr "Haitiano"
+msgstr "гаїтянська"
 
 #: ../src/constant.py:111
 msgid "Hungaric"
-msgstr "Húngaro"
+msgstr "угорська"
 
 #: ../src/constant.py:112
 msgid "Armenian"
-msgstr "Armênio"
+msgstr "вірменська"
 
 #: ../src/constant.py:113
 msgid "Indonesian"
-msgstr "Indonésio"
+msgstr "індонезійська"
 
 #: ../src/constant.py:114
 msgid "Icelandic"
-msgstr "Islandês"
+msgstr "ісландська"
 
 #: ../src/constant.py:115
 msgid "Italian"
-msgstr "Italiano"
+msgstr "італійська"
 
 #: ../src/constant.py:116
 msgid "Hebrew"
-msgstr "Hebráico"
+msgstr "іврит"
 
 #: ../src/constant.py:117
 msgid "Japanese"
-msgstr "Japonês"
+msgstr "японська"
 
 #: ../src/constant.py:118
 msgid "Georgian"
-msgstr "Georgiano"
+msgstr "грузинська"
 
 #: ../src/constant.py:119
 msgid "Kannada"
-msgstr "Kannada"
+msgstr "каннада"
 
 #: ../src/constant.py:120
 msgid "Korean"
-msgstr "Coreano"
+msgstr "корейська"
 
 #: ../src/constant.py:121
 msgid "Latin"
-msgstr "Latim"
+msgstr "латинська"
 
 #: ../src/constant.py:122
 msgid "Lithuanian"
-msgstr "Lituano"
+msgstr "литовська"
 
 #: ../src/constant.py:123
 msgid "Latvian"
-msgstr "Letão"
+msgstr "латиська"
 
 #: ../src/constant.py:124
 msgid "Macedonian"
-msgstr "Macedônio"
+msgstr "македонська"
 
 #: ../src/constant.py:125
 msgid "Malay"
-msgstr "Malaio"
+msgstr "малайська"
 
 #: ../src/constant.py:126
 msgid "Maltese"
-msgstr "Maltês"
+msgstr "мальтійська"
 
 #: ../src/constant.py:127
 msgid "Dutch"
-msgstr "Holandês"
+msgstr "голландська"
 
 #: ../src/constant.py:128
 msgid "Norwegian"
-msgstr "Norueguês"
+msgstr "норвезька"
 
 #: ../src/constant.py:129
 msgid "Polish"
-msgstr "Polonês"
+msgstr "польська"
 
 #: ../src/constant.py:130
 msgid "Portuguese"
-msgstr "Português"
+msgstr "португальська"
 
 #: ../src/constant.py:131
 msgid "Romanian"
-msgstr "Romeno"
+msgstr "румунська"
 
 #: ../src/constant.py:132
 msgid "Russian"
-msgstr "Russo"
+msgstr "російська"
 
 #: ../src/constant.py:133
 msgid "Slovak"
-msgstr "Eslovaco"
+msgstr "словацька"
 
 #: ../src/constant.py:134
 msgid "Slovenian"
-msgstr "Esloveno"
+msgstr "словенська"
 
 #: ../src/constant.py:135
 msgid "Albanian"
-msgstr "Albanês"
+msgstr "албанська"
 
 #: ../src/constant.py:136
 msgid "Serbian"
-msgstr "Sérvio"
+msgstr "сербська"
 
 #: ../src/constant.py:137
 msgid "Swedish"
-msgstr "Sueco"
+msgstr "шведська"
 
 #: ../src/constant.py:138
 msgid "Swahili"
-msgstr "Swahili"
+msgstr "суахілі"
 
 #: ../src/constant.py:139
 msgid "Tamil"
-msgstr "Tâmil"
+msgstr "тамільська"
 
 #: ../src/constant.py:140
 msgid "Telugu"
-msgstr "Telugu"
+msgstr "телугу"
 
 #: ../src/constant.py:141
 msgid "Thai"
-msgstr "Tailandês"
+msgstr "тайська"
 
 #: ../src/constant.py:142
 msgid "Filipino"
-msgstr "Filipino"
+msgstr "філіппінська"
 
 #: ../src/constant.py:143
 msgid "Turkish"
-msgstr "Turco"
+msgstr "турецька"
 
 #: ../src/constant.py:144
 msgid "Ukrainian"
-msgstr "Ucraniano"
+msgstr "українська"
 
 #: ../src/constant.py:145
 msgid "Urdu"
-msgstr "Urdu"
+msgstr "урду"
 
 #: ../src/constant.py:146
 msgid "Vietnamese"
-msgstr "Vietnamita"
+msgstr "в’єтнамська"
 
 #: ../src/constant.py:147
 msgid "Yiddish"
-msgstr "Ídiche"
+msgstr "ідиш"
 
 #: ../src/constant.py:148
 msgid "Chinese Simplified"
-msgstr "Chinês Simplificado"
+msgstr "китайська спрощена"
 
 #: ../src/constant.py:149
 msgid "Chinese Traditional"
-msgstr "Chinês Tradicional"
+msgstr "китайська традиційна"
 
 #: ../src/system_tray.py:108
 msgid "Pause translation"
-msgstr "Pausar tradução"
+msgstr "Призупинити переклад"
 
 #: ../src/system_tray.py:110
 msgid "Pronounce automatically"
-msgstr "Pronunciar automaticamente"
+msgstr "Вимовляти автоматично"
 
 #: ../src/system_tray.py:112
 msgid "Translate only when holding Ctrl key"
-msgstr "Traduzir apenas ao manter a tecla Ctrl pressionada"
+msgstr "Перекладати, лише якщо утримується натисненою клавіша Ctrl"
 
 #: ../src/system_tray.py:114
 msgid "Offline translation"
-msgstr "Tradução offline"
+msgstr "Автономний переклад"
 
 #: ../src/system_tray.py:119
 msgid "Settings"
-msgstr "Configurações"
+msgstr "Параметри"
 
 #: ../src/system_tray.py:122
 msgid "Exit"
-msgstr "Sair"
+msgstr "Вийти"
 
 #: ../src/tts_plugins/svox/tts.py:39
 msgid "Package SVOX is required to enable pronunciation"
-msgstr "O pacote SVOX é necessário para habilitar a pronunciação"
+msgstr "Для уможливлення синтезу мовлення на основі слів слід встановити пакунок SVOX"
 
 #: ../src/tts_plugins/youdao/tts.py:67
 msgid "US"
-msgstr "EUA"
+msgstr "US"
 
 #: ../src/tts_plugins/youdao/tts.py:72
 msgid "UK"
-msgstr "Reino Unido"
+msgstr "UK"
 
 #: ../src/dict_plugins/google_simple/translate.py:97
 msgid "Translation failed"
-msgstr "Falha na tradução"
+msgstr "Не вдалося перекласти"
 
 #: ../src/dict_plugins/sdcv/translate.py:54
 msgid "Package SDCV is required to enable translation"
-msgstr "O pacote SDCV é necessário para habilitar a tradução"
+msgstr "Для уможливлення перекладу слід встановити пакунок SDCV"
