@@ -2,7 +2,7 @@
 
 Feature-rich dictionary lookup program from Deepin
 
-## Features:
+## Features
 
 * Support of multiple dictionary file formats and online dictionary services, namely:
     * StarDict .ifo/.dict./.idx/.syn dictionaries
@@ -14,9 +14,11 @@ Feature-rich dictionary lookup program from Deepin
  * Include OCR function
 
 ## Known issues
+
 This is a working in progress project, and the initial goal is to check the OCR usability under Linux, so you may encounter variety kinds of issues.
 
-## Depends
+## Dependencies
+
 * [deepin-menu](https://github.com/linuxdeepin/deepin-menu)
 * python-tesseract
 * python-pyocr
@@ -34,6 +36,7 @@ This is a working in progress project, and the initial goal is to check the OCR 
 * [deepin-qml-widgets](https://github.com/linuxdeepin/deepin-qml-widgets)
 
 ## Installation
+
 Deepin:
 `sudo apt-get install deepin-translator`
 
@@ -57,7 +60,7 @@ Any usage issues can ask for help via
 
 We encourage you to report issues and contribute changes
 
-* [Contirubtion guide for users](http://wiki.deepin.org/index.php?title=Contribution_Guidelines_for_Users)
+* [Contribution guide for users](http://wiki.deepin.org/index.php?title=Contribution_Guidelines_for_Users)
 * [Contribution guide for developers](http://wiki.deepin.org/index.php?title=Contribution_Guidelines_for_Developers).
 
 ## License
